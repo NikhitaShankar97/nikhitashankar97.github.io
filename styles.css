@@ -47,10 +47,11 @@ body {
 
 .profile-pic {
     float: left;
-    width: 150px;
-    height: 150px;
+    width: 120px; /* Adjusted width */
+    height: auto; /* Maintain aspect ratio */
     margin-right: 20px;
     border-radius: 50%;
+    border: 3px solid #4CAF50; /* Optional: Add a border */
 }
 
 .project-grid {

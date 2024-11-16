@@ -2,7 +2,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #f9f9f9;
     color: #333;
 }
 
@@ -10,17 +10,18 @@ body {
     background: linear-gradient(to bottom right, #4CAF50, #3e8e41);
     color: white;
     text-align: center;
-    padding: 50px 20px;
+    padding: 100px 20px;
 }
 
 .hero-content h1 {
     font-size: 3rem;
     margin: 0;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .hero-content p {
     font-size: 1.2rem;
-    margin: 10px 0 20px;
+    margin: 20px 0;
 }
 
 .btn {
@@ -40,16 +41,19 @@ body {
 
 .section {
     padding: 40px 20px;
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
 }
 
-.section h2 {
-    text-align: center;
-    margin-bottom: 20px;
+.profile-pic {
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    border-radius: 50%;
 }
 
-.project-list {
+.project-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -61,7 +65,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    width: 280px;
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -70,9 +74,19 @@ body {
     transform: scale(1.05);
 }
 
+.timeline li {
+    list-style: none;
+    margin: 20px 0;
+}
+
 footer {
     text-align: center;
     padding: 20px;
     background-color: #333;
     color: white;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

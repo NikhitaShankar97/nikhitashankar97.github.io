@@ -5,10 +5,10 @@ body {
     padding: 0;
     background-color: #000; /* Black background */
     color: #f9f9f9; /* Light text */
+    text-align: center;
 }
 
 header {
-    text-align: center;
     padding: 50px 20px;
 }
 

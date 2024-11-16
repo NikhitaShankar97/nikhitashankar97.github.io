@@ -7,7 +7,7 @@ body {
 }
 
 .hero {
-    background: linear-gradient(to bottom right, #4CAF50, #3e8e41);
+    background-color: #000; /* Black background for the hero section */
     color: white;
     text-align: center;
     padding: 100px 20px;
@@ -24,8 +24,8 @@ body {
 }
 
 .btn {
-    background-color: white;
-    color: #4CAF50;
+    background-color: #4CAF50;
+    color: white;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;

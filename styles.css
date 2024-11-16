@@ -37,8 +37,6 @@ nav {
 
 nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     gap: 20px;
 }
@@ -46,7 +44,6 @@ nav ul {
 nav a {
     text-decoration: none;
     color: #4CAF50;
-    font-weight: 600;
 }
 
 /* Hero Section */
@@ -55,69 +52,40 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     background: linear-gradient(135deg, #1e1e1e, #000);
+    text-align: center;
 }
 
 .hero-content h1 {
     font-size: 3rem;
-    margin-bottom: 20px;
 }
 
 .hero-content p {
     font-size: 1.2rem;
-    margin-bottom: 20px;
 }
 
-.btn {
-    padding: 10px 20px;
-    background: #4CAF50;
-    color: #fff;
-    text-transform: uppercase;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease;
+/* About Section */
+.animated-text .highlight-animation {
+    position: relative;
+    animation: highlight 3s infinite;
+    color: #4CAF50;
 }
 
-.btn:hover {
-    background: #2e7d32;
+@keyframes highlight {
+    0% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: rgba(76, 175, 80, 0.2);
+    }
+    100% {
+        background-color: transparent;
+    }
 }
 
-/* Skills Section */
-.skills-grid {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.skill-card {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-/* Projects Section */
-.projects-grid {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.project-card {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 5px;
-    width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-    transform: scale(1.05);
+.fun-fact {
+    font-style: italic;
+    color: #d4d4d4;
 }
 
 /* Footer */
@@ -125,5 +93,4 @@ footer {
     text-align: center;
     padding: 20px;
     background: #111;
-    margin-top: 40px;
 }

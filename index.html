@@ -4,50 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nikhita Shankar - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header Section -->
     <header class="hero">
         <div class="hero-content">
-            <img src="profile.jpg" alt="Nikhita Shankar" class="profile-pic">
-            <h1>Hi, I'm <span class="highlight">Nikhita Shankar</span></h1>
-            <p>Business Analyst | Data Scientist | Innovator</p>
+            <h1 class="fade-in">Hi, I'm <span class="highlight">Nikhita Shankar</span></h1>
+            <p class="fade-in-delay">Business Analyst | Data Scientist | Innovator</p>
+            <a href="#about" class="btn fade-in-delay-2">Discover More</a>
         </div>
     </header>
 
     <!-- About Me Section -->
-    <main>
-        <section id="about" class="section">
-            <h2><i class="fas fa-user"></i> About Me</h2>
-            <p>I am a Master's student in Business Analytics at UIUC, leveraging my expertise in data analytics to drive impactful solutions. With a background in Computer Science and extensive experience in data visualization, machine learning, and dashboard development, I thrive at the intersection of business and technology.</p>
-        </section>
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <p class="fade-up">I am a Master's student in Business Analytics at UIUC, passionate about using data-driven strategies to solve real-world challenges. My expertise lies in data analytics, machine learning, and crafting impactful dashboards.</p>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section">
-            <h2><i class="fas fa-tools"></i> Skills & Tools</h2>
-            <div class="icon-grid">
-                <div class="icon-item"><img src="logos/python.png" alt="Python">Python</div>
-                <div class="icon-item"><img src="logos/sql.png" alt="SQL">SQL</div>
-                <div class="icon-item"><img src="logos/tableau.png" alt="Tableau">Tableau</div>
-                <div class="icon-item"><img src="logos/powerbi.png" alt="Power BI">Power BI</div>
-                <div class="icon-item"><img src="logos/snowflake.png" alt="Snowflake">Snowflake</div>
-                <div class="icon-item"><img src="logos/aws.png" alt="AWS">AWS</div>
-                <div class="icon-item"><img src="logos/azure.png" alt="Azure">Azure</div>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills & Tools</h2>
+        <div class="icon-grid">
+            <div class="icon-item"><i class="devicon-python-plain"></i>Python</div>
+            <div class="icon-item"><i class="devicon-mysql-plain"></i>SQL</div>
+            <div class="icon-item"><i class="devicon-tableau-plain"></i>Tableau</div>
+            <div class="icon-item"><i class="devicon-powerbi-plain"></i>Power BI</div>
+            <div class="icon-item"><i class="devicon-snowflake-plain"></i>Snowflake</div>
+            <div class="icon-item"><i class="devicon-amazonwebservices-plain"></i>AWS</div>
+            <div class="icon-item"><i class="devicon-azure-plain"></i>Azure</div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-grid">
+            <div class="project-card zoom-in">
+                <h3>Cinema Engagement Dashboard</h3>
+                <p>Analyzing user ratings and trends using Tableau to uncover actionable insights.</p>
+                <a href="https://github.com/nikhitashankar97/cinema-engagement-dashboard" target="_blank" class="btn">View Project</a>
             </div>
-        </section>
+            <div class="project-card zoom-in">
+                <h3>Workforce Insights Dashboard</h3>
+                <p>IBM Cognos dashboard for analyzing HR metrics like turnover and productivity.</p>
+                <a href="https://github.com/nikhitashankar97/workforce-insights-dashboard" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="project-card zoom-in">
+                <h3>Yelp Data Pipeline</h3>
+                <p>SQL pipeline transforming semi-structured JSON data into actionable insights.</p>
+                <a href="https://github.com/nikhitashankar97/yelp-data-pipeline" target="_blank" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <h2><i class="fas fa-laptop-code"></i> Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Cinema Engagement Dashboard</h3>
-                    <p>Analyzing user ratings and trends using Tableau to uncover actionable insights.</p>
-                    <a href="https://github.com/nikhitashankar97/cinema-engagement-dashboard" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Workforce Insights Dashboard</h3>
-                    <p>IBM Cognos dashboard for HR 
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="fade-up">Let's collaborate! Feel free to reach out via:</p>
+        <p>Email: <a href="mailto:nikhita4@illinois.edu">nikhita4@illinois.edu</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/nikhita-shankar-" target="_blank">linkedin.com/in/nikhita-shankar-</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Nikhita Shankar | Built with ❤️</p>
+    </footer>
+</body>
+</html>

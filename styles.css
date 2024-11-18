@@ -5,10 +5,12 @@ body {
     padding: 0;
     background-color: #000;
     color: #fff;
+    text-align: center;
 }
 
 h1, h2 {
-    margin: 0;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 .container {
@@ -19,7 +21,6 @@ h1, h2 {
 
 .section {
     padding: 60px 20px;
-    text-align: center;
 }
 
 /* Navigation Bar */
@@ -27,70 +28,47 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.9);
     z-index: 1000;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 10px 20px;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
     gap: 20px;
+    list-style: none;
 }
 
 nav a {
-    text-decoration: none;
     color: #4CAF50;
 }
 
 /* Hero Section */
-#hero {
-    height: 100vh;
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #4CAF50;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px 20px;
+}
+
+/* Skills Section */
+.skills-grid {
     display: flex;
+    gap: 20px;
     justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #1e1e1e, #000);
-    text-align: center;
 }
 
-.hero-content h1 {
-    font-size: 3rem;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-}
-
-/* About Section */
-.animated-text .highlight-animation {
-    position: relative;
-    animation: highlight 3s infinite;
-    color: #4CAF50;
-}
-
-@keyframes highlight {
-    0% {
-        background-color: transparent;
-    }
-    50% {
-        background-color: rgba(76, 175, 80, 0.2);
-    }
-    100% {
-        background-color: transparent;
-    }
-}
-
-.fun-fact {
-    font-style: italic;
-    color: #d4d4d4;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #111;
+/* Animations */
+.highlight-animation {
+    animation: highlight 2s infinite;
 }

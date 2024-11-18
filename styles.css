@@ -42,11 +42,9 @@ nav {
 }
 
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     gap: 20px;
+    list-style: none;
 }
 
 nav a {
@@ -88,33 +86,53 @@ nav a {
 .btn {
     background-color: #4CAF50;
     color: white;
+    text-transform: uppercase;
     padding: 10px 15px;
     text-decoration: none;
     border-radius: 5px;
     font-size: 1rem;
-    text-transform: uppercase;
     transition: all 0.3s ease;
 }
 
 .btn:hover {
     background-color: #2e7d32;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* About Section Animation */
-.animated-text .highlight-animation {
-    position: relative;
-    animation: highlight 3s infinite;
-    color: #4CAF50;
+/* Cards Layout */
+.skills-grid, .education-grid, .experience-grid, .projects-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-@keyframes highlight {
-    0% {
-        background-color: transparent;
-    }
-    50% {
-        background-color: rgba(76, 175, 80, 0.2);
-    }
-    100% {
-        background-color: transparent;
-    }
+.education-card, .experience-card, .project-card {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover, .experience-card:hover, .project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Logos */
+.logo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 10px auto;
+    display: block;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
 }

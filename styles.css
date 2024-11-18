@@ -79,9 +79,20 @@ nav a {
     margin-bottom: 15px;
 }
 
-.about-box .btn {
+.resume-btn {
     display: inline-block;
     margin-top: 15px;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.resume-btn:hover {
+    background-color: #2e7d32;
 }
 
 /* Highlight Animation */
@@ -122,7 +133,9 @@ nav a {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .skill-card {
@@ -130,39 +143,63 @@ nav a {
     font-size: 1rem;
 }
 
+.skill-card i,
 .skill-card img.icon {
+    font-size: 2rem;
     width: 50px;
     height: 50px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 /* Education/Experience/Projects Section */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.grid-item {
+    background: #1e1e1e;
+    padding: 20px;
     text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .grid-item img.logo-img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* Project Cards */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .project-card {
     background: #1e1e1e;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 .project-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* Footer */
@@ -171,9 +208,21 @@ footer {
     padding: 10px 0;
     background: #000;
     color: #4CAF50;
+    margin-top: 20px;
 }
 
 /* Smooth Scroll */
 html {
     scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
 }

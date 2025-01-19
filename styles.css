@@ -177,7 +177,7 @@ nav a {
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: auto;
+    height: 280px;
 }
 
 .grid-item:hover {
@@ -245,23 +245,30 @@ nav a {
     line-height: 1.6;
 }
 
-.contact-form .form-group {
+#contact .form-group {
     margin-bottom: 15px;
     text-align: left;
+    max-width: 500px; /* Reduces width of the input boxes */
+    margin: 0 auto; /* Centers the fields */
 }
 
-.contact-form input,
-.contact-form textarea {
+#contact input, #contact textarea {
     width: 100%;
+    max-width: 500px; /* Controls the horizontal size */
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #4CAF50;
     border-radius: 5px;
     background: transparent;
     color: #fff;
+    box-sizing: border-box;
 }
 
-.contact-form button {
+#contact textarea {
+    resize: none; /* Prevents resizing */
+}
+
+#contact button {
     background-color: #4CAF50;
     color: #fff;
     border: none;
@@ -271,7 +278,7 @@ nav a {
     transition: background-color 0.3s;
 }
 
-.contact-form button:hover {
+#contact button:hover {
     background-color: #3e8e41;
 }
 

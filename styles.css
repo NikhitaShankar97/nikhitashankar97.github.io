@@ -7,19 +7,18 @@ body {
     color: #fff;
 }
 
-h1, h2 {
-    margin: 0;
+/* Section Styling */
+.section {
+    padding: 60px 20px;
+}
+
+/* Section Headers */
+.section-header {
+    font-size: 2rem;
+    margin-bottom: 30px;
     text-align: center;
-}
-
-a {
-    text-decoration: none;
+    text-transform: uppercase;
     color: #4CAF50;
-    transition: color 0.3s;
-}
-
-a:hover {
-    color: #3e8e41;
 }
 
 /* Navigation Bar */
@@ -27,7 +26,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.8);
     padding: 10px 20px;
     z-index: 1000;
     display: flex;
@@ -42,6 +41,7 @@ nav ul {
 }
 
 nav a {
+    color: #4CAF50;
     font-weight: 600;
 }
 
@@ -53,55 +53,32 @@ nav a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    text-align: center;
-    padding-top: 80px;
 }
 
 .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-bottom: 20px;
     object-fit: cover;
-    border: 2px solid #4CAF50;
+}
+
+/* Grid Containers */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
 /* Contact Form */
-.contact-form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background: linear-gradient(135deg, #1e1e1e, #292929);
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-.contact-form .form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.contact-form label {
-    font-weight: 600;
-    color: #4CAF50;
-}
-
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
-    padding: 10px;
     margin-top: 5px;
     border: 1px solid #4CAF50;
     border-radius: 5px;
     background: transparent;
     color: #fff;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.contact-form input:focus, .contact-form textarea:focus {
-    border-color: #3e8e41;
-    box-shadow: 0 0 8px #4CAF50;
+    padding: 10px;
 }
 
 .contact-form button {
@@ -109,43 +86,10 @@ nav a {
     color: #fff;
     border: none;
     padding: 10px 20px;
-    cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-    font-weight: 600;
-    font-size: 16px;
-    width: 100%;
+    transition: background-color 0.3s;
 }
 
 .contact-form button:hover {
-    background-color: #3e8e41;
-    transform: scale(1.02);
-}
-
-/* Section Headers */
-.section-header {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
-    text-transform: uppercase;
-    position: relative;
-    color: #4CAF50;
-    text-shadow: 1px 1px 10px #4CAF50;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .contact-form {
-        padding: 15px;
-    }
-
-    .contact-form button {
-        font-size: 14px;
-        padding: 8px 15px;
-    }
+    background-color: #2e7d32;
 }

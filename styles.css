@@ -88,7 +88,6 @@ nav a {
     margin-bottom: 30px;
     text-align: center;
     text-transform: uppercase;
-    position: relative;
     color: #4CAF50;
     text-shadow: 1px 1px 10px #4CAF50;
 }
@@ -111,15 +110,9 @@ nav a {
     margin-bottom: 15px;
 }
 
-/* Center content utility class */
-.center-content {
-    display: flex;
-    justify-content: center;
-}
-
+/* Highlight Animation */
 .highlight-animation {
     color: #4CAF50;
-    position: relative;
     animation: highlight 2s infinite;
 }
 
@@ -160,7 +153,6 @@ nav a {
     flex-direction: column;
     align-items: center;
     font-size: 14px;
-    color: #fff;
 }
 
 .skill-card i {
@@ -168,7 +160,7 @@ nav a {
     margin-bottom: 10px;
 }
 
-/* Education/Experience/Projects Section */
+/* Education, Experience, Projects Sections */
 section {
     padding: 60px 0;
 }
@@ -203,17 +195,11 @@ section {
     object-fit: contain;
 }
 
-.grid-item p {
-    padding: 10px 0;
-    line-height: 1.5;
-}
-
 /* Project Cards */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(5, minmax(250px, 1fr));
     gap: 20px;
-    justify-content: center;
 }
 
 .project-card {
@@ -222,25 +208,14 @@ section {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-}
-
-.project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-.project-card p {
-    flex-grow: 1;
-    margin-bottom: 20px;
-    line-height: 1.5;
+    height: 300px;
 }
 
 .project-card a {
+    margin-top: auto;
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
@@ -248,8 +223,6 @@ section {
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.3s ease;
-    margin-top: auto;
-    align-self: center;
 }
 
 .project-card a:hover {
@@ -258,69 +231,4 @@ section {
 
 /* Contact Section */
 #contact {
-    background: linear-gradient(135deg, #1e1e1e, #292929);
-    padding: 20px 30px;
-    text-align: center;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 30px auto;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-#contact p {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-#contact .form-group {
-    margin-bottom: 15px;
-    text-align: left;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-#contact input, #contact textarea {
-    width: 100%;
-    max-width: 500px;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #4CAF50;
-    border-radius: 5px;
-    background: transparent;
-    color: #fff;
-    box-sizing: border-box;
-}
-
-#contact textarea {
-    resize: none;
-}
-
-#contact button {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-#contact button:hover {
-    background-color: #3e8e41;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-
-    .profile-pic {
-        width: 120px;
-        height: 120px;
-    }
-}
+    background: linear-gradient(135deg, #1e1e1e, #292929

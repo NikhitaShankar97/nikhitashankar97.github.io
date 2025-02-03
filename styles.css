@@ -195,17 +195,16 @@ section {
     object-fit: contain;
 }
 
-/* Increase Logo Size for Specific Experience Items */
+/* Large Logo Class */
 .large-logo {
-    width: 150px;
-    height: auto;
-    margin-bottom: 20px;
+    width: 120px;
+    height: 120px;
 }
 
 /* Project Cards */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 

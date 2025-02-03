@@ -195,6 +195,13 @@ section {
     object-fit: contain;
 }
 
+/* Increase Logo Size for Specific Experience Items */
+.large-logo {
+    width: 140px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
 /* Project Cards */
 .projects-grid {
     display: grid;
@@ -299,4 +306,3 @@ button.btn-submit:hover {
         margin-bottom: 15px;
     }
 }
-

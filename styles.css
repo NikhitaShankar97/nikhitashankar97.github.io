@@ -190,15 +190,16 @@ section {
 
 .grid-item img {
     width: 100px;
-    height: 100px;
+    height: auto;
     margin-bottom: 10px;
     object-fit: contain;
 }
 
-/* Large Logo Class */
+/* Large Logo Styling */
 .large-logo {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: auto;
+    margin: 0 auto 15px auto;
 }
 
 /* Project Cards */

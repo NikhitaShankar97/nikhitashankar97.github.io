@@ -370,4 +370,33 @@ input, textarea {
 }
 
 textarea {
-    resize: none
+    resize: none;
+    height: 120px;
+}
+
+button.btn-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 25px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.btn-submit:hover {
+    background-color: #2e7d32;
+    transform: scale(1.05);
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    #contact {
+        padding: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+}

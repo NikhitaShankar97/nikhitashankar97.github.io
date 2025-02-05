@@ -31,12 +31,12 @@ nav {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Add extra padding to avoid cutting off last link */
+/* Add more spacing to the right of the nav links */
 .nav-links {
     display: flex;
     gap: 20px;
     list-style: none;
-    padding-right: 20px; /* Added padding */
+    margin-right: 40px; /* Increased right margin */
 }
 
 .nav-links a {
@@ -44,6 +44,15 @@ nav {
     color: #4CAF50;
     font-weight: 600;
     transition: color 0.3s ease;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        padding: 0;
+        margin-right: 0; /* Reset margin on mobile */
+    }
 }
 
 /* Responsive Adjustment */

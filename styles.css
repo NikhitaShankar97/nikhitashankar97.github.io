@@ -31,6 +31,29 @@ nav {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Add extra padding to avoid cutting off last link */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding-right: 20px; /* Added padding */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Responsive Adjustment */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        padding: 0; /* Avoid excessive padding for mobile */
+    }
+}
+
 nav .container {
     display: flex;
     justify-content: space-between;

@@ -3,9 +3,8 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--bg-color, #000);
-    color: var(--text-color, #fff);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #000;
+    color: #fff;
 }
 
 h1, h2 {
@@ -32,11 +31,41 @@ nav {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Add more spacing to the right of the nav links */
 .nav-links {
     display: flex;
     gap: 20px;
     list-style: none;
-    margin-right: 40px;
+    margin-right: 40px; /* Increased right margin */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        padding: 0;
+        margin-right: 0; /* Reset margin on mobile */
+    }
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
     transition: all 0.3s ease;
 }
 
@@ -126,26 +155,7 @@ nav {
 
 .btn:hover {
     background-color: #2e7d32;
-    transform: scale(1.08);
-}
-
-/* Theme Toggle Button */
-.theme-toggle {
-    position: fixed;
-    top: 10px;
-    right: 20px;
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.theme-toggle:hover {
-    background-color: #2e7d32;
+    transform: scale(1.05);
 }
 
 /* Section Headers */
@@ -156,18 +166,6 @@ nav {
     text-transform: uppercase;
     color: #4CAF50;
     text-shadow: 1px 1px 10px #4CAF50;
-}
-
-/* Scroll Animation */
-.section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* About Me Box */
@@ -307,12 +305,6 @@ section {
     flex-direction: column;
     justify-content: space-between;
     height: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 8px 20px rgba(0, 255, 0, 0.3);
 }
 
 .project-card a {

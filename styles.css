@@ -53,7 +53,7 @@ nav {
     cursor: pointer;
 }
 
-/* Responsive Design for Navbar */
+/* Responsive Navbar */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -91,19 +91,20 @@ nav {
     position: relative;
     overflow: hidden;
 }
-.animated-dots {
+.animated-graph {
     position: absolute;
-    top: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-    pointer-events: none;
-    animation: moveDots 10s linear infinite;
+    animation: graphAnimation 8s ease-in-out infinite;
 }
-@keyframes moveDots {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-200px); }
+
+/* Animation Keyframes */
+@keyframes graphAnimation {
+    0%, 100% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1); }
 }
+
 .profile-pic {
     width: 120px;
     height: 120px;
@@ -157,12 +158,8 @@ nav {
 
 /* Animations */
 @keyframes fadeText {
-    from {
-        opacity: 0.6;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0.6; }
+    to { opacity: 1; }
 }
 .fade-in {
     opacity: 0;
@@ -173,31 +170,27 @@ nav {
     opacity: 1;
     transform: translateY(0);
 }
-.highlight-animation {
+.highlight-glow {
+    position: relative;
     color: #4CAF50;
     font-weight: bold;
-    position: relative;
 }
-.highlight-animation::before {
+.highlight-glow::before {
     content: '';
     position: absolute;
-    bottom: -5px;
     left: 0;
+    bottom: 0;
     width: 100%;
     height: 3px;
     background: #4CAF50;
-    animation: pulse 2s infinite;
+    animation: glow 2s infinite alternate;
 }
-@keyframes pulse {
-    0%, 100% {
-        transform: scaleX(1);
-    }
-    50% {
-        transform: scaleX(1.1);
-    }
+@keyframes glow {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
-/* About Me */
+/* About Me Section */
 .about-box {
     background: linear-gradient(135deg, #1e1e1e, #292929);
     border-radius: 10px;
@@ -249,22 +242,13 @@ nav {
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.grid-item img {
-    width: 80px;
-    object-fit: contain;
-    margin-bottom: 10px;
 }
 .grid-item:hover {
     transform: scale(1.05);
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Project Cards */
+/* Projects */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -276,10 +260,9 @@ nav {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 300px;
 }
 .project-card a {
     margin-top: auto;
@@ -305,20 +288,17 @@ nav {
     margin: 50px auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
-.contact-form-inline {
+form {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     gap: 20px;
-    flex-wrap: wrap;
 }
-.contact-form-inline input, textarea {
-    flex: 1;
+input, textarea {
     padding: 12px;
     border: 1px solid #4CAF50;
     border-radius: 6px;
     background: #2a2a2a;
     color: #fff;
-    box-sizing: border-box;
     font-size: 16px;
 }
 textarea {

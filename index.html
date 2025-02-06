@@ -30,12 +30,17 @@
         </header>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Data-Inspired Animation -->
     <header id="hero" class="hero-section">
-        <div class="hero-content fade-in">
+        <div class="hero-content">
+            <div class="animated-dots"></div>
             <img src="profile.jpg" alt="Portrait of Nikhita Shankar" class="profile-pic" loading="lazy">
             <h1>Hi, I'm <span class="highlight-animation">Nikhita Shankar</span></h1>
-            <p class="intro-line">Transforming Data into Business Impact</p>
+            <p class="intro-line rotating-tagline">
+                <span>Transforming Data into Business Impact.</span>
+                <span>Empowering Insights through AI.</span>
+                <span>Making Data Speak for Business Success.</span>
+            </p>
             <a href="#about" class="btn animated-btn">Explore More</a>
         </div>
     </header>
@@ -46,16 +51,16 @@
             <h2 class="section-header">About Me</h2>
             <div class="about-box">
                 <p>
-                    Hey there! I’m <strong class="highlight-animation">Nikhita Shankar</strong>, a passionate <strong class="highlight-animation">Business Analyst</strong> with a knack for turning data into actionable insights. Currently pursuing my Master's in Business Analytics at <strong>UIUC</strong>, I’m on a mission to harness the power of <span class="highlight-animation">AI automation</span> and <span class="highlight-animation">predictive modeling</span>.
+                    I’m <strong class="highlight-animation">Nikhita Shankar</strong>, a <strong class="highlight-animation">Business Analyst</strong> with a passion for leveraging <span class="highlight-animation">AI-driven automation</span> and <span class="highlight-animation">predictive analytics</span> to solve complex business challenges.
                 </p>
                 <p>
-                    I’ve worked on creating interactive dashboards and advanced models that helped drive better decisions across industries. From <strong class="highlight-animation">dynamic pricing analytics</strong> to optimizing workflows, I am always eager to push boundaries through <span class="highlight-animation">innovative data solutions</span>.
+                    I specialize in building interactive dashboards and advanced data models that drive <strong class="highlight-animation">strategic decisions</strong> across industries. My work has included optimizing operations through <strong class="highlight-animation">data visualization</strong> and refining strategies with <strong class="highlight-animation">predictive insights</strong>.
                 </p>
                 <p>
-                    My current obsession is diving deeper into <strong class="highlight-animation">Large Language Models</strong> and automation strategies, exploring how they can revolutionize industries. 
+                    Currently, I'm delving into the world of <strong class="highlight-animation">Large Language Models (LLMs)</strong>, exploring how they can revolutionize business efficiency and customer engagement.
                 </p>
                 <p>
-                    Outside of work, you’ll find me <span class="hobby-emoji">🍳</span> cooking creative dishes, <span class="hobby-emoji">✈️</span> exploring new destinations, or <span class="hobby-emoji">🏸</span> dominating on the badminton court. Sports like <span class="hobby-emoji">⚽</span> football and <span class="hobby-emoji">🏎️</span> Formula 1 also fuel my drive for agility and strategy.
+                    Outside of work, I’m in my element experimenting in the kitchen <span class="hobby-emoji">🍳</span>, discovering new destinations <span class="hobby-emoji">✈️</span>, and smashing it on the badminton court <span class="hobby-emoji">🏸</span>. I also enjoy following <span class="hobby-emoji">⚽</span> football and <span class="hobby-emoji">🏎️</span> Formula 1 racing.
                 </p>
                 <a href="Nikhita_Shankar_Resume.pdf" class="btn download-btn" target="_blank" download>Download Resume</a>
             </div>
@@ -75,27 +80,6 @@
                 <div class="skill-card"><i class="fas fa-cloud"></i><span>IBM Cognos</span></div>
                 <div class="skill-card"><i class="devicon-amazonwebservices-original"></i><span>AWS</span></div>
                 <div class="skill-card"><i class="devicon-azure-plain"></i><span>Azure</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section fade-in">
-        <div class="container">
-            <h2 class="section-header">Education</h2>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <img src="uiuc_logo.png" alt="University of Illinois Urbana-Champaign Logo" class="education-logo" loading="lazy">
-                    <h3>University of Illinois Urbana-Champaign</h3>
-                    <p>Master of Science in Business Analytics</p>
-                    <p class="education-dates">(August 2024 - May 2025)</p>
-                </div>
-                <div class="grid-item">
-                    <img src="rvce_logo.png" alt="R.V. College of Engineering Logo" class="education-logo" loading="lazy">
-                    <h3>R.V. College of Engineering</h3>
-                    <p>Bachelor of Engineering in Computer Science</p>
-                    <p class="education-dates">(August 2016 - August 2020)</p>
-                </div>
             </div>
         </div>
     </section>
@@ -172,7 +156,9 @@
         </div>
     </section>
 
+    <!-- Script for Animations -->
     <script>
+        // Navigation menu toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
@@ -181,6 +167,18 @@
             menuToggle.setAttribute('aria-expanded', !expanded);
             navLinks.classList.toggle('active');
         });
+
+        // Tagline Rotator
+        let taglineIndex = 0;
+        const taglines = document.querySelectorAll('.rotating-tagline span');
+
+        function rotateTaglines() {
+            taglines.forEach(tagline => tagline.classList.remove('active'));
+            taglines[taglineIndex].classList.add('active');
+            taglineIndex = (taglineIndex + 1) % taglines.length;
+        }
+
+        setInterval(rotateTaglines, 3000);
 
         // Fade-in animation observer
         const sections = document.querySelectorAll('.fade-in');

@@ -7,7 +7,7 @@ body {
     color: #fff;
     overflow-x: hidden;
 }
-h1, h2 {
+h1, h2, h3 {
     margin: 0;
     text-align: center;
 }
@@ -53,7 +53,7 @@ nav {
     cursor: pointer;
 }
 
-/* Responsive Navbar */
+/* Responsive Design for Navbar */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -91,20 +91,19 @@ nav {
     position: relative;
     overflow: hidden;
 }
-.animated-graph {
+.animated-dots {
     position: absolute;
+    top: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-    animation: graphAnimation 8s ease-in-out infinite;
+    pointer-events: none;
+    animation: moveDots 10s linear infinite;
 }
-
-/* Animation Keyframes */
-@keyframes graphAnimation {
-    0%, 100% { opacity: 0; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1); }
+@keyframes moveDots {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-200px); }
 }
-
 .profile-pic {
     width: 120px;
     height: 120px;
@@ -114,6 +113,12 @@ nav {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
     z-index: 2;
 }
+.highlight-underline {
+    border-bottom: 3px solid #4CAF50;
+    padding-bottom: 4px;
+}
+
+/* Intro Tagline Animation */
 .intro-line {
     font-size: 1.5rem;
     color: #4CAF50;
@@ -158,8 +163,12 @@ nav {
 
 /* Animations */
 @keyframes fadeText {
-    from { opacity: 0.6; }
-    to { opacity: 1; }
+    from {
+        opacity: 0.6;
+    }
+    to {
+        opacity: 1;
+    }
 }
 .fade-in {
     opacity: 0;
@@ -170,6 +179,8 @@ nav {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Highlight Glow Animation */
 .highlight-glow {
     position: relative;
     color: #4CAF50;
@@ -178,19 +189,38 @@ nav {
 .highlight-glow::before {
     content: '';
     position: absolute;
+    bottom: -4px;
     left: 0;
-    bottom: 0;
     width: 100%;
-    height: 3px;
-    background: #4CAF50;
-    animation: glow 2s infinite alternate;
+    height: 4px;
+    background-color: #4CAF50;
+    opacity: 0.5;
+    animation: glowPulse 2s infinite;
 }
-@keyframes glow {
-    0% { opacity: 0.5; }
-    100% { opacity: 1; }
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
-/* About Me Section */
+/* Bouncing Emojis */
+.bouncing-emoji {
+    display: inline-block;
+    animation: bounce 1.5s infinite;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* About Me */
 .about-box {
     background: linear-gradient(135deg, #1e1e1e, #292929);
     border-radius: 10px;
@@ -242,13 +272,22 @@ nav {
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.grid-item img {
+    width: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
 .grid-item:hover {
     transform: scale(1.05);
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Projects */
+/* Project Cards */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -260,9 +299,10 @@ nav {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    height: 300px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
 }
 .project-card a {
     margin-top: auto;
@@ -288,17 +328,20 @@ nav {
     margin: 50px auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
-form {
+.contact-form-inline {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     gap: 20px;
+    flex-wrap: wrap;
 }
-input, textarea {
+.contact-form-inline input, textarea {
+    flex: 1;
     padding: 12px;
     border: 1px solid #4CAF50;
     border-radius: 6px;
     background: #2a2a2a;
     color: #fff;
+    box-sizing: border-box;
     font-size: 16px;
 }
 textarea {

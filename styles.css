@@ -182,29 +182,24 @@ nav {
     text-align: justify;
 }
 
-/* Keyword Highlight Animation in About Me */
-.about-box .highlight-keyword {
-    color: #4CAF50;
-    font-weight: bold;
-    animation: highlight-pulse 1.5s infinite alternate;
+.about-box .highlighted {
+    animation: highlight-animation 1.5s infinite alternate;
 }
 
-@keyframes highlight-pulse {
+@keyframes highlight-animation {
     from {
-        color: #fff;
+        background-color: transparent;
     }
     to {
-        color: #4CAF50;
+        background-color: rgba(76, 175, 80, 0.5);
     }
 }
 
-/* Emoji Bounce Animation */
 .about-box .emoji {
-    display: inline-block;
-    animation: emoji-bounce 1.5s infinite;
+    animation: bounce 2s infinite;
 }
 
-@keyframes emoji-bounce {
+@keyframes bounce {
     0%, 100% {
         transform: translateY(0);
     }
@@ -262,10 +257,6 @@ nav {
     justify-content: center;
 }
 
-.grid-item:hover, .project-card:hover {
-    transform: scale(1.05);
-}
-
 .grid-item img, .project-card img {
     width: 100px;
     height: auto;
@@ -282,6 +273,10 @@ nav {
     color: white;
     padding: 10px 20px;
     border-radius: 6px;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
 }
 
 /* Adjust spacing */
@@ -307,20 +302,14 @@ nav {
     margin: 0 auto;
 }
 
-.contact-form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
 input, textarea {
-    width: 80%;
+    width: 90%;
     padding: 12px;
     border: 1px solid #4CAF50;
     border-radius: 6px;
     background: #2a2a2a;
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 button.btn-submit {
@@ -330,7 +319,7 @@ button.btn-submit {
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 /* Responsive Fixes */

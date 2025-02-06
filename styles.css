@@ -113,8 +113,6 @@ nav {
 /* Highlight Underline Animation */
 .highlight-underline {
     position: relative;
-    display: inline-block;
-    color: #fff;
 }
 
 .highlight-underline::after {
@@ -159,11 +157,9 @@ nav {
 /* Centering Resume Button */
 .about-box .btn {
     margin-top: 20px;
-    text-align: center;
-    font-size: 15px;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Section Headers */
@@ -186,13 +182,29 @@ nav {
     text-align: justify;
 }
 
-/* Bouncing Emoji Animation */
-.hobby-emoji {
-    display: inline-block;
-    animation: bounce 1.5s infinite;
+/* Keyword Highlight Animation in About Me */
+.about-box .highlight-keyword {
+    color: #4CAF50;
+    font-weight: bold;
+    animation: highlight-pulse 1.5s infinite alternate;
 }
 
-@keyframes bounce {
+@keyframes highlight-pulse {
+    from {
+        color: #fff;
+    }
+    to {
+        color: #4CAF50;
+    }
+}
+
+/* Emoji Bounce Animation */
+.about-box .emoji {
+    display: inline-block;
+    animation: emoji-bounce 1.5s infinite;
+}
+
+@keyframes emoji-bounce {
     0%, 100% {
         transform: translateY(0);
     }
@@ -250,6 +262,10 @@ nav {
     justify-content: center;
 }
 
+.grid-item:hover, .project-card:hover {
+    transform: scale(1.05);
+}
+
 .grid-item img, .project-card img {
     width: 100px;
     height: auto;
@@ -260,20 +276,12 @@ nav {
     margin: 10px 0;
 }
 
-.grid-item:hover, .project-card:hover {
-    transform: scale(1.05);
-}
-
 .project-card a {
     margin-top: auto;
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border-radius: 6px;
-}
-
-.project-card:hover {
-    transform: scale(1.05);
 }
 
 /* Adjust spacing */
@@ -301,20 +309,18 @@ nav {
 
 .contact-form label {
     display: block;
-    text-align: left;
+    font-weight: bold;
     margin-bottom: 8px;
-    font-weight: 600;
-    color: #4CAF50;
 }
 
 input, textarea {
-    width: 100%;
+    width: 80%;
     padding: 12px;
     border: 1px solid #4CAF50;
     border-radius: 6px;
     background: #2a2a2a;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 button.btn-submit {
@@ -324,6 +330,7 @@ button.btn-submit {
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 /* Responsive Fixes */

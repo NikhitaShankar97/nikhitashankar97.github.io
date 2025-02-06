@@ -97,6 +97,11 @@ nav {
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
+.intro-line {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    animation: fadeText 2s ease-in-out infinite alternate;
+}
 
 /* Button Styling */
 .btn {
@@ -128,6 +133,14 @@ nav {
 }
 
 /* Animations */
+@keyframes fadeText {
+    from {
+        opacity: 0.6;
+    }
+    to {
+        opacity: 1;
+    }
+}
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -169,7 +182,6 @@ nav {
     max-width: 800px;
     margin: 0 auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 1.5s ease-in-out;
     text-align: center;
 }
 .about-box p {
@@ -197,14 +209,11 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 280px;
 }
 .grid-item img {
-    width: 100px;
-    height: auto;
+    width: 80px;
     object-fit: contain;
     margin-bottom: 10px;
-    max-height: 70px;
 }
 .grid-item:hover {
     transform: scale(1.05);
@@ -252,13 +261,14 @@ nav {
     margin: 50px auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
-#contact p {
-    margin-bottom: 30px;
-    line-height: 1.6;
-    font-size: 18px;
+.contact-form-inline {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
 }
-input, textarea {
-    width: 100%;
+.contact-form-inline input, textarea {
+    flex: 1;
     padding: 12px;
     border: 1px solid #4CAF50;
     border-radius: 6px;
@@ -284,25 +294,4 @@ button.btn-submit {
 button.btn-submit:hover {
     background-color: #2e7d32;
     transform: scale(1.05);
-}
-
-/* Responsive Fixes */
-@media (max-width: 768px) {
-    .profile-pic {
-        width: 100px;
-        height: 100px;
-    }
-    .nav-links {
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: rgba(0, 0, 0, 0.95);
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-    }
-    .nav-links.active {
-        max-height: 400px;
-    }
 }

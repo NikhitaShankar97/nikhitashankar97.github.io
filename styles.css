@@ -110,42 +110,40 @@ nav {
     color: #4CAF50;
 }
 
-/* Highlight Animation */
-.highlight-animation {
-    animation: highlight 2s infinite;
-}
-
-@keyframes highlight {
-    0%, 100% {
-        background-color: transparent;
-    }
-    50% {
-        background-color: rgba(76, 175, 80, 0.3);
-    }
-}
-
-/* Bouncing Emojis */
-.hobby-emoji {
+/* Highlight Underline Animation */
+.highlight-underline {
+    position: relative;
     display: inline-block;
-    animation: bounce 2s infinite;
+    color: #fff;
 }
 
-@keyframes bounce {
+.highlight-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background-color: #4CAF50;
+    animation: underline-slide 1.5s infinite ease-in-out;
+}
+
+@keyframes underline-slide {
     0%, 100% {
-        transform: translateY(0);
+        width: 0;
     }
     50% {
-        transform: translateY(-5px);
+        width: 100%;
     }
 }
 
 /* Button Styling */
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 25px;
     background-color: #4CAF50;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
@@ -158,6 +156,16 @@ nav {
     transform: scale(1.05);
 }
 
+/* Centering Resume Button */
+.about-box .btn {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Section Headers */
 .section-header {
     font-size: 2rem;
@@ -165,11 +173,6 @@ nav {
     text-transform: uppercase;
     color: #4CAF50;
     text-shadow: 1px 1px 10px #4CAF50;
-}
-
-/* Section Spacing */
-section {
-    margin: 40px 0;
 }
 
 /* About Section */
@@ -183,8 +186,19 @@ section {
     text-align: justify;
 }
 
-.about-box .btn {
-    margin-top: 20px;
+/* Bouncing Emoji Animation */
+.hobby-emoji {
+    display: inline-block;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Skill Cards */
@@ -237,20 +251,32 @@ section {
 }
 
 .grid-item img, .project-card img {
-    width: 80px;
+    width: 100px;
     height: auto;
-    margin: 0 auto 10px;
+    margin: 0 auto 15px;
+}
+
+.grid-item h3, .project-card h3 {
+    margin: 10px 0;
 }
 
 .grid-item:hover, .project-card:hover {
     transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-.grid-item h3, .project-card h3 {
-    margin: 8px 0;
+.project-card a {
+    margin-top: auto;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
 }
 
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Adjust spacing */
 .experience-dates {
     font-size: 14px;
     color: #ccc;
@@ -271,23 +297,24 @@ section {
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
-    text-align: left;
 }
 
 .contact-form label {
-    font-weight: 600;
-    margin-bottom: 5px;
     display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4CAF50;
 }
 
-.contact-form input, .contact-form textarea {
+input, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #4CAF50;
     border-radius: 6px;
     background: #2a2a2a;
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 button.btn-submit {
@@ -297,7 +324,6 @@ button.btn-submit {
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 20px;
 }
 
 /* Responsive Fixes */

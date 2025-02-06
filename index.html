@@ -11,75 +11,6 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="description" content="Portfolio of Nikhita Shankar, a Business Analyst and Data Scientist.">
     <meta name="keywords" content="Business Analyst, Data Scientist, Portfolio, Projects, Machine Learning, Business Intelligence">
-    <style>
-        .about-box p {
-            text-align: justify;
-        }
-        .highlight-animation {
-            animation: highlightFade 2s ease-in-out infinite alternate;
-            color: #ff9800;
-            font-weight: bold;
-        }
-
-        @keyframes highlightFade {
-            from {
-                background-color: rgba(255, 152, 0, 0.2);
-            }
-            to {
-                background-color: rgba(255, 152, 0, 0);
-            }
-        }
-
-        .grid-item img.education-logo,
-        .grid-item img.logo-img {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .grid-item {
-            text-align: center;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            background: #f4f4f4;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .btn-submit {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .btn-submit:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
     <nav>
@@ -100,7 +31,7 @@
     </nav>
 
     <header id="hero">
-        <div class="hero-content fade-in">
+        <div class="hero-content">
             <img src="profile.jpg" alt="Portrait of Nikhita Shankar" class="profile-pic" loading="lazy">
             <h1>Hi, I'm <span class="highlight">Nikhita Shankar</span></h1>
             <p>Business Analyst | Data Scientist | Innovator</p>
@@ -108,23 +39,137 @@
         </div>
     </header>
 
-    <section id="about" class="section fade-in">
+    <section id="about" class="section">
         <div class="container">
             <h2 class="section-header">About Me</h2>
             <div class="about-box">
                 <p>
-                    I have a <strong class="highlight-animation">strong interest</strong> in data science and business intelligence, constantly seeking new ways to harness the power of <span class="highlight-animation">data-driven decision-making</span>. I believe that <span class="highlight-animation">technology</span> and <span class="highlight-animation">strategy</span> go hand in hand in driving organizational success.
+                    I am a <strong class="highlight-animation">Master’s student in Business Analytics</strong> at the University of Illinois Urbana-Champaign (UIUC), where I specialize in <span class="highlight-animation">data-driven decision-making</span> and business intelligence. My passion lies at the intersection of <span class="highlight-animation">technology</span> and <span class="highlight-animation">strategy</span>, enabling organizations to make impactful, informed decisions through data.
                 </p>
                 <p>
-                    At <strong>ExxonMobil</strong>, I provided actionable insights by designing dashboards that monitored <span class="highlight-animation">dynamic pricing trends</span> across various business units. Through such projects, I realized my passion for creating <span class="highlight-animation">impactful data solutions</span>.
+                    At <strong>ExxonMobil</strong>, I delivered data solutions by creating dashboards that visualized <span class="highlight-animation">dynamic pricing trends</span> across multiple business units, empowering leadership with actionable insights. Leading a practicum project at <strong>Colorado West Healthcare</strong>, I designed and implemented a <span class="highlight-animation">workforce insights dashboard</span>, optimizing their HR strategies and enhancing productivity tracking.
                 </p>
                 <p>
-                    I enjoy exploring advanced concepts such as <span class="highlight-animation">machine learning</span>, <span class="highlight-animation">natural language processing</span>, and <span class="highlight-animation">automation</span>. These endeavors fuel my drive to innovate and continuously expand my skills.
+                    With a solid foundation in <strong>data science and machine learning</strong>, I have experience building predictive models using techniques like <span class="highlight-animation">Linear Regression</span>, <span class="highlight-animation">XGBoost</span>, and <span class="highlight-animation">ARIMA</span>. I am currently deepening my knowledge of <span class="highlight-animation">Large Language Models (LLMs)</span>, exploring their applications in automation, NLP, and strategic decision-making.
                 </p>
                 <p>
-                    Outside of my professional life, I am an avid <span class="hobby-emoji">🍳</span> cook, <span class="hobby-emoji">✈️</span> traveler, and <span class="hobby-emoji">🏘️</span> badminton player. I also enjoy following <span class="hobby-emoji">⚽</span> football, <span class="hobby-emoji">🏏</span> cricket, and <span class="hobby-emoji">🏆</span> Formula 1 racing—activities that help me stay energized and creative.
+                    Beyond the world of data, I enjoy <span class="hobby-emoji">🍳</span> cooking, <span class="hobby-emoji">✈️</span> traveling, and <span class="hobby-emoji">🏸</span> playing badminton. I'm also an avid follower of <span class="hobby-emoji">⚽</span> English football, <span class="hobby-emoji">🏏</span> cricket, and <span class="hobby-emoji">🏎️</span> Formula 1 racing—pursuits that fuel my creativity and drive to learn.
                 </p>
                 <a href="Nikhita_Shankar_Resume.pdf" class="btn" target="_blank" download>Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-header">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card"><i class="devicon-python-plain"></i><span>Python</span></div>
+                <div class="skill-card"><i class="devicon-r-plain"></i><span>R</span></div>
+                <div class="skill-card"><i class="devicon-sqlite-plain"></i><span>SQL</span></div>
+                <div class="skill-card"><i class="fas fa-chart-pie"></i><span>Tableau</span></div>
+                <div class="skill-card"><i class="fas fa-chart-bar"></i><span>Power BI</span></div>
+                <div class="skill-card"><i class="fas fa-cloud"></i><span>IBM Cognos</span></div>
+                <div class="skill-card"><i class="devicon-amazonwebservices-original"></i><span>AWS</span></div>
+                <div class="skill-card"><i class="devicon-azure-plain"></i><span>Azure</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-header">Education</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="uiuc_logo.png" alt="University of Illinois Urbana-Champaign Logo" class="logo-img" loading="lazy">
+                    <h3>University of Illinois Urbana-Champaign</h3>
+                    <p>Master of Science in Business Analytics (August 2024 - May 2025)</p>
+                </div>
+                <div class="grid-item">
+                    <img src="rvce_logo.png" alt="R.V. College of Engineering Logo" class="logo-img" loading="lazy">
+                    <h3>R.V. College of Engineering</h3>
+                    <p>Bachelor of Engineering in Computer Science (August 2016 - June 2020)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-header">Experience</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="wolterskluwer_logo.png" alt="Wolters Kluwer Logo" class="logo-img large-logo" loading="lazy">
+                    <h3>Wolters Kluwer</h3>
+                    <p>Machine Learning Engineer</p>
+                    <p class="experience-dates">(January 2025 - Present)</p>
+                </div>
+                <div class="grid-item">
+                    <img src="coloradowest_logo.png" alt="Colorado West Healthcare Logo" class="logo-img large-logo" loading="lazy">
+                    <h3>Colorado West Healthcare</h3>
+                    <p>Business Analyst Team Lead</p>
+                    <p class="experience-dates">(August 2024 - December 2024)</p>
+                </div>
+                <div class="grid-item">
+                    <img src="exxonmobil_logo.png" alt="ExxonMobil Logo" class="logo-img" loading="lazy">
+                    <h3>ExxonMobil</h3>
+                    <p>Business Analyst</p>
+                    <p class="experience-dates">(January 2020 - April 2023)</p>
+                </div>
+                <div class="grid-item">
+                    <img src="softtek_logo.png" alt="Softtek Logo" class="logo-img" loading="lazy">
+                    <h3>Softtek</h3>
+                    <p>Automation Developer Intern</p>
+                    <p class="experience-dates">(June 2019 - July 2019)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-header">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>MLDA Mortality Analysis</h3>
+                    <p>Statistical analysis of mortality rates using R and Regression Discontinuity for public safety insights.</p>
+                    <a href="https://github.com/NikhitaShankar97/MLDA-Mortality-Analysis" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Cinematic Insights Dashboard</h3>
+                    <p>Interactive dashboard analyzing movie trends, engagement patterns, and ratings using Python and Tableau.</p>
+                    <a href="https://github.com/NikhitaShankar97/movie-analytics-dashboard" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Yelp Business Intelligence Platform</h3>
+                    <p>End-to-end data transformation for actionable insights using Azure and Python.</p>
+                    <a href="https://github.com/NikhitaShankar97/Yelp-Business-Intelligence-Platform" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Blockchain Analytics Dashboards</h3>
+                    <p>Blockchain trends analysis using Dune Analytics and SQL.</p>
+                    <a href="https://github.com/NikhitaShankar97/Blockchain-Dashboards" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>KNIME Workflow Analytics</h3>
+                    <p>Data preprocessing and visualization using KNIME, including blockchain and Yelp data insights.</p>
+                    <a href="https://github.com/NikhitaShankar97/KNIME-Worfkflow-Analytics" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Stock Market Forecasting</h3>
+                    <p>Predictive models and interactive apps for investment strategies.</p>
+                    <a href="https://github.com/nikhitashankar97/stock-market-forecasting" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Property Value Prediction</h3>
+                    <p>Predictive modeling of property values using R to support urban planning and taxation strategies.</p>
+                    <a href="https://github.com/NikhitaShankar97/property-value-prediction" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Retail Analytics</h3>
+                    <p>Multi-dimensional analysis of leading retail giants using Wolfram Mathematica.</p>
+                    <a href="https://github.com/NikhitaShankar97/Retail-Analytics-and-Strategy" target="_blank" class="btn">View Project</a>
+                </div>
             </div>
         </div>
     </section>
@@ -133,7 +178,7 @@
         <div class="container">
             <h2 class="section-header">Get in Touch</h2>
             <p>If you have a question, want to collaborate, or just want to connect, feel free to drop me a message using the form below.</p>
-            <form action="https://formspree.io/f/xovoqlz" method="POST">
+            <form action="https://formspree.io/f/xovvozlz" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="Your name..." required aria-required="true">
@@ -160,17 +205,6 @@
             menuToggle.setAttribute('aria-expanded', !expanded);
             navLinks.classList.toggle('active');
         });
-
-        const sections = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        sections.forEach(section => observer.observe(section));
     </script>
 </body>
 </html>

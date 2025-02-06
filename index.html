@@ -30,36 +30,39 @@
         </header>
     </nav>
 
-    <header id="hero">
+    <!-- Hero Section -->
+    <header id="hero" class="hero-section">
         <div class="hero-content fade-in">
             <img src="profile.jpg" alt="Portrait of Nikhita Shankar" class="profile-pic" loading="lazy">
-            <h1>Hi, I'm <span class="highlight">Nikhita Shankar</span></h1>
-            <p>Business Analyst | Data Scientist | Innovator</p>
-            <a href="#about" class="btn">Explore More</a>
+            <h1>Hi, I'm <span class="highlight-animation">Nikhita Shankar</span></h1>
+            <p class="intro-line">Transforming Data into Business Impact</p>
+            <a href="#about" class="btn animated-btn">Explore More</a>
         </div>
     </header>
 
+    <!-- About Me Section -->
     <section id="about" class="section fade-in">
         <div class="container">
             <h2 class="section-header">About Me</h2>
             <div class="about-box">
                 <p>
-                    I have a <strong class="highlight-animation">strong interest</strong> in data science and business intelligence, constantly seeking new ways to harness the power of <span class="highlight-animation">data-driven decision-making</span>. I believe that <span class="highlight-animation">technology</span> and <span class="highlight-animation">strategy</span> go hand in hand in driving organizational success.
+                    Hey there! I’m <strong class="highlight-animation">Nikhita Shankar</strong>, a passionate <strong class="highlight-animation">Business Analyst</strong> with a knack for turning data into actionable insights. Currently pursuing my Master's in Business Analytics at <strong>UIUC</strong>, I’m on a mission to harness the power of <span class="highlight-animation">AI automation</span> and <span class="highlight-animation">predictive modeling</span>.
                 </p>
                 <p>
-                    At <strong>ExxonMobil</strong>, I provided actionable insights by designing dashboards that monitored <span class="highlight-animation">dynamic pricing trends</span> across various business units. Through such projects, I realized my passion for creating <span class="highlight-animation">impactful data solutions</span>.
+                    I’ve worked on creating interactive dashboards and advanced models that helped drive better decisions across industries. From <strong class="highlight-animation">dynamic pricing analytics</strong> to optimizing workflows, I am always eager to push boundaries through <span class="highlight-animation">innovative data solutions</span>.
                 </p>
                 <p>
-                    I enjoy exploring advanced concepts such as <span class="highlight-animation">machine learning</span>, <span class="highlight-animation">natural language processing</span>, and <span class="highlight-animation">automation</span>. These endeavors fuel my drive to innovate and continuously expand my skills.
+                    My current obsession is diving deeper into <strong class="highlight-animation">Large Language Models</strong> and automation strategies, exploring how they can revolutionize industries. 
                 </p>
                 <p>
-                    Outside of my professional life, I am an avid <span class="hobby-emoji">🍳</span> cook, <span class="hobby-emoji">✈️</span> traveler, and <span class="hobby-emoji">🏸</span> badminton player. I also enjoy following <span class="hobby-emoji">⚽</span> football, <span class="hobby-emoji">🏏</span> cricket, and <span class="hobby-emoji">🏎️</span> Formula 1 racing—activities that help me stay energized and creative.
+                    Outside of work, you’ll find me <span class="hobby-emoji">🍳</span> cooking creative dishes, <span class="hobby-emoji">✈️</span> exploring new destinations, or <span class="hobby-emoji">🏸</span> dominating on the badminton court. Sports like <span class="hobby-emoji">⚽</span> football and <span class="hobby-emoji">🏎️</span> Formula 1 also fuel my drive for agility and strategy.
                 </p>
-                <a href="Nikhita_Shankar_Resume.pdf" class="btn" target="_blank" download>Download Resume</a>
+                <a href="Nikhita_Shankar_Resume.pdf" class="btn download-btn" target="_blank" download>Download Resume</a>
             </div>
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Skills</h2>
@@ -76,6 +79,7 @@
         </div>
     </section>
 
+    <!-- Education Section -->
     <section id="education" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Education</h2>
@@ -90,38 +94,13 @@
                     <img src="rvce_logo.png" alt="R.V. College of Engineering Logo" class="education-logo" loading="lazy">
                     <h3>R.V. College of Engineering</h3>
                     <p>Bachelor of Engineering in Computer Science</p>
-                    <p class="education-dates">(August 2016 - June 2020)</p>
+                    <p class="education-dates">(August 2016 - August 2020)</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="section fade-in">
-        <div class="container">
-            <h2 class="section-header">Experience</h2>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <img src="wolterskluwer_logo.png" alt="Wolters Kluwer Logo" class="logo-img large-logo" loading="lazy">
-                    <h3>Wolters Kluwer</h3>
-                    <p>Machine Learning Engineer</p>
-                    <p class="experience-dates">(January 2025 - Present)</p>
-                </div>
-                <div class="grid-item">
-                    <img src="exxonmobil_logo.png" alt="ExxonMobil Logo" class="logo-img" loading="lazy">
-                    <h3>ExxonMobil</h3>
-                    <p>Business Analyst</p>
-                    <p class="experience-dates">(January 2020 - April 2023)</p>
-                </div>
-                <div class="grid-item">
-                    <img src="softtek_logo.png" alt="Softtek Logo" class="logo-img" loading="lazy">
-                    <h3>Softtek</h3>
-                    <p>Automation Developer Intern</p>
-                    <p class="experience-dates">(June 2019 - July 2019)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Projects Section -->
     <section id="projects" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Projects</h2>
@@ -131,7 +110,7 @@
                     <p>Statistical analysis of mortality rates using R and Regression Discontinuity for public safety insights.</p>
                     <a href="#" class="btn">View Project</a>
                 </div>
-                                <div class="project-card">
+                <div class="project-card">
                     <h3>Cinematic Insights Dashboard</h3>
                     <p>Interactive dashboard analyzing movie trends, engagement patterns, and ratings using Python and Tableau.</p>
                     <a href="https://github.com/NikhitaShankar97/movie-analytics-dashboard" target="_blank" class="btn">View Project</a>
@@ -170,20 +149,21 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Get in Touch</h2>
-            <p>If you have a question, want to collaborate, or just want to connect, feel free to drop me a message using the form below.</p>
+            <p>If you have a question, want to collaborate, or just want to connect, drop me a message below!</p>
             <form action="#" method="POST">
-                <div class="form-group">
+                <div class="form-group-inline">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="Your name..." required>
                 </div>
-                <div class="form-group">
+                <div class="form-group-inline">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="_replyto" placeholder="Your email..." required>
                 </div>
-                <div class="form-group">
+                <div class="form-group-inline">
                     <label for="message">Message</label>
                     <textarea id="message" name="message" placeholder="Your message..." rows="4" required></textarea>
                 </div>
@@ -202,6 +182,7 @@
             navLinks.classList.toggle('active');
         });
 
+        // Fade-in animation observer
         const sections = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -215,4 +196,3 @@
     </script>
 </body>
 </html>
-

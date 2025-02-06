@@ -5,7 +5,6 @@ body {
     padding: 0;
     background-color: #000;
     color: #fff;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2 {
@@ -60,7 +59,6 @@ nav {
     cursor: pointer;
 }
 
-/* Responsive Design for Navbar */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -75,7 +73,7 @@ nav {
         width: 100%;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.5s ease;
+        transition: max-height 0.3s ease-in-out;
     }
 
     .nav-links.active {
@@ -120,8 +118,8 @@ nav {
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
     margin-top: 20px;
+    text-align: center;
 }
 
 .btn:hover {
@@ -169,20 +167,6 @@ nav {
     }
     50% {
         background-color: rgba(76, 175, 80, 0.3);
-    }
-}
-
-.hobby-emoji {
-    display: inline-block;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
     }
 }
 
@@ -246,6 +230,12 @@ section {
     margin-bottom: 10px;
 }
 
+.large-logo {
+    width: 150px;
+    height: auto;
+    margin: 0 auto 15px;
+}
+
 /* Experience Date Styling */
 .experience-dates {
     font-size: 14px;
@@ -304,6 +294,72 @@ section {
     font-size: 18px;
 }
 
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #4CAF50;
+    border-radius: 6px;
+    background: #2a2a2a;
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+button.btn-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 25px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.btn-submit:hover {
+    background-color: #2e7d32;
+    transform: scale(1.05);
+}
+
+/* Contact Success Message */
+#success-message {
+    display: none;
+    background: rgba(46, 125, 50, 0.9);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    animation: fadeInScale 0.6s ease;
+}
+
+.success-icon {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 24px;
+    color: #4CAF50;
+    animation: tickAnimation 1.2s ease forwards;
+}
+
 /* Animations */
 @keyframes fadeInScale {
     0% {
@@ -316,3 +372,25 @@ section {
     }
 }
 
+@keyframes tickAnimation {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    #contact {
+        padding: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+}

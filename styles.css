@@ -110,38 +110,42 @@ nav {
     color: #4CAF50;
 }
 
-/* Highlight Underline Animation */
-.highlight-underline {
-    position: relative;
+/* Highlight Animation */
+.highlight-animation {
+    animation: highlight 2s infinite;
 }
 
-.highlight-underline::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0%;
-    height: 3px;
-    background-color: #4CAF50;
-    animation: underline-slide 1.5s infinite ease-in-out;
-}
-
-@keyframes underline-slide {
+@keyframes highlight {
     0%, 100% {
-        width: 0;
+        background-color: transparent;
     }
     50% {
-        width: 100%;
+        background-color: rgba(76, 175, 80, 0.3);
+    }
+}
+
+/* Bouncing Emojis */
+.hobby-emoji {
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
     }
 }
 
 /* Button Styling */
 .btn {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
@@ -154,14 +158,6 @@ nav {
     transform: scale(1.05);
 }
 
-/* Centering Resume Button */
-.about-box .btn {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Section Headers */
 .section-header {
     font-size: 2rem;
@@ -169,6 +165,11 @@ nav {
     text-transform: uppercase;
     color: #4CAF50;
     text-shadow: 1px 1px 10px #4CAF50;
+}
+
+/* Section Spacing */
+section {
+    margin: 40px 0;
 }
 
 /* About Section */
@@ -180,6 +181,10 @@ nav {
     margin: 0 auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     text-align: justify;
+}
+
+.about-box .btn {
+    margin-top: 20px;
 }
 
 /* Skill Cards */
@@ -232,28 +237,20 @@ nav {
 }
 
 .grid-item img, .project-card img {
-    width: 100px;
+    width: 80px;
     height: auto;
-    margin: 0 auto 15px;
+    margin: 0 auto 10px;
+}
+
+.grid-item:hover, .project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .grid-item h3, .project-card h3 {
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
-.project-card a {
-    margin-top: auto;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 6px;
-}
-
-.project-card:hover {
-    transform: scale(1.05);
-}
-
-/* Adjust spacing */
 .experience-dates {
     font-size: 14px;
     color: #ccc;
@@ -274,15 +271,23 @@ nav {
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
+    text-align: left;
 }
 
-input, textarea {
+.contact-form label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.contact-form input, .contact-form textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #4CAF50;
     border-radius: 6px;
     background: #2a2a2a;
     color: #fff;
+    margin-bottom: 15px;
 }
 
 button.btn-submit {
@@ -292,6 +297,7 @@ button.btn-submit {
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 /* Responsive Fixes */

@@ -10,12 +10,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="description" content="Portfolio of Nikhita Shankar, a Business Analyst and Data Scientist.">
-    <meta name="keywords" content="Business Analyst, Data Scientist, Portfolio, Projects, Machine Learning, Business Intelligence">
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <header class="container">
-            <a href="#hero" class="logo" aria-label="Nikhita Shankar Portfolio">Nikhita</a>
             <button class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
@@ -30,73 +29,77 @@
         </header>
     </nav>
 
-    <header id="hero">
+    <!-- Hero Section -->
+    <header id="hero" class="hero-section">
         <div class="hero-content">
             <img src="profile.jpg" alt="Portrait of Nikhita Shankar" class="profile-pic" loading="lazy">
-            <h1>Hi, I'm <span class="highlight">Nikhita Shankar</span></h1>
-            <p>Business Analyst | Data Scientist | Innovator</p>
+            <h1>Hi, I'm <span class="highlight-underline">Nikhita Shankar</span></h1>
+            <p class="typed-text"></p>
             <a href="#about" class="btn">Explore More</a>
         </div>
     </header>
 
-    <section id="about" class="section">
+    <!-- About Me Section -->
+    <section id="about" class="section fade-in">
         <div class="container">
-            <h2 class="section-header">About Me</h2>
+            <h2 class="section-header">ABOUT ME</h2>
             <div class="about-box">
                 <p>
-                    I am a <strong class="highlight-animation">Master’s student in Business Analytics</strong> at the University of Illinois Urbana-Champaign (UIUC), where I specialize in <span class="highlight-animation">data-driven decision-making</span> and business intelligence. My passion lies at the intersection of <span class="highlight-animation">technology</span> and <span class="highlight-animation">strategy</span>, enabling organizations to make impactful, informed decisions through data.
+                    I worked as a <strong class="highlight-animation">Business Analyst</strong> at <strong>ExxonMobil</strong>, delivering impactful dashboards for <span class="highlight-animation">dynamic pricing trends</span>. As a Team Lead for <strong>Colorado West Healthcare</strong>'s practicum project, I spearheaded the development of a <span class="highlight-animation">workforce insights dashboard</span> that optimized HR strategies.
                 </p>
                 <p>
-                    At <strong>ExxonMobil</strong>, I delivered data solutions by creating dashboards that visualized <span class="highlight-animation">dynamic pricing trends</span> across multiple business units, empowering leadership with actionable insights. Leading a practicum project at <strong>Colorado West Healthcare</strong>, I designed and implemented a <span class="highlight-animation">workforce insights dashboard</span>, optimizing their HR strategies and enhancing productivity tracking.
+                    Passionate about <span class="highlight-animation">Data Science</span> and <span class="highlight-animation">Machine Learning</span>, I have built predictive models like <span class="highlight-animation">Linear Regression</span>, <span class="highlight-animation">ARIMA</span>, and <span class="highlight-animation">XGBoost</span>. I am currently exploring <span class="highlight-animation">Large Language Models (LLMs)</span> to address business problems and improve decision-making processes.
                 </p>
                 <p>
-                    With a solid foundation in <strong>data science and machine learning</strong>, I have experience building predictive models using techniques like <span class="highlight-animation">Linear Regression</span>, <span class="highlight-animation">XGBoost</span>, and <span class="highlight-animation">ARIMA</span>. I am currently deepening my knowledge of <span class="highlight-animation">Large Language Models (LLMs)</span>, exploring their applications in automation, NLP, and strategic decision-making.
-                </p>
-                <p>
-                    Beyond the world of data, I enjoy <span class="hobby-emoji">🍳</span> cooking, <span class="hobby-emoji">✈️</span> traveling, and <span class="hobby-emoji">🏸</span> playing badminton. I'm also an avid follower of <span class="hobby-emoji">⚽</span> English football, <span class="hobby-emoji">🏏</span> cricket, and <span class="hobby-emoji">🏎️</span> Formula 1 racing—pursuits that fuel my creativity and drive to learn.
+                    Outside of work, I enjoy <span class="hobby-emoji">🍳</span> cooking, <span class="hobby-emoji">✈️</span> traveling, and <span class="hobby-emoji">🏸</span> playing badminton. I'm also an avid follower of <span class="hobby-emoji">⚽</span> English football, <span class="hobby-emoji">🏏</span> cricket, and <span class="hobby-emoji">🏎️</span> Formula 1 racing.
                 </p>
                 <a href="Nikhita_Shankar_Resume.pdf" class="btn" target="_blank" download>Download Resume</a>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section">
+    <!-- Skills Section -->
+    <section id="skills" class="section fade-in">
         <div class="container">
-            <h2 class="section-header">Skills</h2>
+            <h2 class="section-header">SKILLS</h2>
             <div class="skills-grid">
                 <div class="skill-card"><i class="devicon-python-plain"></i><span>Python</span></div>
                 <div class="skill-card"><i class="devicon-r-plain"></i><span>R</span></div>
                 <div class="skill-card"><i class="devicon-sqlite-plain"></i><span>SQL</span></div>
                 <div class="skill-card"><i class="fas fa-chart-pie"></i><span>Tableau</span></div>
                 <div class="skill-card"><i class="fas fa-chart-bar"></i><span>Power BI</span></div>
-                <div class="skill-card"><i class="fas fa-cloud"></i><span>IBM Cognos</span></div>
                 <div class="skill-card"><i class="devicon-amazonwebservices-original"></i><span>AWS</span></div>
-                <div class="skill-card"><i class="devicon-azure-plain"></i><span>Azure</span></div>
+                <div class="skill-card"><i class="fas fa-database"></i><span>Databricks</span></div>
+                <div class="skill-card"><i class="fas fa-diagram-project"></i><span>KNIME</span></div>
             </div>
         </div>
     </section>
 
-    <section id="education" class="section">
+    <!-- Education Section -->
+    <section id="education" class="section fade-in">
         <div class="container">
-            <h2 class="section-header">Education</h2>
+            <h2 class="section-header">EDUCATION</h2>
             <div class="grid-container">
                 <div class="grid-item">
                     <img src="uiuc_logo.png" alt="University of Illinois Urbana-Champaign Logo" class="logo-img" loading="lazy">
                     <h3>University of Illinois Urbana-Champaign</h3>
-                    <p>Master of Science in Business Analytics (August 2024 - May 2025)</p>
+                    <p>Master of Science in Business Analytics</p>
+                    <p class="experience-dates">August 2024 – May 2025</p>
                 </div>
                 <div class="grid-item">
                     <img src="rvce_logo.png" alt="R.V. College of Engineering Logo" class="logo-img" loading="lazy">
                     <h3>R.V. College of Engineering</h3>
-                    <p>Bachelor of Engineering in Computer Science (August 2016 - June 2020)</p>
+                    <p>Bachelor of Engineering in Computer Science</p>
+                    <p class="experience-dates">August 2016 – June 2020</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="section">
+    <!-- Experience Section -->
+    <section id="experience" class="section fade-in">
         <div class="container">
-            <h2 class="section-header">Experience</h2>
+            <h2 class="section-header">EXPERIENCE</h2>
             <div class="grid-container">
                 <div class="grid-item">
                     <img src="wolterskluwer_logo.png" alt="Wolters Kluwer Logo" class="logo-img large-logo" loading="lazy">
@@ -126,85 +129,99 @@
         </div>
     </section>
 
-    <section id="projects" class="section">
+    <!-- Projects Section -->
+    <section id="projects" class="section fade-in">
         <div class="container">
-            <h2 class="section-header">Projects</h2>
+            <h2 class="section-header">PROJECTS</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>MLDA Mortality Analysis</h3>
-                    <p>Statistical analysis of mortality rates using R and Regression Discontinuity for public safety insights.</p>
-                    <a href="https://github.com/NikhitaShankar97/MLDA-Mortality-Analysis" target="_blank" class="btn">View Project</a>
+                    <p>Statistical analysis using R for public safety insights.</p>
+                    <a href="https://github.com/NikhitaShankar97/MLDA-Mortality-Analysis" class="btn">View Project</a>
                 </div>
                 <div class="project-card">
                     <h3>Cinematic Insights Dashboard</h3>
-                    <p>Interactive dashboard analyzing movie trends, engagement patterns, and ratings using Python and Tableau.</p>
-                    <a href="https://github.com/NikhitaShankar97/movie-analytics-dashboard" target="_blank" class="btn">View Project</a>
+                    <p>Analyzing movie engagement trends using Tableau.</p>
+                    <a href="https://github.com/NikhitaShankar97/movie-analytics-dashboard" class="btn">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h3>Yelp Business Intelligence Platform</h3>
-                    <p>End-to-end data transformation for actionable insights using Azure and Python.</p>
-                    <a href="https://github.com/NikhitaShankar97/Yelp-Business-Intelligence-Platform" target="_blank" class="btn">View Project</a>
+                    <h3>Yelp Business Intelligence</h3>
+                    <p>Data insights platform using Python and Azure.</p>
+                    <a href="https://github.com/NikhitaShankar97/Yelp-Business-Intelligence-Platform" class="btn">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h3>Blockchain Analytics Dashboards</h3>
-                    <p>Blockchain trends analysis using Dune Analytics and SQL.</p>
-                    <a href="https://github.com/NikhitaShankar97/Blockchain-Dashboards" target="_blank" class="btn">View Project</a>
+                    <h3>Blockchain Analytics</h3>
+                    <p>Exploring blockchain trends using Dune Analytics.</p>
+                    <a href="https://github.com/NikhitaShankar97/Blockchain-Dashboards" class="btn">View Project</a>
                 </div>
                 <div class="project-card">
                     <h3>KNIME Workflow Analytics</h3>
-                    <p>Data preprocessing and visualization using KNIME, including blockchain and Yelp data insights.</p>
-                    <a href="https://github.com/NikhitaShankar97/KNIME-Worfkflow-Analytics" target="_blank" class="btn">View Project</a>
+                    <p>Data preprocessing and analytics using KNIME.</p>
+                    <a href="https://github.com/NikhitaShankar97/KNIME-Worfkflow-Analytics" class="btn">View Project</a>
                 </div>
                 <div class="project-card">
                     <h3>Stock Market Forecasting</h3>
-                    <p>Predictive models and interactive apps for investment strategies.</p>
-                    <a href="https://github.com/nikhitashankar97/stock-market-forecasting" target="_blank" class="btn">View Project</a>
+                    <p>Predictive models for investment strategies.</p>
+                    <a href="https://github.com/NikhitaShankar97/stock-market-forecasting" class="btn">View Project</a>
                 </div>
                 <div class="project-card">
                     <h3>Property Value Prediction</h3>
-                    <p>Predictive modeling of property values using R to support urban planning and taxation strategies.</p>
-                    <a href="https://github.com/NikhitaShankar97/property-value-prediction" target="_blank" class="btn">View Project</a>
+                    <p>Modeling property values to support urban planning.</p>
+                    <a href="https://github.com/NikhitaShankar97/property-value-prediction" class="btn">View Project</a>
                 </div>
                 <div class="project-card">
                     <h3>Retail Analytics</h3>
-                    <p>Multi-dimensional analysis of leading retail giants using Wolfram Mathematica.</p>
-                    <a href="https://github.com/NikhitaShankar97/Retail-Analytics-and-Strategy" target="_blank" class="btn">View Project</a>
+                    <p>Analyzing trends of leading retailers using Wolfram.</p>
+                    <a href="https://github.com/NikhitaShankar97/Retail-Analytics-and-Strategy" class="btn">View Project</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section">
+    <!-- Contact Section -->
+    <section id="contact" class="section fade-in">
         <div class="container">
-            <h2 class="section-header">Get in Touch</h2>
-            <p>If you have a question, want to collaborate, or just want to connect, feel free to drop me a message using the form below.</p>
+            <h2 class="section-header">GET IN TOUCH</h2>
             <form action="https://formspree.io/f/xovvozlz" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your name..." required aria-required="true">
+                    <input type="text" id="name" name="name" placeholder="Your name..." required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="_replyto" placeholder="Your email..." required aria-required="true">
+                    <input type="email" id="email" name="_replyto" placeholder="Your email..." required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Your message..." rows="4" required aria-required="true"></textarea>
+                    <textarea id="message" name="message" placeholder="Your message..." rows="4" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-submit">Send Message</button>
             </form>
         </div>
     </section>
 
+    <!-- Typing Animation Script -->
     <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        const typedText = document.querySelector(".typed-text");
+        const messages = ["Transforming Data into Business Impact.", "Empowering Insights through AI.", "Making Data Speak for Business Success."];
+        let index = 0, charIndex = 0;
 
-        menuToggle.addEventListener('click', () => {
-            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !expanded);
-            navLinks.classList.toggle('active');
-        });
+        function typeMessage() {
+            if (charIndex < messages[index].length) {
+                typedText.textContent += messages[index].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeMessage, 100);
+            } else {
+                setTimeout(() => {
+                    charIndex = 0;
+                    typedText.textContent = "";
+                    index = (index + 1) % messages.length;
+                    typeMessage();
+                }, 3000);
+            }
+        }
+
+        typeMessage();
     </script>
 </body>
 </html>

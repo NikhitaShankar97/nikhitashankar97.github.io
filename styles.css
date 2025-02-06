@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #000;
     color: #fff;
+    scroll-behavior: smooth;
 }
 
 h1, h2 {
@@ -15,6 +16,11 @@ h1, h2 {
 a {
     text-decoration: none;
     color: #4CAF50;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2e7d32;
 }
 
 /* Navigation Bar */
@@ -35,21 +41,12 @@ nav {
     display: flex;
     gap: 20px;
     list-style: none;
-    margin-right: 40px;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #4CAF50;
     font-weight: 600;
-    transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: #2e7d32;
-}
-
-/* Mobile Navigation */
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
@@ -59,6 +56,7 @@ nav {
     cursor: pointer;
 }
 
+/* Responsive Design for Navbar */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -73,7 +71,6 @@ nav {
         width: 100%;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease-in-out;
     }
 
     .nav-links.active {
@@ -105,6 +102,7 @@ nav {
     border-radius: 50%;
     margin-bottom: 20px;
     object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Button Styling */
@@ -118,8 +116,8 @@ nav {
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 20px;
     text-align: center;
+    margin-top: 20px;
 }
 
 .btn:hover {
@@ -135,6 +133,28 @@ nav {
     text-transform: uppercase;
     color: #4CAF50;
     text-shadow: 1px 1px 10px #4CAF50;
+    animation: glowPulse 2s infinite alternate;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: scale(1.1);
 }
 
 /* About Me Box */
@@ -170,80 +190,34 @@ nav {
     }
 }
 
-/* Skills Section */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    margin: 30px 0;
+/* Emoji Bounce */
+.hobby-emoji {
+    display: inline-block;
+    animation: bounce 2s infinite;
 }
 
-.skill-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 14px;
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-.skill-card i {
-    font-size: 2rem;
-    margin-bottom: 10px;
+/* Fade-In Animation */
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Education, Experience, Projects Sections */
-section {
-    padding: 60px 0;
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    justify-content: center;
-    margin: 30px 0;
-}
-
-.grid-item {
-    background: #1e1e1e;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.grid-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-.grid-item img {
-    width: 100px;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
-
-.large-logo {
-    width: 150px;
-    height: auto;
-    margin: 0 auto 15px;
-}
-
-/* Experience Date Styling */
-.experience-dates {
-    font-size: 14px;
-    color: #ccc;
-    margin-top: 5px;
-}
-
-/* Project Cards */
+/* Projects Section */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -256,10 +230,13 @@ section {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    transition: transform 0.3s ease;
     height: 300px;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 20px rgba(0, 255, 0, 0.3);
 }
 
 .project-card a {
@@ -294,17 +271,7 @@ section {
     font-size: 18px;
 }
 
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-    width: 100%;
-}
-
+/* Form Inputs */
 input, textarea {
     width: 100%;
     padding: 12px;
@@ -335,53 +302,6 @@ button.btn-submit {
 button.btn-submit:hover {
     background-color: #2e7d32;
     transform: scale(1.05);
-}
-
-/* Contact Success Message */
-#success-message {
-    display: none;
-    background: rgba(46, 125, 50, 0.9);
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 500px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    font-size: 18px;
-    animation: fadeInScale 0.6s ease;
-}
-
-.success-icon {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 24px;
-    color: #4CAF50;
-    animation: tickAnimation 1.2s ease forwards;
-}
-
-/* Animations */
-@keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes tickAnimation {
-    0% {
-        transform: scale(0);
-    }
-    70% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
 }
 
 /* Responsive Fixes */

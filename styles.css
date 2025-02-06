@@ -94,7 +94,6 @@ nav {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding-top: 80px;
 }
 
 .profile-pic {
@@ -109,17 +108,6 @@ nav {
 .typed-text {
     font-size: 18px;
     color: #4CAF50;
-    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: #4CAF50; }
 }
 
 /* Highlight Underline Animation */
@@ -166,6 +154,14 @@ nav {
     transform: scale(1.05);
 }
 
+/* Centering Resume Button */
+.about-box .btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Section Headers */
 .section-header {
     font-size: 2rem;
@@ -184,32 +180,6 @@ nav {
     margin: 0 auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     text-align: justify;
-}
-
-/* Highlight Animation */
-.highlight-animation {
-    color: #4CAF50;
-    animation: highlight 2s infinite alternate;
-}
-
-@keyframes highlight {
-    0%, 100% { background-color: transparent; }
-    50% { background-color: rgba(76, 175, 80, 0.3); }
-}
-
-/* Emoji Animation */
-.hobby-emoji {
-    display: inline-block;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
 }
 
 /* Skill Cards */
@@ -241,10 +211,10 @@ nav {
     margin-bottom: 10px;
 }
 
-/* Experience and Project Cards */
+/* Experience and Education Cards */
 .grid-container, .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin: 30px 0;
 }
@@ -256,16 +226,19 @@ nav {
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .grid-item img, .project-card img {
-    max-width: 100px;
+    width: 100px;
+    height: auto;
     margin: 0 auto 15px;
 }
 
-.project-card:hover, .grid-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+.grid-item h3, .project-card h3 {
+    margin: 10px 0;
 }
 
 .project-card a {
@@ -274,6 +247,18 @@ nav {
     color: white;
     padding: 10px 20px;
     border-radius: 6px;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Adjust spacing */
+.experience-dates {
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 5px;
+    line-height: 1.4;
 }
 
 /* Contact Section */
@@ -286,9 +271,36 @@ nav {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #4CAF50;
+    border-radius: 6px;
+    background: #2a2a2a;
+    color: #fff;
+}
+
+button.btn-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 /* Responsive Fixes */
 @media (max-width: 768px) {
-    .skills-grid, .grid-container, .projects-grid {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-container, .projects-grid {
         grid-template-columns: repeat(1, 1fr);
     }
 

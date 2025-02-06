@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #000;
     color: #fff;
+    overflow-x: hidden;
 }
 
 h1, h2 {
@@ -12,6 +13,7 @@ h1, h2 {
     text-align: center;
 }
 
+/* Hyperlink Styling */
 a {
     text-decoration: none;
     color: #4CAF50;
@@ -26,28 +28,25 @@ nav {
     padding: 10px 20px;
     z-index: 1000;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Add more spacing to the right of the nav links */
 .nav-links {
     display: flex;
     gap: 20px;
     list-style: none;
-    margin-right: 40px;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #4CAF50;
+    color: #fff;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #2e7d32;
+    color: #4CAF50;
 }
 
 /* Mobile Navigation */
@@ -60,6 +59,10 @@ nav {
     cursor: pointer;
 }
 
+.nav-links.active {
+    flex-direction: column;
+}
+
 /* Responsive Design for Navbar */
 @media (max-width: 768px) {
     .menu-toggle {
@@ -70,15 +73,9 @@ nav {
         flex-direction: column;
         position: absolute;
         top: 60px;
-        right: 0;
         background: rgba(0, 0, 0, 0.95);
         width: 100%;
-        max-height: 0;
         overflow: hidden;
-    }
-
-    .nav-links.active {
-        max-height: 400px;
     }
 
     .nav-links a {
@@ -97,7 +94,6 @@ nav {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding-top: 80px;
 }
 
 .profile-pic {
@@ -106,6 +102,37 @@ nav {
     border-radius: 50%;
     margin-bottom: 20px;
     object-fit: cover;
+}
+
+/* Typing Text Animation */
+.typed-text {
+    font-size: 18px;
+    color: #4CAF50;
+}
+
+/* Highlight Underline Animation */
+.highlight-underline {
+    position: relative;
+}
+
+.highlight-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background-color: #4CAF50;
+    animation: underline-slide 1.5s infinite ease-in-out;
+}
+
+@keyframes underline-slide {
+    0%, 100% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
 }
 
 /* Button Styling */
@@ -120,7 +147,6 @@ nav {
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align: center;
-    margin-top: 20px;
 }
 
 .btn:hover {
@@ -132,60 +158,12 @@ nav {
 .section-header {
     font-size: 2rem;
     margin-bottom: 30px;
-    text-align: center;
     text-transform: uppercase;
     color: #4CAF50;
     text-shadow: 1px 1px 10px #4CAF50;
 }
 
-/* Contact Form Success Message */
-#success-message {
-    display: none;
-    background: rgba(46, 125, 50, 0.9);
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 500px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    font-size: 18px;
-    animation: fadeInScale 0.6s ease;
-}
-
-.success-icon {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 24px;
-    color: #4CAF50;
-    animation: tickAnimation 1.2s ease forwards;
-}
-
-/* Animations */
-@keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes tickAnimation {
-    0% {
-        transform: scale(0);
-    }
-    70% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* About Me Box */
+/* About Section */
 .about-box {
     background: linear-gradient(135deg, #1e1e1e, #292929);
     border-radius: 10px;
@@ -193,51 +171,14 @@ nav {
     max-width: 800px;
     margin: 0 auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 1.5s ease-in-out;
-    text-align: center;
-}
-
-.about-box p {
     text-align: justify;
-    line-height: 1.6;
-    margin-bottom: 15px;
 }
 
-/* Highlight Animation */
-.highlight-animation {
-    color: #4CAF50;
-    animation: highlight 2s infinite;
-}
-
-@keyframes highlight {
-    0%, 100% {
-        background-color: transparent;
-    }
-    50% {
-        background-color: rgba(76, 175, 80, 0.3);
-    }
-}
-
-.hobby-emoji {
-    display: inline-block;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
-/* Skills Section */
+/* Skill Cards */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 20px;
-    justify-content: center;
     margin: 30px 0;
 }
 
@@ -245,7 +186,16 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 14px;
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .skill-card i {
@@ -253,23 +203,18 @@ nav {
     margin-bottom: 10px;
 }
 
-/* Education, Experience, Projects Sections */
-section {
-    padding: 60px 0;
-}
-
-.grid-container {
+/* Experience and Project Cards */
+.grid-container, .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    justify-content: center;
     margin: 30px 0;
 }
 
-.grid-item {
+.grid-item, .project-card {
     background: #1e1e1e;
-    border-radius: 10px;
     padding: 20px;
+    border-radius: 10px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -277,51 +222,6 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-}
-
-.grid-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-.grid-item img {
-    width: 100px;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
-
-.large-logo {
-    width: 150px;
-    height: auto;
-    margin: 0 auto 15px;
-}
-
-/* Experience Date Styling */
-.experience-dates {
-    font-size: 14px;
-    color: #ccc;
-    margin-top: 5px;
-}
-
-/* Project Cards */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.project-card {
-    background: #1e1e1e;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 300px;
 }
 
 .project-card a {
@@ -330,82 +230,33 @@ section {
     color: white;
     padding: 10px 20px;
     border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
 }
 
-.project-card a:hover {
-    background-color: #2e7d32;
+.project-card:hover {
+    transform: scale(1.05);
 }
 
 /* Contact Section */
 #contact {
     background: linear-gradient(135deg, #1e1e1e, #292929);
-    padding: 40px 60px;
+    padding: 40px;
     text-align: center;
-    border-radius: 10px;
     max-width: 800px;
     margin: 50px auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-#contact p {
-    margin-bottom: 30px;
-    line-height: 1.6;
-    font-size: 18px;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-    width: 100%;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #4CAF50;
-    border-radius: 6px;
-    background: #2a2a2a;
-    color: #fff;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-textarea {
-    resize: none;
-    height: 120px;
-}
-
-button.btn-submit {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 25px;
-    font-weight: 600;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button.btn-submit:hover {
-    background-color: #2e7d32;
-    transform: scale(1.05);
-}
-
 /* Responsive Fixes */
 @media (max-width: 768px) {
-    #contact {
-        padding: 30px;
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .form-group {
-        margin-bottom: 15px;
+    .grid-container, .projects-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #contact {
+        padding: 30px;
     }
 }

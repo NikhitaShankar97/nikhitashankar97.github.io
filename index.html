@@ -31,7 +31,7 @@
     </nav>
 
     <header id="hero">
-        <div class="hero-content">
+        <div class="hero-content fade-in">
             <img src="profile.jpg" alt="Portrait of Nikhita Shankar" class="profile-pic" loading="lazy">
             <h1>Hi, I'm <span class="highlight">Nikhita Shankar</span></h1>
             <p>Business Analyst | Data Scientist | Innovator</p>
@@ -40,7 +40,7 @@
     </header>
 
     <section id="about" class="section">
-        <div class="container">
+        <div class="container fade-in">
             <h2 class="section-header">About Me</h2>
             <div class="about-box">
                 <p>
@@ -60,7 +60,7 @@
         </div>
     </section>
 
-    <section id="skills" class="section">
+    <section id="skills" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Skills</h2>
             <div class="skills-grid">
@@ -76,7 +76,7 @@
         </div>
     </section>
 
-    <section id="education" class="section">
+    <section id="education" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Education</h2>
             <div class="grid-container">
@@ -94,7 +94,7 @@
         </div>
     </section>
 
-    <section id="experience" class="section">
+    <section id="experience" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Experience</h2>
             <div class="grid-container">
@@ -126,7 +126,7 @@
         </div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Projects</h2>
             <div class="projects-grid">
@@ -174,7 +174,7 @@
         </div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="contact" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Get in Touch</h2>
             <p>If you have a question, want to collaborate, or just want to connect, feel free to drop me a message using the form below.</p>
@@ -205,6 +205,18 @@
             menuToggle.setAttribute('aria-expanded', !expanded);
             navLinks.classList.toggle('active');
         });
+
+        // Fade-in animation on scroll
+        const sections = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
     </script>
 </body>
 </html>

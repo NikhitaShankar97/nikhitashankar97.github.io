@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #000;
     color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2 {
@@ -31,7 +32,6 @@ nav {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Add more spacing to the right of the nav links */
 .nav-links {
     display: flex;
     gap: 20px;
@@ -75,6 +75,7 @@ nav {
         width: 100%;
         max-height: 0;
         overflow: hidden;
+        transition: max-height 0.5s ease;
     }
 
     .nav-links.active {
@@ -136,53 +137,6 @@ nav {
     text-transform: uppercase;
     color: #4CAF50;
     text-shadow: 1px 1px 10px #4CAF50;
-}
-
-/* Contact Form Success Message */
-#success-message {
-    display: none;
-    background: rgba(46, 125, 50, 0.9);
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 500px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    font-size: 18px;
-    animation: fadeInScale 0.6s ease;
-}
-
-.success-icon {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 24px;
-    color: #4CAF50;
-    animation: tickAnimation 1.2s ease forwards;
-}
-
-/* Animations */
-@keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes tickAnimation {
-    0% {
-        transform: scale(0);
-    }
-    70% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
 }
 
 /* About Me Box */
@@ -292,12 +246,6 @@ section {
     margin-bottom: 10px;
 }
 
-.large-logo {
-    width: 150px;
-    height: auto;
-    margin: 0 auto 15px;
-}
-
 /* Experience Date Styling */
 .experience-dates {
     font-size: 14px;
@@ -356,6 +304,7 @@ section {
     font-size: 18px;
 }
 
+/* Contact Form */
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
@@ -397,6 +346,53 @@ button.btn-submit {
 button.btn-submit:hover {
     background-color: #2e7d32;
     transform: scale(1.05);
+}
+
+/* Success Message */
+#success-message {
+    display: none;
+    background: rgba(46, 125, 50, 0.9);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    animation: fadeInScale 0.6s ease;
+}
+
+.success-icon {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 24px;
+    color: #4CAF50;
+    animation: tickAnimation 1.2s ease forwards;
+}
+
+/* Animations */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes tickAnimation {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Responsive Fixes */

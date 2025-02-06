@@ -22,7 +22,8 @@ nav {
     padding: 10px 20px;
     z-index: 1000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -70,6 +71,33 @@ h1 {
     font-size: 36px;
     color: #fff;
     margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 25px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 20px 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #2e7d32;
+    transform: scale(1.05);
+}
+
+.hero-section .btn {
+    margin-top: 20px;
+}
+
+.hero-content .btn {
+    text-align: center;
 }
 
 /* Highlight Underline Animation */
@@ -124,24 +152,6 @@ h1 {
     }
 }
 
-/* Center Download Resume Button */
-.about-box .btn {
-    display: inline-block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    text-align: center;
-    background-color: #4CAF50;
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.about-box .btn:hover {
-    background-color: #2e7d32;
-}
-
 /* Hobby Emojis Animation */
 .hobby-emoji {
     display: inline-block;
@@ -160,10 +170,10 @@ h1 {
 /* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 10px;
+    margin: 30px 0;
     justify-items: center;
-    margin: 20px 0;
 }
 
 .skill-card {
@@ -179,7 +189,7 @@ h1 {
     transform: translateY(-10px);
 }
 
-/* Section Styling */
+/* Education, Experience, and Projects Sections */
 section {
     padding: 60px 0;
 }
@@ -192,11 +202,10 @@ section {
     text-shadow: 1px 1px 10px #4CAF50;
 }
 
-/* Education, Experience, and Projects Sections */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
     justify-items: center;
 }
 
@@ -220,7 +229,7 @@ section {
 }
 
 .grid-item img {
-    width: 80px;
+    width: 100px;
     height: auto;
     object-fit: contain;
     margin-bottom: 10px;
@@ -256,18 +265,6 @@ section {
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-.project-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #4CAF50;
-}
-
-.project-card p {
-    font-size: 14px;
-    color: #ccc;
-    margin-bottom: 15px;
 }
 
 .project-card a {
@@ -340,23 +337,15 @@ button.btn-submit:hover {
 
 /* Responsive Fixes */
 @media (max-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-
-    .grid-container, .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-section {
-        padding-top: 60px;
-    }
-
     #contact {
         padding: 30px;
     }
 
     .form-group {
         margin-bottom: 15px;
+    }
+
+    .hero-section {
+        padding-top: 60px;
     }
 }

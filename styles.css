@@ -5,13 +5,12 @@ body {
     padding: 0;
     background-color: #000;
     color: #fff;
+    overflow-x: hidden;
 }
-
 h1, h2 {
     margin: 0;
     text-align: center;
 }
-
 a {
     text-decoration: none;
     color: #4CAF50;
@@ -30,27 +29,21 @@ nav {
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-/* Navigation Links */
 .nav-links {
     display: flex;
     gap: 20px;
     list-style: none;
     margin-right: 40px;
 }
-
 .nav-links a {
     text-decoration: none;
     color: #4CAF50;
     font-weight: 600;
     transition: color 0.3s ease;
 }
-
 .nav-links a:hover {
     color: #2e7d32;
 }
-
-/* Mobile Navigation */
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
@@ -60,12 +53,11 @@ nav {
     cursor: pointer;
 }
 
-/* Responsive Navigation */
+/* Responsive Design for Navbar */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
     }
-
     .nav-links {
         flex-direction: column;
         position: absolute;
@@ -76,11 +68,9 @@ nav {
         max-height: 0;
         overflow: hidden;
     }
-
     .nav-links.active {
         max-height: 400px;
     }
-
     .nav-links a {
         padding: 15px;
         text-align: center;
@@ -98,16 +88,14 @@ nav {
     flex-direction: column;
     text-align: center;
     padding-top: 80px;
-    position: relative;
 }
-
-/* Profile Picture */
 .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     margin-bottom: 20px;
     object-fit: cover;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
 
 /* Button Styling */
@@ -124,7 +112,6 @@ nav {
     text-align: center;
     margin-top: 20px;
 }
-
 .btn:hover {
     background-color: #2e7d32;
     transform: scale(1.05);
@@ -140,95 +127,58 @@ nav {
     text-shadow: 1px 1px 10px #4CAF50;
 }
 
-/* Contact Form Success Message */
-#success-message {
-    display: none;
-    background: rgba(46, 125, 50, 0.9);
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 500px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    font-size: 18px;
-    animation: fadeInScale 0.6s ease;
-}
-
 /* Animations */
-@keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
-/* Fade-in animation */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
 }
+.highlight-animation {
+    color: #4CAF50;
+    font-weight: bold;
+    position: relative;
+}
+.highlight-animation::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #4CAF50;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0%, 100% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(1.1);
+    }
+}
 
-/* About Section */
+/* About Me */
 .about-box {
     background: linear-gradient(135deg, #1e1e1e, #292929);
     border-radius: 10px;
-    padding: 20px 30px;
+    padding: 30px;
     max-width: 800px;
     margin: 0 auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     animation: fadeIn 1.5s ease-in-out;
     text-align: center;
 }
-
-/* Hobby Emoji */
-.hobby-emoji {
-    display: inline-block;
-    animation: bounce 2s infinite;
+.about-box p {
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
-/* Skills Grid */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    margin: 30px 0;
-}
-
-/* Skill Card */
-.skill-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 14px;
-}
-
-.skill-card i {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-/* Grid Containers */
+/* Education and Experience */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -236,7 +186,6 @@ nav {
     justify-content: center;
     margin: 30px 0;
 }
-
 .grid-item {
     background: #1e1e1e;
     border-radius: 10px;
@@ -244,13 +193,19 @@ nav {
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 280px;
 }
-
+.grid-item img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 10px;
+    max-height: 70px;
+}
 .grid-item:hover {
     transform: scale(1.05);
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
@@ -262,7 +217,6 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
-
 .project-card {
     background: #1e1e1e;
     padding: 20px;
@@ -274,7 +228,6 @@ nav {
     justify-content: space-between;
     height: 300px;
 }
-
 .project-card a {
     margin-top: auto;
     background-color: #4CAF50;
@@ -285,7 +238,6 @@ nav {
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
-
 .project-card a:hover {
     background-color: #2e7d32;
 }
@@ -299,4 +251,58 @@ nav {
     max-width: 800px;
     margin: 50px auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+#contact p {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-size: 18px;
+}
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #4CAF50;
+    border-radius: 6px;
+    background: #2a2a2a;
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+textarea {
+    resize: none;
+    height: 120px;
+}
+button.btn-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 25px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button.btn-submit:hover {
+    background-color: #2e7d32;
+    transform: scale(1.05);
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .nav-links.active {
+        max-height: 400px;
+    }
 }

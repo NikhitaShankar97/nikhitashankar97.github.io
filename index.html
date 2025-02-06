@@ -30,19 +30,15 @@
         </header>
     </nav>
 
-    <!-- Hero Section with Typing Animation -->
     <header id="hero" class="hero-section">
         <div class="hero-content">
             <img src="profile.jpg" alt="Portrait of Nikhita Shankar" class="profile-pic" loading="lazy">
-            <div class="typing-animation">
-                <h1><span class="highlight-underline">Hi, I'm Nikhita Shankar</span></h1>
-                <p class="typed-text"></p>
-            </div>
-            <a href="#about" class="btn animated-btn hero-btn">Explore More</a>
+            <h1><span class="highlight-underline">Hi, I'm Nikhita Shankar</span></h1>
+            <p class="tagline">Transforming Data into Business Impact.</p>
+            <a href="#about" class="btn hero-btn">Explore More</a>
         </div>
     </header>
 
-    <!-- About Me Section -->
     <section id="about" class="section fade-in">
         <div class="container">
             <h2 class="section-header">About Me</h2>
@@ -57,31 +53,29 @@
                     Passionate about <span class="highlight-glow">Data Science</span> and <span class="highlight-glow">Machine Learning</span>, I have built predictive models like <span class="highlight-glow">Linear Regression</span>, <span class="highlight-glow">ARIMA</span>, and <span class="highlight-glow">XGBoost</span>. I am currently exploring <span class="highlight-glow">Large Language Models (LLMs)</span> to address business problems and improve decision-making processes.
                 </p>
                 <p>
-                    Outside of work, I enjoy <span class="highlight-glow">🍳 cooking</span>, <span class="highlight-glow">✈️ traveling</span>, <span class="highlight-glow">🏸 playing badminton</span>, and following sports like <span class="highlight-glow">⚽ English Football</span>, <span class="highlight-glow">🏏 Cricket</span>, and <span class="highlight-glow">🏎️ Formula 1</span>. These hobbies fuel my creativity and provide balance.
+                    Outside of work, I enjoy <span class="highlight-glow bouncing-emoji">🍳</span> cooking, <span class="highlight-glow bouncing-emoji">✈️</span> traveling, <span class="highlight-glow bouncing-emoji">🏸</span> playing badminton, and following sports like <span class="highlight-glow bouncing-emoji">⚽</span> English Football, <span class="highlight-glow bouncing-emoji">🏏</span> Cricket, and <span class="highlight-glow bouncing-emoji">🏎️</span> Formula 1.
                 </p>
                 <a href="Nikhita_Shankar_Resume.pdf" class="btn download-btn" target="_blank" download>Download Resume</a>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Skills</h2>
             <div class="skills-grid">
-                <div class="skill-card skill-bounce"><i class="devicon-python-plain"></i><span>Python</span></div>
-                <div class="skill-card skill-bounce"><i class="devicon-r-plain"></i><span>R</span></div>
-                <div class="skill-card skill-bounce"><i class="devicon-sqlite-plain"></i><span>SQL</span></div>
-                <div class="skill-card skill-bounce"><i class="fas fa-chart-pie"></i><span>Tableau</span></div>
-                <div class="skill-card skill-bounce"><i class="fas fa-chart-bar"></i><span>Power BI</span></div>
-                <div class="skill-card skill-bounce"><i class="fas fa-cloud"></i><span>IBM Cognos</span></div>
-                <div class="skill-card skill-bounce"><i class="devicon-amazonwebservices-original"></i><span>AWS</span></div>
-                <div class="skill-card skill-bounce"><i class="devicon-azure-plain"></i><span>Azure</span></div>
+                <div class="skill-card"><i class="devicon-python-plain"></i><span>Python</span></div>
+                <div class="skill-card"><i class="devicon-r-plain"></i><span>R</span></div>
+                <div class="skill-card"><i class="devicon-sqlite-plain"></i><span>SQL</span></div>
+                <div class="skill-card"><i class="fas fa-chart-pie"></i><span>Tableau</span></div>
+                <div class="skill-card"><i class="fas fa-chart-bar"></i><span>Power BI</span></div>
+                <div class="skill-card"><i class="fas fa-cloud"></i><span>IBM Cognos</span></div>
+                <div class="skill-card"><i class="devicon-amazonwebservices-original"></i><span>AWS</span></div>
+                <div class="skill-card"><i class="devicon-azure-plain"></i><span>Azure</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Projects</h2>
@@ -93,8 +87,8 @@
                 </div>
                 <div class="project-card">
                     <h3>Cinematic Insights Dashboard</h3>
-                    <p>Interactive dashboard analyzing movie trends, engagement patterns, and ratings using Python and Tableau.</p>
-                    <a href="https://github.com/NikhitaShankar97/movie-analytics-dashboard" target="_blank" class="btn">View Project</a>
+                    <p>Interactive dashboard analyzing movie trends using Python and Tableau.</p>
+                    <a href="https://github.com/NikhitaShankar97/movie-analytics-dashboard" class="btn" target="_blank">View Project</a>
                 </div>
                 <div class="project-card">
                     <h3>Yelp Business Intelligence Platform</h3>
@@ -130,7 +124,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section fade-in">
         <div class="container">
             <h2 class="section-header">Get in Touch</h2>
@@ -153,10 +146,9 @@
         </div>
     </section>
 
-    <!-- JavaScript for Typing Animation -->
     <script>
         const typedText = document.querySelector(".typed-text");
-        const messages = ["Transforming Data into Business Impact.", "Empowering Insights through AI.", "Making Data Speak for Business Success."];
+        const messages = ["Transforming Data into Business Impact.", "Empowering Insights through AI."];
         let index = 0, charIndex = 0;
 
         function typeMessage() {

@@ -208,6 +208,22 @@ nav {
     }
 }
 
+/* About Section Emojis */
+.about-box .hobby-emoji {
+    display: inline-block;
+    animation: bounce-emoji 1.8s infinite ease-in-out;
+}
+
+/* Keyframes for Bouncing Animation */
+@keyframes bounce-emoji {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
 /* Skill Cards */
 .skills-grid {
     display: grid;

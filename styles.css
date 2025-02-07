@@ -267,6 +267,12 @@ nav {
     margin: 10px 0;
 }
 
+/* Hover Animation for Cards */
+.hover-animation:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
 .project-card a {
     margin-top: auto;
     background-color: #4CAF50;
@@ -297,7 +303,7 @@ nav {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.contact-form {
+.contact-box {
     max-width: 600px;
     margin: 0 auto;
 }

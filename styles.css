@@ -348,3 +348,17 @@ button.btn-submit {
         padding: 30px;
     }
 }
+/* LinkedIn Icon in Navbar */
+.nav-links i.fab.fa-linkedin {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.nav-links i.fab.fa-linkedin:hover {
+    color: #4CAF50; /* Same green as your brand */
+}
+
+/* Spacing for LinkedIn button in About Section */
+.about-box .btn + .btn {
+    margin-top: 10px;
+}

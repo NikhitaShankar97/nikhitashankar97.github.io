@@ -161,6 +161,14 @@ nav {
 .about-box .btn + .btn {
   margin-top: 10px;
 }
+/* Add spacing between buttons in the same card */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 
 /* ------------------------------
    SECTION HEADERS

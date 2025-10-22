@@ -161,6 +161,7 @@ nav {
 .about-box .btn + .btn {
   margin-top: 10px;
 }
+
 /* Add spacing between buttons in the same card */
 .btn-group {
   display: flex;
@@ -169,6 +170,10 @@ nav {
   flex-wrap: wrap;
 }
 
+/* Add spacing between stacked buttons in Honors (BGS) */
+#honors .btn + .btn {
+  margin-top: 10px;
+}
 
 /* ------------------------------
    SECTION HEADERS
@@ -293,9 +298,14 @@ nav {
    HONORS & ACHIEVEMENTS SECTION
 --------------------------------*/
 #honors .logo-img {
-  width: 90px;
+  max-width: 120px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  margin: 0 auto 15px;
+  object-fit: contain;
+  display: block;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 #honors p {

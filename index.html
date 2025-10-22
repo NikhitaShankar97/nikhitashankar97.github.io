@@ -310,6 +310,8 @@
     </div>
   </section>
 
+
+
   <!-- Typing Animation Script -->
   <script>
     const typedText = document.querySelector(".typed-text");
@@ -318,14 +320,34 @@
       "Empowering Insights through AI.",
       "Making Data Speak for Business Success."
     ];
-    let index = 0, charIndex = 0;
+    let index = 0;
+    let charIndex = 0;
+    let deleting = false;
 
     function typeMessage() {
-      if (charIndex < messages[index].length) {
-        typedText.textContent += messages[index].charAt(charIndex);
+      if (!typedText) return; // in case element not found
+
+      const currentMessage = messages[index];
+
+      if (!deleting && charIndex < currentMessage.length) {
+        typedText.textContent += currentMessage.charAt(charIndex);
         charIndex++;
         setTimeout(typeMessage, 100);
-      } else {
-        setTimeout(() => {
-          charIndex = 0;
-          typedText.textContent =
+      } 
+      else if (deleting && charIndex > 0) {
+        typedText.textContent = currentMessage.substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(typeMessage, 50);
+      } 
+      else {
+        deleting = !deleting;
+        if (!deleting) {
+          index = (index + 1) % messages.length;
+        }
+        setTimeout(typeMessage, deleting ? 1000 : 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", typeMessage);
+  </script>
+

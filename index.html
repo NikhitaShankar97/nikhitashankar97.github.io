@@ -151,6 +151,7 @@
       <h2 class="section-header">EXPERIENCE</h2>
       <div class="grid-container">
 
+
         <div class="grid-item hover-animation">
           <img src="workgaze_logo.png" alt="WorkGaze Logo" class="logo-img large-logo" loading="lazy">
           <h3>WorkGaze<br><span style="font-size: 0.9em; color: #ccc;">(Global Launch Inc.)</span></h3>
@@ -196,3 +197,111 @@
       </div>
     </div>
   </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section fade-in">
+    <div class="container">
+      <h2 class="section-header">PROJECTS</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Spotify Playlist Prediction Pipeline</h3>
+          <p>End-to-end AWS data pipeline for analyzing Spotify playlist data using S3, Glue, Athena, and QuickSight.</p>
+          <a href="https://github.com/NikhitaShankar97/spotify-playlist-prediction-aws" target="_blank" class="btn-view-project">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Coffee Shop Sales Dashboard</h3>
+          <p>Interactive Excel dashboard analyzing coffee shop transactions to derive key business insights.</p>
+          <a href="https://github.com/NikhitaShankar97/Coffee-Shop-Sales-Dashboard" target="_blank" class="btn-view-project">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>MLDA Mortality Analysis</h3>
+          <p>Statistical analysis of mortality rates using R and Regression Discontinuity for public safety insights.</p>
+          <a href="https://github.com/NikhitaShankar97/MLDA-Mortality-Analysis" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Cinematic Insights Dashboard</h3>
+          <p>Interactive dashboard analyzing movie trends, engagement patterns, and ratings using Python and Tableau.</p>
+          <a href="https://github.com/NikhitaShankar97/movie-analytics-dashboard" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Yelp Business Intelligence</h3>
+          <p>End-to-end data transformation for actionable insights using Azure and Python.</p>
+          <a href="https://github.com/NikhitaShankar97/Yelp-Business-Intelligence-Platform" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Blockchain Analytics</h3>
+          <p>Blockchain trends analysis using Dune Analytics and SQL.</p>
+          <a href="https://github.com/NikhitaShankar97/Blockchain-Dashboards" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>KNIME Workflow Analytics</h3>
+          <p>Data preprocessing and visualization using KNIME, including blockchain and Yelp data insights.</p>
+          <a href="https://github.com/NikhitaShankar97/KNIME-Worfkflow-Analytics" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Stock Market Forecasting</h3>
+          <p>Predictive models and interactive apps for investment strategies.</p>
+          <a href="https://github.com/NikhitaShankar97/Stock-Market-Forecasting" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Property Value Prediction</h3>
+          <p>Predictive modeling of property values using R to support urban planning and taxation strategies.</p>
+          <a href="https://github.com/NikhitaShankar97/property-value-prediction" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Retail Analytics</h3>
+          <p>Multi-dimensional analysis of leading retail giants using Wolfram Mathematica.</p>
+          <a href="https://github.com/NikhitaShankar97/Retail-Analytics-and-Strategy" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>NLP Disaster Tweets Classification</h3>
+          <p>Machine learning-based classification of disaster-related tweets using deep learning models like BERT and DistilBERT.</p>
+          <a href="https://github.com/NikhitaShankar97/NLP-Disaster-Tweets" class="btn">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section fade-in">
+    <div class="container">
+      <h2 class="section-header">GET IN TOUCH</h2>
+      <p>Interested in collaborating or connecting? Feel free to reach out—I'm always open to discussing new opportunities and ideas!</p>
+      <form action="https://formspree.io/f/xovvozlz" method="POST">
+        <input type="text" name="name" placeholder="Your name..." required>
+        <input type="email" name="_replyto" placeholder="Your email..." required>
+        <textarea name="message" placeholder="Your message..." rows="4" required></textarea>
+        <button type="submit" class="btn btn-submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Typing Animation Script -->
+  <script>
+    const typedText = document.querySelector(".typed-text");
+    const messages = [
+      "Transforming Data into Business Impact.",
+      "Empowering Insights through AI.",
+      "Making Data Speak for Business Success."
+    ];
+    let index = 0, charIndex = 0;
+
+    function typeMessage() {
+      if (charIndex < messages[index].length) {
+        typedText.textContent += messages[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeMessage, 100);
+      } else {
+        setTimeout(() => {
+          charIndex = 0;
+          typedText.textContent =

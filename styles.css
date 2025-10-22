@@ -150,13 +150,18 @@ nav {
   transform: scale(1.05);
 }
 
-/* Make all honor buttons full width and uniform */
+/* --- Honors Buttons Fix --- */
 #honors .btn {
   display: block;
-  width: 100%;
-  max-width: 330px;
+  width: calc(100% - 40px);
+  max-width: 320px;
   margin: 10px auto 0;
   border-radius: 8px;
+  box-sizing: border-box;
+}
+
+#honors .btn + .btn {
+  margin-top: 10px;
 }
 
 /* Center resume buttons in About */
@@ -302,12 +307,13 @@ nav {
    HONORS & ACHIEVEMENTS SECTION
 --------------------------------*/
 #honors .logo-img {
+  max-width: 120px;
+  max-height: 60px;
   width: auto;
-  height: 70px;
-  max-height: none;
+  height: auto;
   object-fit: contain;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 15px;
   border-radius: 10px;
 }
 

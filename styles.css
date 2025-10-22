@@ -310,30 +310,44 @@ nav {
    HONORS & ACHIEVEMENTS SECTION
 --------------------------------*/
 #honors .logo-img {
-  max-width: 120px;
-  max-height: 60px;
-  width: auto;
+  width: 120px;
   height: 70px;
-  max-height: none;
-  height: auto;
   object-fit: contain;
   display: block;
-  margin: 0 auto 20px;
   margin: 0 auto 15px;
-  border-radius: 10px;
+  filter: none;
 }
 
-#honors p {
-  font-size: 14px;
-  color: #ddd;
-}
-
+/* Add consistent height for logo space to align all cards */
 #honors .grid-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  min-height: 420px; /* Keeps all cards uniform */
 }
+
+/* Adjust logo specific to ExxonMobil for better visibility */
+#honors .grid-item img[alt*="ExxonMobil"] {
+  width: 100px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+/* Make text spacing consistent across all cards */
+#honors h3 {
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+#honors p {
+  font-size: 14px;
+  color: #ddd;
+  text-align: center;
+  line-height: 1.6;
+}
+
 
 /* ------------------------------
    PROJECTS SECTION

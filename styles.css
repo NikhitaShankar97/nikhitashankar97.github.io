@@ -362,14 +362,11 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.06em;
 }
 .sc-val { font-size: 0.8rem; color: var(--text-dim); font-weight: 500; }
-.sc-val-sub {
-  font-size: 0.72rem; color: var(--text-muted);
-  font-family: var(--font-mono); display: block;
-  margin-top: 2px;
-}
-.sc-row-stack { align-items: flex-start !important; }
-.sc-val-stack { display: flex; flex-direction: column; text-align: right; }
 .sc-green { color: var(--accent) !important; }
+.sc-row-stack { align-items: center; }
+.sc-val-stack { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.sc-val-stack .sc-val { font-size: 0.8rem; color: var(--text-dim); font-weight: 500; }
+.sc-val-sub { font-size: 0.75rem; color: var(--text-muted); font-weight: 400; font-family: var(--font-body); }
 
 /* ---- Skills ---- */
 .skills-categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; }

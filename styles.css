@@ -669,6 +669,10 @@ footer {
   position: relative;
   overflow: hidden;
   gap: 16px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 0;
 }
 
 /* Animated glow border on top */
@@ -778,6 +782,7 @@ footer {
   max-width: 720px;
   color: #9a9a9a;
   font-size: 0.86rem;
+  flex: 0 0 auto;
 }
 
 /* Dual CTA buttons row */
@@ -787,6 +792,7 @@ footer {
   align-items: center;
   flex-wrap: wrap;
   margin-top: 4px;
+  flex-shrink: 0;
 }
 .first48-cta-primary {
   font-family: var(--font-mono);

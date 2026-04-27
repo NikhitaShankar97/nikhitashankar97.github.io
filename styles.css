@@ -190,7 +190,6 @@ img { max-width: 100%; display: block; }
   border: 2px solid var(--accent-mid);
   margin: 0 auto 24px;
 }
-/* FIXED: much smaller hero name */
 .hero-name {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 5.5vw, 3.8rem);
@@ -300,7 +299,6 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase; color: var(--accent);
   margin-bottom: 14px;
 }
-/* FIXED: section titles smaller */
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -511,7 +509,7 @@ img { max-width: 100%; display: block; }
 
 /* ---- Projects ---- */
 .projects-featured {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 16px; margin-bottom: 40px;
 }
 .project-featured-card {
@@ -658,9 +656,176 @@ footer {
 .footer-social { font-size: 1.1rem; color: var(--text-dim); transition: color 0.2s; }
 .footer-social:hover { color: var(--accent); }
 
+
+/* ============================================
+   FIRST48 — HACKATHON CARD
+   ============================================ */
+
+/* Spans full width across both columns */
+.project-featured-card--hackathon {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #0d1a0a 0%, #111611 40%, #0f1410 100%);
+  border-color: rgba(184,245,82,0.22);
+  position: relative;
+  overflow: hidden;
+  gap: 16px;
+}
+
+/* Animated glow border on top */
+.project-featured-card--hackathon::after {
+  background: linear-gradient(90deg, var(--accent), #52f5a8, var(--accent));
+  background-size: 200% 100%;
+  opacity: 0;
+  height: 2px;
+  animation: none;
+  transition: opacity 0.3s;
+}
+.project-featured-card--hackathon:hover::after {
+  opacity: 1;
+  animation: shimmerLine 2s linear infinite;
+}
+@keyframes shimmerLine {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Subtle radial glow in the background */
+.project-featured-card--hackathon::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(184,245,82,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+  transition: opacity 0.4s;
+}
+.project-featured-card--hackathon:hover::before {
+  opacity: 1.5;
+}
+
+/* Badge row — sits in pf-top */
+.first48-badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Hackathon badge — amber/gold to stand out from capstone purple */
+.pf-badge--hackathon {
+  background: rgba(255, 196, 60, 0.12);
+  color: #ffc43c;
+  border: 1px solid rgba(255, 196, 60, 0.3);
+  font-size: 0.68rem;
+  padding: 4px 12px;
+  letter-spacing: 0.08em;
+}
+
+/* 1st Place winner badge — bright gold, glowing */
+.pf-badge--winner {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,180,0,0.1));
+  color: #ffd700;
+  border: 1px solid rgba(255,215,0,0.45);
+  padding: 4px 12px;
+  border-radius: 100px;
+  box-shadow: 0 0 12px rgba(255,215,0,0.15);
+  animation: winnerPulse 3s ease-in-out infinite;
+}
+@keyframes winnerPulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(255,215,0,0.15); }
+  50%       { box-shadow: 0 0 22px rgba(255,215,0,0.35); }
+}
+
+.honor-tag--winner {
+  background: linear-gradient(135deg, rgba(255,215,0,0.18), rgba(255,180,0,0.1));
+  color: #ffd700;
+  border: 1px solid rgba(255,215,0,0.4);
+}
+.honor-card--winner {
+  border-color: rgba(255,215,0,0.2);
+  background: linear-gradient(135deg, #151200 0%, #141414 60%);
+}
+.honor-card--winner:hover {
+  border-color: rgba(255,215,0,0.45);
+  box-shadow: 0 0 28px rgba(255,215,0,0.08);
+}
+.first48-wordmark {
+  font-family: var(--font-mono);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.first48-wordmark span {
+  color: #fff;
+  opacity: 0.55;
+}
+
+/* Override title and body for the wider card */
+.project-featured-card--hackathon h3 {
+  font-size: 1.08rem;
+  color: var(--text);
+  max-width: 680px;
+}
+.project-featured-card--hackathon p {
+  max-width: 720px;
+  color: #9a9a9a;
+  font-size: 0.86rem;
+}
+
+/* Dual CTA buttons row */
+.first48-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.first48-cta-primary {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  border: 1px solid var(--accent-mid);
+  background: var(--accent-dim);
+  padding: 7px 16px;
+  border-radius: 100px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.project-featured-card--hackathon:hover .first48-cta-primary {
+  background: rgba(184,245,82,0.18);
+  border-color: rgba(184,245,82,0.5);
+}
+.first48-cta-secondary {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  background: transparent;
+  padding: 7px 16px;
+  border-radius: 100px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.first48-cta-secondary:hover {
+  border-color: rgba(255,196,60,0.4);
+  color: #ffc43c;
+  background: rgba(255,196,60,0.07);
+}
+
+
 /* ---- Responsive ---- */
 @media (max-width: 1024px) {
   .projects-featured { grid-template-columns: 1fr; }
+  .project-featured-card--hackathon { grid-column: 1; }
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .skills-categories { grid-template-columns: 1fr 1fr; }
 }
@@ -688,4 +853,6 @@ footer {
   .footer-inner { flex-direction: column; gap: 10px; text-align: center; padding: 0 20px; }
   .cursor, .cursor-follower { display: none; }
   body { cursor: auto; }
+  .first48-wordmark { font-size: 1.8rem; }
+  .first48-actions { flex-direction: column; align-items: flex-start; }
 }

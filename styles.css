@@ -511,6 +511,7 @@ img { max-width: 100%; display: block; }
 .projects-featured {
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 16px; margin-bottom: 40px;
+  align-items: start;
 }
 .project-featured-card {
   background: var(--surface); border: 1px solid var(--border);
@@ -667,12 +668,13 @@ footer {
   background: linear-gradient(135deg, #0d1a0a 0%, #111611 40%, #0f1410 100%);
   border-color: rgba(184,245,82,0.22);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   gap: 16px;
   display: flex;
   flex-direction: column;
   height: auto;
   min-height: 0;
+  padding-bottom: 28px;
 }
 
 /* Animated glow border on top */

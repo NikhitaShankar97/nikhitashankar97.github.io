@@ -10,6 +10,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://js.puter.com/v2/"></script>
   <meta name="description" content="Nikhita Shankar — Data Engineer and Analytics professional. MS Business Analytics, UIUC.">
+
+  <style>
+    /* Keeps the AI bubble from overlapping the desktop navigation */
+    @media (min-width: 1180px) {
+      .nav-inner {
+        max-width: none;
+        margin: 0;
+        padding-left: 96px;
+        padding-right: 520px;
+      }
+      .nav-links { gap: 24px; }
+    }
+
+    @media (min-width: 901px) and (max-width: 1179px) {
+      .chat-bubble {
+        top: 82px;
+        right: 24px;
+      }
+      .chat-window {
+        top: 136px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -584,7 +607,7 @@
         <div class="chat-avatar">NS</div>
         <div>
           <div class="chat-header-name">Ask Nikhita's Portfolio</div>
-          <div class="chat-header-sub"><span class="chat-online-dot"></span>Powered by Claude · Instant</div>
+          <div class="chat-header-sub"><span class="chat-online-dot"></span>AI assistant · Instant</div>
         </div>
       </div>
       <button class="chat-close-btn" onclick="toggleChat()" aria-label="Close chat">&#x2715;</button>
@@ -602,13 +625,10 @@
         <div class="chat-suggestions-label">Try asking</div>
         <div class="chat-suggestions-grid">
           <button class="chat-sug-btn" onclick="sendSuggestion(this)">What does she specialize in?</button>
-          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Her hackathon wins?</button>
-          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Tools and tech stack?</button>
-          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Has she worked with LLMs?</button>
-          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Tell me about her experience at ExxonMobil</button>
-          <button class="chat-sug-btn" onclick="sendSuggestion(this)">How do I get in touch with her?</button>
           <button class="chat-sug-btn" onclick="sendSuggestion(this)">What makes her a strong hire?</button>
-          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Any publications or awards?</button>
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Tell me about her projects</button>
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Tools and tech stack?</button>
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">How do I contact her?</button>
         </div>
       </div>
     </div>
@@ -714,7 +734,7 @@
 
     const CLAUDE_MODEL = 'claude-sonnet-4-6';
 
-    const NIKHITA_CONTEXT = `You are an AI assistant embedded in Nikhita Shankar's portfolio website. Your job is to answer questions from recruiters, hiring managers, and visitors in a warm, professional, and concise way. Refer to Nikhita in the third person. Keep answers to 2-4 sentences unless more detail is genuinely needed. Be human and friendly, not robotic. Do not use em dashes. Use regular dashes or commas instead. Never fabricate information not listed below.
+    const NIKHITA_CONTEXT = `You are an AI assistant embedded in Nikhita Shankar's portfolio website. Your job is to answer questions from recruiters, hiring managers, and visitors in a warm, professional, and concise way. Refer to Nikhita in the third person. Keep every answer short: 1-2 sentences by default, maximum 3 short sentences only when needed. Use simple, human language. Be direct, clean, and easy to understand. Do not use em dashes. Do not over-explain. Do not sound salesy or robotic. Avoid long bullet lists unless the visitor asks for details. Never fabricate information not listed below.
 
 If someone asks how to contact Nikhita or reach her, share:
 - Email: nikhitashankar97@gmail.com
@@ -841,6 +861,15 @@ INTERESTS: Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
       return text;
     }
 
+
+    function cleanAIReply(text) {
+      return String(text || '')
+        .replace(/[—–]/g, ', ')
+        .replace(/
+{3,}/g, '\n\n')
+        .trim();
+    }
+
     async function fetchReply(userMsg) {
       const loadingEl = appendBotMsg('', true);
 
@@ -861,19 +890,22 @@ ${recentHistory}
 
 Visitor's latest question: ${userMsg}
 
-Answer as Nikhita's portfolio assistant. Keep it concise, accurate, warm, and recruiter-friendly.`;
+Answer as Nikhita's portfolio assistant. Keep the answer short, warm, human, and easy to scan. Use 1-2 sentences. No em dashes. No long paragraphs. If the question needs a list, use at most 3 bullets.`;
 
         const response = await puter.ai.chat(prompt, {
-          model: CLAUDE_MODEL
+          model: CLAUDE_MODEL,
+          max_tokens: 170,
+          temperature: 0.35
         });
 
         loadingEl.remove();
 
-        const reply =
+        const rawReply =
           response?.message?.content?.[0]?.text ||
           response?.text ||
           String(response || "I couldn't fetch a response right now. Please try again.");
 
+        const reply = cleanAIReply(rawReply);
         appendBotMsg(linkifyReply(reply), false);
         chatHistory.push({ role: 'assistant', content: reply });
       } catch (err) {

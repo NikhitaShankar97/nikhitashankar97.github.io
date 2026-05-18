@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nikhita Shankar — Data Engineer & Analytics</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles_cursor_fixed.css">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -652,14 +652,23 @@
     /* ---- Cursor ---- */
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-      setTimeout(() => {
-        follower.style.left = e.clientX + 'px';
-        follower.style.top = e.clientY + 'px';
-      }, 80);
-    });
+    const supportsCustomCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (cursor && follower && supportsCustomCursor) {
+      document.body.classList.add('custom-cursor-active');
+
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        setTimeout(() => {
+          follower.style.left = e.clientX + 'px';
+          follower.style.top = e.clientY + 'px';
+        }, 80);
+      });
+    } else {
+      if (cursor) cursor.style.display = 'none';
+      if (follower) follower.style.display = 'none';
+    }
 
     /* ---- Navbar scroll ---- */
     window.addEventListener('scroll', () => {

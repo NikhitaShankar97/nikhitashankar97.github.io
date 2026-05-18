@@ -241,8 +241,6 @@
             <a href="https://www.linkedin.com/posts/zerve-ai_we-just-wrapped-the-zerve-x-hackerearth-hackathon-activity-7454448842118426625-tAdy" target="_blank" class="link-pill">Announcement &#x2197;</a>
           </div>
         </div>
-
-        <!-- NEW: ODSC 2nd Place -->
         <div class="honor-card reveal honor-card--silver">
           <div class="honor-header">
             <div class="honor-icon-wrap">&#x1F948;</div>
@@ -255,7 +253,6 @@
             <a href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link" target="_blank" class="link-pill">Watch Demo &#x2197;</a>
           </div>
         </div>
-
         <div class="honor-card reveal">
           <div class="honor-header">
             <div class="honor-icon-wrap">&#x1F9E0;</div>
@@ -392,7 +389,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects" class="section section-dark">
     <div class="container">
       <div class="section-label">06 / Projects</div>
@@ -400,7 +396,6 @@
 
       <div class="projects-featured">
 
-        <!-- FIRST48 — full-width hackathon card (no longer a link — buttons are inside) -->
         <div class="project-featured-card project-featured-card--hackathon reveal">
           <div class="pf-top">
             <span class="pf-num">01</span>
@@ -416,13 +411,10 @@
             <span>Python</span><span>Random Forest</span><span>Behavioral ML</span><span>Product Analytics</span><span>Segmentation</span>
           </div>
           <div class="first48-actions">
-            <a href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link"
-               target="_blank"
-               class="first48-cta-secondary">&#x25B6;&nbsp; Watch Demo</a>
+            <a href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link" target="_blank" class="first48-cta-secondary">&#x25B6;&nbsp; Watch Demo</a>
           </div>
         </div>
 
-        <!-- UPNEXT — 2nd Place ODSC, also full-width -->
         <div class="project-featured-card project-featured-card--silver reveal">
           <div class="pf-top">
             <span class="pf-num">02</span>
@@ -438,12 +430,8 @@
             <span>Python</span><span>LightGBM</span><span>XGBoost</span><span>Streamlit</span><span>Product Analytics</span><span>Segmentation</span>
           </div>
           <div class="first48-actions">
-            <a href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link"
-               target="_blank"
-               class="first48-cta-secondary">&#x25B6;&nbsp; Watch Demo</a>
-            <a href="https://app.zerve.ai/notebook/f74703d8-d9e0-4a18-937d-5041e653acc2"
-               target="_blank"
-               class="first48-cta-notebook">&#x1F4D3;&nbsp; View Notebook</a>
+            <a href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link" target="_blank" class="first48-cta-secondary">&#x25B6;&nbsp; Watch Demo</a>
+            <a href="https://app.zerve.ai/notebook/f74703d8-d9e0-4a18-937d-5041e653acc2" target="_blank" class="first48-cta-notebook">&#x1F4D3;&nbsp; View Notebook</a>
           </div>
         </div>
 
@@ -574,14 +562,21 @@
 
   <!-- =============================================
        AI CHAT WIDGET
-       SETUP: Replace 'YOUR_ANTHROPIC_API_KEY' with
-       your real key. For security in production, run
-       this through a small Cloudflare Worker or
-       Netlify Function (see README note below).
+       Positioned top-right. Calls your Cloudflare
+       Worker proxy — replace WORKER_URL below with
+       your actual deployed Worker URL.
+       e.g. https://nikhita-chat.yourname.workers.dev
        ============================================= -->
-  <div id="chat-bubble" class="chat-bubble" onclick="toggleChat()">
-    <span class="chat-bubble-icon">&#x2728;</span>
-    <span class="chat-bubble-label">Ask Nikhita</span>
+
+  <div id="chat-bubble" class="chat-bubble" onclick="toggleChat()" aria-label="Ask Nikhita's AI assistant">
+    <div class="chat-bubble-inner">
+      <div class="chat-bubble-avatar">NS</div>
+      <div class="chat-bubble-text">
+        <span class="chat-bubble-title">Ask Nikhita</span>
+        <span class="chat-bubble-sub">AI assistant · instant</span>
+      </div>
+      <div class="chat-bubble-indicator"></div>
+    </div>
   </div>
 
   <div id="chat-window" class="chat-window">
@@ -590,30 +585,51 @@
         <div class="chat-avatar">NS</div>
         <div>
           <div class="chat-header-name">Ask Nikhita's Portfolio</div>
-          <div class="chat-header-sub">Powered by Claude · Usually instant</div>
+          <div class="chat-header-sub"><span class="chat-online-dot"></span>Powered by Claude · Instant</div>
         </div>
       </div>
-      <button class="chat-close-btn" onclick="toggleChat()">&#x2715;</button>
+      <button class="chat-close-btn" onclick="toggleChat()" aria-label="Close chat">&#x2715;</button>
     </div>
+
     <div class="chat-messages" id="chatMessages">
       <div class="chat-msg chat-msg--bot">
+        <div class="chat-msg-avatar">NS</div>
         <div class="chat-msg-bubble">
-          Hey! I'm Nikhita's AI assistant. Ask me anything about her experience, skills, projects, or background. Recruiters often ask things like <em>"What's her strongest technical skill?"</em> or <em>"Has she worked with LLMs?"</em>
+          Hey! I'm Nikhita's AI assistant. Ask me anything about her background, skills, or projects. I can also help you get in touch with her directly.
         </div>
       </div>
-      <div class="chat-suggestions" id="chatSuggestions">
-        <button onclick="sendSuggestion(this)">What does Nikhita specialize in?</button>
-        <button onclick="sendSuggestion(this)">Tell me about her hackathon wins</button>
-        <button onclick="sendSuggestion(this)">What tools and tech does she know?</button>
-        <button onclick="sendSuggestion(this)">What makes her stand out?</button>
+
+      <div class="chat-suggestions-section" id="chatSuggestions">
+        <div class="chat-suggestions-label">Try asking</div>
+        <div class="chat-suggestions-grid">
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">What does she specialize in?</button>
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Her hackathon wins?</button>
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Tools and tech stack?</button>
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Has she worked with LLMs?</button>
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Tell me about her experience at ExxonMobil</button>
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">How do I get in touch with her?</button>
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">What makes her a strong hire?</button>
+          <button class="chat-sug-btn" onclick="sendSuggestion(this)">Any publications or awards?</button>
+        </div>
       </div>
     </div>
+
     <div class="chat-input-row">
-      <input type="text" id="chatInput" class="chat-input" placeholder="Ask anything about Nikhita..." onkeydown="if(event.key==='Enter')sendChat()">
-      <button class="chat-send-btn" onclick="sendChat()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <input
+        type="text"
+        id="chatInput"
+        class="chat-input"
+        placeholder="Ask anything about Nikhita..."
+        onkeydown="if(event.key==='Enter')sendChat()"
+      >
+      <button class="chat-send-btn" onclick="sendChat()" aria-label="Send message">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
       </button>
     </div>
+    <div class="chat-footer-note">Responses generated by AI. May occasionally be imperfect.</div>
   </div>
 
   <script>
@@ -643,7 +659,10 @@
     document.addEventListener('mousemove', e => {
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
-      setTimeout(() => { follower.style.left = e.clientX + 'px'; follower.style.top = e.clientY + 'px'; }, 80);
+      setTimeout(() => {
+        follower.style.left = e.clientX + 'px';
+        follower.style.top = e.clientY + 'px';
+      }, 80);
     });
 
     /* ---- Navbar scroll ---- */
@@ -659,7 +678,9 @@
     /* ---- Reveal on scroll ---- */
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80); });
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+      });
     }, { threshold: 0.08 });
     revealEls.forEach(el => observer.observe(el));
 
@@ -687,21 +708,36 @@
     document.addEventListener("DOMContentLoaded", typeMessage);
 
     /* =============================================
-       AI CHAT WIDGET
+       AI CHAT WIDGET LOGIC
+       IMPORTANT: Replace WORKER_URL with your
+       Cloudflare Worker URL after deploying it.
+       See the README / setup instructions.
        ============================================= */
-    const NIKHITA_CONTEXT = `You are an AI assistant embedded in Nikhita Shankar's portfolio website. Your role is to answer questions from recruiters, hiring managers, and collaborators about Nikhita concisely and professionally. Always refer to her in the third person (e.g., "Nikhita has..." or "She specializes in..."). Keep answers to 2-4 sentences unless more detail is genuinely needed. Never fabricate information not provided below.
+
+    // REPLACE THIS with your Cloudflare Worker URL after deploying
+    // e.g. 'https://nikhita-chat.yourname.workers.dev'
+    const WORKER_URL = 'YOUR_CLOUDFLARE_WORKER_URL';
+
+    const NIKHITA_CONTEXT = `You are an AI assistant embedded in Nikhita Shankar's portfolio website. Your job is to answer questions from recruiters, hiring managers, and visitors in a warm, professional, and concise way. Refer to Nikhita in the third person. Keep answers to 2-4 sentences unless more detail is genuinely needed. Be human and friendly, not robotic. Do not use em dashes. Use regular dashes or commas instead. Never fabricate information not listed below.
+
+If someone asks how to contact Nikhita or reach her, share:
+- Email: nikhitashankar97@gmail.com
+- LinkedIn: https://www.linkedin.com/in/nikhita-shankar-analytics/
+- Or point them to the contact form at the bottom of this page.
+
+If asked about salary expectations, visa status, or relocation: say those details are best discussed directly with Nikhita via the contact form or LinkedIn.
 
 PROFILE:
-Nikhita Shankar is a Data Engineer and Analytics professional with 5+ years of experience. She holds an MS in Business Analytics from UIUC (2024-2025) and a BE in Computer Science from R.V. College of Engineering (2016-2020). She is currently open to new opportunities and based in the United States. She is a Beta Gamma Sigma Honor Society inductee (top 20% of business graduates globally) and an AWS Certified Cloud Practitioner.
+Nikhita Shankar is a Data Engineer and Analytics professional with 5+ years of experience. She holds an MS in Business Analytics from UIUC (2024-2025) and a BE in Computer Science from R.V. College of Engineering (2016-2020). She is based in the United States and currently open to new opportunities. She is a Beta Gamma Sigma Honor Society inductee (top 20% of business graduates globally) and an AWS Certified Cloud Practitioner.
 
 EXPERIENCE (most recent first):
-1. Obvience (2025-Present) — Data Engineer. End-to-end analytics using Microsoft Fabric, Power BI, SQL Server.
-2. WorkGaze / Global Launch Inc. (Aug-Sep 2025) — Data Engineer (Volunteer). Automated data workflows for AI-driven workplace analytics.
-3. Wolters Kluwer (Jan-May 2025) — Data Science and AI Consultant (Industry Capstone). LLM differential diagnosis system using GPT-4o and Gemini.
-4. Colorado West Healthcare (Aug-Dec 2024) — Data Engineering and Analytics Lead (Industry Capstone). Cognos Workforce Insights Dashboard with SQL and Python pipelines.
-5. Hyperplane, acquired by Nubank (May 2023-May 2024) — Data Engineer. Financial intelligence infrastructure at a fintech startup through acquisition.
-6. ExxonMobil (Jan 2020-Apr 2023) — Data Science / Analytics / Data Engineering. Won Annual "Bright Beginner" Award and Quarterly Recognition Award.
-7. Softtek (Jun-Jul 2019) — Engineering Intern.
+1. Obvience (2025-Present) -- Data Engineer. End-to-end analytics using Microsoft Fabric, Power BI, SQL Server.
+2. WorkGaze / Global Launch Inc. (Aug-Sep 2025) -- Data Engineer (Volunteer). Automated data workflows for AI-driven workplace analytics.
+3. Wolters Kluwer (Jan-May 2025) -- Data Science and AI Consultant (Industry Capstone). LLM differential diagnosis system using GPT-4o and Gemini.
+4. Colorado West Healthcare (Aug-Dec 2024) -- Data Engineering and Analytics Lead (Industry Capstone). Cognos Workforce Insights Dashboard with SQL and Python pipelines.
+5. Hyperplane, acquired by Nubank (May 2023-May 2024) -- Data Engineer. Financial intelligence infrastructure at a fintech startup through acquisition.
+6. ExxonMobil (Jan 2020-Apr 2023) -- Data Science / Analytics / Data Engineering. Won Annual "Bright Beginner" Award and Quarterly Recognition Award.
+7. Softtek (Jun-Jul 2019) -- Engineering Intern.
 
 SKILLS:
 Languages: Python, R, SQL
@@ -712,19 +748,17 @@ ML: Scikit-learn, XGBoost, LightGBM, Random Forest, BERT, NLP
 AI: GPT-4o, Gemini, prompt engineering, LLM evaluation
 
 HACKATHON WINS:
-1. 1st Place — Zerve x HackerEarth Hackathon. Project: First48. Predicted long-term user success from 48 hours of behavioral data using a Random Forest classifier (AUC ~0.98), feature engineering, user segmentation, and a Streamlit business app.
-2. 2nd Place — ODSC AI Datathon. Project: UpNext. Product-led growth intelligence tool built in 24 hours on real Zerve product event data. Used LightGBM and XGBoost to predict subscription upgrades, combined with funnel analysis and segmentation, delivered via a Streamlit app with prioritized action queues for product and revenue teams.
+1. 1st Place -- Zerve x HackerEarth Hackathon. Project: First48. Predicted long-term user success from 48 hours of behavioral data using a Random Forest classifier (AUC ~0.98), feature engineering, user segmentation, and a Streamlit business app.
+2. 2nd Place -- ODSC AI Datathon. Project: UpNext. Product-led growth intelligence tool built in 24 hours on real Zerve product event data. Used LightGBM and XGBoost to predict subscription upgrades, combined with funnel analysis and segmentation, delivered via a Streamlit app.
 
 PUBLICATIONS:
-1. "Review of Recommendation Systems using Filtering-based Concepts" — IRJET. Matrix factorization, SVD, collaborative and content-based filtering.
-2. "EmoSense" — Zenodo 2025. Privacy-preserving early burnout detection with the Emotional Stability Drift Index (ESDI).
+1. "Review of Recommendation Systems using Filtering-based Concepts" -- IRJET. Matrix factorization, SVD, collaborative and content-based filtering.
+2. "EmoSense" -- Zenodo 2025. Privacy-preserving early burnout detection with the Emotional Stability Drift Index (ESDI).
 
 KEY PROJECTS:
-LLM Differential Diagnosis, Spotify Playlist Prediction Pipeline (AWS), Workforce Insights Dashboard (Cognos), NLP Disaster Tweet Classification (BERT), Yelp Business Intelligence Platform (Azure), Stock Market Forecasting, MLDA Mortality Analysis (R causal inference).
+LLM Differential Diagnosis (GPT-4o + Gemini), Spotify Playlist Prediction Pipeline (AWS: S3, Glue, Athena, QuickSight), Workforce Insights Dashboard (IBM Cognos), NLP Disaster Tweet Classification (BERT), Yelp Business Intelligence Platform (Azure), Stock Market Forecasting, MLDA Mortality Analysis (R causal inference).
 
-INTERESTS: Cooking, Traveling, Badminton, Football, Cricket, Formula 1.
-
-FOR PERSONAL / HR QUESTIONS (salary, visa, relocation): Say "That's best discussed directly with Nikhita — you can reach her via the contact form on this page or on LinkedIn."`;
+INTERESTS: Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
 
     let chatOpen = false;
     let chatHistory = [];
@@ -733,10 +767,23 @@ FOR PERSONAL / HR QUESTIONS (salary, visa, relocation): Say "That's best discuss
       chatOpen = !chatOpen;
       document.getElementById('chat-window').classList.toggle('open', chatOpen);
       document.getElementById('chat-bubble').classList.toggle('active', chatOpen);
+      if (chatOpen) {
+        setTimeout(() => document.getElementById('chatInput').focus(), 300);
+      }
     }
+
+    // Close chat when clicking outside
+    document.addEventListener('click', function(e) {
+      const win = document.getElementById('chat-window');
+      const bubble = document.getElementById('chat-bubble');
+      if (chatOpen && !win.contains(e.target) && !bubble.contains(e.target)) {
+        toggleChat();
+      }
+    });
 
     function sendSuggestion(btn) {
       const text = btn.textContent;
+      // Hide suggestions section
       const sugg = document.getElementById('chatSuggestions');
       if (sugg) sugg.style.display = 'none';
       appendUserMsg(text);
@@ -755,38 +802,63 @@ FOR PERSONAL / HR QUESTIONS (salary, visa, relocation): Say "That's best discuss
     }
 
     function appendUserMsg(text) {
+      chatHistory.push({ role: 'user', content: text });
       const msgs = document.getElementById('chatMessages');
       const div = document.createElement('div');
       div.className = 'chat-msg chat-msg--user';
-      div.innerHTML = `<div class="chat-msg-bubble">${escHtml(text)}</div>`;
+      div.innerHTML = '<div class="chat-msg-bubble">' + escHtml(text) + '</div>';
       msgs.appendChild(div);
-      msgs.scrollTop = msgs.scrollHeight;
-      chatHistory.push({ role: 'user', content: text });
+      scrollToBottom();
     }
 
-    function appendBotMsg(text, isLoading = false) {
+    function appendBotMsg(html, isLoading) {
       const msgs = document.getElementById('chatMessages');
       const div = document.createElement('div');
       div.className = 'chat-msg chat-msg--bot' + (isLoading ? ' chat-msg--loading' : '');
-      div.innerHTML = isLoading
-        ? `<div class="chat-msg-bubble"><span class="chat-dots"><span></span><span></span><span></span></span></div>`
-        : `<div class="chat-msg-bubble">${text}</div>`;
+      const avt = document.createElement('div');
+      avt.className = 'chat-msg-avatar';
+      avt.textContent = 'NS';
+      const bub = document.createElement('div');
+      bub.className = 'chat-msg-bubble';
+      bub.innerHTML = isLoading
+        ? '<span class="chat-dots"><span></span><span></span><span></span></span>'
+        : html;
+      div.appendChild(avt);
+      div.appendChild(bub);
       msgs.appendChild(div);
-      msgs.scrollTop = msgs.scrollHeight;
+      scrollToBottom();
       return div;
+    }
+
+    function scrollToBottom() {
+      const msgs = document.getElementById('chatMessages');
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function linkifyReply(text) {
+      // Bold markdown
+      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      // Make URLs clickable
+      text = text.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+      // Make email addresses clickable
+      text = text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1">$1</a>');
+      return text;
     }
 
     async function fetchReply(userMsg) {
       const loadingEl = appendBotMsg('', true);
+
+      // If worker URL not configured, show helpful message
+      if (WORKER_URL === 'YOUR_CLOUDFLARE_WORKER_URL') {
+        loadingEl.remove();
+        appendBotMsg('The AI assistant is not yet connected. To set it up, deploy the Cloudflare Worker proxy and replace YOUR_CLOUDFLARE_WORKER_URL in the HTML.', false);
+        return;
+      }
+
       try {
-        const res = await fetch('https://api.anthropic.com/v1/messages', {
+        const res = await fetch(WORKER_URL, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': 'YOUR_ANTHROPIC_API_KEY', /* Replace with your key */
-            'anthropic-version': '2023-06-01',
-            'anthropic-dangerous-direct-browser-access': 'true'
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             model: 'claude-sonnet-4-20250514',
             max_tokens: 400,
@@ -794,19 +866,27 @@ FOR PERSONAL / HR QUESTIONS (salary, visa, relocation): Say "That's best discuss
             messages: chatHistory
           })
         });
+
+        if (!res.ok) throw new Error('Worker responded with ' + res.status);
+
         const data = await res.json();
         loadingEl.remove();
         const reply = data?.content?.[0]?.text || "I couldn't fetch a response right now. Please try again.";
-        appendBotMsg(reply);
+        appendBotMsg(linkifyReply(reply), false);
         chatHistory.push({ role: 'assistant', content: reply });
       } catch (err) {
         loadingEl.remove();
-        appendBotMsg("Something went wrong. Please try again in a moment.");
+        appendBotMsg("Something went wrong connecting to the AI. Please try again in a moment.", false);
+        console.error('Chat error:', err);
       }
     }
 
     function escHtml(str) {
-      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
     }
   </script>
 </body>

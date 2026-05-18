@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://js.puter.com/v2/"></script>
   <meta name="description" content="Nikhita Shankar — Data Engineer and Analytics professional. MS Business Analytics, UIUC.">
 </head>
 <body>
@@ -562,10 +563,8 @@
 
   <!-- =============================================
        AI CHAT WIDGET
-       Positioned top-right. Calls your Cloudflare
-       Worker proxy — replace WORKER_URL below with
-       your actual deployed Worker URL.
-       e.g. https://nikhita-chat.yourname.workers.dev
+       Powered directly by Puter.js + Claude.
+       No Cloudflare Worker, API key, or backend needed.
        ============================================= -->
 
   <div id="chat-bubble" class="chat-bubble" onclick="toggleChat()" aria-label="Ask Nikhita's AI assistant">
@@ -709,14 +708,11 @@
 
     /* =============================================
        AI CHAT WIDGET LOGIC
-       IMPORTANT: Replace WORKER_URL with your
-       Cloudflare Worker URL after deploying it.
-       See the README / setup instructions.
+       Powered by Puter.js + Claude in the browser.
+       No Cloudflare Worker or API key required.
        ============================================= */
 
-    // REPLACE THIS with your Cloudflare Worker URL after deploying
-    // e.g. 'https://nikhita-chat.yourname.workers.dev'
-    const WORKER_URL = 'YOUR_CLOUDFLARE_WORKER_URL';
+    const CLAUDE_MODEL = 'claude-sonnet-4-6';
 
     const NIKHITA_CONTEXT = `You are an AI assistant embedded in Nikhita Shankar's portfolio website. Your job is to answer questions from recruiters, hiring managers, and visitors in a warm, professional, and concise way. Refer to Nikhita in the third person. Keep answers to 2-4 sentences unless more detail is genuinely needed. Be human and friendly, not robotic. Do not use em dashes. Use regular dashes or commas instead. Never fabricate information not listed below.
 
@@ -848,35 +844,41 @@ INTERESTS: Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
     async function fetchReply(userMsg) {
       const loadingEl = appendBotMsg('', true);
 
-      // If worker URL not configured, show helpful message
-      if (WORKER_URL === 'YOUR_CLOUDFLARE_WORKER_URL') {
-        loadingEl.remove();
-        appendBotMsg('The AI assistant is not yet connected. To set it up, deploy the Cloudflare Worker proxy and replace YOUR_CLOUDFLARE_WORKER_URL in the HTML.', false);
-        return;
-      }
-
       try {
-        const res = await fetch(WORKER_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514',
-            max_tokens: 400,
-            system: NIKHITA_CONTEXT,
-            messages: chatHistory
-          })
+        if (!window.puter || !puter.ai || !puter.ai.chat) {
+          throw new Error('Puter.js did not load. Check the CDN script tag.');
+        }
+
+        const recentHistory = chatHistory
+          .slice(-8)
+          .map(m => `${m.role === 'user' ? 'Visitor' : 'Assistant'}: ${m.content}`)
+          .join('\n');
+
+        const prompt = `${NIKHITA_CONTEXT}
+
+Conversation so far:
+${recentHistory}
+
+Visitor's latest question: ${userMsg}
+
+Answer as Nikhita's portfolio assistant. Keep it concise, accurate, warm, and recruiter-friendly.`;
+
+        const response = await puter.ai.chat(prompt, {
+          model: CLAUDE_MODEL
         });
 
-        if (!res.ok) throw new Error('Worker responded with ' + res.status);
-
-        const data = await res.json();
         loadingEl.remove();
-        const reply = data?.content?.[0]?.text || "I couldn't fetch a response right now. Please try again.";
+
+        const reply =
+          response?.message?.content?.[0]?.text ||
+          response?.text ||
+          String(response || "I couldn't fetch a response right now. Please try again.");
+
         appendBotMsg(linkifyReply(reply), false);
         chatHistory.push({ role: 'assistant', content: reply });
       } catch (err) {
         loadingEl.remove();
-        appendBotMsg("Something went wrong connecting to the AI. Please try again in a moment.", false);
+        appendBotMsg("Something went wrong connecting to the AI. Please try again in a moment. You can also reach Nikhita through the contact form or LinkedIn.", false);
         console.error('Chat error:', err);
       }
     }

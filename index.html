@@ -2137,7 +2137,7 @@ INTERESTS: Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
         updatePuterStatus(signedIn);
 
         if (signedIn) {
-          appendBotMsg('Connected. Ask me anything about Nikhita's background, projects, or skills.', false);
+          appendBotMsg("Connected. Ask me anything about Nikhita's background, projects, or skills.", false);
           if (pendingUserMsg) {
             const msg = pendingUserMsg;
             pendingUserMsg = '';
@@ -2311,6 +2311,12 @@ Answer as Nikhita's portfolio assistant. Keep the answer short, warm, human, and
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
     }
+
+    // Expose click handlers globally for inline onclick attributes
+    window.toggleChat = toggleChat;
+    window.sendChat = sendChat;
+    window.sendSuggestion = sendSuggestion;
+    window.connectPuterAI = connectPuterAI;
   </script>
 </body>
 </html>

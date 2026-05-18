@@ -1507,8 +1507,8 @@ footer {
           <h3>Zerve x HackerEarth Hackathon — First Place</h3>
           <p>Won first place for First48, a product analytics system predicting long-term user success from 48 hours of behavioral data. Built end-to-end: feature engineering, Random Forest classifier (AUC ~0.98), user segmentation, and a business-facing Streamlit app.</p>
           <div class="honor-links">
-            <a href="https://www.zerve.ai/gallery/6c20e273-9afb-4fc5-8dfa-9b8a44829b24" target="_blank" class="link-pill">View Project &#x2197;</a>
-            <a href="https://www.linkedin.com/posts/zerve-ai_we-just-wrapped-the-zerve-x-hackerearth-hackathon-activity-7454448842118426625-tAdy" target="_blank" class="link-pill">Announcement &#x2197;</a>
+            <a href="https://www.zerve.ai/gallery/6c20e273-9afb-4fc5-8dfa-9b8a44829b24" target="_blank" class="link-pill">View Notebook &#x2197;</a>
+            <a href="https://www.linkedin.com/posts/zerve-ai_we-just-wrapped-the-zerve-x-hackerearth-hackathon-activity-7454448842118426625-tAdy" target="_blank" class="link-pill">View Announcement &#x2197;</a>
           </div>
         </div>
         <div class="honor-card reveal honor-card--silver">
@@ -1520,7 +1520,7 @@ footer {
           <p>Placed 2nd in the ODSC AI 24-hour Datathon using real Zerve product event data. Built UpNext, a product-led growth intelligence tool combining ML-based upgrade prediction, user segmentation, funnel analysis, and a Streamlit app that converts raw behavioral data into a prioritized growth action queue for product and revenue teams.</p>
           <div class="honor-links">
             <a href="https://app.zerve.ai/notebook/f74703d8-d9e0-4a18-937d-5041e653acc2" target="_blank" class="link-pill">View Notebook &#x2197;</a>
-            <a href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link" target="_blank" class="link-pill">Watch Demo &#x2197;</a>
+            <a href="https://www.linkedin.com/posts/odsc-ai_odscai-datathon-datascience-activity-7456008697786458112-uN90?utm_source=share&utm_medium=member_desktop&rcm=ACoAADVQeTcBFRcLio8JmflEHIqfIrRY4aorEsI" target="_blank" class="link-pill">View Announcement &#x2197;</a>
           </div>
         </div>
         <div class="honor-card reveal">
@@ -1701,7 +1701,6 @@ footer {
           </div>
           <div class="first48-actions">
             <a href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link" target="_blank" class="first48-cta-secondary">&#x25B6;&nbsp; Watch Demo</a>
-            <a href="https://app.zerve.ai/notebook/f74703d8-d9e0-4a18-937d-5041e653acc2" target="_blank" class="first48-cta-notebook">&#x1F4D3;&nbsp; View Notebook</a>
           </div>
         </div>
 
@@ -1993,8 +1992,9 @@ footer {
 
 If someone asks how to contact Nikhita or reach her, share:
 - Email: nikhitashankar97@gmail.com
-- LinkedIn: https://www.linkedin.com/in/nikhita-shankar-analytics/
+- LinkedIn as a markdown link only: [LinkedIn](https://www.linkedin.com/in/nikhita-shankar-analytics/)
 - Or point them to the contact form at the bottom of this page.
+Do not print the raw LinkedIn URL if you can use the LinkedIn link text instead.
 
 If asked about salary expectations, visa status, or relocation: say those details are best discussed directly with Nikhita via the contact form or LinkedIn.
 
@@ -2109,8 +2109,13 @@ INTERESTS: Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
     function linkifyReply(text) {
       // Bold markdown
       text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      // Make URLs clickable
-      text = text.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+
+      // Convert markdown links first, including cases where the URL wraps to the next line
+      text = text.replace(/\[([^\]]+)\]\s*\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+      // Make plain URLs clickable only if they are not already inside href attributes
+      text = text.replace(/(?<!href=")https?:\/\/[^\s<)]+/g, '<a href="$&" target="_blank" rel="noopener">$&</a>');
+
       // Make email addresses clickable
       text = text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1">$1</a>');
       return text;
@@ -2144,7 +2149,7 @@ ${recentHistory}
 
 Visitor's latest question: ${userMsg}
 
-Answer as Nikhita's portfolio assistant. Keep the answer short, warm, human, and easy to scan. Use 1-2 sentences. No em dashes. No long paragraphs. If the question needs a list, use at most 3 bullets.`;
+Answer as Nikhita's portfolio assistant. Keep the answer short, warm, human, and easy to scan. Use 1-2 sentences. No em dashes. No long paragraphs. If sharing LinkedIn, use [LinkedIn](https://www.linkedin.com/in/nikhita-shankar-analytics/) and do not show the raw URL. If the question needs a list, use at most 3 bullets.`;
 
         const response = await puter.ai.chat(prompt, {
           model: CLAUDE_MODEL,

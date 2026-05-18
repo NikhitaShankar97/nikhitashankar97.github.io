@@ -30,7 +30,7 @@ body {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
@@ -54,6 +54,24 @@ img { max-width: 100%; display: block; }
   transform: translate(-50%, -50%);
   z-index: 9998;
   transition: left 0.12s ease, top 0.12s ease;
+}
+
+
+/* ---- Safe custom cursor activation ----
+   Native cursor stays available unless JS successfully turns this on. */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active input,
+  body.custom-cursor-active textarea {
+    cursor: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor, .cursor-follower { display: none !important; }
+  body { cursor: auto; }
 }
 
 /* ---- Nav ---- */
@@ -1230,8 +1248,6 @@ footer {
   .exp-left { min-width: unset; flex-direction: column; gap: 6px; }
   .form-row { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; gap: 10px; text-align: center; padding: 0 20px; }
-  .cursor, .cursor-follower { display: none; }
-  body { cursor: auto; }
   .first48-wordmark, .upnext-wordmark { font-size: 1.8rem; }
   .first48-actions { flex-direction: column; align-items: flex-start; }
 

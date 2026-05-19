@@ -2326,5 +2326,124 @@ Answer as Nikhita's portfolio assistant. Keep the answer short, warm, human, and
     window.sendSuggestion = sendSuggestion;
     window.connectPuterAI = connectPuterAI;
 </script>
+
+
+<!-- Emergency chat/cursor reliability patch. Keeps the portfolio content intact. -->
+<style id="chat-click-rescue-style">
+  #chat-bubble {
+    z-index: 2147483000 !important;
+    pointer-events: auto !important;
+    user-select: none;
+  }
+  #chat-window {
+    z-index: 2147482999 !important;
+  }
+  #chat-window.open {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+  }
+  #chat-bubble.active {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  .cursor,
+  .cursor-follower {
+    left: -100px;
+    top: -100px;
+  }
+</style>
+<script id="chat-click-rescue-script">
+(function () {
+  function byId(id) { return document.getElementById(id); }
+
+  function setChatOpen(open) {
+    var win = byId('chat-window');
+    var bubble = byId('chat-bubble');
+    var input = byId('chatInput');
+    if (!win || !bubble) return;
+
+    win.classList.toggle('open', open);
+    bubble.classList.toggle('active', open);
+
+    if (open && input) {
+      setTimeout(function () { input.focus(); }, 150);
+    }
+  }
+
+  function hardToggleChat(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+    }
+    var win = byId('chat-window');
+    if (!win) return false;
+    setChatOpen(!win.classList.contains('open'));
+    return false;
+  }
+
+  function hardCloseChat(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+    }
+    setChatOpen(false);
+    return false;
+  }
+
+  function bindChat() {
+    var bubble = byId('chat-bubble');
+    var closeBtn = document.querySelector('.chat-close-btn');
+
+    if (bubble) {
+      bubble.removeAttribute('onclick');
+      bubble.onclick = hardToggleChat;
+      bubble.addEventListener('click', hardToggleChat, true);
+      bubble.addEventListener('touchend', hardToggleChat, true);
+    }
+
+    if (closeBtn) {
+      closeBtn.removeAttribute('onclick');
+      closeBtn.onclick = hardCloseChat;
+      closeBtn.addEventListener('click', hardCloseChat, true);
+      closeBtn.addEventListener('touchend', hardCloseChat, true);
+    }
+  }
+
+  function repairCursor() {
+    var cursor = document.querySelector('.cursor');
+    var follower = document.querySelector('.cursor-follower');
+    if (!cursor || !follower) return;
+
+    cursor.style.left = '-100px';
+    cursor.style.top = '-100px';
+    follower.style.left = '-100px';
+    follower.style.top = '-100px';
+
+    document.addEventListener('mousemove', function (e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      follower.style.left = e.clientX + 'px';
+      follower.style.top = e.clientY + 'px';
+      document.body.classList.add('custom-cursor-active');
+    }, { passive: true });
+  }
+
+  window.toggleChat = hardToggleChat;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      bindChat();
+      repairCursor();
+    });
+  } else {
+    bindChat();
+    repairCursor();
+  }
+})();
+</script>
+
 </body>
 </html>

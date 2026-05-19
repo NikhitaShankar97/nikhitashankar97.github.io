@@ -1873,10 +1873,7 @@ body.custom-cursor-active .cursor-follower { opacity: 1; }
         </div>
 </div>
 <div class="chat-auth-note" id="chatAuthNote">
-<strong>Want live AI answers?</strong> Click <strong>Connect AI</strong> once. A secure Puter window may open. If it does not connect, the assistant will still answer from Nikhita's portfolio.
-        <br/>
-<button id="puterConnectBtn" type="button">Connect AI</button>
-<div class="chat-auth-status" id="chatAuthStatus">Portfolio mode ready. Live AI not connected yet.</div>
+<strong>AI mode is on.</strong> This assistant uses Puter.js when available. If Puter cannot connect, it will still answer from Nikhita's portfolio instead of breaking.
 </div>
 <div class="chat-suggestions-section" id="chatSuggestions">
 <div class="chat-suggestions-label">Try asking</div>
@@ -2021,7 +2018,7 @@ body.custom-cursor-active .cursor-follower { opacity: 1; }
 
     /* =============================================
        AI CHAT WIDGET LOGIC
-       Uses Puter AI when connected. Falls back to safe portfolio answers.
+       Uses Puter AI directly when available. Falls back to safe portfolio answers.
        ============================================= */
 
     const CLAUDE_MODEL = 'claude-sonnet-4-6';
@@ -2232,15 +2229,8 @@ Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
       const loadingEl = appendBotMsg('', true);
 
       try {
-        const connected = puterConnected || await checkPuterStatus();
-        updateAIStatus(connected);
-
-        if (!connected || !window.puter || !puter.ai || !puter.ai.chat) {
-          const local = localPortfolioReply(userMsg);
-          if (loadingEl) loadingEl.remove();
-          appendBotMsg(linkifyReply(local), false);
-          chatHistory.push({ role: 'assistant', content: local });
-          return;
+        if (!window.puter || !puter.ai || !puter.ai.chat) {
+          throw new Error('Puter.js did not load');
         }
 
         const recentHistory = chatHistory
@@ -2258,8 +2248,8 @@ Visitor's latest question: ${userMsg}
 Answer as Nikhita's portfolio assistant. Keep the answer short, warm, human, and easy to scan. Use 1-2 sentences. No em dashes. No long paragraphs. If sharing LinkedIn, use [LinkedIn](https://www.linkedin.com/in/nikhita-shankar-analytics/) and do not show the raw URL. If the question needs a list, use at most 3 bullets.`;
 
         const response = await withTimeout(
-          puter.ai.chat(prompt, { model: CLAUDE_MODEL, max_tokens: 170, temperature: 0.35 }),
-          15000
+          puter.ai.chat(prompt, { model: CLAUDE_MODEL }),
+          18000
         );
 
         if (loadingEl) loadingEl.remove();
@@ -2269,11 +2259,10 @@ Answer as Nikhita's portfolio assistant. Keep the answer short, warm, human, and
         appendBotMsg(linkifyReply(reply), false);
         chatHistory.push({ role: 'assistant', content: reply });
       } catch (err) {
-        console.error('Chat error:', err);
+        console.error('Puter AI failed, using portfolio fallback:', err);
         if (loadingEl) loadingEl.remove();
         const fallback = localPortfolioReply(userMsg);
         appendBotMsg(linkifyReply(fallback), false);
-        updateAIStatus(false, 'Live AI did not respond. Portfolio mode is still working.');
         chatHistory.push({ role: 'assistant', content: fallback });
       }
     }

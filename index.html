@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Nikhita Shankar — Data Engineer &amp; Analytics</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikhita Shankar — Data Engineer & Analytics</title>
+  <style>
 /* =============================================
    NIKHITA SHANKAR — PORTFOLIO CSS v3
    ============================================= */
@@ -1227,6 +1226,21 @@ footer {
   flex-shrink: 0;
 }
 
+.chat-auth-note {
+  margin-top: 4px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(184,245,82,0.07);
+  border: 1px solid rgba(184,245,82,0.18);
+  color: var(--text-dim);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+.chat-auth-note strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 1024px) {
   .projects-featured { grid-template-columns: 1fr; }
@@ -1274,635 +1288,636 @@ footer {
     top: auto;
   }
 }
-  
-
-/* ---- AI auth note + safer cursor polish ---- */
-.cursor, .cursor-follower { opacity: 0; }
-body.custom-cursor-active .cursor,
-body.custom-cursor-active .cursor-follower { opacity: 1; }
-
-.chat-auth-note {
-  background: rgba(184,245,82,0.055);
-  border: 1px solid rgba(184,245,82,0.16);
-  border-radius: 14px;
-  padding: 10px 12px;
-  color: var(--text-dim);
-  font-size: 0.75rem;
-  line-height: 1.55;
-}
-.chat-auth-note strong { color: var(--text); font-weight: 600; }
-.chat-auth-note button {
-  margin-top: 8px;
-  border: 1px solid rgba(184,245,82,0.32);
-  background: rgba(184,245,82,0.12);
-  color: var(--accent);
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  cursor: pointer;
-}
-.chat-auth-note button:hover { background: rgba(184,245,82,0.18); }
-.chat-auth-status { margin-top: 6px; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.62rem; }
-
   </style>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<script src="https://js.puter.com/v2/"></script>
-<meta content="Nikhita Shankar — Data Engineer and Analytics professional. MS Business Analytics, UIUC." name="description"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="description" content="Nikhita Shankar — Data Engineer and Analytics professional. MS Business Analytics, UIUC.">
 </head>
 <body>
-<div class="cursor"></div>
-<div class="cursor-follower"></div>
-<nav id="navbar">
-<div class="nav-inner">
-<a class="nav-logo" href="#hero">NS<span class="dot">.</span></a>
-<ul class="nav-links">
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#honors">Honors</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a aria-label="LinkedIn" class="nav-social" href="https://www.linkedin.com/in/nikhita-shankar-analytics/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-</ul>
-<button aria-label="Menu" class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</div>
-</nav>
-<div class="mobile-nav" id="mobileNav">
-<button class="mobile-close" id="mobileClose">✕</button>
-<ul>
-<li><a class="mobile-link" href="#about">About</a></li>
-<li><a class="mobile-link" href="#skills">Skills</a></li>
-<li><a class="mobile-link" href="#education">Education</a></li>
-<li><a class="mobile-link" href="#honors">Honors</a></li>
-<li><a class="mobile-link" href="#experience">Experience</a></li>
-<li><a class="mobile-link" href="#projects">Projects</a></li>
-<li><a class="mobile-link" href="#contact">Contact</a></li>
-</ul>
-</div>
-<section id="hero">
-<div class="hero-bg">
-<div class="grid-overlay"></div>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-</div>
-<div class="hero-content">
-<div class="hero-badge"><span class="badge-dot"></span>Open to opportunities</div>
-<img alt="Nikhita Shankar" class="profile-pic" loading="lazy" src="profile.jpg"/>
-<h1 class="hero-name">Nikhita <em>Shankar</em></h1>
-<p class="hero-subtitle">Data Engineer &amp; Analytics Professional</p>
-<div class="hero-tagline"><span class="typed-text"></span><span class="cursor-blink">|</span></div>
-<div class="hero-ctas">
-<a class="btn-primary" href="#projects">View My Work</a>
-<a class="btn-ghost" href="#contact">Get in Touch</a>
-</div>
-</div>
-<div class="hero-scroll-indicator">
-<span>Scroll</span>
-<div class="scroll-line"></div>
-</div>
-</section>
-<div class="stats-bar">
-<div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></div>
-<div class="stat-div"></div>
-<div class="stat"><span class="stat-num">4</span><span class="stat-label">Companies</span></div>
-<div class="stat-div"></div>
-<div class="stat"><span class="stat-num">12+</span><span class="stat-label">Projects</span></div>
-<div class="stat-div"></div>
-<div class="stat"><span class="stat-num">2</span><span class="stat-label">Publications</span></div>
-</div>
-<section class="section" id="about">
-<div class="container">
-<div class="section-label">01 / About</div>
-<h2 class="section-title">Turning complexity<br/><em>into clarity</em></h2>
-<div class="about-grid">
-<div class="about-text">
-<p class="about-lead">I don't just move data. I build the systems that <strong>turn it into decisions.</strong></p>
-<p>At <strong>Obvience</strong>, I design analytics platforms where AI and human judgment meet, integrating Microsoft Fabric, Power BI, and agentic pipelines to help organizations stop guessing and start knowing. Before that, three years at <strong>ExxonMobil</strong> and a year at <strong>Hyperplane</strong> (acquired by Nubank) building financial intelligence infrastructure at scale.</p>
-<p>With an MS in Business Analytics from <strong>UIUC</strong>, I work at the intersection of data engineering and applied AI: the place where LLMs, predictive models, and clean pipelines actually ship together. My thesis: the best data work disappears into the product. Nobody notices the pipeline. Everyone notices the insight.</p>
-<div class="hobby-row">
-<span class="hobby-tag">🍳 Cooking</span>
-<span class="hobby-tag">✈️ Traveling</span>
-<span class="hobby-tag">🏸 Badminton</span>
-<span class="hobby-tag">⚽ Football</span>
-<span class="hobby-tag">🏏 Cricket</span>
-<span class="hobby-tag">🏎️ Formula 1</span>
-</div>
-</div>
-<div class="about-sidebar">
-<a class="btn-primary sidebar-btn" download="" href="Nikhita_Shankar_Resume.pdf" target="_blank">Download Resume ↓</a>
-<a class="btn-ghost sidebar-btn" href="https://www.linkedin.com/in/nikhita-shankar-analytics/" target="_blank">Connect on LinkedIn ↗</a>
-<div class="sidebar-card">
-<div class="sc-row"><span class="sc-label">Based in</span><span class="sc-val">United States</span></div>
-<div class="sc-row sc-row-stack"><span class="sc-label">Degree</span><div class="sc-val-stack"><span class="sc-val">MS Business Analytics</span><span class="sc-val-sub">BE Computer Science</span></div></div>
-<div class="sc-row sc-row-stack"><span class="sc-label">Focus</span><div class="sc-val-stack"><span class="sc-val">Data Engineering · BI</span><span class="sc-val-sub">Analytics · Data Science</span></div></div>
-<div class="sc-row"><span class="sc-label">Status</span><span class="sc-val sc-green">Open to work</span></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section section-dark" id="skills">
-<div class="container">
-<div class="section-label">02 / Skills</div>
-<h2 class="section-title">Technical<br/><em>toolkit</em></h2>
-<div class="skills-categories">
-<div class="skill-group">
-<div class="skill-group-label">Languages</div>
-<div class="skills-row">
-<div class="skill-pill"><i class="devicon-python-plain colored"></i>Python</div>
-<div class="skill-pill"><i class="devicon-r-plain colored"></i>R</div>
-<div class="skill-pill"><i class="devicon-sqlite-plain"></i>SQL</div>
-</div>
-</div>
-<div class="skill-group">
-<div class="skill-group-label">BI &amp; Visualization</div>
-<div class="skills-row">
-<div class="skill-pill"><i class="fas fa-chart-bar"></i>Power BI</div>
-<div class="skill-pill"><i class="fas fa-chart-pie"></i>Tableau</div>
-<div class="skill-pill"><i class="fas fa-th"></i>IBM Cognos</div>
-</div>
-</div>
-<div class="skill-group">
-<div class="skill-group-label">Cloud &amp; Platforms</div>
-<div class="skills-row">
-<div class="skill-pill"><i class="devicon-amazonwebservices-original colored"></i>AWS</div>
-<div class="skill-pill"><i class="devicon-azure-plain colored"></i>Azure</div>
-<div class="skill-pill"><i class="fas fa-layer-group"></i>Microsoft Fabric</div>
-</div>
-</div>
-<div class="skill-group">
-<div class="skill-group-label">Data Engineering</div>
-<div class="skills-row">
-<div class="skill-pill"><i class="fas fa-database"></i>Databricks</div>
-<div class="skill-pill"><i class="fas fa-snowflake"></i>Snowflake</div>
-<div class="skill-pill"><i class="fas fa-diagram-project"></i>KNIME</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="education">
-<div class="container">
-<div class="section-label">03 / Education</div>
-<h2 class="section-title">Academic<br/><em>background</em></h2>
-<div class="edu-grid">
-<div class="edu-card reveal">
-<div class="edu-logo-wrap"><img alt="UIUC" loading="lazy" src="uiuc_logo.png"/></div>
-<div class="edu-body">
-<p class="edu-years">2024 – 2025</p>
-<h3>University of Illinois Urbana-Champaign</h3>
-<p class="edu-degree">Master of Science in Business Analytics</p>
-<p class="edu-note">Beta Gamma Sigma Honor Society inductee</p>
-</div>
-</div>
-<div class="edu-card reveal">
-<div class="edu-logo-wrap"><img alt="RVCE" loading="lazy" src="rvce_logo.png"/></div>
-<div class="edu-body">
-<p class="edu-years">2016 – 2020</p>
-<h3>R.V. College of Engineering</h3>
-<p class="edu-degree">Bachelor of Engineering in Computer Science</p>
-<p class="edu-note">Published undergraduate research in IRJET</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section section-dark" id="honors">
-<div class="container">
-<div class="section-label">04 / Honors</div>
-<h2 class="section-title">Recognition &amp;<br/><em>achievements</em></h2>
-<div class="honors-grid">
-<div class="honor-card reveal">
-<div class="honor-header">
-<div class="honor-icon-wrap">🏛</div>
-<div class="honor-tag">Honor Society</div>
-</div>
-<h3>Beta Gamma Sigma</h3>
-<p>Inducted into the international business honor society, recognizing the top 20% of business graduates globally, for academic excellence and leadership.</p>
-<div class="honor-links">
-<a class="link-pill" href="https://www.betagammasigma.org/home" target="_blank">Society ↗</a>
-<a class="link-pill" href="BGS_Membership_Certificate.pdf" target="_blank">Certificate ↗</a>
-</div>
-</div>
-<div class="honor-card reveal">
-<div class="honor-header">
-<div class="honor-icon-wrap">☁️</div>
-<div class="honor-tag">Certification</div>
-</div>
-<h3>AWS Certified Cloud Practitioner</h3>
-<p>Validated foundational knowledge of AWS cloud architecture, core services, security, and best practices. Issued and verified by Amazon Web Services.</p>
-<div class="honor-links">
-<a class="link-pill" href="https://www.credly.com/badges/a43a4d9f-bed3-4567-a006-6a6921d92c60" target="_blank">View Credential ↗</a>
-</div>
-</div>
-<div class="honor-card reveal">
-<div class="honor-header">
-<div class="honor-icon-wrap">🏆</div>
-<div class="honor-tag">Award</div>
-</div>
-<h3>ExxonMobil Recognition Awards</h3>
-<p>Annual "Bright Beginner" Award and Quarterly Recognition Award for innovation and consistent excellence in analytics delivery across global projects.</p>
-<div class="honor-links">
-<a class="link-pill" href="ExxonMobil Annual Recognition Certificate.pdf" target="_blank">Annual Award ↗</a>
-<a class="link-pill" href="ExxonMobil Quarterly Recognition Certificate.pdf" target="_blank">Quarterly ↗</a>
-</div>
-</div>
-<div class="honor-card reveal">
-<div class="honor-header">
-<div class="honor-icon-wrap">📄</div>
-<div class="honor-tag">Publication</div>
-</div>
-<h3>Review of Recommendation Systems using Filtering-based Concepts, IRJET</h3>
-<p>Published in the International Research Journal of Engineering and Technology. Reviews collaborative, content-based, and hybrid filtering techniques, with an applied implementation using matrix factorization and SVD for product recommendation.</p>
-<div class="honor-links">
-<a class="link-pill" href="https://irjet.net/archives/V7/i5/IRJET-V7I5303.pdf" target="_blank">Read Paper ↗</a>
-</div>
-</div>
-<div class="honor-card reveal honor-card--winner">
-<div class="honor-header">
-<div class="honor-icon-wrap">🥇</div>
-<div class="honor-tag honor-tag--winner">1st Place · Hackathon</div>
-</div>
-<h3>Zerve x HackerEarth Hackathon — First Place</h3>
-<p>Won first place for First48, a product analytics system predicting long-term user success from 48 hours of behavioral data. Built end-to-end: feature engineering, Random Forest classifier (AUC ~0.98), user segmentation, and a business-facing Streamlit app.</p>
-<div class="honor-links">
-<a class="link-pill" href="https://www.zerve.ai/gallery/6c20e273-9afb-4fc5-8dfa-9b8a44829b24" target="_blank">View Notebook ↗</a>
-<a class="link-pill" href="https://www.linkedin.com/posts/zerve-ai_we-just-wrapped-the-zerve-x-hackerearth-hackathon-activity-7454448842118426625-tAdy" target="_blank">View Announcement ↗</a>
-</div>
-</div>
-<div class="honor-card reveal honor-card--silver">
-<div class="honor-header">
-<div class="honor-icon-wrap">🥈</div>
-<div class="honor-tag honor-tag--silver">2nd Place · Datathon</div>
-</div>
-<h3>ODSC AI Datathon — 2nd Place</h3>
-<p>Placed 2nd in the ODSC AI 24-hour Datathon using real Zerve product event data. Built UpNext, a product-led growth intelligence tool combining ML-based upgrade prediction, user segmentation, funnel analysis, and a Streamlit app that converts raw behavioral data into a prioritized growth action queue for product and revenue teams.</p>
-<div class="honor-links">
-<a class="link-pill" href="https://app.zerve.ai/notebook/f74703d8-d9e0-4a18-937d-5041e653acc2" target="_blank">View Notebook ↗</a>
-<a class="link-pill" href="https://www.linkedin.com/posts/odsc-ai_odscai-datathon-datascience-activity-7456008697786458112-uN90?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADVQeTcBFRcLio8JmflEHIqfIrRY4aorEsI" target="_blank">View Announcement ↗</a>
-</div>
-</div>
-<div class="honor-card reveal">
-<div class="honor-header">
-<div class="honor-icon-wrap">🧠</div>
-<div class="honor-tag">Publication</div>
-</div>
-<h3>EmoSense, Zenodo 2025</h3>
-<p>A privacy-preserving framework for early burnout detection using behavioral metadata only. Introduces the Emotional Stability Drift Index (ESDI) for ethical, human-centered workplace analytics.</p>
-<div class="honor-links">
-<a class="link-pill" href="https://zenodo.org/records/18058997" target="_blank">Read Paper ↗</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="experience">
-<div class="container">
-<div class="section-label">05 / Experience</div>
-<h2 class="section-title">Where I've<br/><em>worked</em></h2>
-<div class="exp-list">
-<div class="exp-item reveal">
-<div class="exp-left">
-<span class="exp-dot"></span>
-<div class="exp-meta">
-<span class="exp-period">2025 – Present</span>
-<span class="exp-tag">Full-time</span>
-</div>
-</div>
-<div class="exp-right">
-<div class="exp-top">
-<img alt="Obvience" class="exp-logo" onerror="this.style.display='none'" src="obvience_logo.png"/>
-<div><h3>Obvience</h3><p class="exp-role">Data Engineer</p></div>
-</div>
-<p class="exp-desc">Designing and implementing end-to-end analytics solutions using Microsoft Fabric, Power BI, and SQL Server, helping organizations make their data more accessible and decision-ready.</p>
-</div>
-</div>
-<div class="exp-item reveal">
-<div class="exp-left">
-<span class="exp-dot"></span>
-<div class="exp-meta">
-<span class="exp-period">Aug – Sep 2025</span>
-<span class="exp-tag exp-tag-vol">Volunteer</span>
-</div>
-</div>
-<div class="exp-right">
-<div class="exp-top">
-<img alt="WorkGaze" class="exp-logo" onerror="this.style.display='none'" src="workgaze_logo.png"/>
-<div><h3>WorkGaze <span class="exp-sub">(Global Launch Inc.)</span></h3><p class="exp-role">Data Engineer</p></div>
-</div>
-<p class="exp-desc">Built reliable, automated data workflows to support AI-driven workplace analytics, contributing to the foundation of a behavioral intelligence platform.</p>
-</div>
-</div>
-<div class="exp-item reveal">
-<div class="exp-left">
-<span class="exp-dot"></span>
-<div class="exp-meta">
-<span class="exp-period">Jan – May 2025</span>
-<span class="exp-tag exp-tag-cap">Capstone</span>
-</div>
-</div>
-<div class="exp-right">
-<div class="exp-top">
-<img alt="Wolters Kluwer" class="exp-logo" onerror="this.style.display='none'" src="wolterskluwer_logo.png"/>
-<div><h3>Wolters Kluwer <span class="exp-sub">(Industry Capstone)</span></h3><p class="exp-role">Data Science and AI Consultant</p></div>
-</div>
-<p class="exp-desc">Developed an LLM-based differential diagnosis system using GPT-4o and Gemini. Benchmarked prompt engineering frameworks and evaluated model reasoning quality for clinical decision support in healthcare.</p>
-</div>
-</div>
-<div class="exp-item reveal">
-<div class="exp-left">
-<span class="exp-dot"></span>
-<div class="exp-meta">
-<span class="exp-period">Aug – Dec 2024</span>
-<span class="exp-tag exp-tag-cap">Capstone</span>
-</div>
-</div>
-<div class="exp-right">
-<div class="exp-top">
-<img alt="Colorado West" class="exp-logo" onerror="this.style.display='none'" src="coloradowest_logo.png"/>
-<div><h3>Colorado West Healthcare <span class="exp-sub">(Industry Capstone)</span></h3><p class="exp-role">Data Engineering and Analytics Lead</p></div>
-</div>
-<p class="exp-desc">Designed a Cognos-based Workforce Insights Dashboard integrating SQL and Python pipelines to standardize HR KPI reporting and automate labor-cost forecasting for a community hospital.</p>
-</div>
-</div>
-<div class="exp-item reveal">
-<div class="exp-left">
-<span class="exp-dot"></span>
-<div class="exp-meta">
-<span class="exp-period">May 2023 – May 2024</span>
-<span class="exp-tag">Full-time</span>
-</div>
-</div>
-<div class="exp-right">
-<div class="exp-top">
-<img alt="Hyperplane" class="exp-logo" onerror="this.style.display='none'" src="hyperplane_logo.png"/>
-<div><h3>Hyperplane <span class="exp-sub">(Acquired by Nubank)</span></h3><p class="exp-role">Data Engineer</p></div>
-</div>
-<p class="exp-desc">Built data platforms and financial intelligence systems from the ground up at a fintech startup. Contributed to core infrastructure that supported the company through its acquisition by Nubank.</p>
-</div>
-</div>
-<div class="exp-item reveal">
-<div class="exp-left">
-<span class="exp-dot"></span>
-<div class="exp-meta">
-<span class="exp-period">Jan 2020 – Apr 2023</span>
-<span class="exp-tag">Full-time</span>
-</div>
-</div>
-<div class="exp-right">
-<div class="exp-top">
-<img alt="ExxonMobil" class="exp-logo" onerror="this.style.display='none'" src="exxonmobil_logo.png"/>
-<div><h3>ExxonMobil</h3><p class="exp-role">Data Science / Analytics / Data Engineering</p></div>
-</div>
-<p class="exp-desc">Three-year tenure across data science, analytics, and engineering roles. Won the Annual "Bright Beginner" Award and Quarterly Recognition Award for innovation and consistent excellence in analytics delivery across global projects.</p>
-</div>
-</div>
-<div class="exp-item reveal">
-<div class="exp-left">
-<span class="exp-dot"></span>
-<div class="exp-meta">
-<span class="exp-period">Jun – Jul 2019</span>
-<span class="exp-tag exp-tag-vol">Intern</span>
-</div>
-</div>
-<div class="exp-right">
-<div class="exp-top">
-<img alt="Softtek" class="exp-logo" onerror="this.style.display='none'" src="softtek_logo.png"/>
-<div><h3>Softtek</h3><p class="exp-role">Engineering Intern</p></div>
-</div>
-<p class="exp-desc">Contributed to software engineering projects at a global IT services firm, gaining foundational hands-on experience in enterprise software environments.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section section-dark" id="projects">
-<div class="container">
-<div class="section-label">06 / Projects</div>
-<h2 class="section-title">Selected<br/><em>work</em></h2>
-<div class="projects-featured">
-<div class="project-featured-card project-featured-card--hackathon reveal">
-<div class="pf-top">
-<span class="pf-num">01</span>
-<div class="first48-badges">
-<span class="pf-badge pf-badge--hackathon">⚡ Zerve x HackerEarth Hackathon</span>
-<span class="pf-badge pf-badge--winner">🥇 1st Place</span>
-</div>
-</div>
-<div class="first48-wordmark">First<span>48</span></div>
-<h3>What Drives Successful Usage in the First 48 Hours?</h3>
-<p>A full product analytics pipeline predicting long-term user success from just 48 hours of behavioral data. Engineered early-window features, built a Random Forest classifier achieving AUC ~0.98, segmented users by workflow pattern, and shipped an interactive Streamlit app that turns raw event logs into onboarding and growth plays.</p>
-<div class="pf-tags">
-<span>Python</span><span>Random Forest</span><span>Behavioral ML</span><span>Product Analytics</span><span>Segmentation</span>
-</div>
-<div class="first48-actions">
-<a class="first48-cta-secondary" href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link" target="_blank">▶  Watch Demo</a>
-</div>
-</div>
-<div class="project-featured-card project-featured-card--silver reveal">
-<div class="pf-top">
-<span class="pf-num">02</span>
-<div class="first48-badges">
-<span class="pf-badge pf-badge--odsc">⚡ ODSC AI Datathon</span>
-<span class="pf-badge pf-badge--silver-badge">🥈 2nd Place</span>
-</div>
-</div>
-<div class="upnext-wordmark">Up<span>Next</span></div>
-<h3>Product-Led Growth Intelligence for Zerve</h3>
-<p>A 24-hour datathon build using real Zerve product event data to predict subscription upgrades and surface actionable growth signals. Combined feature engineering, LightGBM modeling, funnel analysis, and user segmentation into a Streamlit app that gives product and growth teams a prioritized action queue, complete with revenue opportunity estimates and cost-risk views.</p>
-<div class="pf-tags">
-<span>Python</span><span>LightGBM</span><span>XGBoost</span><span>Streamlit</span><span>Product Analytics</span><span>Segmentation</span>
-</div>
-<div class="first48-actions">
-<a class="first48-cta-secondary" href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link" target="_blank">▶  Watch Demo</a>
-</div>
-</div>
-<a class="project-featured-card reveal" href="https://github.com/NikhitaShankar97/ai-differential-diagnosis" target="_blank">
-<div class="pf-top"><span class="pf-num">03</span><span class="pf-badge">Industry Capstone</span></div>
-<h3>LLM Differential Diagnosis</h3>
-<p>GPT-4o and Gemini-powered clinical decision support system built with Wolters Kluwer Health. Benchmarked prompt engineering frameworks and evaluated reasoning quality for real-world healthcare applications.</p>
-<div class="pf-tags"><span>GPT-4o</span><span>Gemini</span><span>LLM</span><span>Healthcare AI</span></div>
-<div class="pf-arrow">↗</div>
-</a>
-<a class="project-featured-card reveal" href="https://github.com/NikhitaShankar97/spotify-playlist-prediction-aws" target="_blank">
-<div class="pf-top"><span class="pf-num">04</span><span class="pf-badge">Cloud Pipeline</span></div>
-<h3>Spotify Playlist Prediction Pipeline</h3>
-<p>Production-grade AWS data pipeline using S3 for storage, Glue for ETL, Athena for querying, and QuickSight for visualization. A complete, scalable analytics solution from ingestion to insight.</p>
-<div class="pf-tags"><span>AWS</span><span>S3 / Glue</span><span>Athena</span><span>QuickSight</span></div>
-<div class="pf-arrow">↗</div>
-</a>
-<a class="project-featured-card reveal" href="https://github.com/NikhitaShankar97/workforce-insights-dashboard" target="_blank">
-<div class="pf-top"><span class="pf-num">05</span><span class="pf-badge">Industry Capstone</span></div>
-<h3>Workforce Insights Dashboard</h3>
-<p>Cognos-based HR analytics platform for Colorado West Healthcare. Integrated SQL and Python pipelines to standardize KPI reporting and automate labor-cost forecasting for hospital administrators.</p>
-<div class="pf-tags"><span>IBM Cognos</span><span>SQL</span><span>Python</span><span>HR Analytics</span></div>
-<div class="pf-arrow">↗</div>
-</a>
-</div>
-<div class="projects-more-label">More Projects</div>
-<div class="projects-grid">
-<a class="project-card reveal" href="https://github.com/NikhitaShankar97/NLP-Disaster-Tweets" target="_blank">
-<div class="project-num">06</div>
-<h3>NLP Disaster Tweet Classification</h3>
-<p>BERT and DistilBERT classification of disaster-related content for real-time crisis detection.</p>
-<div class="project-tags"><span>NLP</span><span>BERT</span><span>PyTorch</span></div>
-<div class="project-arrow">↗</div>
-</a>
-<a class="project-card reveal" href="https://github.com/NikhitaShankar97/Yelp-Business-Intelligence-Platform" target="_blank">
-<div class="project-num">07</div>
-<h3>Yelp Business Intelligence Platform</h3>
-<p>End-to-end transformation pipeline for actionable business insights using Azure and Python.</p>
-<div class="project-tags"><span>Azure</span><span>Python</span><span>BI</span></div>
-<div class="project-arrow">↗</div>
-</a>
-<a class="project-card reveal" href="https://github.com/NikhitaShankar97/Stock-Market-Forecasting" target="_blank">
-<div class="project-num">08</div>
-<h3>Stock Market Forecasting</h3>
-<p>Predictive ML models and interactive dashboards for equity analysis and investment strategy.</p>
-<div class="project-tags"><span>Python</span><span>ML</span><span>Time Series</span></div>
-<div class="project-arrow">↗</div>
-</a>
-<a class="project-card reveal" href="https://github.com/NikhitaShankar97/MLDA-Mortality-Analysis" target="_blank">
-<div class="project-num">09</div>
-<h3>MLDA Mortality Analysis</h3>
-<p>Regression Discontinuity analysis on drinking age policy effects on mortality rates.</p>
-<div class="project-tags"><span>R</span><span>Causal Inference</span></div>
-<div class="project-arrow">↗</div>
-</a>
-<a class="project-card reveal" href="https://github.com/NikhitaShankar97/property-value-prediction" target="_blank">
-<div class="project-num">10</div>
-<h3>Property Value Prediction</h3>
-<p>Predictive real estate modeling in R for urban planning and taxation policy support.</p>
-<div class="project-tags"><span>R</span><span>Regression</span><span>GIS</span></div>
-<div class="project-arrow">↗</div>
-</a>
-<a class="project-card reveal" href="https://github.com/NikhitaShankar97/Blockchain-Dashboards" target="_blank">
-<div class="project-num">11</div>
-<h3>Blockchain Analytics</h3>
-<p>On-chain trend dashboards built with Dune Analytics and SQL for DeFi intelligence.</p>
-<div class="project-tags"><span>SQL</span><span>Dune</span><span>Web3</span></div>
-<div class="project-arrow">↗</div>
-</a>
-<a class="project-card reveal" href="https://github.com/NikhitaShankar97/Coffee-Shop-Sales-Dashboard" target="_blank">
-<div class="project-num">12</div>
-<h3>Coffee Shop Sales Dashboard</h3>
-<p>Interactive Excel dashboard analyzing transaction patterns for operational insights.</p>
-<div class="project-tags"><span>Excel</span><span>Analytics</span></div>
-<div class="project-arrow">↗</div>
-</a>
-<a class="project-card reveal" href="https://github.com/NikhitaShankar97/movie-analytics-dashboard" target="_blank">
-<div class="project-num">13</div>
-<h3>Cinematic Insights Dashboard</h3>
-<p>Movie trends and ratings analysis using Python and Tableau.</p>
-<div class="project-tags"><span>Python</span><span>Tableau</span></div>
-<div class="project-arrow">↗</div>
-</a>
-<a class="project-card reveal" href="https://github.com/NikhitaShankar97/Retail-Analytics-and-Strategy" target="_blank">
-<div class="project-num">14</div>
-<h3>Retail Analytics and Strategy</h3>
-<p>Multi-dimensional retail performance analysis using Wolfram Mathematica.</p>
-<div class="project-tags"><span>Mathematica</span><span>Strategy</span></div>
-<div class="project-arrow">↗</div>
-</a>
-</div>
-</div>
-</section>
-<section class="section" id="contact">
-<div class="container">
-<div class="section-label">07 / Contact</div>
-<div class="contact-layout">
-<div class="contact-left">
-<h2 class="section-title" style="margin-bottom:20px">Let's build<br/><em>something great</em></h2>
-<p class="contact-sub">Open to new opportunities, collaborations, or just a good conversation about data. Drop a message and I will get back to you.</p>
-<div class="contact-detail"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/nikhita-shankar-analytics/" target="_blank">nikhita-shankar-analytics</a></div>
-<div class="contact-detail"><i class="fab fa-github"></i><a href="https://github.com/NikhitaShankar97" target="_blank">NikhitaShankar97</a></div>
-</div>
-<form action="https://formspree.io/f/xovvozlz" class="contact-form" method="POST">
-<div class="form-row">
-<input name="name" placeholder="Your name" required="" type="text"/>
-<input name="_replyto" placeholder="Your email" required="" type="email"/>
-</div>
-<textarea name="message" placeholder="What would you like to discuss?" required="" rows="5"></textarea>
-<button class="btn-primary" type="submit">Send Message →</button>
-</form>
-</div>
-</div>
-</section>
-<footer>
-<div class="footer-inner">
-<span class="footer-logo">NS<span class="dot">.</span></span>
-<span class="footer-copy">© 2025 Nikhita Shankar</span>
-<a class="footer-social" href="https://www.linkedin.com/in/nikhita-shankar-analytics/" target="_blank"><i class="fab fa-linkedin"></i></a>
-</div>
-</footer>
-<!-- =============================================
-       AI CHAT WIDGET
-       Powered directly by Puter.js + Claude.
-       No Cloudflare Worker, API key, or backend needed.
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">NS<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#honors">Honors</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://www.linkedin.com/in/nikhita-shankar-analytics/" target="_blank" class="nav-social" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-close" id="mobileClose">&#x2715;</button>
+    <ul>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#education" class="mobile-link">Education</a></li>
+      <li><a href="#honors" class="mobile-link">Honors</a></li>
+      <li><a href="#experience" class="mobile-link">Experience</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="badge-dot"></span>Open to opportunities</div>
+      <img src="profile.jpg" alt="Nikhita Shankar" class="profile-pic" loading="lazy">
+      <h1 class="hero-name">Nikhita <em>Shankar</em></h1>
+      <p class="hero-subtitle">Data Engineer &amp; Analytics Professional</p>
+      <div class="hero-tagline"><span class="typed-text"></span><span class="cursor-blink">|</span></div>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-num">4</span><span class="stat-label">Companies</span></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Projects</span></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-num">2</span><span class="stat-label">Publications</span></div>
+  </div>
+
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-label">01 / About</div>
+      <h2 class="section-title">Turning complexity<br><em>into clarity</em></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-lead">I don't just move data. I build the systems that <strong>turn it into decisions.</strong></p>
+          <p>At <strong>Obvience</strong>, I design analytics platforms where AI and human judgment meet, integrating Microsoft Fabric, Power BI, and agentic pipelines to help organizations stop guessing and start knowing. Before that, three years at <strong>ExxonMobil</strong> and a year at <strong>Hyperplane</strong> (acquired by Nubank) building financial intelligence infrastructure at scale.</p>
+          <p>With an MS in Business Analytics from <strong>UIUC</strong>, I work at the intersection of data engineering and applied AI: the place where LLMs, predictive models, and clean pipelines actually ship together. My thesis: the best data work disappears into the product. Nobody notices the pipeline. Everyone notices the insight.</p>
+          <div class="hobby-row">
+            <span class="hobby-tag">&#x1F373; Cooking</span>
+            <span class="hobby-tag">&#x2708;&#xFE0F; Traveling</span>
+            <span class="hobby-tag">&#x1F3F8; Badminton</span>
+            <span class="hobby-tag">&#x26BD; Football</span>
+            <span class="hobby-tag">&#x1F3CF; Cricket</span>
+            <span class="hobby-tag">&#x1F3CE;&#xFE0F; Formula 1</span>
+          </div>
+        </div>
+        <div class="about-sidebar">
+          <a href="Nikhita_Shankar_Resume.pdf" class="btn-primary sidebar-btn" target="_blank" download>Download Resume &#x2193;</a>
+          <a href="https://www.linkedin.com/in/nikhita-shankar-analytics/" class="btn-ghost sidebar-btn" target="_blank">Connect on LinkedIn &#x2197;</a>
+          <div class="sidebar-card">
+            <div class="sc-row"><span class="sc-label">Based in</span><span class="sc-val">United States</span></div>
+            <div class="sc-row sc-row-stack"><span class="sc-label">Degree</span><div class="sc-val-stack"><span class="sc-val">MS Business Analytics</span><span class="sc-val-sub">BE Computer Science</span></div></div>
+            <div class="sc-row sc-row-stack"><span class="sc-label">Focus</span><div class="sc-val-stack"><span class="sc-val">Data Engineering · BI</span><span class="sc-val-sub">Analytics · Data Science</span></div></div>
+            <div class="sc-row"><span class="sc-label">Status</span><span class="sc-val sc-green">Open to work</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section section-dark">
+    <div class="container">
+      <div class="section-label">02 / Skills</div>
+      <h2 class="section-title">Technical<br><em>toolkit</em></h2>
+      <div class="skills-categories">
+        <div class="skill-group">
+          <div class="skill-group-label">Languages</div>
+          <div class="skills-row">
+            <div class="skill-pill"><i class="devicon-python-plain colored"></i>Python</div>
+            <div class="skill-pill"><i class="devicon-r-plain colored"></i>R</div>
+            <div class="skill-pill"><i class="devicon-sqlite-plain"></i>SQL</div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">BI &amp; Visualization</div>
+          <div class="skills-row">
+            <div class="skill-pill"><i class="fas fa-chart-bar"></i>Power BI</div>
+            <div class="skill-pill"><i class="fas fa-chart-pie"></i>Tableau</div>
+            <div class="skill-pill"><i class="fas fa-th"></i>IBM Cognos</div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Cloud &amp; Platforms</div>
+          <div class="skills-row">
+            <div class="skill-pill"><i class="devicon-amazonwebservices-original colored"></i>AWS</div>
+            <div class="skill-pill"><i class="devicon-azure-plain colored"></i>Azure</div>
+            <div class="skill-pill"><i class="fas fa-layer-group"></i>Microsoft Fabric</div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Data Engineering</div>
+          <div class="skills-row">
+            <div class="skill-pill"><i class="fas fa-database"></i>Databricks</div>
+            <div class="skill-pill"><i class="fas fa-snowflake"></i>Snowflake</div>
+            <div class="skill-pill"><i class="fas fa-diagram-project"></i>KNIME</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-label">03 / Education</div>
+      <h2 class="section-title">Academic<br><em>background</em></h2>
+      <div class="edu-grid">
+        <div class="edu-card reveal">
+          <div class="edu-logo-wrap"><img src="uiuc_logo.png" alt="UIUC" loading="lazy"></div>
+          <div class="edu-body">
+            <p class="edu-years">2024 – 2025</p>
+            <h3>University of Illinois Urbana-Champaign</h3>
+            <p class="edu-degree">Master of Science in Business Analytics</p>
+            <p class="edu-note">Beta Gamma Sigma Honor Society inductee</p>
+          </div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-logo-wrap"><img src="rvce_logo.png" alt="RVCE" loading="lazy"></div>
+          <div class="edu-body">
+            <p class="edu-years">2016 – 2020</p>
+            <h3>R.V. College of Engineering</h3>
+            <p class="edu-degree">Bachelor of Engineering in Computer Science</p>
+            <p class="edu-note">Published undergraduate research in IRJET</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="honors" class="section section-dark">
+    <div class="container">
+      <div class="section-label">04 / Honors</div>
+      <h2 class="section-title">Recognition &amp;<br><em>achievements</em></h2>
+      <div class="honors-grid">
+        <div class="honor-card reveal">
+          <div class="honor-header">
+            <div class="honor-icon-wrap">&#x1F3DB;</div>
+            <div class="honor-tag">Honor Society</div>
+          </div>
+          <h3>Beta Gamma Sigma</h3>
+          <p>Inducted into the international business honor society, recognizing the top 20% of business graduates globally, for academic excellence and leadership.</p>
+          <div class="honor-links">
+            <a href="https://www.betagammasigma.org/home" target="_blank" class="link-pill">Society &#x2197;</a>
+            <a href="BGS_Membership_Certificate.pdf" target="_blank" class="link-pill">Certificate &#x2197;</a>
+          </div>
+        </div>
+        <div class="honor-card reveal">
+          <div class="honor-header">
+            <div class="honor-icon-wrap">&#x2601;&#xFE0F;</div>
+            <div class="honor-tag">Certification</div>
+          </div>
+          <h3>AWS Certified Cloud Practitioner</h3>
+          <p>Validated foundational knowledge of AWS cloud architecture, core services, security, and best practices. Issued and verified by Amazon Web Services.</p>
+          <div class="honor-links">
+            <a href="https://www.credly.com/badges/a43a4d9f-bed3-4567-a006-6a6921d92c60" target="_blank" class="link-pill">View Credential &#x2197;</a>
+          </div>
+        </div>
+        <div class="honor-card reveal">
+          <div class="honor-header">
+            <div class="honor-icon-wrap">&#x1F3C6;</div>
+            <div class="honor-tag">Award</div>
+          </div>
+          <h3>ExxonMobil Recognition Awards</h3>
+          <p>Annual "Bright Beginner" Award and Quarterly Recognition Award for innovation and consistent excellence in analytics delivery across global projects.</p>
+          <div class="honor-links">
+            <a href="ExxonMobil Annual Recognition Certificate.pdf" target="_blank" class="link-pill">Annual Award &#x2197;</a>
+            <a href="ExxonMobil Quarterly Recognition Certificate.pdf" target="_blank" class="link-pill">Quarterly &#x2197;</a>
+          </div>
+        </div>
+        <div class="honor-card reveal">
+          <div class="honor-header">
+            <div class="honor-icon-wrap">&#x1F4C4;</div>
+            <div class="honor-tag">Publication</div>
+          </div>
+          <h3>Review of Recommendation Systems using Filtering-based Concepts, IRJET</h3>
+          <p>Published in the International Research Journal of Engineering and Technology. Reviews collaborative, content-based, and hybrid filtering techniques, with an applied implementation using matrix factorization and SVD for product recommendation.</p>
+          <div class="honor-links">
+            <a href="https://irjet.net/archives/V7/i5/IRJET-V7I5303.pdf" target="_blank" class="link-pill">Read Paper &#x2197;</a>
+          </div>
+        </div>
+        <div class="honor-card reveal honor-card--winner">
+          <div class="honor-header">
+            <div class="honor-icon-wrap">&#x1F947;</div>
+            <div class="honor-tag honor-tag--winner">1st Place · Hackathon</div>
+          </div>
+          <h3>Zerve x HackerEarth Hackathon — First Place</h3>
+          <p>Won first place for First48, a product analytics system predicting long-term user success from 48 hours of behavioral data. Built end-to-end: feature engineering, Random Forest classifier (AUC ~0.98), user segmentation, and a business-facing Streamlit app.</p>
+          <div class="honor-links">
+            <a href="https://www.zerve.ai/gallery/6c20e273-9afb-4fc5-8dfa-9b8a44829b24" target="_blank" class="link-pill">View Notebook &#x2197;</a>
+            <a href="https://www.linkedin.com/posts/zerve-ai_we-just-wrapped-the-zerve-x-hackerearth-hackathon-activity-7454448842118426625-tAdy" target="_blank" class="link-pill">View Announcement &#x2197;</a>
+          </div>
+        </div>
+        <div class="honor-card reveal honor-card--silver">
+          <div class="honor-header">
+            <div class="honor-icon-wrap">&#x1F948;</div>
+            <div class="honor-tag honor-tag--silver">2nd Place · Datathon</div>
+          </div>
+          <h3>ODSC AI Datathon — 2nd Place</h3>
+          <p>Placed 2nd in the ODSC AI 24-hour Datathon using real Zerve product event data. Built UpNext, a product-led growth intelligence tool combining ML-based upgrade prediction, user segmentation, funnel analysis, and a Streamlit app that converts raw behavioral data into a prioritized growth action queue for product and revenue teams.</p>
+          <div class="honor-links">
+            <a href="https://app.zerve.ai/notebook/f74703d8-d9e0-4a18-937d-5041e653acc2" target="_blank" class="link-pill">View Notebook &#x2197;</a>
+            <a href="https://www.linkedin.com/posts/odsc-ai_odscai-datathon-datascience-activity-7456008697786458112-uN90?utm_source=share&utm_medium=member_desktop&rcm=ACoAADVQeTcBFRcLio8JmflEHIqfIrRY4aorEsI" target="_blank" class="link-pill">View Announcement &#x2197;</a>
+          </div>
+        </div>
+        <div class="honor-card reveal">
+          <div class="honor-header">
+            <div class="honor-icon-wrap">&#x1F9E0;</div>
+            <div class="honor-tag">Publication</div>
+          </div>
+          <h3>EmoSense, Zenodo 2025</h3>
+          <p>A privacy-preserving framework for early burnout detection using behavioral metadata only. Introduces the Emotional Stability Drift Index (ESDI) for ethical, human-centered workplace analytics.</p>
+          <div class="honor-links">
+            <a href="https://zenodo.org/records/18058997" target="_blank" class="link-pill">Read Paper &#x2197;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-label">05 / Experience</div>
+      <h2 class="section-title">Where I've<br><em>worked</em></h2>
+      <div class="exp-list">
+        <div class="exp-item reveal">
+          <div class="exp-left">
+            <span class="exp-dot"></span>
+            <div class="exp-meta">
+              <span class="exp-period">2025 – Present</span>
+              <span class="exp-tag">Full-time</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-top">
+              <img src="obvience_logo.png" alt="Obvience" class="exp-logo" onerror="this.style.display='none'">
+              <div><h3>Obvience</h3><p class="exp-role">Data Engineer</p></div>
+            </div>
+            <p class="exp-desc">Designing and implementing end-to-end analytics solutions using Microsoft Fabric, Power BI, and SQL Server, helping organizations make their data more accessible and decision-ready.</p>
+          </div>
+        </div>
+        <div class="exp-item reveal">
+          <div class="exp-left">
+            <span class="exp-dot"></span>
+            <div class="exp-meta">
+              <span class="exp-period">Aug – Sep 2025</span>
+              <span class="exp-tag exp-tag-vol">Volunteer</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-top">
+              <img src="workgaze_logo.png" alt="WorkGaze" class="exp-logo" onerror="this.style.display='none'">
+              <div><h3>WorkGaze <span class="exp-sub">(Global Launch Inc.)</span></h3><p class="exp-role">Data Engineer</p></div>
+            </div>
+            <p class="exp-desc">Built reliable, automated data workflows to support AI-driven workplace analytics, contributing to the foundation of a behavioral intelligence platform.</p>
+          </div>
+        </div>
+        <div class="exp-item reveal">
+          <div class="exp-left">
+            <span class="exp-dot"></span>
+            <div class="exp-meta">
+              <span class="exp-period">Jan – May 2025</span>
+              <span class="exp-tag exp-tag-cap">Capstone</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-top">
+              <img src="wolterskluwer_logo.png" alt="Wolters Kluwer" class="exp-logo" onerror="this.style.display='none'">
+              <div><h3>Wolters Kluwer <span class="exp-sub">(Industry Capstone)</span></h3><p class="exp-role">Data Science and AI Consultant</p></div>
+            </div>
+            <p class="exp-desc">Developed an LLM-based differential diagnosis system using GPT-4o and Gemini. Benchmarked prompt engineering frameworks and evaluated model reasoning quality for clinical decision support in healthcare.</p>
+          </div>
+        </div>
+        <div class="exp-item reveal">
+          <div class="exp-left">
+            <span class="exp-dot"></span>
+            <div class="exp-meta">
+              <span class="exp-period">Aug – Dec 2024</span>
+              <span class="exp-tag exp-tag-cap">Capstone</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-top">
+              <img src="coloradowest_logo.png" alt="Colorado West" class="exp-logo" onerror="this.style.display='none'">
+              <div><h3>Colorado West Healthcare <span class="exp-sub">(Industry Capstone)</span></h3><p class="exp-role">Data Engineering and Analytics Lead</p></div>
+            </div>
+            <p class="exp-desc">Designed a Cognos-based Workforce Insights Dashboard integrating SQL and Python pipelines to standardize HR KPI reporting and automate labor-cost forecasting for a community hospital.</p>
+          </div>
+        </div>
+        <div class="exp-item reveal">
+          <div class="exp-left">
+            <span class="exp-dot"></span>
+            <div class="exp-meta">
+              <span class="exp-period">May 2023 – May 2024</span>
+              <span class="exp-tag">Full-time</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-top">
+              <img src="hyperplane_logo.png" alt="Hyperplane" class="exp-logo" onerror="this.style.display='none'">
+              <div><h3>Hyperplane <span class="exp-sub">(Acquired by Nubank)</span></h3><p class="exp-role">Data Engineer</p></div>
+            </div>
+            <p class="exp-desc">Built data platforms and financial intelligence systems from the ground up at a fintech startup. Contributed to core infrastructure that supported the company through its acquisition by Nubank.</p>
+          </div>
+        </div>
+        <div class="exp-item reveal">
+          <div class="exp-left">
+            <span class="exp-dot"></span>
+            <div class="exp-meta">
+              <span class="exp-period">Jan 2020 – Apr 2023</span>
+              <span class="exp-tag">Full-time</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-top">
+              <img src="exxonmobil_logo.png" alt="ExxonMobil" class="exp-logo" onerror="this.style.display='none'">
+              <div><h3>ExxonMobil</h3><p class="exp-role">Data Science / Analytics / Data Engineering</p></div>
+            </div>
+            <p class="exp-desc">Three-year tenure across data science, analytics, and engineering roles. Won the Annual "Bright Beginner" Award and Quarterly Recognition Award for innovation and consistent excellence in analytics delivery across global projects.</p>
+          </div>
+        </div>
+        <div class="exp-item reveal">
+          <div class="exp-left">
+            <span class="exp-dot"></span>
+            <div class="exp-meta">
+              <span class="exp-period">Jun – Jul 2019</span>
+              <span class="exp-tag exp-tag-vol">Intern</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-top">
+              <img src="softtek_logo.png" alt="Softtek" class="exp-logo" onerror="this.style.display='none'">
+              <div><h3>Softtek</h3><p class="exp-role">Engineering Intern</p></div>
+            </div>
+            <p class="exp-desc">Contributed to software engineering projects at a global IT services firm, gaining foundational hands-on experience in enterprise software environments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section section-dark">
+    <div class="container">
+      <div class="section-label">06 / Projects</div>
+      <h2 class="section-title">Selected<br><em>work</em></h2>
+
+      <div class="projects-featured">
+
+        <div class="project-featured-card project-featured-card--hackathon reveal">
+          <div class="pf-top">
+            <span class="pf-num">01</span>
+            <div class="first48-badges">
+              <span class="pf-badge pf-badge--hackathon">&#x26A1; Zerve x HackerEarth Hackathon</span>
+              <span class="pf-badge pf-badge--winner">&#x1F947; 1st Place</span>
+            </div>
+          </div>
+          <div class="first48-wordmark">First<span>48</span></div>
+          <h3>What Drives Successful Usage in the First 48 Hours?</h3>
+          <p>A full product analytics pipeline predicting long-term user success from just 48 hours of behavioral data. Engineered early-window features, built a Random Forest classifier achieving AUC ~0.98, segmented users by workflow pattern, and shipped an interactive Streamlit app that turns raw event logs into onboarding and growth plays.</p>
+          <div class="pf-tags">
+            <span>Python</span><span>Random Forest</span><span>Behavioral ML</span><span>Product Analytics</span><span>Segmentation</span>
+          </div>
+          <div class="first48-actions">
+            <a href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link" target="_blank" class="first48-cta-secondary">&#x25B6;&nbsp; Watch Demo</a>
+          </div>
+        </div>
+
+        <div class="project-featured-card project-featured-card--silver reveal">
+          <div class="pf-top">
+            <span class="pf-num">02</span>
+            <div class="first48-badges">
+              <span class="pf-badge pf-badge--odsc">&#x26A1; ODSC AI Datathon</span>
+              <span class="pf-badge pf-badge--silver-badge">&#x1F948; 2nd Place</span>
+            </div>
+          </div>
+          <div class="upnext-wordmark">Up<span>Next</span></div>
+          <h3>Product-Led Growth Intelligence for Zerve</h3>
+          <p>A 24-hour datathon build using real Zerve product event data to predict subscription upgrades and surface actionable growth signals. Combined feature engineering, LightGBM modeling, funnel analysis, and user segmentation into a Streamlit app that gives product and growth teams a prioritized action queue, complete with revenue opportunity estimates and cost-risk views.</p>
+          <div class="pf-tags">
+            <span>Python</span><span>LightGBM</span><span>XGBoost</span><span>Streamlit</span><span>Product Analytics</span><span>Segmentation</span>
+          </div>
+          <div class="first48-actions">
+            <a href="https://drive.google.com/file/d/1_uiWjPBpgw42HnK5ZcQOmhm1hcu7P4wq/view?usp=drive_link" target="_blank" class="first48-cta-secondary">&#x25B6;&nbsp; Watch Demo</a>
+          </div>
+        </div>
+
+        <a href="https://github.com/NikhitaShankar97/ai-differential-diagnosis" target="_blank" class="project-featured-card reveal">
+          <div class="pf-top"><span class="pf-num">03</span><span class="pf-badge">Industry Capstone</span></div>
+          <h3>LLM Differential Diagnosis</h3>
+          <p>GPT-4o and Gemini-powered clinical decision support system built with Wolters Kluwer Health. Benchmarked prompt engineering frameworks and evaluated reasoning quality for real-world healthcare applications.</p>
+          <div class="pf-tags"><span>GPT-4o</span><span>Gemini</span><span>LLM</span><span>Healthcare AI</span></div>
+          <div class="pf-arrow">&#x2197;</div>
+        </a>
+
+        <a href="https://github.com/NikhitaShankar97/spotify-playlist-prediction-aws" target="_blank" class="project-featured-card reveal">
+          <div class="pf-top"><span class="pf-num">04</span><span class="pf-badge">Cloud Pipeline</span></div>
+          <h3>Spotify Playlist Prediction Pipeline</h3>
+          <p>Production-grade AWS data pipeline using S3 for storage, Glue for ETL, Athena for querying, and QuickSight for visualization. A complete, scalable analytics solution from ingestion to insight.</p>
+          <div class="pf-tags"><span>AWS</span><span>S3 / Glue</span><span>Athena</span><span>QuickSight</span></div>
+          <div class="pf-arrow">&#x2197;</div>
+        </a>
+
+        <a href="https://github.com/NikhitaShankar97/workforce-insights-dashboard" target="_blank" class="project-featured-card reveal">
+          <div class="pf-top"><span class="pf-num">05</span><span class="pf-badge">Industry Capstone</span></div>
+          <h3>Workforce Insights Dashboard</h3>
+          <p>Cognos-based HR analytics platform for Colorado West Healthcare. Integrated SQL and Python pipelines to standardize KPI reporting and automate labor-cost forecasting for hospital administrators.</p>
+          <div class="pf-tags"><span>IBM Cognos</span><span>SQL</span><span>Python</span><span>HR Analytics</span></div>
+          <div class="pf-arrow">&#x2197;</div>
+        </a>
+
+      </div>
+
+      <div class="projects-more-label">More Projects</div>
+      <div class="projects-grid">
+        <a href="https://github.com/NikhitaShankar97/NLP-Disaster-Tweets" target="_blank" class="project-card reveal">
+          <div class="project-num">06</div>
+          <h3>NLP Disaster Tweet Classification</h3>
+          <p>BERT and DistilBERT classification of disaster-related content for real-time crisis detection.</p>
+          <div class="project-tags"><span>NLP</span><span>BERT</span><span>PyTorch</span></div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+        <a href="https://github.com/NikhitaShankar97/Yelp-Business-Intelligence-Platform" target="_blank" class="project-card reveal">
+          <div class="project-num">07</div>
+          <h3>Yelp Business Intelligence Platform</h3>
+          <p>End-to-end transformation pipeline for actionable business insights using Azure and Python.</p>
+          <div class="project-tags"><span>Azure</span><span>Python</span><span>BI</span></div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+        <a href="https://github.com/NikhitaShankar97/Stock-Market-Forecasting" target="_blank" class="project-card reveal">
+          <div class="project-num">08</div>
+          <h3>Stock Market Forecasting</h3>
+          <p>Predictive ML models and interactive dashboards for equity analysis and investment strategy.</p>
+          <div class="project-tags"><span>Python</span><span>ML</span><span>Time Series</span></div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+        <a href="https://github.com/NikhitaShankar97/MLDA-Mortality-Analysis" target="_blank" class="project-card reveal">
+          <div class="project-num">09</div>
+          <h3>MLDA Mortality Analysis</h3>
+          <p>Regression Discontinuity analysis on drinking age policy effects on mortality rates.</p>
+          <div class="project-tags"><span>R</span><span>Causal Inference</span></div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+        <a href="https://github.com/NikhitaShankar97/property-value-prediction" target="_blank" class="project-card reveal">
+          <div class="project-num">10</div>
+          <h3>Property Value Prediction</h3>
+          <p>Predictive real estate modeling in R for urban planning and taxation policy support.</p>
+          <div class="project-tags"><span>R</span><span>Regression</span><span>GIS</span></div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+        <a href="https://github.com/NikhitaShankar97/Blockchain-Dashboards" target="_blank" class="project-card reveal">
+          <div class="project-num">11</div>
+          <h3>Blockchain Analytics</h3>
+          <p>On-chain trend dashboards built with Dune Analytics and SQL for DeFi intelligence.</p>
+          <div class="project-tags"><span>SQL</span><span>Dune</span><span>Web3</span></div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+        <a href="https://github.com/NikhitaShankar97/Coffee-Shop-Sales-Dashboard" target="_blank" class="project-card reveal">
+          <div class="project-num">12</div>
+          <h3>Coffee Shop Sales Dashboard</h3>
+          <p>Interactive Excel dashboard analyzing transaction patterns for operational insights.</p>
+          <div class="project-tags"><span>Excel</span><span>Analytics</span></div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+        <a href="https://github.com/NikhitaShankar97/movie-analytics-dashboard" target="_blank" class="project-card reveal">
+          <div class="project-num">13</div>
+          <h3>Cinematic Insights Dashboard</h3>
+          <p>Movie trends and ratings analysis using Python and Tableau.</p>
+          <div class="project-tags"><span>Python</span><span>Tableau</span></div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+        <a href="https://github.com/NikhitaShankar97/Retail-Analytics-and-Strategy" target="_blank" class="project-card reveal">
+          <div class="project-num">14</div>
+          <h3>Retail Analytics and Strategy</h3>
+          <p>Multi-dimensional retail performance analysis using Wolfram Mathematica.</p>
+          <div class="project-tags"><span>Mathematica</span><span>Strategy</span></div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-label">07 / Contact</div>
+      <div class="contact-layout">
+        <div class="contact-left">
+          <h2 class="section-title" style="margin-bottom:20px">Let's build<br><em>something great</em></h2>
+          <p class="contact-sub">Open to new opportunities, collaborations, or just a good conversation about data. Drop a message and I will get back to you.</p>
+          <div class="contact-detail"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/nikhita-shankar-analytics/" target="_blank">nikhita-shankar-analytics</a></div>
+          <div class="contact-detail"><i class="fab fa-github"></i><a href="https://github.com/NikhitaShankar97" target="_blank">NikhitaShankar97</a></div>
+        </div>
+        <form action="https://formspree.io/f/xovvozlz" method="POST" class="contact-form">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="_replyto" placeholder="Your email" required>
+          </div>
+          <textarea name="message" placeholder="What would you like to discuss?" rows="5" required></textarea>
+          <button type="submit" class="btn-primary">Send Message &#x2192;</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">NS<span class="dot">.</span></span>
+      <span class="footer-copy">&#169; 2025 Nikhita Shankar</span>
+      <a href="https://www.linkedin.com/in/nikhita-shankar-analytics/" target="_blank" class="footer-social"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       PORTFOLIO CHAT WIDGET
+       Local, no-login assistant. No Puter popup.
        ============================================= -->
-<div aria-label="Ask Nikhita's AI assistant" class="chat-bubble" id="chat-bubble" onclick="toggleChat()">
-<div class="chat-bubble-inner">
-<div class="chat-bubble-avatar">NS</div>
-<div class="chat-bubble-text">
-<span class="chat-bubble-title">Ask Nikhita</span>
-<span class="chat-bubble-sub">AI assistant · instant</span>
-</div>
-<div class="chat-bubble-indicator"></div>
-</div>
-</div>
-<div class="chat-window" id="chat-window">
-<div class="chat-header">
-<div class="chat-header-left">
-<div class="chat-avatar">NS</div>
-<div>
-<div class="chat-header-name">Ask Nikhita's Portfolio</div>
-<div class="chat-header-sub"><span class="chat-online-dot"></span>AI assistant · Instant</div>
-</div>
-</div>
-<button aria-label="Close chat" class="chat-close-btn" onclick="toggleChat()">✕</button>
-</div>
-<div class="chat-messages" id="chatMessages">
-<div class="chat-msg chat-msg--bot">
-<div class="chat-msg-avatar">NS</div>
-<div class="chat-msg-bubble">
+
+  <div id="chat-bubble" class="chat-bubble" onclick="toggleChat()" aria-label="Ask Nikhita's AI assistant">
+    <div class="chat-bubble-inner">
+      <div class="chat-bubble-avatar">NS</div>
+      <div class="chat-bubble-text">
+        <span class="chat-bubble-title">Ask Nikhita</span>
+        <span class="chat-bubble-sub">AI assistant · instant</span>
+      </div>
+      <div class="chat-bubble-indicator"></div>
+    </div>
+  </div>
+
+  <div id="chat-window" class="chat-window">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="chat-avatar">NS</div>
+        <div>
+          <div class="chat-header-name">Ask Nikhita's Portfolio</div>
+          <div class="chat-header-sub"><span class="chat-online-dot"></span>AI assistant · Instant</div>
+        </div>
+      </div>
+      <button class="chat-close-btn" onclick="toggleChat()" aria-label="Close chat">&#x2715;</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg chat-msg--bot">
+        <div class="chat-msg-avatar">NS</div>
+        <div class="chat-msg-bubble">
           Hey! I'm Nikhita's AI assistant. Ask me anything about her background, skills, or projects. I can also help you get in touch with her directly.
         </div>
-</div>
-<div class="chat-auth-note" id="chatAuthNote">
-<strong>AI mode is on.</strong> This assistant uses Puter.js when available. If Puter cannot connect, it will still answer from Nikhita's portfolio instead of breaking.
-</div>
-<div class="chat-suggestions-section" id="chatSuggestions">
-<div class="chat-suggestions-label">Try asking</div>
-<div class="chat-suggestions-grid">
-<button class="chat-sug-btn" onclick="sendSuggestion(this)">What does she specialize in?</button>
-<button class="chat-sug-btn" onclick="sendSuggestion(this)">What makes her a strong hire?</button>
-<button class="chat-sug-btn" onclick="sendSuggestion(this)">Tell me about her projects</button>
-<button class="chat-sug-btn" onclick="sendSuggestion(this)">Tools and tech stack?</button>
-<button class="chat-sug-btn" onclick="sendSuggestion(this)">How do I contact her?</button>
-</div>
-</div>
-</div>
-<div class="chat-input-row">
-<input class="chat-input" id="chatInput" onkeydown="if(event.key==='Enter')sendChat()" placeholder="Ask anything about Nikhita..." type="text"/>
-<button aria-label="Send message" class="chat-send-btn" onclick="sendChat()">
-<svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="15">
-<line x1="22" x2="11" y1="2" y2="13"></line>
-<polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-</svg>
-</button>
-</div>
-<div class="chat-footer-note">Responses generated by AI. May occasionally be imperfect.</div>
-</div>
-<script>
+      </div>
+
+      <div class="chat-auth-note" id="chatAuthNote">
+        <strong>Quick note:</strong> this assistant answers from Nikhita's portfolio details. No login, popup, or external account needed.
+      </div>
+
+      <div class="chat-suggestions-section" id="chatSuggestions">
+        <div class="chat-suggestions-label">Try asking</div>
+        <div class="chat-suggestions-grid">
+          <button type="button" class="chat-sug-btn" onclick="sendSuggestion(this)">What roles is she a fit for?</button>
+          <button type="button" class="chat-sug-btn" onclick="sendSuggestion(this)">What does she specialize in?</button>
+          <button type="button" class="chat-sug-btn" onclick="sendSuggestion(this)">What makes her a strong hire?</button>
+          <button type="button" class="chat-sug-btn" onclick="sendSuggestion(this)">Tell me about her projects</button>
+          <button type="button" class="chat-sug-btn" onclick="sendSuggestion(this)">How do I contact her?</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-row">
+      <input
+        type="text"
+        id="chatInput"
+        class="chat-input"
+        placeholder="Ask anything about Nikhita..."
+        onkeydown="if(event.key==='Enter')sendChat()"
+      >
+      <button class="chat-send-btn" onclick="sendChat()" aria-label="Send message">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="chat-footer-note">Answers are based on Nikhita's portfolio information.</div>
+  </div>
+
+  <script>
     /* ---- Typed text ---- */
     const typedEl = document.querySelector(".typed-text");
     const messages = ["Data Engineer", "Analytics Professional", "BI and Pipeline Builder", "MS Business Analytics, UIUC"];
     let idx = 0, charIdx = 0, deleting = false;
-
     function typeMessage() {
       if (!typedEl) return;
       const cur = messages[idx];
@@ -1920,208 +1935,126 @@ body.custom-cursor-active .cursor-follower { opacity: 1; }
     }
 
     /* ---- Cursor ---- */
-    function initCustomCursor() {
-      const cursor = document.querySelector('.cursor');
-      const follower = document.querySelector('.cursor-follower');
-      const supportsCustomCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const cursor = document.querySelector('.cursor');
+    const follower = document.querySelector('.cursor-follower');
+    const supportsCustomCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-      if (!cursor || !follower || !supportsCustomCursor) {
-        if (cursor) cursor.style.display = 'none';
-        if (follower) follower.style.display = 'none';
-        document.body.classList.remove('custom-cursor-active');
-        return;
-      }
+    if (cursor && follower && supportsCustomCursor) {
+      document.body.classList.add('custom-cursor-active');
 
-      let followerX = 0;
-      let followerY = 0;
-      let targetX = 0;
-      let targetY = 0;
-      let activated = false;
-
-      function animateFollower() {
-        followerX += (targetX - followerX) * 0.18;
-        followerY += (targetY - followerY) * 0.18;
-        follower.style.left = followerX + 'px';
-        follower.style.top = followerY + 'px';
-        requestAnimationFrame(animateFollower);
-      }
-
-      document.addEventListener('mousemove', (e) => {
-        targetX = e.clientX;
-        targetY = e.clientY;
-        cursor.style.left = targetX + 'px';
-        cursor.style.top = targetY + 'px';
-
-        if (!activated) {
-          followerX = targetX;
-          followerY = targetY;
-          follower.style.left = targetX + 'px';
-          follower.style.top = targetY + 'px';
-          document.body.classList.add('custom-cursor-active');
-          activated = true;
-          requestAnimationFrame(animateFollower);
-        }
-      }, { passive: true });
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        setTimeout(() => {
+          follower.style.left = e.clientX + 'px';
+          follower.style.top = e.clientY + 'px';
+        }, 80);
+      });
+    } else {
+      if (cursor) cursor.style.display = 'none';
+      if (follower) follower.style.display = 'none';
     }
 
     /* ---- Navbar scroll ---- */
-    function initNav() {
-      const navbar = document.getElementById('navbar');
-      if (navbar) {
-        window.addEventListener('scroll', () => {
-          navbar.classList.toggle('scrolled', window.scrollY > 40);
-        });
-      }
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+    });
 
-      const hamburger = document.getElementById('hamburger');
-      const mobileNav = document.getElementById('mobileNav');
-      const mobileClose = document.getElementById('mobileClose');
-
-      if (hamburger && mobileNav) hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
-      if (mobileClose && mobileNav) mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
-      document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileNav && mobileNav.classList.remove('open')));
-    }
+    /* ---- Mobile nav ---- */
+    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+    document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open')));
 
     /* ---- Reveal on scroll ---- */
-    function initReveal() {
-      const revealEls = document.querySelectorAll('.reveal');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((e, i) => {
-          if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
-        });
-      }, { threshold: 0.08 });
-      revealEls.forEach(el => observer.observe(el));
-    }
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+      });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => observer.observe(el));
 
     /* ---- Stat counter ---- */
-    function initStats() {
-      const statNums = document.querySelectorAll('.stat-num');
-      const statObserver = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting && !e.target.dataset.animated) {
-            e.target.dataset.animated = true;
-            const target = e.target.textContent;
-            const num = parseInt(target, 10);
-            const suffix = target.replace(num, '');
-            let count = 0;
-            const inc = Math.ceil(num / 30);
-            const timer = setInterval(() => {
-              count = Math.min(count + inc, num);
-              e.target.textContent = count + suffix;
-              if (count >= num) clearInterval(timer);
-            }, 40);
-          }
-        });
-      }, { threshold: 0.5 });
-      statNums.forEach(s => statObserver.observe(s));
-    }
+    const statNums = document.querySelectorAll('.stat-num');
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !e.target.dataset.animated) {
+          e.target.dataset.animated = true;
+          const target = e.target.textContent;
+          const num = parseInt(target);
+          const suffix = target.replace(num, '');
+          let count = 0;
+          const inc = Math.ceil(num / 30);
+          const timer = setInterval(() => {
+            count = Math.min(count + inc, num);
+            e.target.textContent = count + suffix;
+            if (count >= num) clearInterval(timer);
+          }, 40);
+        }
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(s => statObserver.observe(s));
+
+    document.addEventListener("DOMContentLoaded", typeMessage);
 
     /* =============================================
-       AI CHAT WIDGET LOGIC
-       Uses Puter AI directly when available. Falls back to safe portfolio answers.
+       PORTFOLIO CHAT WIDGET LOGIC
+       Local, no-login responses. This avoids the Puter popup
+       issue on mobile and desktop.
        ============================================= */
 
-    const CLAUDE_MODEL = 'claude-sonnet-4-6';
+    const CONTACT_HTML = 'You can reach Nikhita at <a href="mailto:nikhitashankar97@gmail.com">nikhitashankar97@gmail.com</a>, connect with her on <a href="https://www.linkedin.com/in/nikhita-shankar-analytics/" target="_blank" rel="noopener">LinkedIn</a>, or use the contact form at the bottom of this page.';
 
-    const NIKHITA_CONTEXT = `You are an AI assistant embedded in Nikhita Shankar's portfolio website. Your job is to answer questions from recruiters, hiring managers, and visitors in a warm, professional, and concise way. Refer to Nikhita in the third person. Keep every answer short: 1-2 sentences by default, maximum 3 short sentences only when needed. Use simple, human language. Be direct, clean, and easy to understand. Do not use em dashes. Do not over-explain. Do not sound salesy or robotic. Avoid long bullet lists unless the visitor asks for details. Never fabricate information not listed below.
-
-If someone asks how to contact Nikhita or reach her, share:
-- Email: nikhitashankar97@gmail.com
-- LinkedIn as a markdown link only: [LinkedIn](https://www.linkedin.com/in/nikhita-shankar-analytics/)
-- Or point them to the contact form at the bottom of this page.
-Do not print the raw LinkedIn URL if you can use the LinkedIn link text instead.
-
-If asked about salary expectations, visa status, or relocation: say those details are best discussed directly with Nikhita via the contact form or LinkedIn.
-
-PROFILE:
-Nikhita Shankar is a Data Engineer and Analytics professional with 5+ years of experience. She holds an MS in Business Analytics from UIUC (2024-2025) and a BE in Computer Science from R.V. College of Engineering (2016-2020). She is based in the United States and currently open to new opportunities. She is a Beta Gamma Sigma Honor Society inductee and an AWS Certified Cloud Practitioner.
-
-EXPERIENCE:
-Obvience (2025-Present) -- Data Engineer using Microsoft Fabric, Power BI, SQL Server.
-WorkGaze / Global Launch Inc. -- Data Engineer Volunteer for AI-driven workplace analytics.
-Wolters Kluwer -- Data Science and AI Consultant, LLM differential diagnosis system using GPT-4o and Gemini.
-Colorado West Healthcare -- Data Engineering and Analytics Lead, Cognos Workforce Insights Dashboard with SQL and Python pipelines.
-Hyperplane, acquired by Nubank -- Data Engineer building financial intelligence infrastructure.
-ExxonMobil -- Data Science / Analytics / Data Engineering, won Annual Bright Beginner Award and Quarterly Recognition Award.
-Softtek -- Engineering Intern.
-
-SKILLS:
-Python, R, SQL, Power BI, Tableau, IBM Cognos, AWS, Azure, Microsoft Fabric, Databricks, Snowflake, KNIME, Scikit-learn, XGBoost, LightGBM, Random Forest, BERT, NLP, GPT-4o, Gemini, prompt engineering, LLM evaluation.
-
-HACKATHON WINS:
-1st Place, Zerve x HackerEarth Hackathon, First48. Predicted long-term user success from 48 hours of behavioral data using Random Forest, feature engineering, user segmentation, and Streamlit.
-2nd Place, ODSC AI Datathon, UpNext. Built product-led growth intelligence using Zerve product event data, LightGBM, XGBoost, funnel analysis, segmentation, and Streamlit.
-
-PUBLICATIONS:
-Review of Recommendation Systems using Filtering-based Concepts, IRJET.
-EmoSense, Zenodo 2025, privacy-preserving early burnout detection with Emotional Stability Drift Index.
-
-KEY PROJECTS:
-LLM Differential Diagnosis, Spotify Playlist Prediction Pipeline, Workforce Insights Dashboard, NLP Disaster Tweet Classification, Yelp Business Intelligence Platform, Stock Market Forecasting, MLDA Mortality Analysis.
-
-INTERESTS:
-Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
+    const PORTFOLIO_PROFILE = {
+      name: 'Nikhita Shankar',
+      headline: 'Data Engineer and Analytics professional',
+      summary: 'Nikhita is a Data Engineer and Analytics professional with 5+ years of experience across data engineering, BI, analytics, product analytics, and applied AI. She connects technical data work with business decision-making.',
+      roles: 'She is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Analyst, Product Analyst, and AI Analytics roles, especially where teams need clean pipelines, trusted dashboards, and business-facing insights.',
+      contact: CONTACT_HTML,
+      current: 'At Obvience, Nikhita works as a Data Engineer on Microsoft Fabric, Power BI, SQL Server, semantic models, and AI-assisted analytics workflows. Her work focuses on making data reliable, decision-ready, and easier for business users to consume.',
+      skills: 'Her core stack includes SQL, Python, R, Power BI, Tableau, IBM Cognos, Microsoft Fabric, AWS, Azure, Snowflake, Databricks, KNIME, Scikit-learn, XGBoost, LightGBM, BERT, GPT-4o, Gemini, prompt engineering, and LLM evaluation.',
+      projects: 'Her selected projects include First48, UpNext, LLM Differential Diagnosis, Spotify Playlist Prediction Pipeline, Workforce Insights Dashboard, NLP Disaster Tweet Classification, Yelp Business Intelligence Platform, Stock Market Forecasting, and MLDA Mortality Analysis.',
+      education: 'Nikhita holds an MS in Business Analytics from UIUC and a BE in Computer Science from R.V. College of Engineering.',
+      awards: 'Her recognitions include Beta Gamma Sigma, AWS Certified Cloud Practitioner, ExxonMobil recognition awards, 1st place at the Zerve x HackerEarth Hackathon, and 2nd place at the ODSC AI Datathon.',
+      publications: 'Nikhita has published work on recommendation systems in IRJET and EmoSense on Zenodo, a privacy-preserving framework for early burnout detection using behavioral metadata.',
+      interests: 'Outside of work, Nikhita enjoys cooking, traveling, badminton, football, cricket, and Formula 1.'
+    };
 
     let chatOpen = false;
     let chatHistory = [];
-    let puterConnected = false;
+    let lastSubmittedMessage = '';
+    let lastSubmittedAt = 0;
+
+    function isDuplicateSubmit(text) {
+      const now = Date.now();
+      const normalized = String(text || '').trim().toLowerCase();
+      if (normalized && normalized === lastSubmittedMessage && now - lastSubmittedAt < 700) return true;
+      lastSubmittedMessage = normalized;
+      lastSubmittedAt = now;
+      return false;
+    }
 
     function toggleChat() {
+      chatOpen = !chatOpen;
+      document.getElementById('chat-window').classList.toggle('open', chatOpen);
+      document.getElementById('chat-bubble').classList.toggle('active', chatOpen);
+      if (chatOpen) {
+        setTimeout(() => document.getElementById('chatInput').focus(), 300);
+      }
+    }
+
+    // Close chat when clicking outside
+    document.addEventListener('click', function(e) {
       const win = document.getElementById('chat-window');
       const bubble = document.getElementById('chat-bubble');
-      if (!win || !bubble) return;
-      chatOpen = !chatOpen;
-      win.classList.toggle('open', chatOpen);
-      bubble.classList.toggle('active', chatOpen);
-      if (chatOpen) setTimeout(() => document.getElementById('chatInput')?.focus(), 250);
-    }
-
-    async function checkPuterStatus() {
-      try {
-        if (!window.puter || !puter.auth || !puter.auth.isSignedIn) return false;
-        return Boolean(await puter.auth.isSignedIn());
-      } catch (e) {
-        return false;
+      if (chatOpen && !win.contains(e.target) && !bubble.contains(e.target)) {
+        toggleChat();
       }
-    }
-
-    function updateAIStatus(isConnected, note) {
-      puterConnected = Boolean(isConnected);
-      const status = document.getElementById('chatAuthStatus');
-      const btn = document.getElementById('puterConnectBtn');
-      if (status) status.textContent = note || (puterConnected ? 'Live AI connected.' : 'Portfolio mode ready. Live AI not connected yet.');
-      if (btn) btn.textContent = puterConnected ? 'AI Connected' : 'Connect AI';
-      if (btn) btn.disabled = puterConnected;
-    }
-
-    async function connectPuterAI() {
-      const btn = document.getElementById('puterConnectBtn');
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = 'Connecting...';
-      }
-      updateAIStatus(false, 'Opening secure Puter connection...');
-
-      try {
-        if (!window.puter || !puter.auth || !puter.auth.signIn) {
-          throw new Error('Puter.js did not load');
-        }
-        await puter.auth.signIn({ attempt_temp_user_creation: true });
-        const connected = await checkPuterStatus();
-        updateAIStatus(connected, connected ? 'Live AI connected. Ask anything about Nikhita.' : 'Could not confirm connection. Portfolio mode still works.');
-      } catch (err) {
-        console.error('Puter sign-in error:', err);
-        updateAIStatus(false, 'Connection did not finish. Portfolio mode still works. Try opening this site directly in Safari or Chrome.');
-      } finally {
-        if (btn && !puterConnected) {
-          btn.disabled = false;
-          btn.textContent = 'Connect AI';
-        }
-      }
-    }
+    });
 
     function sendSuggestion(btn) {
       const text = btn.textContent;
+      if (isDuplicateSubmit(text)) return;
       const sugg = document.getElementById('chatSuggestions');
       if (sugg) sugg.style.display = 'none';
       appendUserMsg(text);
@@ -2130,8 +2063,9 @@ Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
 
     function sendChat() {
       const input = document.getElementById('chatInput');
-      const text = input ? input.value.trim() : '';
+      const text = input.value.trim();
       if (!text) return;
+      if (isDuplicateSubmit(text)) return;
       input.value = '';
       const sugg = document.getElementById('chatSuggestions');
       if (sugg) sugg.style.display = 'none';
@@ -2142,7 +2076,6 @@ Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
     function appendUserMsg(text) {
       chatHistory.push({ role: 'user', content: text });
       const msgs = document.getElementById('chatMessages');
-      if (!msgs) return;
       const div = document.createElement('div');
       div.className = 'chat-msg chat-msg--user';
       div.innerHTML = '<div class="chat-msg-bubble">' + escHtml(text) + '</div>';
@@ -2152,7 +2085,6 @@ Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
 
     function appendBotMsg(html, isLoading) {
       const msgs = document.getElementById('chatMessages');
-      if (!msgs) return null;
       const div = document.createElement('div');
       div.className = 'chat-msg chat-msg--bot' + (isLoading ? ' chat-msg--loading' : '');
       const avt = document.createElement('div');
@@ -2160,7 +2092,9 @@ Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
       avt.textContent = 'NS';
       const bub = document.createElement('div');
       bub.className = 'chat-msg-bubble';
-      bub.innerHTML = isLoading ? '<span class="chat-dots"><span></span><span></span><span></span></span>' : html;
+      bub.innerHTML = isLoading
+        ? '<span class="chat-dots"><span></span><span></span><span></span></span>'
+        : html;
       div.appendChild(avt);
       div.appendChild(bub);
       msgs.appendChild(div);
@@ -2170,298 +2104,149 @@ Cooking, Traveling, Badminton, Football, Cricket, Formula 1.`;
 
     function scrollToBottom() {
       const msgs = document.getElementById('chatMessages');
-      if (msgs) msgs.scrollTop = msgs.scrollHeight;
+      msgs.scrollTop = msgs.scrollHeight;
     }
 
-    function localPortfolioReply(userMsg) {
-      const q = userMsg.toLowerCase();
-      if (/(contact|email|linkedin|reach|get in touch)/.test(q)) {
-        return 'You can reach Nikhita at nikhitashankar97@gmail.com, connect with her on [LinkedIn](https://www.linkedin.com/in/nikhita-shankar-analytics/), or use the contact form at the bottom of the page.';
+    function getLocalPortfolioReply(userMsg) {
+      const q = String(userMsg || '').toLowerCase();
+      const has = (...patterns) => patterns.some(pattern => pattern.test(q));
+
+      if (has(/contact|email|linkedin|reach|get in touch|connect|message|call|phone/)) {
+        return PORTFOLIO_PROFILE.contact;
       }
-      if (/(speciali[sz]e|focus|profile|about|who is)/.test(q)) {
-        return 'Nikhita specializes in data engineering, analytics, BI, and applied AI. She builds clean pipelines, trusted dashboards, and decision-ready data systems.';
+
+      if (has(/hire|available|open to|opportunity|recruit|interview|job|apply|candidate/)) {
+        return 'Yes, Nikhita is open to new opportunities. ' + PORTFOLIO_PROFILE.roles + ' ' + PORTFOLIO_PROFILE.contact;
       }
-      if (/(skill|tool|tech|stack|software)/.test(q)) {
-        return 'Her core stack includes Python, SQL, Power BI, Tableau, Microsoft Fabric, AWS, Azure, Snowflake, Databricks, and machine learning tools like XGBoost, LightGBM, and BERT.';
+
+      if (has(/role|position|fit|title|what kind of job|best suited|where would she fit/)) {
+        return PORTFOLIO_PROFILE.roles;
       }
-      if (/(hackathon|winner|datathon|first48|upnext)/.test(q)) {
-        return 'Nikhita won 1st place at the Zerve x HackerEarth Hackathon with First48 and 2nd place at the ODSC AI Datathon with UpNext. Both projects turned product behavior data into business-facing insight tools.';
+
+      if (has(/speciali[sz]e|focus|expert|what does she do|profile|about|summary|who is/)) {
+        return 'Nikhita specializes in data engineering, analytics, BI, and applied AI. She builds pipelines, semantic models, dashboards, and analytics workflows that turn messy data into useful business decisions.';
       }
-      if (/(project|portfolio|work)/.test(q)) {
-        return 'Her selected projects include LLM Differential Diagnosis, Spotify Playlist Prediction Pipeline, Workforce Insights Dashboard, NLP Disaster Tweet Classification, and Yelp Business Intelligence Platform.';
+
+      if (has(/strong hire|why hire|why should|stand out|strength|value|impact|good fit|what makes her/)) {
+        return 'Nikhita is strong because she combines technical execution with business understanding. She can work across pipelines, dashboards, metrics, and AI-assisted analytics while keeping the final business decision in mind.';
       }
-      if (/(experience|worked|company|exxon|obvience|hyperplane|nubank|wolters|colorado)/.test(q)) {
-        return 'Nikhita has experience across Obvience, Hyperplane, ExxonMobil, and industry capstones with Wolters Kluwer and Colorado West Healthcare. Her work spans data engineering, BI, analytics, and applied AI.';
+
+      if (has(/skill|tool|tech|stack|software|language|platform|sql|python|power bi|tableau|fabric|snowflake|databricks|aws|azure/)) {
+        return PORTFOLIO_PROFILE.skills;
       }
-      if (/(hire|strong|candidate|fit|why)/.test(q)) {
-        return 'Nikhita is a strong fit for teams that need someone who can connect technical data work to business decisions. She brings data engineering, BI, analytics, and applied AI experience with a practical, outcome-focused approach.';
+
+      if (has(/current|obvience|latest|now|present|recent work/)) {
+        return PORTFOLIO_PROFILE.current;
       }
-      if (/(award|cert|certificate|publication|paper|honor)/.test(q)) {
-        return 'She is a Beta Gamma Sigma inductee, an AWS Certified Cloud Practitioner, an ExxonMobil recognition award recipient, and has publications in IRJET and Zenodo.';
+
+      if (has(/experience|worked|company|background|career|professional/)) {
+        return 'Nikhita has 5+ years of experience across Obvience, Hyperplane, ExxonMobil, WorkGaze, and industry capstones with Wolters Kluwer and Colorado West Healthcare. Her work spans data engineering, BI, analytics, product analytics, and applied AI.';
       }
-      return 'I can answer best about Nikhita’s background, skills, projects, experience, hackathon wins, publications, and contact details. For a very specific question, the best next step is to reach her through [LinkedIn](https://www.linkedin.com/in/nikhita-shankar-analytics/) or the contact form.';
+
+      if (has(/exxon|exxonmobil/)) {
+        return 'At ExxonMobil, Nikhita worked across data science, analytics, and data engineering projects. She also received the Annual Bright Beginner Award and a Quarterly Recognition Award for strong analytics delivery.';
+      }
+
+      if (has(/hyperplane|nubank|fintech|financial/)) {
+        return 'At Hyperplane, later acquired by Nubank, Nikhita worked on data engineering and financial intelligence infrastructure in a fintech environment. This experience strengthened her ability to work with data systems that support business and product decisions.';
+      }
+
+      if (has(/wolters|kluwer|healthcare|diagnosis|clinical|medical/)) {
+        return 'For Wolters Kluwer, Nikhita worked on an LLM-based differential diagnosis system using GPT-4o and Gemini. The project focused on prompt engineering, model reasoning, and healthcare decision-support use cases.';
+      }
+
+      if (has(/colorado|hospital|workforce|cognos|hr analytics/)) {
+        return 'For Colorado West Healthcare, Nikhita led data engineering and analytics work for a Cognos-based Workforce Insights Dashboard. The project used SQL and Python pipelines to support HR KPI reporting and labor-cost analysis.';
+      }
+
+      if (has(/workgaze|global launch|volunteer|workplace/)) {
+        return 'At WorkGaze, Nikhita contributed as a Data Engineer volunteer, building automated workflows for AI-driven workplace analytics. The work supported the foundation of a behavioral intelligence platform.';
+      }
+
+      if (has(/project|portfolio|github|build|built|demo|notebook/)) {
+        return PORTFOLIO_PROFILE.projects;
+      }
+
+      if (has(/first48|first 48|zerve hacker|hackerearth/)) {
+        return 'First48 was Nikhita\'s 1st-place Zerve x HackerEarth Hackathon project. It predicted long-term user success from the first 48 hours of behavioral data using feature engineering, Random Forest modeling, segmentation, and a Streamlit app.';
+      }
+
+      if (has(/upnext|odsc|datathon|growth intelligence/)) {
+        return 'UpNext was Nikhita\'s 2nd-place ODSC AI Datathon project. It used Zerve product event data, LightGBM/XGBoost, funnel analysis, and segmentation to create a product-led growth action queue.';
+      }
+
+      if (has(/hackathon|datathon|winner|win|competition/)) {
+        return 'Nikhita won 1st place at the Zerve x HackerEarth Hackathon with First48 and placed 2nd at the ODSC AI Datathon with UpNext. Both projects turned product behavior data into business-facing insight tools.';
+      }
+
+      if (has(/ai|llm|gpt|gemini|machine learning|ml|model|nlp|bert|predictive/)) {
+        return 'Yes, Nikhita has worked with applied AI and ML, including GPT-4o, Gemini, prompt engineering, LLM evaluation, BERT, XGBoost, LightGBM, Random Forest, and product analytics models. She focuses on using AI and ML for practical decision-support use cases.';
+      }
+
+      if (has(/data engineer|data engineering|pipeline|etl|elt|data pipeline|data model|semantic model/)) {
+        return 'Nikhita has strong data engineering experience across SQL, Python, Microsoft Fabric, Snowflake, Databricks, AWS, Azure, and Power BI semantic models. She focuses on building clean, trusted data foundations for analytics and reporting.';
+      }
+
+      if (has(/dashboard|bi|business intelligence|reporting|kpi|visualization|power bi|tableau|cognos/)) {
+        return 'Nikhita has built dashboards and reporting solutions using Power BI, Tableau, and IBM Cognos. Her BI work focuses on trusted KPIs, clear storytelling, and dashboards that help business users make faster decisions.';
+      }
+
+      if (has(/education|degree|school|university|uiuc|rvce|college|masters|bachelor/)) {
+        return PORTFOLIO_PROFILE.education;
+      }
+
+      if (has(/award|cert|certificate|certification|honor|recognition|beta gamma|aws certified/)) {
+        return PORTFOLIO_PROFILE.awards;
+      }
+
+      if (has(/publication|paper|research|irjet|zenodo|emosense|recommendation/)) {
+        return PORTFOLIO_PROFILE.publications;
+      }
+
+      if (has(/resume|cv|download/)) {
+        return 'You can download Nikhita\'s resume using the Download Resume button in the About section. You can also contact her directly through LinkedIn or the contact form if you need the latest version.';
+      }
+
+      if (has(/visa|sponsor|sponsorship|work authorization|relocation|salary|compensation|rate/)) {
+        return 'Those details are best discussed directly with Nikhita. You can reach her through LinkedIn, email, or the contact form at the bottom of the page.';
+      }
+
+      if (has(/location|based|where is she/)) {
+        return 'Nikhita is based in the United States and is open to discussing suitable opportunities directly. For location-specific details, the best way to confirm is through LinkedIn or the contact form.';
+      }
+
+      if (has(/lead|leadership|team|stakeholder|communication|manager/)) {
+        return 'Nikhita has led analytics and capstone work, collaborated with business stakeholders, and translated technical findings into clear decisions. She is comfortable working across technical and non-technical teams.';
+      }
+
+      if (has(/industry|domain|sector/)) {
+        return 'Nikhita has experience across fintech, energy, healthcare, workplace analytics, BI consulting, and product analytics. This gives her a strong mix of technical depth and business context.';
+      }
+
+      if (has(/hobby|interest|outside work|fun/)) {
+        return PORTFOLIO_PROFILE.interests;
+      }
+
+      return 'I can help with Nikhita\'s skills, experience, projects, hackathon wins, education, awards, publications, resume, and contact details. For a very specific hiring question, the best next step is to reach her through LinkedIn or the contact form.';
     }
 
-    function linkifyReply(text) {
-      text = String(text || '');
-      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      text = text.replace(/\[([^\]]+)\]\s*\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-      text = text.replace(/(?<!href=")https?:\/\/[^\s<)]+/g, '<a href="$&" target="_blank" rel="noopener">$&</a>');
-      text = text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1">$1</a>');
-      return text;
-    }
-
-    function cleanAIReply(text) {
-      return String(text || '')
-        .replace(/[—–]/g, ', ')
-        .replace(/\n{3,}/g, '\n\n')
-        .trim();
-    }
-
-    function withTimeout(promise, ms) {
-      return Promise.race([
-        promise,
-        new Promise((_, reject) => setTimeout(() => reject(new Error('AI request timed out')), ms))
-      ]);
-    }
-
-    async function fetchReply(userMsg) {
+    function fetchReply(userMsg) {
       const loadingEl = appendBotMsg('', true);
-
-      try {
-        if (!window.puter || !puter.ai || !puter.ai.chat) {
-          throw new Error('Puter.js did not load');
-        }
-
-        const recentHistory = chatHistory
-          .slice(-6)
-          .map(m => `${m.role === 'user' ? 'Visitor' : 'Assistant'}: ${m.content}`)
-          .join('\n');
-
-        const prompt = `${NIKHITA_CONTEXT}
-
-Conversation so far:
-${recentHistory}
-
-Visitor's latest question: ${userMsg}
-
-Answer as Nikhita's portfolio assistant. Keep the answer short, warm, human, and easy to scan. Use 1-2 sentences. No em dashes. No long paragraphs. If sharing LinkedIn, use [LinkedIn](https://www.linkedin.com/in/nikhita-shankar-analytics/) and do not show the raw URL. If the question needs a list, use at most 3 bullets.`;
-
-        const response = await withTimeout(
-          puter.ai.chat(prompt, { model: CLAUDE_MODEL }),
-          18000
-        );
-
-        if (loadingEl) loadingEl.remove();
-
-        const rawReply = response?.message?.content?.[0]?.text || response?.text || String(response || 'I could not fetch a response right now.');
-        const reply = cleanAIReply(rawReply);
-        appendBotMsg(linkifyReply(reply), false);
-        chatHistory.push({ role: 'assistant', content: reply });
-      } catch (err) {
-        console.error('Puter AI failed, using portfolio fallback:', err);
-        if (loadingEl) loadingEl.remove();
-        const fallback = localPortfolioReply(userMsg);
-        appendBotMsg(linkifyReply(fallback), false);
-        chatHistory.push({ role: 'assistant', content: fallback });
-      }
+      setTimeout(() => {
+        loadingEl.remove();
+        const reply = getLocalPortfolioReply(userMsg);
+        appendBotMsg(reply, false);
+        chatHistory.push({ role: 'assistant', content: reply.replace(/<[^>]*>/g, '') });
+      }, 450);
     }
 
     function escHtml(str) {
-      return String(str || '')
+      return str
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
     }
-
-    function initChatHandlers() {
-      const bubble = document.getElementById('chat-bubble');
-      const close = document.querySelector('.chat-close-btn');
-      const send = document.querySelector('.chat-send-btn');
-      const connect = document.getElementById('puterConnectBtn');
-      const input = document.getElementById('chatInput');
-
-      if (bubble) bubble.addEventListener('click', (e) => { e.stopPropagation(); toggleChat(); });
-      if (close) close.addEventListener('click', (e) => { e.stopPropagation(); toggleChat(); });
-      if (send) send.addEventListener('click', (e) => { e.preventDefault(); sendChat(); });
-      if (connect) connect.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); connectPuterAI(); });
-      if (input) input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendChat(); });
-
-      document.querySelectorAll('.chat-sug-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => { e.preventDefault(); sendSuggestion(btn); });
-      });
-
-      document.addEventListener('click', function(e) {
-        const win = document.getElementById('chat-window');
-        const bubbleEl = document.getElementById('chat-bubble');
-        if (chatOpen && win && bubbleEl && !win.contains(e.target) && !bubbleEl.contains(e.target)) toggleChat();
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      typeMessage();
-      initCustomCursor();
-      initNav();
-      initReveal();
-      initStats();
-      initChatHandlers();
-      checkPuterStatus().then(isConnected => updateAIStatus(isConnected));
-    });
-
-    // Expose functions as a backup for existing inline onclick attributes.
-    window.toggleChat = toggleChat;
-    window.sendChat = sendChat;
-    window.sendSuggestion = sendSuggestion;
-    window.connectPuterAI = connectPuterAI;
-</script>
-
-
-<!-- Emergency chat/cursor reliability patch. Keeps the portfolio content intact. -->
-<style id="chat-click-rescue-style">
-  #chat-bubble {
-    z-index: 2147483000 !important;
-    pointer-events: auto !important;
-    user-select: none;
-  }
-  #chat-window {
-    z-index: 2147482999 !important;
-  }
-  #chat-window.open {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    transform: translateY(0) scale(1) !important;
-  }
-  #chat-bubble.active {
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-  .cursor,
-  .cursor-follower {
-    left: -100px;
-    top: -100px;
-  }
-</style>
-<script id="chat-click-rescue-script">
-(function () {
-  function byId(id) { return document.getElementById(id); }
-
-  function setChatOpen(open) {
-    var win = byId('chat-window');
-    var bubble = byId('chat-bubble');
-    var input = byId('chatInput');
-    if (!win || !bubble) return;
-
-    win.classList.toggle('open', open);
-    bubble.classList.toggle('active', open);
-
-    if (open && input) {
-      setTimeout(function () { input.focus(); }, 150);
-    }
-  }
-
-  function hardToggleChat(event) {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
-    }
-    var win = byId('chat-window');
-    if (!win) return false;
-    setChatOpen(!win.classList.contains('open'));
-    return false;
-  }
-
-  function hardCloseChat(event) {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
-    }
-    setChatOpen(false);
-    return false;
-  }
-
-  function bindChat() {
-    var bubble = byId('chat-bubble');
-    var closeBtn = document.querySelector('.chat-close-btn');
-
-    if (bubble) {
-      bubble.removeAttribute('onclick');
-      bubble.onclick = hardToggleChat;
-      bubble.addEventListener('click', hardToggleChat, true);
-      bubble.addEventListener('touchend', hardToggleChat, true);
-    }
-
-    if (closeBtn) {
-      closeBtn.removeAttribute('onclick');
-      closeBtn.onclick = hardCloseChat;
-      closeBtn.addEventListener('click', hardCloseChat, true);
-      closeBtn.addEventListener('touchend', hardCloseChat, true);
-    }
-  }
-
-  function repairCursor() {
-    var cursor = document.querySelector('.cursor');
-    var follower = document.querySelector('.cursor-follower');
-    if (!cursor || !follower) return;
-
-    cursor.style.left = '-100px';
-    cursor.style.top = '-100px';
-    follower.style.left = '-100px';
-    follower.style.top = '-100px';
-
-    document.addEventListener('mousemove', function (e) {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-      follower.style.left = e.clientX + 'px';
-      follower.style.top = e.clientY + 'px';
-      document.body.classList.add('custom-cursor-active');
-    }, { passive: true });
-  }
-
-  window.toggleChat = hardToggleChat;
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-      bindChat();
-      repairCursor();
-    });
-  } else {
-    bindChat();
-    repairCursor();
-  }
-})();
-</script>
-
-
-<!-- Cursor over chat fix -->
-<style id="cursor-over-chat-fix">
-  .cursor {
-    z-index: 2147483647 !important;
-  }
-
-  .cursor-follower {
-    z-index: 2147483646 !important;
-  }
-
-  #chat-window,
-  #chat-window * {
-    cursor: auto !important;
-  }
-
-  #chat-window button,
-  #chat-window a,
-  #chat-bubble,
-  #chat-bubble * {
-    cursor: pointer !important;
-  }
-
-  #chatInput,
-  .chat-input {
-    cursor: text !important;
-  }
-</style>
-
+  </script>
 </body>
 </html>

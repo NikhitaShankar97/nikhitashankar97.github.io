@@ -2445,5 +2445,34 @@ Answer as Nikhita's portfolio assistant. Keep the answer short, warm, human, and
 })();
 </script>
 
+
+<!-- Cursor over chat fix -->
+<style id="cursor-over-chat-fix">
+  .cursor {
+    z-index: 2147483647 !important;
+  }
+
+  .cursor-follower {
+    z-index: 2147483646 !important;
+  }
+
+  #chat-window,
+  #chat-window * {
+    cursor: auto !important;
+  }
+
+  #chat-window button,
+  #chat-window a,
+  #chat-bubble,
+  #chat-bubble * {
+    cursor: pointer !important;
+  }
+
+  #chatInput,
+  .chat-input {
+    cursor: text !important;
+  }
+</style>
+
 </body>
 </html>

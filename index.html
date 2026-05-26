@@ -2108,125 +2108,136 @@ footer {
     }
 
     function getLocalPortfolioReply(userMsg) {
-      const q = String(userMsg || '').toLowerCase();
+      const raw = String(userMsg || '');
+      const q = raw.toLowerCase().trim();
 
-      const hasAny = (terms) => terms.some(term => q.includes(term));
-      const hasRegex = (...patterns) => patterns.some(pattern => pattern.test(q));
       const contactLine = 'For anything more specific, ' + PORTFOLIO_PROFILE.contact;
+      const includesAny = (terms) => terms.some(term => q.includes(term));
+      const hasWord = (word) => new RegExp('(^|[^a-z0-9])' + word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '([^a-z0-9]|$)', 'i').test(q);
+      const hasAnyWord = (words) => words.some(hasWord);
 
-      /* Specific topic matching comes first.
-         If a recruiter mentions publications, awards, hackathons, projects, etc. anywhere in the question,
-         the assistant should answer that topic directly, no matter how the question is phrased. */
+      /*
+        IMPORTANT:
+        1. Intent questions like hire/role/fit are checked before tools.
+        2. Skills are only triggered by real skill words, not tiny letters like "r" inside "her" or "for".
+        3. Anything unknown redirects to Nikhita directly instead of guessing.
+      */
 
-      if (hasRegex(/publication|publications|published|paper|papers|research|journal|irjet|zenodo|emosense|recommendation system|recommendation systems/)) {
-        return PORTFOLIO_PROFILE.publications + ' ' + contactLine;
+      if (
+        includesAny(['hire her', 'hiring her', 'hire nikhita', 'why should i hire', 'why hire', 'strong hire', 'good hire', 'strong candidate', 'good candidate', 'can i hire', 'should i hire']) ||
+        (hasAnyWord(['hire', 'hiring', 'candidate', 'recruit', 'recruiter', 'interview']) && includesAny(['data engineer', 'data scientist', 'analytics engineer', 'bi engineer', 'data analyst', 'product analyst']))
+      ) {
+        return 'Yes. Nikhita would be a strong candidate for Data Engineer, Data Scientist, Analytics Engineer, BI Engineer, Data Analyst, Product Analyst, and AI Analytics roles. She combines hands-on data engineering, BI, data science, and applied AI experience with the ability to turn messy data into clear business decisions. ' + PORTFOLIO_PROFILE.contact;
       }
 
-      if (hasRegex(/award|awards|honor|honors|recognition|recognized|certificate|certification|certified|credential|beta gamma|sigma|aws certified|cloud practitioner|bright beginner/)) {
-        return PORTFOLIO_PROFILE.awards + ' These recognitions show a mix of academic strength, cloud fundamentals, analytics delivery, and competition performance.';
-      }
-
-      if (hasRegex(/hackathon|datathon|competition|winner|won|win|first place|1st place|second place|2nd place|zerve|hackerearth|odsc|first48|first 48|upnext/)) {
-        return 'Nikhita won 1st place at the Zerve x HackerEarth Hackathon with First48 and placed 2nd at the ODSC AI Datathon with UpNext. Both projects used product behavior data, ML, segmentation, and Streamlit apps to turn raw usage data into business-facing growth insights.';
-      }
-
-      if (hasRegex(/project|projects|portfolio|github|build|built|demo|notebook|case study|selected work/)) {
-        return PORTFOLIO_PROFILE.projects + ' These projects show her range across data engineering, data science, BI, ML, and applied AI.';
-      }
-
-      if (hasRegex(/skill|skills|tool|tools|tech stack|technology|stack|software|language|platform|sql|python|r\b|power bi|tableau|fabric|microsoft fabric|snowflake|databricks|aws|azure|cognos|knime/)) {
-        return PORTFOLIO_PROFILE.skills + ' She uses these tools to build data pipelines, dashboards, semantic models, ML workflows, and decision-support systems.';
-      }
-
-      if (hasRegex(/data science|data scientist|machine learning|ml\b|ai\b|applied ai|llm|llms|gpt|gemini|bert|nlp|model|models|predictive|classification|forecasting|xgboost|lightgbm|random forest/)) {
-        return 'Yes, Nikhita has data science, applied AI, and ML experience. She has worked with GPT-4o, Gemini, prompt engineering, LLM evaluation, BERT, XGBoost, LightGBM, Random Forest, product analytics models, and decision-support use cases.';
-      }
-
-      if (hasRegex(/data engineering|data engineer|pipeline|pipelines|etl|elt|data pipeline|data model|semantic model|semantic models|warehouse|data warehouse|snowflake|fabric|databricks/)) {
-        return 'Nikhita has strong data engineering experience across SQL, Python, Microsoft Fabric, Snowflake, Databricks, AWS, Azure, and Power BI semantic models. She focuses on building clean, trusted data foundations for analytics, data science, and reporting.';
-      }
-
-      if (hasRegex(/dashboard|dashboards|bi\b|business intelligence|reporting|reports|kpi|kpis|metrics|visualization|visualisation|power bi|tableau|cognos/)) {
-        return 'Nikhita has built BI and reporting solutions using Power BI, Tableau, and IBM Cognos. Her dashboard work focuses on trusted KPIs, clear storytelling, and making insights easier for business users to act on.';
-      }
-
-      if (hasRegex(/experience|worked|work history|company|companies|background|career|professional|previous roles/)) {
-        return 'Nikhita has 5+ years of experience across Obvience, Hyperplane, ExxonMobil, WorkGaze, and industry capstones with Wolters Kluwer and Colorado West Healthcare. Her work spans data engineering, data science, BI, analytics, product analytics, and applied AI.';
-      }
-
-      if (hasRegex(/current|currently|obvience|latest|recent work|now|present role/)) {
-        return PORTFOLIO_PROFILE.current + ' This positions her well for modern data teams working with BI, cloud analytics, semantic layers, and AI-ready reporting.';
-      }
-
-      if (hasRegex(/exxon|exxonmobil/)) {
-        return 'At ExxonMobil, Nikhita worked across data science, analytics, and data engineering projects. She also received the Annual Bright Beginner Award and a Quarterly Recognition Award for strong analytics delivery.';
-      }
-
-      if (hasRegex(/hyperplane|nubank|fintech|financial/)) {
-        return 'At Hyperplane, later acquired by Nubank, Nikhita worked on data engineering and financial intelligence infrastructure in a fintech environment. This strengthened her ability to build data systems that support product and business decisions.';
-      }
-
-      if (hasRegex(/wolters|kluwer|healthcare|diagnosis|clinical|medical/)) {
-        return 'For Wolters Kluwer, Nikhita worked on an LLM-based differential diagnosis system using GPT-4o and Gemini. The project focused on prompt engineering, model reasoning, and healthcare decision-support use cases.';
-      }
-
-      if (hasRegex(/colorado|hospital|workforce|hr analytics|labor|labour/)) {
-        return 'For Colorado West Healthcare, Nikhita led data engineering and analytics work for a Cognos-based Workforce Insights Dashboard. The project used SQL and Python pipelines to support HR KPI reporting and labor-cost analysis.';
-      }
-
-      if (hasRegex(/workgaze|global launch|volunteer|workplace/)) {
-        return 'At WorkGaze, Nikhita contributed as a Data Engineer volunteer, building automated workflows for AI-driven workplace analytics. The work supported the foundation of a behavioral intelligence platform.';
-      }
-
-      if (hasRegex(/education|degree|school|university|uiuc|gies|rvce|college|masters|master's|ms\b|bachelor|computer science/)) {
-        return PORTFOLIO_PROFILE.education + ' Her education gives her both business analytics training and a strong computer science foundation.';
-      }
-
-      if (hasRegex(/role|roles|position|fit|title|job title|what kind of job|best suited|where would she fit|data analyst|analytics engineer|bi engineer|product analyst/)) {
+      if (
+        includesAny(['what roles', 'which roles', 'what role', 'which role', 'roles is she', 'role is she', 'fit for', 'good fit for', 'best fit', 'best suited', 'suitable for', 'job title', 'job titles', 'what jobs', 'which jobs', 'where would she fit']) ||
+        includesAny(['data engineer', 'data scientist', 'analytics engineer', 'bi engineer', 'business intelligence engineer', 'data analyst', 'product analyst', 'ai analytics'])
+      ) {
         return PORTFOLIO_PROFILE.roles;
       }
 
-      if (hasRegex(/hire|available|availability|open to|opportunity|opportunities|recruit|recruiter|interview|job|apply|candidate|interested/)) {
-        return 'Yes, Nikhita is open to new opportunities. ' + PORTFOLIO_PROFILE.roles + ' ' + PORTFOLIO_PROFILE.contact;
-      }
-
-      if (hasRegex(/strong hire|why hire|why should|stand out|strength|value|impact|good fit|what makes her|why nikhita/)) {
+      if (includesAny(['why should', 'why nikhita', 'what makes her', 'stand out', 'strength', 'strengths', 'value', 'impact', 'why is she'])) {
         return 'Nikhita is strong because she combines technical execution with business understanding. She can work across data engineering, data science, dashboards, metrics, and AI-assisted analytics while keeping the final business decision in mind.';
       }
 
-      if (hasRegex(/lead|leadership|team|stakeholder|communication|manager|manage|collaborate|cross-functional|cross functional/)) {
+      if (includesAny(['publication', 'publications', 'published', 'paper', 'papers', 'research', 'journal', 'irjet', 'zenodo', 'emosense', 'recommendation system', 'recommendation systems'])) {
+        return PORTFOLIO_PROFILE.publications + ' ' + contactLine;
+      }
+
+      if (includesAny(['award', 'awards', 'honor', 'honors', 'recognition', 'recognized', 'certificate', 'certification', 'certified', 'credential', 'beta gamma', 'sigma', 'aws certified', 'cloud practitioner', 'bright beginner'])) {
+        return PORTFOLIO_PROFILE.awards + ' These recognitions show a mix of academic strength, cloud fundamentals, analytics delivery, and competition performance.';
+      }
+
+      if (includesAny(['hackathon', 'hackathons', 'datathon', 'datathons', 'competition', 'winner', 'won', 'win', 'first place', '1st place', 'second place', '2nd place', 'zerve', 'hackerearth', 'odsc', 'first48', 'first 48', 'upnext'])) {
+        return 'Nikhita won 1st place at the Zerve x HackerEarth Hackathon with First48 and placed 2nd at the ODSC AI Datathon with UpNext. Both projects used product behavior data, ML, segmentation, and Streamlit apps to turn raw usage data into business-facing growth insights.';
+      }
+
+      if (includesAny(['project', 'projects', 'portfolio', 'github', 'build', 'built', 'demo', 'notebook', 'case study', 'selected work', 'app', 'apps'])) {
+        return PORTFOLIO_PROFILE.projects + ' These projects show her range across data engineering, data science, BI, ML, and applied AI.';
+      }
+
+      if (includesAny(['data science', 'data scientist', 'machine learning', ' ml ', ' ai ', 'applied ai', 'llm', 'llms', 'gpt', 'gemini', 'bert', 'nlp', 'model', 'models', 'predictive', 'classification', 'forecasting', 'xgboost', 'lightgbm', 'random forest'])) {
+        return 'Yes, Nikhita has data science, applied AI, and ML experience. She has worked with GPT-4o, Gemini, prompt engineering, LLM evaluation, BERT, XGBoost, LightGBM, Random Forest, product analytics models, and decision-support use cases.';
+      }
+
+      if (includesAny(['data engineering', 'data engineer', 'pipeline', 'pipelines', 'etl', 'elt', 'data pipeline', 'data pipelines', 'data model', 'data models', 'semantic model', 'semantic models', 'warehouse', 'data warehouse', 'snowflake', 'fabric', 'microsoft fabric', 'databricks'])) {
+        return 'Nikhita has strong data engineering experience across SQL, Python, Microsoft Fabric, Snowflake, Databricks, AWS, Azure, and Power BI semantic models. She focuses on building clean, trusted data foundations for analytics, data science, and reporting.';
+      }
+
+      if (includesAny(['dashboard', 'dashboards', 'business intelligence', 'reporting', 'reports', 'kpi', 'kpis', 'metric', 'metrics', 'visualization', 'visualisation', 'power bi', 'tableau', 'cognos']) || hasWord('bi')) {
+        return 'Nikhita has built BI and reporting solutions using Power BI, Tableau, and IBM Cognos. Her dashboard work focuses on trusted KPIs, clear storytelling, and making insights easier for business users to act on.';
+      }
+
+      if (includesAny(['skill', 'skills', 'tool', 'tools', 'tech stack', 'technology', 'stack', 'software', 'language', 'languages', 'platform', 'platforms', 'sql', 'python', 'power bi', 'tableau', 'fabric', 'microsoft fabric', 'snowflake', 'databricks', 'aws', 'azure', 'cognos', 'knime']) || hasWord('r programming')) {
+        return PORTFOLIO_PROFILE.skills + ' She uses these tools to build data pipelines, dashboards, semantic models, ML workflows, and decision-support systems.';
+      }
+
+      if (includesAny(['experience', 'worked', 'work history', 'company', 'companies', 'background', 'career', 'professional', 'previous role', 'previous roles'])) {
+        return 'Nikhita has 5+ years of experience across Obvience, Hyperplane, ExxonMobil, WorkGaze, and industry capstones with Wolters Kluwer and Colorado West Healthcare. Her work spans data engineering, data science, BI, analytics, product analytics, and applied AI.';
+      }
+
+      if (includesAny(['current', 'currently', 'obvience', 'latest', 'recent work', 'present role'])) {
+        return PORTFOLIO_PROFILE.current + ' This positions her well for modern data teams working with BI, cloud analytics, semantic layers, and AI-ready reporting.';
+      }
+
+      if (includesAny(['exxon', 'exxonmobil'])) {
+        return 'At ExxonMobil, Nikhita worked across data science, analytics, and data engineering projects. She also received the Annual Bright Beginner Award and a Quarterly Recognition Award for strong analytics delivery.';
+      }
+
+      if (includesAny(['hyperplane', 'nubank', 'fintech', 'financial'])) {
+        return 'At Hyperplane, later acquired by Nubank, Nikhita worked on data engineering and financial intelligence infrastructure in a fintech environment. This strengthened her ability to build data systems that support product and business decisions.';
+      }
+
+      if (includesAny(['wolters', 'kluwer', 'healthcare', 'diagnosis', 'clinical', 'medical'])) {
+        return 'For Wolters Kluwer, Nikhita worked on an LLM-based differential diagnosis system using GPT-4o and Gemini. The project focused on prompt engineering, model reasoning, and healthcare decision-support use cases.';
+      }
+
+      if (includesAny(['colorado', 'hospital', 'workforce', 'hr analytics', 'labor', 'labour'])) {
+        return 'For Colorado West Healthcare, Nikhita led data engineering and analytics work for a Cognos-based Workforce Insights Dashboard. The project used SQL and Python pipelines to support HR KPI reporting and labor-cost analysis.';
+      }
+
+      if (includesAny(['workgaze', 'global launch', 'volunteer', 'workplace'])) {
+        return 'At WorkGaze, Nikhita contributed as a Data Engineer volunteer, building automated workflows for AI-driven workplace analytics. The work supported the foundation of a behavioral intelligence platform.';
+      }
+
+      if (includesAny(['education', 'degree', 'school', 'university', 'uiuc', 'gies', 'rvce', 'college', 'masters', "master's", 'ms business analytics', 'bachelor', 'computer science'])) {
+        return PORTFOLIO_PROFILE.education + ' Her education gives her both business analytics training and a strong computer science foundation.';
+      }
+
+      if (includesAny(['lead', 'leadership', 'team', 'stakeholder', 'communication', 'manager', 'manage', 'collaborate', 'cross-functional', 'cross functional'])) {
         return 'Nikhita has led analytics and capstone work, collaborated with business stakeholders, and translated technical findings into clear decisions. She is comfortable working across technical and non-technical teams.';
       }
 
-      if (hasRegex(/industry|domain|sector|fintech|energy|healthcare|consulting/)) {
+      if (includesAny(['industry', 'domain', 'sector', 'energy', 'consulting'])) {
         return 'Nikhita has experience across fintech, energy, healthcare, workplace analytics, BI consulting, and product analytics. This gives her a strong mix of technical depth and business context.';
       }
 
-      if (hasRegex(/resume|cv|download/)) {
+      if (includesAny(['resume', 'cv', 'download'])) {
         return 'You can download Nikhita\'s resume using the Download Resume button in the About section. For the latest version or a role-specific copy, ' + PORTFOLIO_PROFILE.contact;
       }
 
-      if (hasRegex(/contact|email|linkedin|reach|get in touch|connect|message|call|phone/)) {
+      if (includesAny(['contact', 'email', 'linkedin', 'reach', 'get in touch', 'connect', 'message', 'call', 'phone'])) {
         return PORTFOLIO_PROFILE.contact;
       }
 
-      if (hasRegex(/visa|sponsor|sponsorship|work authorization|authorization|relocation|salary|compensation|rate|pay/)) {
+      if (includesAny(['visa', 'sponsor', 'sponsorship', 'work authorization', 'authorization', 'relocation', 'salary', 'compensation', 'rate', 'pay'])) {
         return 'Those details are best discussed directly with Nikhita. ' + PORTFOLIO_PROFILE.contact;
       }
 
-      if (hasRegex(/location|based|where is she|where does she live/)) {
+      if (includesAny(['location', 'based', 'where is she', 'where does she live'])) {
         return 'Nikhita is based in the United States and is open to discussing suitable opportunities directly. ' + PORTFOLIO_PROFILE.contact;
       }
 
-      if (hasRegex(/hobby|hobbies|interest|interests|outside work|fun|personal/)) {
+      if (includesAny(['hobby', 'hobbies', 'interest', 'interests', 'outside work', 'fun', 'personal'])) {
         return PORTFOLIO_PROFILE.interests;
       }
 
-      if (hasRegex(/speciali[sz]e|focus|expert|what does she do|profile|summary|who is|tell me about nikhita|about nikhita|overview/)) {
+      if (includesAny(['specialize', 'specializes', 'specialise', 'specialises', 'focus', 'expert', 'what does she do', 'profile', 'summary', 'who is', 'tell me about nikhita', 'about nikhita', 'overview'])) {
         return 'Nikhita specializes in data engineering, data science, analytics, BI, and applied AI. She builds pipelines, semantic models, dashboards, ML/AI workflows, and analytics systems that turn messy data into useful business decisions.';
       }
 
-      return 'I may not have that exact detail in the portfolio assistant, but Nikhita would be happy to clarify directly. ' + PORTFOLIO_PROFILE.contact;
+      return 'I may not have that exact detail in the portfolio assistant, but Nikhita would be happy to clarify directly. You can reach her at <a href="mailto:nikhitashankar97@gmail.com">nikhitashankar97@gmail.com</a>, connect with her on <a href="https://www.linkedin.com/in/nikhita-shankar-analytics/" target="_blank" rel="noopener">LinkedIn</a>, or use the contact form at the bottom of this page.';
     }
 
     function fetchReply(userMsg) {

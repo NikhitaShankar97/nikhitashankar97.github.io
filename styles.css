@@ -887,6 +887,62 @@ footer {
   border-radius: 100px;
 }
 
+.pf-badge--flagship {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, rgba(184,245,82,0.2), rgba(184,245,82,0.08));
+  color: var(--accent);
+  border: 1px solid rgba(184,245,82,0.45);
+  padding: 4px 12px;
+  border-radius: 100px;
+  box-shadow: 0 0 12px rgba(184,245,82,0.12);
+}
+.project-featured-card--flagship {
+  grid-column: 1 / -1;
+}
+.project-featured-card--flagship .stack-wordmark {
+  font-family: var(--font-mono);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.project-featured-card--flagship .stack-wordmark span { color: #fff; opacity: 0.55; }
+.project-featured-card--flagship p { max-width: 760px; }
+.pf-links {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 4px;
+}
+.pf-link-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  background: transparent;
+  padding: 7px 16px;
+  border-radius: 100px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  display: inline-block;
+}
+.pf-link-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+.pf-link-btn--primary {
+  border-color: rgba(184,245,82,0.4);
+  color: var(--accent);
+  background: rgba(184,245,82,0.06);
+}
+.pf-link-btn--primary:hover { background: var(--accent-dim); }
+@media (max-width: 900px) {
+  .project-featured-card--flagship .stack-wordmark { font-size: 1.6rem; }
+}
+
 
 /* ============================================
    AI CHAT WIDGET — TOP RIGHT
@@ -1217,6 +1273,21 @@ footer {
   background: #111;
   border-top: 1px solid rgba(255,255,255,0.03);
   flex-shrink: 0;
+}
+
+.chat-auth-note {
+  margin-top: 4px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(184,245,82,0.07);
+  border: 1px solid rgba(184,245,82,0.18);
+  color: var(--text-dim);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+.chat-auth-note strong {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 /* ---- Responsive ---- */

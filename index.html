@@ -894,6 +894,62 @@ footer {
   border-radius: 100px;
 }
 
+.pf-badge--flagship {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, rgba(184,245,82,0.2), rgba(184,245,82,0.08));
+  color: var(--accent);
+  border: 1px solid rgba(184,245,82,0.45);
+  padding: 4px 12px;
+  border-radius: 100px;
+  box-shadow: 0 0 12px rgba(184,245,82,0.12);
+}
+.project-featured-card--flagship {
+  grid-column: 1 / -1;
+}
+.project-featured-card--flagship .stack-wordmark {
+  font-family: var(--font-mono);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.project-featured-card--flagship .stack-wordmark span { color: #fff; opacity: 0.55; }
+.project-featured-card--flagship p { max-width: 760px; }
+.pf-links {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 4px;
+}
+.pf-link-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  background: transparent;
+  padding: 7px 16px;
+  border-radius: 100px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  display: inline-block;
+}
+.pf-link-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+.pf-link-btn--primary {
+  border-color: rgba(184,245,82,0.4);
+  color: var(--accent);
+  background: rgba(184,245,82,0.06);
+}
+.pf-link-btn--primary:hover { background: var(--accent-dim); }
+@media (max-width: 900px) {
+  .project-featured-card--flagship .stack-wordmark { font-size: 1.6rem; }
+}
+
 
 /* ============================================
    AI CHAT WIDGET — TOP RIGHT
@@ -1357,7 +1413,7 @@ footer {
     <div class="stat-div"></div>
     <div class="stat"><span class="stat-num">4</span><span class="stat-label">Companies</span></div>
     <div class="stat-div"></div>
-    <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Projects</span></div>
+    <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Projects</span></div>
     <div class="stat-div"></div>
     <div class="stat"><span class="stat-num">2</span><span class="stat-label">Publications</span></div>
   </div>
@@ -1428,6 +1484,7 @@ footer {
           <div class="skills-row">
             <div class="skill-pill"><i class="fas fa-database"></i>Databricks</div>
             <div class="skill-pill"><i class="fas fa-snowflake"></i>Snowflake</div>
+            <div class="skill-pill"><i class="fas fa-diagram-project"></i>dbt</div>
             <div class="skill-pill"><i class="fas fa-diagram-project"></i>KNIME</div>
           </div>
         </div>
@@ -1718,8 +1775,26 @@ footer {
           </div>
         </div>
 
+        <div class="project-featured-card project-featured-card--flagship reveal">
+          <div class="pf-top">
+            <span class="pf-num">03</span>
+            <span class="pf-badge pf-badge--flagship">&#x2B50; Flagship Project</span>
+          </div>
+          <div class="stack-wordmark">Clay<span>Revenue Intelligence</span></div>
+          <h3>Turning GTM Signals Into Revenue-Ready Decisions</h3>
+          <p>An end-to-end, Clay-inspired revenue intelligence platform built on Snowflake, dbt, Streamlit, and Sigma. Product usage, pipeline, and support data flow through governed dbt models into an interactive decision-support app that scores activation, expansion-readiness, and churn risk, and lets GTM leaders run revenue what-if scenarios &mdash; the full stack from raw signal to executive-ready action.</p>
+          <div class="pf-tags">
+            <span>Snowflake</span><span>dbt</span><span>Streamlit</span><span>Sigma</span><span>Python</span><span>SQL</span>
+          </div>
+          <div class="pf-links">
+            <a href="https://clay-revenue-intelligence.streamlit.app/" target="_blank" class="pf-link-btn pf-link-btn--primary">&#x25B6;&nbsp; Live App</a>
+            <a href="https://drive.google.com/file/d/1myC2VvyljWLBQ4f85bczDpQe_W-xmZa9/view?usp=sharing" target="_blank" class="pf-link-btn">&#x25B6;&nbsp; Watch Demo</a>
+            <a href="https://github.com/NikhitaShankar97/clay-revenue-intelligence" target="_blank" class="pf-link-btn">&#x2197;&nbsp; GitHub</a>
+          </div>
+        </div>
+
         <a href="https://github.com/NikhitaShankar97/ai-differential-diagnosis" target="_blank" class="project-featured-card reveal">
-          <div class="pf-top"><span class="pf-num">03</span><span class="pf-badge">Industry Capstone</span></div>
+          <div class="pf-top"><span class="pf-num">04</span><span class="pf-badge">Industry Capstone</span></div>
           <h3>LLM Differential Diagnosis</h3>
           <p>GPT-4o and Gemini-powered clinical decision support system built with Wolters Kluwer Health. Benchmarked prompt engineering frameworks and evaluated reasoning quality for real-world healthcare applications.</p>
           <div class="pf-tags"><span>GPT-4o</span><span>Gemini</span><span>LLM</span><span>Healthcare AI</span></div>
@@ -1727,7 +1802,7 @@ footer {
         </a>
 
         <a href="https://github.com/NikhitaShankar97/spotify-playlist-prediction-aws" target="_blank" class="project-featured-card reveal">
-          <div class="pf-top"><span class="pf-num">04</span><span class="pf-badge">Cloud Pipeline</span></div>
+          <div class="pf-top"><span class="pf-num">05</span><span class="pf-badge">Cloud Pipeline</span></div>
           <h3>Spotify Playlist Prediction Pipeline</h3>
           <p>Production-grade AWS data pipeline using S3 for storage, Glue for ETL, Athena for querying, and QuickSight for visualization. A complete, scalable analytics solution from ingestion to insight.</p>
           <div class="pf-tags"><span>AWS</span><span>S3 / Glue</span><span>Athena</span><span>QuickSight</span></div>
@@ -1735,7 +1810,7 @@ footer {
         </a>
 
         <a href="https://github.com/NikhitaShankar97/workforce-insights-dashboard" target="_blank" class="project-featured-card reveal">
-          <div class="pf-top"><span class="pf-num">05</span><span class="pf-badge">Industry Capstone</span></div>
+          <div class="pf-top"><span class="pf-num">06</span><span class="pf-badge">Industry Capstone</span></div>
           <h3>Workforce Insights Dashboard</h3>
           <p>Cognos-based HR analytics platform for Colorado West Healthcare. Integrated SQL and Python pipelines to standardize KPI reporting and automate labor-cost forecasting for hospital administrators.</p>
           <div class="pf-tags"><span>IBM Cognos</span><span>SQL</span><span>Python</span><span>HR Analytics</span></div>
@@ -1747,63 +1822,63 @@ footer {
       <div class="projects-more-label">More Projects</div>
       <div class="projects-grid">
         <a href="https://github.com/NikhitaShankar97/NLP-Disaster-Tweets" target="_blank" class="project-card reveal">
-          <div class="project-num">06</div>
+          <div class="project-num">08</div>
           <h3>NLP Disaster Tweet Classification</h3>
           <p>BERT and DistilBERT classification of disaster-related content for real-time crisis detection.</p>
           <div class="project-tags"><span>NLP</span><span>BERT</span><span>PyTorch</span></div>
           <div class="project-arrow">&#x2197;</div>
         </a>
         <a href="https://github.com/NikhitaShankar97/Yelp-Business-Intelligence-Platform" target="_blank" class="project-card reveal">
-          <div class="project-num">07</div>
+          <div class="project-num">09</div>
           <h3>Yelp Business Intelligence Platform</h3>
           <p>End-to-end transformation pipeline for actionable business insights using Azure and Python.</p>
           <div class="project-tags"><span>Azure</span><span>Python</span><span>BI</span></div>
           <div class="project-arrow">&#x2197;</div>
         </a>
         <a href="https://github.com/NikhitaShankar97/Stock-Market-Forecasting" target="_blank" class="project-card reveal">
-          <div class="project-num">08</div>
+          <div class="project-num">10</div>
           <h3>Stock Market Forecasting</h3>
           <p>Predictive ML models and interactive dashboards for equity analysis and investment strategy.</p>
           <div class="project-tags"><span>Python</span><span>ML</span><span>Time Series</span></div>
           <div class="project-arrow">&#x2197;</div>
         </a>
         <a href="https://github.com/NikhitaShankar97/MLDA-Mortality-Analysis" target="_blank" class="project-card reveal">
-          <div class="project-num">09</div>
+          <div class="project-num">11</div>
           <h3>MLDA Mortality Analysis</h3>
           <p>Regression Discontinuity analysis on drinking age policy effects on mortality rates.</p>
           <div class="project-tags"><span>R</span><span>Causal Inference</span></div>
           <div class="project-arrow">&#x2197;</div>
         </a>
         <a href="https://github.com/NikhitaShankar97/property-value-prediction" target="_blank" class="project-card reveal">
-          <div class="project-num">10</div>
+          <div class="project-num">12</div>
           <h3>Property Value Prediction</h3>
           <p>Predictive real estate modeling in R for urban planning and taxation policy support.</p>
           <div class="project-tags"><span>R</span><span>Regression</span><span>GIS</span></div>
           <div class="project-arrow">&#x2197;</div>
         </a>
         <a href="https://github.com/NikhitaShankar97/Blockchain-Dashboards" target="_blank" class="project-card reveal">
-          <div class="project-num">11</div>
+          <div class="project-num">13</div>
           <h3>Blockchain Analytics</h3>
           <p>On-chain trend dashboards built with Dune Analytics and SQL for DeFi intelligence.</p>
           <div class="project-tags"><span>SQL</span><span>Dune</span><span>Web3</span></div>
           <div class="project-arrow">&#x2197;</div>
         </a>
         <a href="https://github.com/NikhitaShankar97/Coffee-Shop-Sales-Dashboard" target="_blank" class="project-card reveal">
-          <div class="project-num">12</div>
+          <div class="project-num">14</div>
           <h3>Coffee Shop Sales Dashboard</h3>
           <p>Interactive Excel dashboard analyzing transaction patterns for operational insights.</p>
           <div class="project-tags"><span>Excel</span><span>Analytics</span></div>
           <div class="project-arrow">&#x2197;</div>
         </a>
         <a href="https://github.com/NikhitaShankar97/movie-analytics-dashboard" target="_blank" class="project-card reveal">
-          <div class="project-num">13</div>
+          <div class="project-num">15</div>
           <h3>Cinematic Insights Dashboard</h3>
           <p>Movie trends and ratings analysis using Python and Tableau.</p>
           <div class="project-tags"><span>Python</span><span>Tableau</span></div>
           <div class="project-arrow">&#x2197;</div>
         </a>
         <a href="https://github.com/NikhitaShankar97/Retail-Analytics-and-Strategy" target="_blank" class="project-card reveal">
-          <div class="project-num">14</div>
+          <div class="project-num">16</div>
           <h3>Retail Analytics and Strategy</h3>
           <p>Multi-dimensional retail performance analysis using Wolfram Mathematica.</p>
           <div class="project-tags"><span>Mathematica</span><span>Strategy</span></div>
@@ -2013,7 +2088,7 @@ footer {
       contact: CONTACT_HTML,
       current: 'At Obvience, Nikhita works as a Data Engineer on Microsoft Fabric, Power BI, SQL Server, semantic models, and AI-assisted analytics workflows. Her work focuses on making data reliable, decision-ready, and easier for business users to consume.',
       skills: 'Her core stack includes SQL, Python, R, Power BI, Tableau, IBM Cognos, Microsoft Fabric, AWS, Azure, Snowflake, Databricks, KNIME, Scikit-learn, XGBoost, LightGBM, BERT, GPT-4o, Gemini, prompt engineering, and LLM evaluation.',
-      projects: 'Her selected projects include First48, UpNext, LLM Differential Diagnosis, Spotify Playlist Prediction Pipeline, Workforce Insights Dashboard, NLP Disaster Tweet Classification, Yelp Business Intelligence Platform, Stock Market Forecasting, and MLDA Mortality Analysis.',
+      projects: 'Her selected projects include Clay Revenue Intelligence (a Snowflake, dbt, Streamlit, and Sigma GTM decision-support platform), First48, UpNext, LLM Differential Diagnosis, Spotify Playlist Prediction Pipeline, Workforce Insights Dashboard, NLP Disaster Tweet Classification, Yelp Business Intelligence Platform, Stock Market Forecasting, and MLDA Mortality Analysis.',
       education: 'Nikhita holds an MS in Business Analytics from UIUC and a BE in Computer Science from R.V. College of Engineering.',
       awards: 'Her recognitions include Beta Gamma Sigma, AWS Certified Cloud Practitioner, ExxonMobil recognition awards, 1st place at the Zerve x HackerEarth Hackathon, and 2nd place at the ODSC AI Datathon.',
       publications: 'Nikhita has published work on recommendation systems in IRJET and EmoSense on Zenodo, a privacy-preserving framework for early burnout detection using behavioral metadata.',
@@ -2161,12 +2236,12 @@ footer {
         return 'Yes, Nikhita has data science, applied AI, and ML experience. She has worked with GPT-4o, Gemini, prompt engineering, LLM evaluation, BERT, XGBoost, LightGBM, Random Forest, product analytics models, and decision-support use cases.';
       }
 
-      if (includesAny(['data engineering', 'data engineer', 'pipeline', 'pipelines', 'etl', 'elt', 'data pipeline', 'data pipelines', 'data model', 'data models', 'semantic model', 'semantic models', 'warehouse', 'data warehouse', 'snowflake', 'fabric', 'microsoft fabric', 'databricks'])) {
-        return 'Nikhita has strong data engineering experience across SQL, Python, Microsoft Fabric, Snowflake, Databricks, AWS, Azure, and Power BI semantic models. She focuses on building clean, trusted data foundations for analytics, data science, and reporting.';
+      if (includesAny(['data engineering', 'data engineer', 'pipeline', 'pipelines', 'etl', 'elt', 'data pipeline', 'data pipelines', 'data model', 'data models', 'semantic model', 'semantic models', 'warehouse', 'data warehouse', 'snowflake', 'fabric', 'microsoft fabric', 'databricks', 'dbt', 'clay', 'clay revenue intelligence', 'revenue intelligence'])) {
+        return 'Nikhita has strong data engineering experience across SQL, Python, Microsoft Fabric, Snowflake, dbt, Databricks, AWS, Azure, and Power BI semantic models. Her Clay Revenue Intelligence project shows this end-to-end: raw GTM data flowing through governed dbt models into a decision-support app. She focuses on building clean, trusted data foundations for analytics, data science, and reporting.';
       }
 
-      if (includesAny(['dashboard', 'dashboards', 'business intelligence', 'reporting', 'reports', 'kpi', 'kpis', 'metric', 'metrics', 'visualization', 'visualisation', 'power bi', 'tableau', 'cognos']) || hasWord('bi')) {
-        return 'Nikhita has built BI and reporting solutions using Power BI, Tableau, and IBM Cognos. Her dashboard work focuses on trusted KPIs, clear storytelling, and making insights easier for business users to act on.';
+      if (includesAny(['dashboard', 'dashboards', 'business intelligence', 'reporting', 'reports', 'kpi', 'kpis', 'metric', 'metrics', 'visualization', 'visualisation', 'power bi', 'tableau', 'cognos', 'sigma', 'streamlit']) || hasWord('bi')) {
+        return 'Nikhita has built BI and reporting solutions using Power BI, Tableau, IBM Cognos, Sigma, and Streamlit. Her dashboard work focuses on trusted KPIs, clear storytelling, and making insights easier for business users to act on.';
       }
 
       if (includesAny(['skill', 'skills', 'tool', 'tools', 'tech stack', 'technology', 'stack', 'software', 'language', 'languages', 'platform', 'platforms', 'sql', 'python', 'power bi', 'tableau', 'fabric', 'microsoft fabric', 'snowflake', 'databricks', 'aws', 'azure', 'cognos', 'knime']) || hasWord('r programming')) {

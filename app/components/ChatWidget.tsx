@@ -19,7 +19,7 @@ ABOUT NIKHITA:
 - Contact: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics
 - Status: Open to opportunities
 
-Keep responses concise and professional. Highlight her technical skills and business impact. For hiring questions, emphasize she's a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles.`
+Keep responses concise and professional. Highlight her technical skills and business impact. For hiring questions, emphasize she's a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles. When sharing contact info, use this format: Email: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics`
 
 function getLocalReply(query: string): string {
   const q = query.toLowerCase().trim()
@@ -35,7 +35,7 @@ function getLocalReply(query: string): string {
   if (q.includes('stand out') || q.includes('strength') || q.includes('why') || q.includes('hire') || q.includes('candidate'))
     return 'Nikhita combines deep data engineering with business impact. She built revenue intelligence platforms, won two hackathons (1st and 2nd place), published research, and worked at top companies. She turns complex data into clear decisions.'
   if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin'))
-    return 'Email: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics | Or use the contact form at the bottom of the page.'
+    return 'Email: <a href="mailto:nikhitashankar97@gmail.com" class="text-accent hover:underline">nikhitashankar97@gmail.com</a> | LinkedIn: <a href="https://linkedin.com/in/nikhita-shankar-analytics" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">linkedin.com/in/nikhita-shankar-analytics</a> | Or use the contact form at the bottom of the page.'
   if (q.includes('education') || q.includes('degree') || q.includes('university') || q.includes('school'))
     return 'MS in Business Analytics from UIUC (Beta Gamma Sigma honor society) and BE in Computer Science from RV College of Engineering.'
   if (q.includes('award') || q.includes('hackathon') || q.includes('certification') || q.includes('honor'))
@@ -74,10 +74,7 @@ export function ChatWidget() {
   const callAI = async (userMsg: string): Promise<string> => {
     const apiKey = process.env.NEXT_PUBLIC_DEEPSEEK_API_KEY
     
-    console.log('API Key exists:', !!apiKey, 'Length:', apiKey?.length || 0)
-    
     if (!apiKey || apiKey.length < 10) {
-      console.log('No valid API key, using local fallback')
       return getLocalReply(userMsg)
     }
     
@@ -98,20 +95,14 @@ export function ChatWidget() {
           temperature: 0.7,
         }),
       })
-
-      console.log('DeepSeek status:', res.status)
       
       if (!res.ok) {
-        const errText = await res.text()
-        console.error('DeepSeek error:', errText)
         return getLocalReply(userMsg)
       }
 
       const data = await res.json()
-      console.log('DeepSeek success')
       return data.choices?.[0]?.message?.content || getLocalReply(userMsg)
-    } catch (err) {
-      console.error('Fetch error:', err)
+    } catch {
       return getLocalReply(userMsg)
     }
   }
@@ -150,7 +141,7 @@ export function ChatWidget() {
               {messages.map((msg, i) => (
                 <div key={i} className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : ''}`}>
                   {msg.role === 'bot' && <div className="w-6 h-6 rounded-full bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center font-mono text-[7px] font-bold text-[#0a0a0a] flex-shrink-0 mt-1">AI</div>}
-                  <div className={`max-w-[85%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${msg.role === 'bot' ? 'bg-[#161616] border border-white/[0.06] text-zinc-300 rounded-tl-sm' : 'bg-accent/10 border border-accent/20 text-white rounded-tr-sm'}`}>{msg.content}</div>
+                  <div className={`max-w-[85%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${msg.role === 'bot' ? 'bg-[#161616] border border-white/[0.06] text-zinc-300 rounded-tl-sm' : 'bg-accent/10 border border-accent/20 text-white rounded-tr-sm'}`} dangerouslySetInnerHTML={{ __html: msg.content }} />
                 </div>
               ))}
               {isTyping && (

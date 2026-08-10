@@ -19,7 +19,7 @@ ABOUT NIKHITA:
 - Contact: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics
 - Status: Open to opportunities
 
-Keep responses concise and professional. Highlight her technical skills and business impact. For hiring questions, emphasize she's a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles. When sharing contact info, use this format: Email: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics`
+Keep responses concise and professional. Highlight her technical skills and business impact. For hiring questions, emphasize she's a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles.`
 
 function getLocalReply(query: string): string {
   const q = query.toLowerCase().trim()
@@ -35,7 +35,7 @@ function getLocalReply(query: string): string {
   if (q.includes('stand out') || q.includes('strength') || q.includes('why') || q.includes('hire') || q.includes('candidate'))
     return 'Nikhita combines deep data engineering with business impact. She built revenue intelligence platforms, won two hackathons (1st and 2nd place), published research, and worked at top companies. She turns complex data into clear decisions.'
   if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin'))
-    return 'Email: <a href="mailto:nikhitashankar97@gmail.com" class="text-accent hover:underline">nikhitashankar97@gmail.com</a> | LinkedIn: <a href="https://linkedin.com/in/nikhita-shankar-analytics" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">linkedin.com/in/nikhita-shankar-analytics</a> | Or use the contact form at the bottom of the page.'
+    return 'Email: <a href="mailto:nikhitashankar97@gmail.com" class="text-accent hover:underline">nikhitashankar97@gmail.com</a> | <a href="https://linkedin.com/in/nikhita-shankar-analytics" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a> | Or use the contact form at the bottom of the page.'
   if (q.includes('education') || q.includes('degree') || q.includes('university') || q.includes('school'))
     return 'MS in Business Analytics from UIUC (Beta Gamma Sigma honor society) and BE in Computer Science from RV College of Engineering.'
   if (q.includes('award') || q.includes('hackathon') || q.includes('certification') || q.includes('honor'))
@@ -44,6 +44,23 @@ function getLocalReply(query: string): string {
     return 'Download her resume from the About section (top of the page) or the Resume button in the navigation bar.'
 
   return 'I can tell you about Nikhita\'s skills, projects, experience, awards, or how to contact her. What would you like to know?'
+}
+
+function linkify(text: string): string {
+  // Already has HTML links, return as-is
+  if (text.includes('<a href=')) return text
+  
+  // Convert emails to mailto links
+  text = text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="text-accent hover:underline">$1</a>')
+  
+  // Convert LinkedIn URLs to just show "LinkedIn" as clickable text
+  text = text.replace(/https?:\/\/linkedin\.com\/[^\s.,]+/g, '<a href="$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
+  text = text.replace(/linkedin\.com\/[^\s.,]+/g, '<a href="https://$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
+  
+  // Convert other URLs
+  text = text.replace(/(https?:\/\/[^\s.,]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">$1</a>')
+  
+  return text
 }
 
 export function ChatWidget() {
@@ -113,7 +130,8 @@ export function ChatWidget() {
     setInput('')
     setIsTyping(true)
     const reply = await callAI(text.trim())
-    setMessages(p => [...p, { role: 'bot', content: reply }])
+    const linkedReply = linkify(reply)
+    setMessages(p => [...p, { role: 'bot', content: linkedReply }])
     setIsTyping(false)
   }
 

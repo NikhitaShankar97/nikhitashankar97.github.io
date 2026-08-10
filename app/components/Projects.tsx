@@ -30,22 +30,22 @@ export function Projects() {
             return (
               <motion.div
                 key={p.id}
-                className={ento-card p-6 flex flex-col gap-3 group relative   }
+                className={`bento-card p-6 flex flex-col gap-3 group relative ${isFull ? 'col-span-full' : ''} ${isWinner ? 'bg-gradient-to-br from-[#0d0d08] via-[#0f0f0f] to-[#0c0f0c]' : ''} ${isSilver ? 'bg-gradient-to-br from-[#101010] via-[#0f0f0f] to-[#0e0e0e]' : ''}`}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ delay: i * 0.06 }}
               >
-                <div className={bsolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 } />
+                <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${isWinner ? 'via-amber-400' : ''}`} />
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[0.55rem] text-zinc-600 tracking-[0.15em]">{String(i + 1).padStart(2, '0')}</span>
-                  {p.badges && <div className="flex gap-1.5 flex-wrap">{p.badges.map((b, j) => (<span key={j} className={ont-mono text-[0.58rem] uppercase tracking-[0.1em] px-2 py-0.5 rounded-full border }>{b.text}</span>))}</div>}
+                  {p.badges && <div className="flex gap-1.5 flex-wrap">{p.badges.map((b, j) => (<span key={j} className={`font-mono text-[0.58rem] uppercase tracking-[0.1em] px-2 py-0.5 rounded-full border ${badgeStyles[b.variant]}`}>{b.text}</span>))}</div>}
                 </div>
-                {p.wordmark && <div className={ont-mono text-2xl font-bold tracking-tight }>{p.wordmark}<span className="text-white/15">{p.wordmarkAccent}</span></div>}
+                {p.wordmark && <div className={`font-mono text-2xl font-bold tracking-tight ${isSilver ? 'text-zinc-300' : 'text-accent'}`}>{p.wordmark}<span className="text-white/15">{p.wordmarkAccent}</span></div>}
                 <h3 className="text-base font-semibold text-white leading-snug">{p.title}</h3>
                 <p className="text-sm text-zinc-400 leading-relaxed flex-1">{p.description}</p>
                 <div className="flex flex-wrap gap-1.5">{p.tags.map(t => (<span key={t} className="font-mono text-[0.62rem] bg-white/[0.03] border border-white/[0.04] px-2 py-0.5 rounded-full text-zinc-500">{t}</span>))}</div>
-                {p.links.length > 0 && <div className="flex gap-2 flex-wrap">{p.links.map((l, j) => (<a key={j} href={l.url} target="_blank" rel="noopener noreferrer" className={ont-mono text-xs px-3 py-1.5 rounded-full border transition-all }>{l.label}</a>))}</div>}
+                {p.links.length > 0 && <div className="flex gap-2 flex-wrap">{p.links.map((l, j) => (<a key={j} href={l.url} target="_blank" rel="noopener noreferrer" className={`font-mono text-xs px-3 py-1.5 rounded-full border transition-all ${l.primary ? 'border-accent/30 text-accent bg-accent/5 hover:bg-accent/10' : 'border-white/[0.05] text-zinc-500 hover:border-accent/20 hover:text-white'}`}>{l.label}</a>))}</div>}
               </motion.div>
             )
           })}

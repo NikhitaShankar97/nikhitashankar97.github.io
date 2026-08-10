@@ -18,7 +18,7 @@ ABOUT NIKHITA:
 - Contact: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics
 - Status: Open to opportunities
 
-Be professional, warm, and concise. Highlight her technical skills and business impact. For hiring questions, emphasize she fits Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles. When sharing contact info, format as clickable: Email nikhitashankar97@gmail.com or LinkedIn.`
+Be professional, warm, and concise. Highlight her technical skills and business impact. For hiring questions, emphasize she fits Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles.`
 
 function getLocalReply(query: string): string {
   const q = query.toLowerCase().trim()
@@ -36,10 +36,10 @@ function getLocalReply(query: string): string {
 
 function linkify(text: string): string {
   if (text.includes('<a href=')) return text
-  text = text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:" class="text-accent hover:underline"></a>')
+  text = text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="text-accent hover:underline">$1</a>')
   text = text.replace(/https?:\/\/linkedin\.com\/[^\s.,]+/g, '<a href="$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
   text = text.replace(/linkedin\.com\/[^\s.,]+/g, '<a href="https://$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
-  text = text.replace(/(https?:\/\/[^\s.,]+)/g, '<a href="" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline"></a>')
+  text = text.replace(/(https?:\/\/[^\s.,]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">$1</a>')
   return text
 }
 
@@ -149,14 +149,14 @@ export function ChatWidget() {
 
             <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3 min-h-0">
               {messages.map((msg, i) => (
-                <div key={i} className={lex gap-2 }>
+                <div key={i} className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : ''}`}>
                   {msg.role === 'bot' && (
                     <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center flex-shrink-0 mt-1 shadow-sm shadow-accent/10">
                       <Sparkles size={10} className="text-[#0a0a0a]" />
                     </div>
                   )}
                   <div
-                    className={max-w-[82%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed }
+                    className={`max-w-[82%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${msg.role === 'bot' ? 'bg-[#16161a] border border-white/[0.04] text-zinc-300 rounded-tl-sm' : 'bg-accent/10 border border-accent/20 text-white rounded-tr-sm'}`}
                     dangerouslySetInnerHTML={{ __html: msg.content }}
                   />
                 </div>

@@ -30,7 +30,7 @@ export function Experience() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ delay: i * 0.06 }}
               >
-                <div className={bsolute left-[8px] top-6 w-[15px] h-[15px] rounded-full border-2 transition-all duration-300 } />
+                <div className={`absolute left-[8px] top-6 w-[15px] h-[15px] rounded-full border-2 transition-all duration-300 ${i === 0 ? 'bg-accent border-accent animate-pulse-glow' : 'bg-[#060608] border-white/[0.06] group-hover:border-accent/40'}`} />
                 <div className="flex items-start gap-5 max-md:flex-col max-md:gap-2">
                   <div className="flex items-center gap-3 min-w-[180px] max-md:min-w-0">
                     {exp.logo && <img src={exp.logo} alt={exp.company} className="w-8 h-8 rounded-lg bg-white p-1 object-contain flex-shrink-0" />}
@@ -42,7 +42,7 @@ export function Experience() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1.5 flex-wrap">
                       <p className="text-sm text-zinc-300 font-medium">{exp.role}</p>
-                      <span className={	ext-[0.6rem] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border }>{exp.type}</span>
+                      <span className={`text-[0.6rem] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border ${typeStyles[exp.type]}`}>{exp.type}</span>
                     </div>
                     <p className="text-sm text-zinc-400 leading-relaxed">{exp.description}</p>
                   </div>

@@ -6,7 +6,7 @@ export interface Project {
   id: string; featured?: boolean; featuredStyle?: 'default'|'hackathon'|'flagship'|'silver'
   title: string; wordmark?: string; wordmarkAccent?: string; description: string
   badges?: {text:string;variant:'default'|'hackathon'|'winner'|'silver'|'flagship'}[]
-  tags: string[]; links: {label:string;url:string;primary?:boolean}[]
+  tags: string[]; links: {label:string;url:string;primary?:boolean}[]; isExternalLink?: boolean
 }
 export interface Honor {
   id: string; icon: string; tag: string; tagVariant?: 'default'|'winner'|'silver'

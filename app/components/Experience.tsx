@@ -2,59 +2,56 @@
 
 import { motion } from 'framer-motion'
 import { portfolioData } from '@/data/portfolio'
-import { SectionHeading } from './ui/SectionHeading'
-import { Reveal } from './ui/Reveal'
 
 const typeStyles: Record<string, string> = {
-  'full-time': 'bg-accent-dim text-accent border-accent-mid',
-  'intern': 'bg-[rgba(100,180,255,0.1)] text-[#64b4ff] border-[rgba(100,180,255,0.3)]',
-  'volunteer': 'bg-[rgba(100,180,255,0.1)] text-[#64b4ff] border-[rgba(100,180,255,0.3)]',
-  'capstone': 'bg-[rgba(200,130,255,0.1)] text-[#c882ff] border-[rgba(200,130,255,0.3)]',
-}
-
-const typeLabels: Record<string, string> = {
-  'full-time': 'Full-time',
-  'intern': 'Intern',
-  'volunteer': 'Volunteer',
-  'capstone': 'Capstone',
+  'full-time': 'bg-accent/10 text-accent border-accent/20',
+  'intern': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+  'volunteer': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+  'capstone': 'bg-purple-500/10 text-purple-400 border-purple-500/20',
 }
 
 export function Experience() {
   return (
     <section id="experience" className="section-padding">
-      <div className="max-w-[1200px] mx-auto px-10 max-md:px-5">
-        <SectionHeading number="05" title="Where I've <em>worked</em>" accent="worked" />
-        <div className="flex flex-col">
-          {portfolioData.experience.map((exp, index) => (
-            <Reveal key={exp.id} delay={index}>
+      <div className="max-w-[1200px] mx-auto px-8 max-md:px-5">
+        <p className="font-mono text-xs tracking-[0.18em] uppercase text-accent mb-5">03 / Experience</p>
+        <h2 className="font-display text-[clamp(2rem,4vw,3rem)] leading-[1.1] tracking-[-0.02em] text-white font-normal mb-14">
+          Where I&apos;ve <em className="italic text-accent">worked</em>
+        </h2>
+        <div className="relative">
+          <div className="absolute left-[19px] top-3 bottom-3 w-px bg-white/[0.04]" />
+          <div className="space-y-1">
+            {portfolioData.experience.map((exp, i) => (
               <motion.div
-                className={`flex gap-0 py-7 border-b border-border transition-all duration-200 hover:pl-2 hover:bg-[rgba(255,255,255,0.018)] ${index === 0 ? 'border-t border-border' : ''}`}
-                whileHover={{ paddingLeft: 8 }}
+                key={exp.id}
+                className="relative pl-14 py-6 group cursor-default"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
               >
-                <div className="flex items-start gap-4 min-w-[190px] pr-8 relative max-md:min-w-0 max-md:flex-col max-md:gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0 shadow-[0_0_10px_rgba(184,245,82,0.4)]" />
-                  <div className="flex flex-col gap-1.5">
-                    <span className="font-mono text-[0.72rem] text-text-muted tracking-[0.04em] whitespace-nowrap">{exp.period}</span>
-                    <span className={`inline-block font-mono text-[0.62rem] uppercase tracking-[0.08em] px-2 py-1 rounded-full w-fit border ${typeStyles[exp.type]}`}>
-                      {typeLabels[exp.type]}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3.5 mb-2.5">
-                    {exp.logo && (
-                      <img src={exp.logo} alt={exp.company} className="w-10 h-10 object-contain rounded-lg bg-white p-1 flex-shrink-0" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }} />
-                    )}
+                <div className={`absolute left-[12px] top-7 w-[15px] h-[15px] rounded-full border-2 transition-all duration-300 ${i === 0 ? 'bg-accent border-accent animate-pulse-glow' : 'bg-[#08080c] border-white/[0.08] group-hover:border-accent/40'}`} />
+                <div className="flex items-start gap-5 max-md:flex-col max-md:gap-2">
+                  <div className="flex items-center gap-3 min-w-[200px] max-md:min-w-0">
+                    {exp.logo && <img src={exp.logo} alt={exp.company} className="w-8 h-8 rounded-lg bg-white p-1 object-contain flex-shrink-0" />}
                     <div>
-                      <h3 className="text-[0.97rem] font-semibold text-text mb-0.5">{exp.company}</h3>
-                      <p className="text-[0.82rem] text-text-dim">{exp.role}</p>
+                      <h3 className="text-sm font-semibold text-white">{exp.company}</h3>
+                      <p className="text-xs text-zinc-500 font-mono mt-0.5">{exp.period}</p>
                     </div>
                   </div>
-                  <p className="text-[0.84rem] text-text-muted leading-[1.7]">{exp.description}</p>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <p className="text-sm text-zinc-300">{exp.role}</p>
+                      <span className={`text-[0.6rem] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border ${typeStyles[exp.type]}`}>
+                        {exp.type}
+                      </span>
+                    </div>
+                    <p className="text-sm text-zinc-500 leading-relaxed">{exp.description}</p>
+                  </div>
                 </div>
               </motion.div>
-            </Reveal>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -17,7 +17,7 @@ const dmSerifDisplay = DM_Serif_Display({
 })
 
 const dmSans = DM_Sans({
-  weight: ['300', '400', '500', '600'],
+  weight: ['400', '500', '600'],
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
@@ -32,14 +32,15 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: 'Nikhita Shankar — Data Engineer & Analytics',
-  description: 'Nikhita Shankar — Data Engineer and Analytics professional. MS Business Analytics, UIUC.',
+  description: 'Data Engineer & Analytics professional. MS Business Analytics, UIUC. Snowflake, dbt, Microsoft Fabric, Power BI.',
+  openGraph: {
+    title: 'Nikhita Shankar — Data Engineer & Analytics',
+    description: 'Building data systems that turn complexity into decisions. 5+ years experience across ExxonMobil, Hyperplane, and Obvience.',
+    type: 'website',
+  },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
       <body className={`${dmSerifDisplay.variable} ${dmSans.variable} ${spaceMono.variable}`}>

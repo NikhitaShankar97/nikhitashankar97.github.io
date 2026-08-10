@@ -21,6 +21,35 @@ ABOUT NIKHITA:
 
 Keep responses concise and professional. Highlight her technical skills and business impact. For hiring questions, emphasize she's a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles.`
 
+// Smart fallback responses when API key isn't available
+function getLocalReply(query: string): string {
+  const q = query.toLowerCase().trim()
+  const contact = 'You can reach Nikhita at nikhitashankar97@gmail.com or on LinkedIn (nikhita-shankar-analytics).'
+
+  if (q.includes('role') || q.includes('fit') || q.includes('position')) 
+    return `Nikhita is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles. She has 5+ years building pipelines, dashboards, and AI systems at companies like ExxonMobil and Hyperplane. ${contact}`
+  if (q.includes('project') || q.includes('portfolio') || q.includes('work'))
+    return 'Her standout projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit), First48 (1st place hackathon - user behavior prediction), UpNext (2nd place ODSC datathon - growth intelligence), LLM Differential Diagnosis (GPT-4o/Gemini healthcare AI), and more. Check the Projects section!'
+  if (q.includes('skill') || q.includes('tech') || q.includes('tool') || q.includes('stack'))
+    return 'Core stack: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, AWS, Azure, Snowflake, Databricks, dbt, KNIME. She also works with GPT-4o, Gemini, and LLM evaluation.'
+  if (q.includes('experience') || q.includes('work') || q.includes('background') || q.includes('career'))
+    return '5+ years: Currently Data Engineer at Obvience, previously Hyperplane (acquired by Nubank), ExxonMobil (3 years, won Bright Beginner award), and capstone projects with Wolters Kluwer and Colorado West Healthcare.'
+  if (q.includes('stand out') || q.includes('strength') || q.includes('why') || q.includes('hire') || q.includes('candidate'))
+    return 'Nikhita stands out because she combines deep data engineering skills with business impact. She has built revenue intelligence platforms, won two hackathons, published research, and worked at top companies. She turns complex data into clear decisions.'
+  if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin'))
+    return contact
+  if (q.includes('education') || q.includes('degree') || q.includes('university') || q.includes('school'))
+    return 'MS in Business Analytics from UIUC (Beta Gamma Sigma honor society) and BE in Computer Science from RV College of Engineering.'
+  if (q.includes('award') || q.includes('hackathon') || q.includes('certification') || q.includes('honor'))
+    return 'Awards: 1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner Award, Beta Gamma Sigma, AWS Cloud Practitioner certified.'
+  if (q.includes('resume') || q.includes('cv') || q.includes('download'))
+    return 'You can download her resume from the About section or the Resume button in the navigation bar.'
+  if (q.includes('location') || q.includes('based') || q.includes('where'))
+    return 'Nikhita is based in the United States and is open to opportunities.'
+
+  return `I can tell you about Nikhita's skills, projects, experience, awards, or how to contact her. What would you like to know?`
+}
+
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<{ role: 'bot' | 'user'; content: string }[]>([
@@ -46,13 +75,13 @@ export function ChatWidget() {
     if (isOpen) setTimeout(() => inputRef.current?.focus(), 300)
   }, [isOpen])
 
-  const callAI = async (userMsg: string): Promise<string> => {
+  const callDeepSeek = async (userMsg: string): Promise<string> => {
     try {
       const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_DEEPSEEK_API_KEY}`,
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_DEEPSEEK_API_KEY || ''}`,
         },
         body: JSON.stringify({
           model: 'deepseek-chat',
@@ -64,10 +93,24 @@ export function ChatWidget() {
           temperature: 0.7,
         }),
       })
+
+      if (!res.ok) {
+        // API call failed - fall back to local responses
+        return getLocalReply(userMsg)
+      }
+
       const data = await res.json()
-      return data.choices?.[0]?.message?.content || "I had trouble with that. Try contacting Nikhita directly at nikhitashankar97@gmail.com."
+      const aiReply = data.choices?.[0]?.message?.content
+      
+      // If AI returned empty or error, use local fallback
+      if (!aiReply || aiReply.length < 5) {
+        return getLocalReply(userMsg)
+      }
+      
+      return aiReply
     } catch {
-      return "I'm having trouble connecting. Reach Nikhita at nikhitashankar97@gmail.com or on LinkedIn."
+      // Network error - fall back to local responses
+      return getLocalReply(userMsg)
     }
   }
 
@@ -76,7 +119,7 @@ export function ChatWidget() {
     setMessages(p => [...p, { role: 'user', content: text.trim() }])
     setInput('')
     setIsTyping(true)
-    const reply = await callAI(text.trim())
+    const reply = await callDeepSeek(text.trim())
     setMessages(p => [...p, { role: 'bot', content: reply }])
     setIsTyping(false)
   }
@@ -88,7 +131,7 @@ export function ChatWidget() {
           <motion.button className="fixed bottom-6 right-6 z-[1100] cursor-pointer" onClick={() => setIsOpen(true)} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} whileHover={{ y: -2 }}>
             <div className="flex items-center gap-2.5 bg-[#141418] border border-accent/25 rounded-full pl-2 pr-4 py-1.5 shadow-xl shadow-black/40 transition-all hover:border-accent hover:shadow-[0_0_24px_rgba(184,245,82,0.15)]">
               <div className="w-[30px] h-[30px] rounded-full bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center font-mono text-[10px] font-bold text-[#0a0a0a]">AI</div>
-              <div className="flex flex-col gap-px text-left"><span className="text-[0.78rem] font-semibold text-white leading-none">Ask Nikhita</span><span className="text-[0.65rem] text-zinc-500 font-mono">DeepSeek AI</span></div>
+              <div className="flex flex-col gap-px text-left"><span className="text-[0.78rem] font-semibold text-white leading-none">Ask Nikhita</span><span className="text-[0.65rem] text-zinc-500 font-mono">AI Assistant</span></div>
               <div className="w-[7px] h-[7px] bg-accent rounded-full animate-pulse" />
             </div>
           </motion.button>
@@ -98,7 +141,7 @@ export function ChatWidget() {
         {isOpen && (
           <motion.div className="fixed bottom-6 right-6 w-[400px] max-h-[550px] bg-[#0f0f0f] border border-white/[0.06] rounded-2xl z-[1099] flex flex-col overflow-hidden shadow-2xl max-md:right-3 max-md:left-3 max-md:w-auto" initial={{ opacity: 0, y: 16, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 16, scale: 0.96 }}>
             <div className="flex items-center justify-between px-4 py-3.5 border-b border-white/[0.06] bg-[#111]">
-              <div className="flex items-center gap-3"><div className="w-9 h-9 rounded-full bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center font-mono text-[11px] font-bold text-[#0a0a0a]">AI</div><div><div className="text-sm font-semibold text-white">Nikhita's AI Assistant</div><div className="text-[0.65rem] text-zinc-500 font-mono flex items-center gap-1.5 mt-0.5"><span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />DeepSeek</div></div></div>
+              <div className="flex items-center gap-3"><div className="w-9 h-9 rounded-full bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center font-mono text-[11px] font-bold text-[#0a0a0a]">AI</div><div><div className="text-sm font-semibold text-white">Nikhita's AI Assistant</div><div className="text-[0.65rem] text-zinc-500 font-mono flex items-center gap-1.5 mt-0.5"><span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />Always ready</div></div></div>
               <button onClick={() => setIsOpen(false)} className="text-zinc-500 hover:text-white"><X size={16} /></button>
             </div>
             <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3 min-h-0">

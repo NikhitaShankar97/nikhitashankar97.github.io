@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { portfolioData } from '@/data/portfolio'
 import { X, Send } from 'lucide-react'
 
-const DEEPSEEK_API_KEY = 'sk-7be83a352c0e4c1c9c457e57173bbbc4'
+const DEEPSEEK_API_KEY = process.env.NEXT_PUBLIC_DEEPSEEK_API_KEY || ''
 
 const SYSTEM_PROMPT = `You are Nikhita's AI portfolio assistant. You help recruiters and visitors learn about Nikhita Shankar.
 

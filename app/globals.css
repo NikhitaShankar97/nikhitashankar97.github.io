@@ -5,14 +5,7 @@
 @layer base {
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;font-size:16px}
-  body{
-    font-family:var(--font-body);
-    background:#060608;
-    color:#fafafa;
-    overflow-x:hidden;
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{font-family:var(--font-body);background:#060608;color:#fafafa;overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased}
   a{text-decoration:none;color:inherit}
   img{max-width:100%;display:block}
   ::selection{background:rgba(184,245,82,.3);color:#000}
@@ -22,53 +15,22 @@
 }
 
 @layer components {
-  .section-padding{@apply py-36 max-md:py-24}
-  .glass-card{
-    background:rgba(18,18,24,.7);
-    backdrop-filter:blur(30px);
-    -webkit-backdrop-filter:blur(30px);
-    border:1px solid rgba(255,255,255,.05);
-    border-radius:24px;
-    transition:all .5s cubic-bezier(.4,0,.2,1);
-  }
-  .glass-card:hover{
-    border-color:rgba(184,245,82,.2);
-    box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 80px rgba(184,245,82,.06);
-    transform:translateY(-3px);
-  }
-  .bento-card{
-    background:rgba(18,18,24,.5);
-    border:1px solid rgba(255,255,255,.04);
-    border-radius:20px;
-    transition:all .4s cubic-bezier(.4,0,.2,1);
-    position:relative;
-    overflow:hidden;
-  }
-  .bento-card:hover{
-    border-color:rgba(184,245,82,.25);
-    transform:translateY(-4px);
-    box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 60px rgba(184,245,82,.05);
-  }
-  .grid-pattern{
-    background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
-    background-size:48px 48px;
-  }
+  .section-padding{@apply py-28 max-md:py-20}
+  .glass-card{background:rgba(18,18,24,.7);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.05);border-radius:24px;transition:all .5s cubic-bezier(.4,0,.2,1)}
+  .glass-card:hover{border-color:rgba(184,245,82,.2);box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 80px rgba(184,245,82,.06);transform:translateY(-3px)}
+  .bento-card{background:rgba(18,18,24,.5);border:1px solid rgba(255,255,255,.04);border-radius:20px;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+  .bento-card:hover{border-color:rgba(184,245,82,.25);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 60px rgba(184,245,82,.05)}
+  .grid-pattern{background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px}
 }
 
 @layer utilities {
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-24px)}}
-  @keyframes pulse-glow{0%,100%{box-shadow:0 0 12px rgba(184,245,82,.4)}50%{box-shadow:0 0 32px rgba(184,245,82,.8)}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+  @keyframes pulse-glow{0%,100%{box-shadow:0 0 10px rgba(184,245,82,.3)}50%{box-shadow:0 0 28px rgba(184,245,82,.7)}}
   @keyframes shimmer{0%{background-position:0 0}100%{background-position:200% 0}}
-  @keyframes draw-line{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-  @keyframes count-in{from{opacity:0;transform:translateY(16px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
-  @keyframes border-pulse{0%,100%{border-color:rgba(184,245,82,.2)}50%{border-color:rgba(184,245,82,.6)}}
+  @keyframes count-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
   .animate-float{animation:float 7s ease-in-out infinite}
   .animate-pulse-glow{animation:pulse-glow 2s ease-in-out infinite}
   .animate-shimmer{background-size:200% 100%;animation:shimmer 3s linear infinite}
-  .animate-draw-line{animation:draw-line 1.8s cubic-bezier(.4,0,.2,1) forwards;transform-origin:top}
-  .animate-border-pulse{animation:border-pulse 2.5s ease-in-out infinite}
 }
 
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}

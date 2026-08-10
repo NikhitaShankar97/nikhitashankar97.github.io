@@ -41,17 +41,13 @@ export function Hero() {
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#08080c]" onMouseMove={handleMouseMove} onMouseLeave={() => { cursorX.set(0); cursorY.set(0) }}>
-      {/* Background */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
       
-      {/* Floating orbs */}
       <motion.div className="absolute w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(184,245,82,0.06) 0%, transparent 60%)', top: '-10%', right: '-5%', filter: 'blur(100px)' }} animate={{ y: [0,-40,0], scale: [1,1.08,1] }} transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }} />
       <motion.div className="absolute w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(34,211,238,0.04) 0%, transparent 60%)', bottom: '-5%', left: '-5%', filter: 'blur(100px)' }} animate={{ y: [0,30,0], scale: [1,0.92,1] }} transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut', delay: 4 }} />
 
-      {/* Cursor glow */}
       <motion.div className="absolute w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(184,245,82,0.08) 0%, transparent 50%)', x: glowX, y: glowY, filter: 'blur(80px)' }} />
 
-      {/* Content */}
       <div className="relative z-10 text-center px-5 max-w-4xl mx-auto">
         <motion.div className="inline-flex items-center gap-2.5 px-5 py-2.5 glass rounded-full mb-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
           <span className="relative flex h-2.5 w-2.5">
@@ -85,12 +81,11 @@ export function Hero() {
             View My Work <span className="group-hover:translate-x-0.5 transition-transform">↓</span>
           </motion.a>
           <motion.a href={portfolioData.resumeUrl} download className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-medium tracking-[0.02em] text-zinc-300 glass transition-all duration-300" whileHover={{ scale: 1.03, borderColor: 'rgba(184,245,82,0.4)' }} whileTap={{ scale: 0.97 }}>
-            Download Resume <Download size={16} className="group-hover:translate-y-0.5 transition-transform" />
+            Download Resume <span className="group-hover:translate-y-0.5 transition-transform">↓</span>
           </motion.a>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
         <span className="text-[0.6rem] font-mono tracking-[0.2em] uppercase text-zinc-600">Scroll</span>
         <motion.div className="w-[1px] h-12 bg-gradient-to-b from-zinc-600 to-transparent origin-top" animate={{ scaleY: [1,0.3,1] }} transition={{ duration: 2, repeat: Infinity }} />

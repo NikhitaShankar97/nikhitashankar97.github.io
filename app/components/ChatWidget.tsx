@@ -1,137 +1,91 @@
-'use client'
+﻿'use client'
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { portfolioData } from '@/data/portfolio'
-import { X, Send } from 'lucide-react'
+import { X, Send, Sparkles } from 'lucide-react'
 
-const SYSTEM_PROMPT = `You are Nikhita's AI portfolio assistant. You help recruiters and visitors learn about Nikhita Shankar.
+const SYSTEM_PROMPT = You are Nikhita Shankar's AI portfolio assistant. You help recruiters learn about her.
 
 ABOUT NIKHITA:
-- Name: Nikhita Shankar
-- Role: Data Engineer & Analytics Professional
-- Education: MS Business Analytics from UIUC, BE Computer Science from RVCE
-- Current: Data Engineer at Obvience (Microsoft Fabric, Power BI, SQL Server)
-- Previous: ExxonMobil (3 years), Hyperplane (acquired by Nubank), WorkGaze
-- Skills: Python, R, SQL, Power BI, Tableau, AWS, Azure, Microsoft Fabric, Snowflake, Databricks, dbt, KNIME
-- Projects: Clay Revenue Intelligence, First48 (1st place hackathon), UpNext (2nd place datathon), LLM Differential Diagnosis, Spotify Pipeline, Workforce Dashboard
-- Awards: Beta Gamma Sigma, AWS Cloud Practitioner, ExxonMobil Bright Beginner, 1st Place Zerve Hackathon, 2nd Place ODSC Datathon
+- Role: Data Engineer & Analytics Professional (5+ years)
+- Current: Obvience (Microsoft Fabric, Power BI, SQL Server, agentic AI pipelines)
+- Previous: Hyperplane (acquired by Nubank), ExxonMobil (3 years), WorkGaze, Wolters Kluwer, Colorado West Healthcare
+- Education: MS Business Analytics, UIUC | BE Computer Science, RVCE
+- Key skills: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, Snowflake, dbt, Databricks, AWS, Azure, LLMs, Prompt Engineering, A/B Testing, Statistical Modeling
+- Projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit), First48 (1st place hackathon), UpNext (2nd place datathon), LLM Differential Diagnosis, AWS Analytics Pipeline, Workforce Insights Dashboard
+- Awards: 1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner, Beta Gamma Sigma, AWS Cloud Practitioner
 - Contact: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics
 - Status: Open to opportunities
 
-Keep responses concise and professional. Highlight her technical skills and business impact. For hiring questions, emphasize she's a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles.`
+Be professional, warm, and concise. Highlight her technical skills and business impact. For hiring questions, emphasize she fits Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles. When sharing contact info, format as clickable: Email nikhitashankar97@gmail.com or LinkedIn.
 
 function getLocalReply(query: string): string {
   const q = query.toLowerCase().trim()
-
-  if (q.includes('role') || q.includes('fit') || q.includes('position'))
-    return 'Nikhita is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles. She has 5+ years building pipelines, dashboards, and AI systems at companies like ExxonMobil and Hyperplane.'
-  if (q.includes('project') || q.includes('portfolio') || q.includes('work'))
-    return 'Her standout projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit), First48 (1st place hackathon), UpNext (2nd place ODSC datathon), LLM Differential Diagnosis (GPT-4o/Gemini), Spotify Pipeline (AWS), and more. Check the Projects section on the site.'
-  if (q.includes('skill') || q.includes('tech') || q.includes('tool') || q.includes('stack'))
-    return 'Core stack: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, AWS, Azure, Snowflake, Databricks, dbt, KNIME, GPT-4o, Gemini, and LLM evaluation.'
-  if (q.includes('experience') || q.includes('work') || q.includes('background') || q.includes('career'))
-    return '5+ years: Data Engineer at Obvience, previously Hyperplane (acquired by Nubank), ExxonMobil (3 years, won Bright Beginner award), plus capstone projects with Wolters Kluwer and Colorado West Healthcare.'
-  if (q.includes('stand out') || q.includes('strength') || q.includes('why') || q.includes('hire') || q.includes('candidate'))
-    return 'Nikhita combines deep data engineering with business impact. She built revenue intelligence platforms, won two hackathons (1st and 2nd place), published research, and worked at top companies. She turns complex data into clear decisions.'
-  if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin'))
-    return 'Email: <a href="mailto:nikhitashankar97@gmail.com" class="text-accent hover:underline">nikhitashankar97@gmail.com</a> | <a href="https://linkedin.com/in/nikhita-shankar-analytics" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a> | Or use the contact form at the bottom of the page.'
-  if (q.includes('education') || q.includes('degree') || q.includes('university') || q.includes('school'))
-    return 'MS in Business Analytics from UIUC (Beta Gamma Sigma honor society) and BE in Computer Science from RV College of Engineering.'
-  if (q.includes('award') || q.includes('hackathon') || q.includes('certification') || q.includes('honor'))
-    return 'Awards: 1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner Award, Beta Gamma Sigma, AWS Cloud Practitioner certified.'
-  if (q.includes('resume') || q.includes('cv') || q.includes('download'))
-    return 'Download her resume from the About section (top of the page) or the Resume button in the navigation bar.'
-
+  if (q.includes('role') || q.includes('fit')) return 'Nikhita is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles. She has 5+ years building pipelines, dashboards, and AI systems at companies like ExxonMobil and Hyperplane (acquired by Nubank).'
+  if (q.includes('project')) return 'Her standout projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit for GTM decisions), First48 (1st place hackathon - user behavior prediction, AUC 0.98), UpNext (2nd place ODSC datathon - growth intelligence), LLM Differential Diagnosis, and more.'
+  if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('tool')) return 'Core stack: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, Snowflake, dbt, Databricks, AWS, Azure, KNIME, LLMs, Prompt Engineering, A/B Testing, Statistical Modeling, and Causal Inference.'
+  if (q.includes('experience') || q.includes('work') || q.includes('background')) return '5+ years: Currently Data Engineer at Obvience. Previously Hyperplane (acquired by Nubank), ExxonMobil (3 years, won Bright Beginner Award), WorkGaze, and capstone projects with Wolters Kluwer and Colorado West Healthcare.'
+  if (q.includes('stand out') || q.includes('strength') || q.includes('hire') || q.includes('why')) return 'Nikhita combines deep data engineering with business impact. She built revenue intelligence platforms, won two hackathons (1st and 2nd place), published research, and worked at top companies including a Nubank-acquired startup.'
+  if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin')) return 'Email: <a href="mailto:nikhitashankar97@gmail.com" class="text-accent hover:underline">nikhitashankar97@gmail.com</a> | <a href="https://linkedin.com/in/nikhita-shankar-analytics" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a> | Or use the contact form below.'
+  if (q.includes('education') || q.includes('degree')) return 'MS in Business Analytics from UIUC (Beta Gamma Sigma Honor Society) and BE in Computer Science from RV College of Engineering.'
+  if (q.includes('award') || q.includes('hackathon') || q.includes('certification')) return '1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner Award, Beta Gamma Sigma, AWS Cloud Practitioner certified.'
+  if (q.includes('resume') || q.includes('cv')) return 'Download her resume from the About section or the Resume button in the navigation bar.'
   return 'I can tell you about Nikhita\'s skills, projects, experience, awards, or how to contact her. What would you like to know?'
 }
 
 function linkify(text: string): string {
-  // Already has HTML links, return as-is
   if (text.includes('<a href=')) return text
-  
-  // Convert emails to mailto links
-  text = text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="text-accent hover:underline">$1</a>')
-  
-  // Convert LinkedIn URLs to just show "LinkedIn" as clickable text
+  text = text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:" class="text-accent hover:underline"></a>')
   text = text.replace(/https?:\/\/linkedin\.com\/[^\s.,]+/g, '<a href="$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
   text = text.replace(/linkedin\.com\/[^\s.,]+/g, '<a href="https://$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
-  
-  // Convert other URLs
-  text = text.replace(/(https?:\/\/[^\s.,]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">$1</a>')
-  
+  text = text.replace(/(https?:\/\/[^\s.,]+)/g, '<a href="" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline"></a>')
   return text
 }
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<{ role: 'bot' | 'user'; content: string }[]>([
-    { role: 'bot', content: "Hey! I'm Nikhita's AI assistant. Ask me anything about her background, skills, or projects." },
+    { role: 'bot', content: "Hi! I'm Nikhita's AI assistant. I can tell you about her skills, experience, projects, and whether she'd be a fit for your team. What would you like to know?" },
   ])
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const [hasInteracted, setHasInteracted] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const suggestions = [
     'What roles is she a fit for?',
     'Tell me about her projects',
-    'What makes her stand out?',
+    'What\'s her tech stack?',
     'How do I contact her?',
   ]
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages])
-
-  useEffect(() => {
-    if (isOpen) setTimeout(() => inputRef.current?.focus(), 300)
-  }, [isOpen])
+  useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages])
+  useEffect(() => { if (isOpen) setTimeout(() => inputRef.current?.focus(), 300) }, [isOpen])
 
   const callAI = async (userMsg: string): Promise<string> => {
     const apiKey = process.env.NEXT_PUBLIC_DEEPSEEK_API_KEY
-    
-    if (!apiKey || apiKey.length < 10) {
-      return getLocalReply(userMsg)
-    }
-    
+    if (!apiKey || apiKey.length < 10) return getLocalReply(userMsg)
     try {
       const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          model: 'deepseek-chat',
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            { role: 'user', content: userMsg },
-          ],
-          max_tokens: 250,
-          temperature: 0.7,
-        }),
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
+        body: JSON.stringify({ model: 'deepseek-chat', messages: [{ role: 'system', content: SYSTEM_PROMPT }, { role: 'user', content: userMsg }], max_tokens: 250, temperature: 0.7 }),
       })
-      
-      if (!res.ok) {
-        return getLocalReply(userMsg)
-      }
-
+      if (!res.ok) return getLocalReply(userMsg)
       const data = await res.json()
       return data.choices?.[0]?.message?.content || getLocalReply(userMsg)
-    } catch {
-      return getLocalReply(userMsg)
-    }
+    } catch { return getLocalReply(userMsg) }
   }
 
   const sendMessage = async (text: string) => {
     if (!text.trim()) return
+    setHasInteracted(true)
     setMessages(p => [...p, { role: 'user', content: text.trim() }])
     setInput('')
     setIsTyping(true)
     const reply = await callAI(text.trim())
-    const linkedReply = linkify(reply)
-    setMessages(p => [...p, { role: 'bot', content: linkedReply }])
+    setMessages(p => [...p, { role: 'bot', content: linkify(reply) }])
     setIsTyping(false)
   }
 
@@ -139,40 +93,98 @@ export function ChatWidget() {
     <>
       <AnimatePresence>
         {!isOpen && (
-          <motion.button className="fixed bottom-6 right-6 z-[1100] cursor-pointer" onClick={() => setIsOpen(true)} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} whileHover={{ y: -2 }}>
-            <div className="flex items-center gap-2.5 bg-[#141418] border border-accent/25 rounded-full pl-2 pr-4 py-1.5 shadow-xl shadow-black/40 transition-all hover:border-accent hover:shadow-[0_0_24px_rgba(184,245,82,0.15)]">
-              <div className="w-[30px] h-[30px] rounded-full bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center font-mono text-[10px] font-bold text-[#0a0a0a]">AI</div>
-              <div className="flex flex-col gap-px text-left"><span className="text-[0.78rem] font-semibold text-white leading-none">Ask Nikhita</span><span className="text-[0.65rem] text-zinc-500 font-mono">AI Assistant</span></div>
-              <div className="w-[7px] h-[7px] bg-accent rounded-full animate-pulse" />
-            </div>
-          </motion.button>
+          <motion.div
+            className="fixed bottom-6 right-6 z-[1100] cursor-pointer"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <motion.div
+              className="animate-bounce-attention"
+              onClick={() => setIsOpen(true)}
+            >
+              <div className="glass-card px-5 py-4 flex items-center gap-4 min-w-[320px] max-w-[360px] shadow-2xl shadow-black/50 hover:border-accent/30 transition-all cursor-pointer group">
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center font-mono text-xs font-bold text-[#0a0a0a] flex-shrink-0 shadow-lg shadow-accent/20">
+                  <Sparkles size={18} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-semibold text-white leading-tight">Ask About Nikhita</div>
+                  <div className="text-xs text-zinc-400 font-mono mt-0.5">Instant answers about her work</div>
+                </div>
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent" />
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {isOpen && (
-          <motion.div className="fixed bottom-6 right-6 w-[400px] max-h-[550px] bg-[#0f0f0f] border border-white/[0.06] rounded-2xl z-[1099] flex flex-col overflow-hidden shadow-2xl max-md:right-3 max-md:left-3 max-md:w-auto" initial={{ opacity: 0, y: 16, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 16, scale: 0.96 }}>
-            <div className="flex items-center justify-between px-4 py-3.5 border-b border-white/[0.06] bg-[#111]">
-              <div className="flex items-center gap-3"><div className="w-9 h-9 rounded-full bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center font-mono text-[11px] font-bold text-[#0a0a0a]">AI</div><div><div className="text-sm font-semibold text-white">Nikhita's AI Assistant</div><div className="text-[0.65rem] text-zinc-500 font-mono flex items-center gap-1.5 mt-0.5"><span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />Always ready</div></div></div>
-              <button onClick={() => setIsOpen(false)} className="text-zinc-500 hover:text-white"><X size={16} /></button>
+          <motion.div
+            className="fixed bottom-6 right-6 w-[420px] max-h-[580px] bg-[#0e0e14] border border-white/[0.06] rounded-2xl z-[1099] flex flex-col overflow-hidden shadow-2xl shadow-black/60 max-md:right-3 max-md:left-3 max-md:w-auto"
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.25 }}
+          >
+            <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.05] bg-[#111116] flex-shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center shadow-lg shadow-accent/15">
+                  <Sparkles size={16} className="text-[#0a0a0a]" />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-white">Ask About Nikhita</div>
+                  <div className="text-[0.65rem] text-zinc-500 font-mono flex items-center gap-1.5 mt-0.5">
+                    <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse-glow" />AI Assistant
+                  </div>
+                </div>
+              </div>
+              <button onClick={() => setIsOpen(false)} className="text-zinc-500 hover:text-white transition-colors p-1"><X size={16} /></button>
             </div>
+
             <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3 min-h-0">
               {messages.map((msg, i) => (
-                <div key={i} className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : ''}`}>
-                  {msg.role === 'bot' && <div className="w-6 h-6 rounded-full bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center font-mono text-[7px] font-bold text-[#0a0a0a] flex-shrink-0 mt-1">AI</div>}
-                  <div className={`max-w-[85%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${msg.role === 'bot' ? 'bg-[#161616] border border-white/[0.06] text-zinc-300 rounded-tl-sm' : 'bg-accent/10 border border-accent/20 text-white rounded-tr-sm'}`} dangerouslySetInnerHTML={{ __html: msg.content }} />
+                <div key={i} className={lex gap-2 }>
+                  {msg.role === 'bot' && (
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center flex-shrink-0 mt-1 shadow-sm shadow-accent/10">
+                      <Sparkles size={10} className="text-[#0a0a0a]" />
+                    </div>
+                  )}
+                  <div
+                    className={max-w-[82%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed }
+                    dangerouslySetInnerHTML={{ __html: msg.content }}
+                  />
                 </div>
               ))}
               {isTyping && (
-                <div className="flex gap-2"><div className="w-6 h-6 rounded-full bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center font-mono text-[7px] font-bold text-[#0a0a0a] mt-1">AI</div><div className="bg-[#161616] border border-white/[0.06] px-4 py-3 rounded-2xl rounded-tl-sm"><div className="flex gap-1.5"><span className="w-1.5 h-1.5 bg-zinc-600 rounded-full animate-bounce" /><span className="w-1.5 h-1.5 bg-zinc-600 rounded-full animate-bounce" style={{animationDelay:'0.15s'}} /><span className="w-1.5 h-1.5 bg-zinc-600 rounded-full animate-bounce" style={{animationDelay:'0.3s'}} /></div></div></div>
+                <div className="flex gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center flex-shrink-0 mt-1"><Sparkles size={10} className="text-[#0a0a0a]" /></div>
+                  <div className="bg-[#16161a] border border-white/[0.04] px-4 py-3 rounded-2xl rounded-tl-sm">
+                    <div className="flex gap-1.5"><span className="w-1.5 h-1.5 bg-zinc-600 rounded-full animate-bounce" /><span className="w-1.5 h-1.5 bg-zinc-600 rounded-full animate-bounce" style={{animationDelay:'0.15s'}} /><span className="w-1.5 h-1.5 bg-zinc-600 rounded-full animate-bounce" style={{animationDelay:'0.3s'}} /></div>
+                  </div>
+                </div>
               )}
-              {messages.length === 1 && (
-                <div className="mt-2"><div className="text-[0.6rem] font-mono tracking-[0.12em] uppercase text-zinc-600 mb-2">Try asking</div><div className="flex flex-wrap gap-1.5">{suggestions.map((s, i) => (<button key={i} onClick={() => sendMessage(s)} className="bg-[#111] border border-accent/20 text-accent/80 text-xs px-3 py-1.5 rounded-full font-medium hover:bg-accent/10 transition-all">{s}</button>))}</div></div>
+              {!hasInteracted && (
+                <div className="mt-2">
+                  <div className="text-[0.6rem] font-mono tracking-[0.12em] uppercase text-zinc-600 mb-2 px-1">Recruiters often ask</div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {suggestions.map((s, i) => (
+                      <button key={i} onClick={() => sendMessage(s)} className="bg-[#111] border border-accent/15 text-accent/80 text-xs px-3 py-1.5 rounded-full font-medium hover:bg-accent/8 hover:text-accent transition-all">{s}</button>
+                    ))}
+                  </div>
+                </div>
               )}
               <div ref={messagesEndRef} />
             </div>
-            <div className="flex gap-2 items-center px-3.5 py-3 border-t border-white/[0.06] bg-[#111]">
-              <input ref={inputRef} type="text" value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && sendMessage(input)} placeholder="Ask anything about Nikhita..." className="flex-1 bg-[#1a1a1a] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-sm text-white outline-none focus:border-accent/30 placeholder:text-zinc-600 min-w-0" />
-              <button onClick={() => sendMessage(input)} className="w-9 h-9 bg-accent rounded-xl flex items-center justify-center hover:bg-[#caff64] transition-all active:scale-95"><Send size={14} className="text-[#0a0a0a]" /></button>
+
+            <div className="flex gap-2 items-center px-4 py-3 border-t border-white/[0.05] bg-[#111116] flex-shrink-0">
+              <input ref={inputRef} type="text" value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && sendMessage(input)} placeholder="Ask anything about Nikhita..." className="flex-1 bg-[#1a1a1f] border border-white/[0.06] rounded-xl px-4 py-2.5 text-sm text-white outline-none focus:border-accent/30 placeholder:text-zinc-600 min-w-0 transition-all" />
+              <button onClick={() => sendMessage(input)} className="w-9 h-9 bg-accent rounded-xl flex items-center justify-center hover:bg-[#caff64] transition-all active:scale-95 flex-shrink-0"><Send size={14} className="text-[#0a0a0a]" /></button>
             </div>
           </motion.div>
         )}

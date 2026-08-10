@@ -13,11 +13,10 @@ export function Hero() {
   const cursorY = useMotionValue(0)
   const springX = useSpring(cursorX, { damping: 50, stiffness: 100 })
   const springY = useSpring(cursorY, { damping: 50, stiffness: 100 })
-  const glowX = useTransform(springX, [-300, 300], [-150, 150])
-  const glowY = useTransform(springY, [-300, 300], [-150, 150])
+  const glowX = useTransform(springX, [-300, 300], [-120, 120])
+  const glowY = useTransform(springY, [-300, 300], [-120, 120])
   const photoX = useSpring(useTransform(springX, [-150, 150], [-8, 8]), { damping: 30, stiffness: 150 })
   const photoY = useSpring(useTransform(springY, [-150, 150], [-8, 8]), { damping: 30, stiffness: 150 })
-
   const messages = portfolioData.taglineMessages
   const currentText = messages[textIndex]
 
@@ -71,7 +70,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div className="flex gap-3 justify-center flex-wrap" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }}>
-          <motion.a href="#projects" className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-[#0a0a0a] font-semibold rounded-xl text-sm tracking-[0.02em] transition-all duration-300 hover:shadow-[0_0_40px_rgba(184,245,82,0.25)]" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>View My Work <span>\u2193</span></motion.a>
+          <motion.a href="#projects" className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-[#0a0a0a] font-semibold rounded-xl text-sm tracking-[0.02em] transition-all duration-300 hover:shadow-[0_0_40px_rgba(184,245,82,0.25)]" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>View My Work <span>↓</span></motion.a>
           <motion.a href={portfolioData.resumeUrl} download className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium tracking-[0.02em] text-zinc-300 glass-card transition-all duration-300" whileHover={{ scale: 1.03, borderColor: 'rgba(184,245,82,0.4)' }} whileTap={{ scale: 0.97 }}>Download Resume</motion.a>
         </motion.div>
       </div>

@@ -20,7 +20,14 @@
   .glass-card:hover{border-color:rgba(184,245,82,.2);box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 80px rgba(184,245,82,.06);transform:translateY(-3px)}
   .bento-card{background:rgba(18,18,24,.5);border:1px solid rgba(255,255,255,.04);border-radius:20px;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
   .bento-card:hover{border-color:rgba(184,245,82,.25);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 60px rgba(184,245,82,.05)}
+  .bento-card:hover::after{content:'';position:absolute;inset:-1px;border-radius:21px;background:linear-gradient(135deg,rgba(184,245,82,.12),transparent 60%);pointer-events:none;z-index:0}
   .grid-pattern{background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px}
+  .shimmer-line::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,245,82,.5),transparent);opacity:0;transition:opacity .5s}
+  .shimmer-line:hover::after{opacity:1}
+  .gold-shimmer::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,215,0,.5),transparent);opacity:0;transition:opacity .5s}
+  .gold-shimmer:hover::after{opacity:1}
+  .silver-shimmer::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(192,192,192,.4),transparent);opacity:0;transition:opacity .5s}
+  .silver-shimmer:hover::after{opacity:1}
 }
 
 @layer utilities {
@@ -28,9 +35,16 @@
   @keyframes pulse-glow{0%,100%{box-shadow:0 0 10px rgba(184,245,82,.3)}50%{box-shadow:0 0 28px rgba(184,245,82,.7)}}
   @keyframes shimmer{0%{background-position:0 0}100%{background-position:200% 0}}
   @keyframes count-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes bounce-attention{0%,100%{transform:translateY(0)}10%,30%,50%,70%,90%{transform:translateY(-6px)}20%,40%,60%,80%{transform:translateY(0)}}
+  @keyframes draw-line{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  @keyframes border-pulse{0%,100%{border-color:rgba(184,245,82,.2)}50%{border-color:rgba(184,245,82,.6)}}
   .animate-float{animation:float 7s ease-in-out infinite}
   .animate-pulse-glow{animation:pulse-glow 2s ease-in-out infinite}
   .animate-shimmer{background-size:200% 100%;animation:shimmer 3s linear infinite}
+  .animate-count-in{animation:count-in .8s cubic-bezier(.4,0,.2,1) forwards}
+  .animate-bounce-attention{animation:bounce-attention 2s ease-in-out 2s}
+  .animate-draw-line{animation:draw-line 1.8s cubic-bezier(.4,0,.2,1) forwards;transform-origin:top}
+  .animate-border-pulse{animation:border-pulse 2.5s ease-in-out infinite}
 }
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}

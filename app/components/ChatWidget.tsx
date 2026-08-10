@@ -16,44 +16,40 @@ ABOUT NIKHITA:
 - Skills: Python, R, SQL, Power BI, Tableau, AWS, Azure, Microsoft Fabric, Snowflake, Databricks, dbt, KNIME
 - Projects: Clay Revenue Intelligence, First48 (1st place hackathon), UpNext (2nd place datathon), LLM Differential Diagnosis, Spotify Pipeline, Workforce Dashboard
 - Awards: Beta Gamma Sigma, AWS Cloud Practitioner, ExxonMobil Bright Beginner, 1st Place Zerve Hackathon, 2nd Place ODSC Datathon
-- Contact: nikhitashankar97@gmail.com | LinkedIn: nikhita-shankar-analytics
+- Contact: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics
 - Status: Open to opportunities
 
 Keep responses concise and professional. Highlight her technical skills and business impact. For hiring questions, emphasize she's a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles.`
 
-// Smart fallback responses when API key isn't available
 function getLocalReply(query: string): string {
   const q = query.toLowerCase().trim()
-  const contact = 'You can reach Nikhita at nikhitashankar97@gmail.com or on LinkedIn (nikhita-shankar-analytics).'
 
-  if (q.includes('role') || q.includes('fit') || q.includes('position')) 
-    return `Nikhita is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles. She has 5+ years building pipelines, dashboards, and AI systems at companies like ExxonMobil and Hyperplane. ${contact}`
+  if (q.includes('role') || q.includes('fit') || q.includes('position'))
+    return 'Nikhita is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles. She has 5+ years building pipelines, dashboards, and AI systems at companies like ExxonMobil and Hyperplane.'
   if (q.includes('project') || q.includes('portfolio') || q.includes('work'))
-    return 'Her standout projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit), First48 (1st place hackathon - user behavior prediction), UpNext (2nd place ODSC datathon - growth intelligence), LLM Differential Diagnosis (GPT-4o/Gemini healthcare AI), and more. Check the Projects section!'
+    return 'Her standout projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit), First48 (1st place hackathon), UpNext (2nd place ODSC datathon), LLM Differential Diagnosis (GPT-4o/Gemini), Spotify Pipeline (AWS), and more. Check the Projects section on the site.'
   if (q.includes('skill') || q.includes('tech') || q.includes('tool') || q.includes('stack'))
-    return 'Core stack: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, AWS, Azure, Snowflake, Databricks, dbt, KNIME. She also works with GPT-4o, Gemini, and LLM evaluation.'
+    return 'Core stack: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, AWS, Azure, Snowflake, Databricks, dbt, KNIME, GPT-4o, Gemini, and LLM evaluation.'
   if (q.includes('experience') || q.includes('work') || q.includes('background') || q.includes('career'))
-    return '5+ years: Currently Data Engineer at Obvience, previously Hyperplane (acquired by Nubank), ExxonMobil (3 years, won Bright Beginner award), and capstone projects with Wolters Kluwer and Colorado West Healthcare.'
+    return '5+ years: Data Engineer at Obvience, previously Hyperplane (acquired by Nubank), ExxonMobil (3 years, won Bright Beginner award), plus capstone projects with Wolters Kluwer and Colorado West Healthcare.'
   if (q.includes('stand out') || q.includes('strength') || q.includes('why') || q.includes('hire') || q.includes('candidate'))
-    return 'Nikhita stands out because she combines deep data engineering skills with business impact. She has built revenue intelligence platforms, won two hackathons, published research, and worked at top companies. She turns complex data into clear decisions.'
+    return 'Nikhita combines deep data engineering with business impact. She built revenue intelligence platforms, won two hackathons (1st and 2nd place), published research, and worked at top companies. She turns complex data into clear decisions.'
   if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin'))
-    return contact
+    return 'Email: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics | Or use the contact form at the bottom of the page.'
   if (q.includes('education') || q.includes('degree') || q.includes('university') || q.includes('school'))
     return 'MS in Business Analytics from UIUC (Beta Gamma Sigma honor society) and BE in Computer Science from RV College of Engineering.'
   if (q.includes('award') || q.includes('hackathon') || q.includes('certification') || q.includes('honor'))
     return 'Awards: 1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner Award, Beta Gamma Sigma, AWS Cloud Practitioner certified.'
   if (q.includes('resume') || q.includes('cv') || q.includes('download'))
-    return 'You can download her resume from the About section or the Resume button in the navigation bar.'
-  if (q.includes('location') || q.includes('based') || q.includes('where'))
-    return 'Nikhita is based in the United States and is open to opportunities.'
+    return 'Download her resume from the About section (top of the page) or the Resume button in the navigation bar.'
 
-  return `I can tell you about Nikhita's skills, projects, experience, awards, or how to contact her. What would you like to know?`
+  return 'I can tell you about Nikhita\'s skills, projects, experience, awards, or how to contact her. What would you like to know?'
 }
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<{ role: 'bot' | 'user'; content: string }[]>([
-    { role: 'bot', content: "Hey! I'm Nikhita's AI assistant, powered by DeepSeek. Ask me anything about her background, skills, or projects." },
+    { role: 'bot', content: "Hey! I'm Nikhita's AI assistant. Ask me anything about her background, skills, or projects." },
   ])
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
@@ -75,13 +71,22 @@ export function ChatWidget() {
     if (isOpen) setTimeout(() => inputRef.current?.focus(), 300)
   }, [isOpen])
 
-  const callDeepSeek = async (userMsg: string): Promise<string> => {
+  const callAI = async (userMsg: string): Promise<string> => {
+    const apiKey = process.env.NEXT_PUBLIC_DEEPSEEK_API_KEY
+    
+    console.log('API Key exists:', !!apiKey, 'Length:', apiKey?.length || 0)
+    
+    if (!apiKey || apiKey.length < 10) {
+      console.log('No valid API key, using local fallback')
+      return getLocalReply(userMsg)
+    }
+    
     try {
       const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_DEEPSEEK_API_KEY || ''}`,
+          'Authorization': `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
           model: 'deepseek-chat',
@@ -94,22 +99,19 @@ export function ChatWidget() {
         }),
       })
 
+      console.log('DeepSeek status:', res.status)
+      
       if (!res.ok) {
-        // API call failed - fall back to local responses
+        const errText = await res.text()
+        console.error('DeepSeek error:', errText)
         return getLocalReply(userMsg)
       }
 
       const data = await res.json()
-      const aiReply = data.choices?.[0]?.message?.content
-      
-      // If AI returned empty or error, use local fallback
-      if (!aiReply || aiReply.length < 5) {
-        return getLocalReply(userMsg)
-      }
-      
-      return aiReply
-    } catch {
-      // Network error - fall back to local responses
+      console.log('DeepSeek success')
+      return data.choices?.[0]?.message?.content || getLocalReply(userMsg)
+    } catch (err) {
+      console.error('Fetch error:', err)
       return getLocalReply(userMsg)
     }
   }
@@ -119,7 +121,7 @@ export function ChatWidget() {
     setMessages(p => [...p, { role: 'user', content: text.trim() }])
     setInput('')
     setIsTyping(true)
-    const reply = await callDeepSeek(text.trim())
+    const reply = await callAI(text.trim())
     setMessages(p => [...p, { role: 'bot', content: reply }])
     setIsTyping(false)
   }

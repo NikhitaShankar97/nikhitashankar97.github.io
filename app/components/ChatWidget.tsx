@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { portfolioData } from '@/data/portfolio'
 import { X, Send, Sparkles } from 'lucide-react'
 
-const SYSTEM_PROMPT = You are Nikhita Shankar's AI portfolio assistant. You help recruiters learn about her.
+const SYSTEM_PROMPT = `You are Nikhita Shankar's AI portfolio assistant. You help recruiters learn about her.
 
 ABOUT NIKHITA:
 - Role: Data Engineer & Analytics Professional (5+ years)
@@ -18,7 +18,7 @@ ABOUT NIKHITA:
 - Contact: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics
 - Status: Open to opportunities
 
-Be professional, warm, and concise. Highlight her technical skills and business impact. For hiring questions, emphasize she fits Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles. When sharing contact info, format as clickable: Email nikhitashankar97@gmail.com or LinkedIn.
+Be professional, warm, and concise. Highlight her technical skills and business impact. For hiring questions, emphasize she fits Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles. When sharing contact info, format as clickable: Email nikhitashankar97@gmail.com or LinkedIn.`
 
 function getLocalReply(query: string): string {
   const q = query.toLowerCase().trim()

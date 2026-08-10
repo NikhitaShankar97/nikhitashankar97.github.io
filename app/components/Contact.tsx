@@ -33,7 +33,7 @@ export function Contact() {
           <div>
             {submitted ? (
               <motion.div className="glass-card p-10 text-center" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}>
-                <div className="text-4xl mb-4">\u{1F680}</div>
+                <div className="text-4xl mb-4">🚀</div>
                 <h3 className="font-display text-xl text-accent mb-1">Message sent!</h3>
                 <p className="text-zinc-400 text-sm">I&apos;ll get back to you soon.</p>
               </motion.div>

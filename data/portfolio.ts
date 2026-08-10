@@ -181,7 +181,7 @@ export const portfolioData: PortfolioData = {
   education: [
     {
       id: 'uiuc',
-      logo: '/images/uiuc.png',
+      logo: '/uiuc.png',
       years: '2024 – 2025',
       school: 'University of Illinois Urbana-Champaign',
       degree: 'Master of Science in Business Analytics',
@@ -189,7 +189,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: 'rvce',
-      logo: '/images/rvce.png',
+      logo: '/rvce.png',
       years: '2016 – 2020',
       school: 'R.V. College of Engineering',
       degree: 'Bachelor of Engineering in Computer Science',
@@ -282,7 +282,7 @@ export const portfolioData: PortfolioData = {
     {
       id: 'obvience',
       company: 'Obvience',
-      logo: '/images/obvience.png',
+      logo: '/obvience.png',
       role: 'Data Engineer',
       period: '2025 – Present',
       type: 'full-time',
@@ -292,7 +292,7 @@ export const portfolioData: PortfolioData = {
     {
       id: 'workgaze',
       company: 'WorkGaze',
-      logo: '/images/workgaze.png',
+      logo: '/workgaze.png',
       role: 'Data Engineer',
       period: 'Aug – Sep 2025',
       type: 'volunteer',
@@ -301,7 +301,7 @@ export const portfolioData: PortfolioData = {
     {
       id: 'wolters-kluwer',
       company: 'Wolters Kluwer',
-      logo: '/images/wolterskluwer.png',
+      logo: '/wolterskluwer.png',
       role: 'Data Science and AI Consultant',
       period: 'Jan – May 2025',
       type: 'capstone',
@@ -311,7 +311,7 @@ export const portfolioData: PortfolioData = {
     {
       id: 'colorado-west',
       company: 'Colorado West Healthcare',
-      logo: '/images/coloradowest.png',
+      logo: '/coloradowest.png',
       role: 'Data Engineering and Analytics Lead',
       period: 'Aug – Dec 2024',
       type: 'capstone',
@@ -321,7 +321,7 @@ export const portfolioData: PortfolioData = {
     {
       id: 'hyperplane',
       company: 'Hyperplane',
-      logo: '/images/hyperplane.png',
+      logo: '/hyperplane.png',
       role: 'Data Engineer',
       period: 'May 2023 – May 2024',
       type: 'full-time',
@@ -330,7 +330,7 @@ export const portfolioData: PortfolioData = {
     {
       id: 'exxonmobil',
       company: 'ExxonMobil',
-      logo: '/images/exxonmobil.png',
+      logo: '/exxonmobil.png',
       role: 'Data Science / Analytics / Data Engineering',
       period: 'Jan 2020 – Apr 2023',
       type: 'full-time',
@@ -339,7 +339,7 @@ export const portfolioData: PortfolioData = {
     {
       id: 'softtek',
       company: 'Softtek',
-      logo: '/images/softtek.png',
+      logo: '/softtek.png',
       role: 'Engineering Intern',
       period: 'Jun – Jul 2019',
       type: 'intern',

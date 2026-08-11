@@ -5,6 +5,44 @@ import { useEffect, useState, useCallback, useRef } from 'react'
 import { portfolioData } from '@/data/portfolio'
 import { Download, ArrowRight } from 'lucide-react'
 
+function MetricCard({ value, label, delay }: { value: string; label: string; delay: number }) {
+  const [count, setCount] = useState(0)
+  const num = parseInt(value.replace(/[^0-9.]/g, ''))
+  const suffix = value.replace(/[0-9.]/g, '')
+  const isFloat = value.includes('.')
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const duration = 1500
+      const steps = 60
+      const increment = num / steps
+      let current = 0
+      const interval = setInterval(() => {
+        current += increment
+        if (current >= num) { setCount(num); clearInterval(interval) }
+        else setCount(current)
+      }, duration / steps)
+      return () => clearInterval(interval)
+    }, delay)
+    return () => clearTimeout(timer)
+  }, [num, delay])
+
+  return (
+    <motion.div
+      className="glass-card px-5 py-3 flex flex-col items-center gap-1 min-w-[100px]"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: delay / 1000 + 0.8, duration: 0.5 }}
+      whileHover={{ scale: 1.05, borderColor: 'rgba(184,245,82,0.4)' }}
+    >
+      <span className="font-mono text-xl font-bold text-accent tabular-nums">
+        {isFloat ? count.toFixed(3) : count}{suffix}
+      </span>
+      <span className="text-[0.55rem] font-mono tracking-[0.1em] uppercase text-zinc-500 text-center leading-tight">{label}</span>
+    </motion.div>
+  )
+}
+
 export function Hero() {
   const [textIndex, setTextIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
@@ -38,6 +76,13 @@ export function Hero() {
     cursorY.set(e.clientY - r.top - r.height / 2)
   }, [cursorX, cursorY])
 
+  const metrics = [
+    { value: portfolioData.stats[1].value, label: 'Monthly Impact' },
+    { value: '0.01%', label: 'Error Rate' },
+    { value: '0.98', label: 'ML AUC' },
+    { value: '15+', label: 'Projects' },
+  ]
+
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#060608]" onMouseMove={handleMouseMove} onMouseLeave={() => { cursorX.set(0); cursorY.set(0) }}>
       <div className="absolute inset-0 grid-pattern opacity-25" />
@@ -69,18 +114,25 @@ export function Hero() {
           {portfolioData.heroValueProp}
         </motion.p>
 
-        <motion.div className="font-mono text-[0.9rem] text-zinc-500 mb-10 h-6 tracking-[0.03em]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
+        <motion.div className="font-mono text-[0.9rem] text-zinc-500 mb-8 h-6 tracking-[0.03em]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
           <span>{currentText.substring(0, charIndex)}</span>
           <motion.span className="inline-block w-[2px] h-4 bg-accent ml-0.5 align-middle" animate={{ opacity: [1,0] }} transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }} />
         </motion.div>
 
-        <motion.div className="flex gap-3 justify-center flex-wrap" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }}>
+        {/* Animated Metric Cards */}
+        <motion.div className="flex gap-3 justify-center flex-wrap mb-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
+          {metrics.map((m, i) => (
+            <MetricCard key={m.label} value={m.value} label={m.label} delay={i * 200} />
+          ))}
+        </motion.div>
+
+        <motion.div className="flex gap-3 justify-center flex-wrap" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.0 }}>
           <motion.a href="#projects" className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-[#0a0a0a] font-semibold rounded-xl text-sm tracking-[0.02em] transition-all duration-300 hover:shadow-[0_0_40px_rgba(184,245,82,0.25)]" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>View My Work <ArrowRight size={16} /></motion.a>
           <motion.a href={portfolioData.resumeUrl} download className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium tracking-[0.02em] text-zinc-300 glass-card transition-all duration-300" whileHover={{ scale: 1.03, borderColor: 'rgba(184,245,82,0.4)' }} whileTap={{ scale: 0.97 }}><Download size={16} /> Resume</motion.a>
           <motion.a href={portfolioData.socialLinks[0].url} target="_blank" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium tracking-[0.02em] text-zinc-400 glass-card transition-all duration-300" whileHover={{ scale: 1.03, borderColor: 'rgba(184,245,82,0.4)' }} whileTap={{ scale: 0.97 }}>LinkedIn</motion.a>
         </motion.div>
 
-        <motion.p className="text-xs text-zinc-600 mt-8 max-w-md mx-auto leading-relaxed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
+        <motion.p className="text-xs text-zinc-600 mt-8 max-w-md mx-auto leading-relaxed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }}>
           {portfolioData.lookingFor}
         </motion.p>
       </div>

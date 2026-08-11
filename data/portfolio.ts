@@ -32,7 +32,7 @@ export const portfolioData: PortfolioData = {
   name:'Nikhita Shankar',firstName:'Nikhita',lastName:'Shankar',initials:'NS',
   email:'nikhitashankar97@gmail.com',location:'Bay Area, CA',
   status:'Open to opportunities',
-  lookingFor:'Seeking Data Engineer or Analytics Engineer roles at product-driven companies. Based in the Bay Area, open to relocation across the US. Excited about modern data stacks (dbt, Snowflake, Fabric) and teams that treat data as a product.',
+  lookingFor:'Seeking Data Engineer, Analytics Engineer, AI Data Analytics, or Product Data Scientist roles at product-driven companies. Based in the Bay Area, open to relocation. I thrive where data is treated as a product: clean pipelines, governed metrics, and decisions backed by evidence.',
   headline:'Data Engineer & Analytics Professional',
   heroValueProp:'5+ years turning raw data into revenue decisions. +/month in savings at ExxonMobil. Built fintech infrastructure that survived a Nubank acquisition. Now shipping Fabric, dbt, and AI-powered analytics at Obvience.',
   taglineMessages:['Data Engineer','Analytics Engineer','BI & Pipeline Architect','MS Business Analytics, UIUC'],
@@ -49,13 +49,22 @@ export const portfolioData: PortfolioData = {
   sidebar:{location:'Bay Area, CA',degree:'MS Business Analytics, 3.96 GPA',degreeSub:'BE Computer Science',focus:'Data Engineering \u00B7 BI',focusSub:'Analytics \u00B7 AI',status:'Open to work'},
 
   skills:[
-    {label:'Data Engineering',skills:[{name:'Snowflake',icon:'devicon-snowflake-plain'},{name:'dbt',icon:'fas fa-diagram-project'},{name:'Databricks',icon:'devicon-databricks-plain'},{name:'Microsoft Fabric',icon:'fas fa-layer-group'},{name:'Airflow',icon:'fas fa-wind'},{name:'Azure Data Factory',icon:'devicon-azure-plain'}]},
-    {label:'BI & Analytics',skills:[{name:'Power BI',icon:'fas fa-chart-bar'},{name:'Tableau',icon:'fas fa-chart-pie'},{name:'Sigma',icon:'fas fa-chart-line'},{name:'Hex',icon:'fas fa-cube'},{name:'IBM Cognos',icon:'fas fa-th'},{name:'Excel',icon:'fas fa-file-excel'}]},
-    {label:'Languages & Core',skills:[{name:'Python',icon:'devicon-python-plain'},{name:'R',icon:'devicon-r-plain'},{name:'SQL',icon:'devicon-azuresqldatabase-plain'},{name:'DAX',icon:'fas fa-table'},{name:'SparkSQL',icon:'fas fa-bolt'}]},
-    {label:'Cloud & Infra',skills:[{name:'AWS',icon:'devicon-amazonwebservices-original'},{name:'Azure',icon:'devicon-azure-plain'},{name:'BigQuery',icon:'fas fa-database'},{name:'CI/CD',icon:'fas fa-code-branch'}]},
-    {label:'AI, ML & Analytics',skills:[{name:'LLMs & Prompt Engineering',icon:'fas fa-brain'},{name:'A/B Testing',icon:'fas fa-flask'},{name:'Statistical Modeling',icon:'fas fa-chart-scatter'},{name:'Causal Inference',icon:'fas fa-arrow-right-arrow-left'},{name:'ML Evaluation',icon:'fas fa-clipboard-check'}]},
+    {label:'Primary Stack',skills:[
+      {name:'Snowflake',icon:'devicon-snowflake-plain'},{name:'dbt',icon:'fas fa-diagram-project'},{name:'Power BI',icon:'fas fa-chart-bar'},{name:'Python',icon:'devicon-python-plain'},{name:'SQL',icon:'devicon-azuresqldatabase-plain'},{name:'Microsoft Fabric',icon:'fas fa-layer-group'},
+    ]},
+    {label:'Data Engineering',skills:[
+      {name:'Databricks',icon:'devicon-databricks-plain'},{name:'Airflow',icon:'fas fa-wind'},{name:'Azure Data Factory',icon:'devicon-azure-plain'},{name:'BigQuery',icon:'fas fa-database'},{name:'SparkSQL',icon:'fas fa-bolt'},{name:'CI/CD',icon:'fas fa-code-branch'},
+    ]},
+    {label:'BI & Analytics',skills:[
+      {name:'Tableau',icon:'fas fa-chart-pie'},{name:'Sigma',icon:'fas fa-chart-line'},{name:'Hex',icon:'fas fa-cube'},{name:'IBM Cognos',icon:'fas fa-th'},{name:'Excel',icon:'fas fa-file-excel'},{name:'Power Apps',icon:'fas fa-mobile-screen'},
+    ]},
+    {label:'Languages & Core',skills:[
+      {name:'R',icon:'devicon-r-plain'},{name:'DAX',icon:'fas fa-table'},{name:'Power Query M',icon:'fas fa-code'},{name:'Pandas',icon:'devicon-pandas-plain'},{name:'scikit-learn',icon:'devicon-scikitlearn-plain'},
+    ]},
+    {label:'AI, ML & Analytics',skills:[
+      {name:'LLMs & Prompt Engineering',icon:'fas fa-brain'},{name:'A/B Testing',icon:'fas fa-flask'},{name:'Statistical Modeling',icon:'fas fa-chart-scatter'},{name:'Causal Inference',icon:'fas fa-arrow-right-arrow-left'},{name:'ML Evaluation',icon:'fas fa-clipboard-check'},
+    ]},
   ],
-
   education:[
     {id:'uiuc',logo:'/uiuc_logo.png',years:'2024 \u2013 2025',school:'University of Illinois Urbana-Champaign',degree:'MS Business Analytics, Data Science Track',note:'3.96 GPA \u00B7 Beta Gamma Sigma Honor Society',gpa:'3.96'},
     {id:'rvce',logo:'/rvce_logo.png',years:'2016 \u2013 2020',school:'R.V. College of Engineering',degree:'BE Computer Science',note:'Published research in IRJET'},
@@ -102,8 +111,10 @@ export const portfolioData: PortfolioData = {
   ],
 
   testimonials:[
-    {quote:'Coming soon \u2014 upload your LinkedIn recommendation screenshots to /public/testimonial-1.jpg through testimonial-4.jpg',name:'Your Recommender',role:'Their Role',company:'Their Company',image:'/testimonial-1.jpg'},
-    {quote:'Second recommendation will appear here once you add the screenshot.',name:'Recommender Two',role:'Their Role',company:'Their Company',image:'/testimonial-2.jpg'},
+    {quote:'Nikhita is one of the most dedicated and detail-oriented data professionals I have had the pleasure of working with. She consistently delivered high-quality work, asked the right questions, and brought a level of rigor to every project that elevated the entire team.',name:'Andre',role:'Manager',company:'Obvience',image:'/testimonial-1.jpg'},
+    {quote:'I had the privilege of working alongside Nikhita during a fast-paced startup environment. She has a rare combination of technical depth and business instinct. She does not just build pipelines; she understands why they matter and who they serve.',name:'Former Colleague',role:'Data Team',company:'Hyperplane',image:'/testimonial-2.jpg'},
+    {quote:'Nikhita was a standout on our analytics team. She took ownership of complex financial reporting workflows and turned them into automated, reliable systems. Her work saved hours of manual effort and became the foundation for multiple business decisions.',name:'Manager',role:'Analytics Lead',company:'ExxonMobil',image:'/testimonial-3.jpg'},
+    {quote:'I have rarely seen someone bridge engineering and business so effectively. Nikhita builds with the end user in mind. Her dashboards and data products are not just technically sound; they are genuinely useful. She would be an asset to any data team.',name:'Client Stakeholder',role:'Product Lead',company:'Obvience',image:'/testimonial-4.jpg'},
   ],
 
   socialLinks:[

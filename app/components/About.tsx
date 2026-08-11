@@ -31,9 +31,7 @@ export function About() {
           </div>
 
           <div className="flex flex-col gap-3 sticky top-28 max-lg:static max-lg:flex-row max-lg:flex-wrap">
-            <motion.a href={portfolioData.resumeUrl} download className="flex items-center justify-center gap-2 w-full py-3.5 bg-accent text-[#0a0a0a] font-semibold rounded-xl text-sm hover:shadow-[0_0_30px_rgba(184,245,82,0.2)] transition-all max-lg:flex-1 max-lg:min-w-[150px]" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Download size={16} /> Resume
-            </motion.a>
+            <motion.a href={portfolioData.resumeUrl} download="Nikhita_Shankar_Resume.pdf" className="flex items-center justify-center gap-2 w-full py-3.5 bg-accent text-[#0a0a0a] font-semibold rounded-xl text-sm hover:shadow-[0_0_30px_rgba(184,245,82,0.2)] transition-all max-lg:flex-1 max-lg:min-w-[150px]" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}><Download size={16} /> Resume</motion.a>
             <motion.a href={portfolioData.socialLinks[0].url} target="_blank" className="flex items-center justify-center gap-2 w-full py-3.5 glass-card rounded-xl text-sm font-medium text-zinc-300 hover:border-accent/25 hover:text-white transition-all max-lg:flex-1 max-lg:min-w-[150px]" whileHover={{ scale: 1.02 }}>
               <Linkedin size={16} /> LinkedIn
             </motion.a>

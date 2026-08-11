@@ -112,7 +112,7 @@ export function Hero() {
 
         <motion.div className="flex gap-3 justify-center flex-wrap" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.0 }}>
           <motion.a href="#projects" className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-[#0a0a0a] font-semibold rounded-xl text-sm tracking-[0.02em] transition-all duration-300 hover:shadow-[0_0_40px_rgba(184,245,82,0.25)]" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>View My Work <ArrowRight size={16} /></motion.a>
-          <motion.a href={portfolioData.resumeUrl} download className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium tracking-[0.02em] text-zinc-300 glass-card transition-all duration-300" whileHover={{ scale: 1.03, borderColor: 'rgba(184,245,82,0.4)' }} whileTap={{ scale: 0.97 }}><Download size={16} /> Resume</motion.a>
+          <motion.a href={portfolioData.resumeUrl} download="Nikhita_Shankar_Resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium tracking-[0.02em] text-zinc-300 glass-card transition-all duration-300" whileHover={{ scale: 1.03, borderColor: 'rgba(184,245,82,0.4)' }} whileTap={{ scale: 0.97 }}><Download size={16} /> Resume</motion.a>
           <motion.a href={portfolioData.socialLinks[0].url} target="_blank" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium tracking-[0.02em] text-zinc-400 glass-card transition-all duration-300" whileHover={{ scale: 1.03, borderColor: 'rgba(184,245,82,0.4)' }} whileTap={{ scale: 0.97 }}>LinkedIn</motion.a>
         </motion.div>
 

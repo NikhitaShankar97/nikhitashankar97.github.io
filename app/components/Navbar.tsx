@@ -42,9 +42,7 @@ export function Navbar() {
             {navLinks.map(l => (
               <a key={l.href} href={l.href} className="text-xs font-medium text-zinc-400 tracking-[0.08em] uppercase hover:text-white transition-colors">{l.label}</a>
             ))}
-            <a href={portfolioData.resumeUrl} download className="flex items-center gap-1.5 text-xs font-mono text-accent border border-accent/30 px-3 py-2 rounded-full hover:bg-accent/10 transition-all">
-              <Download size={12} /> Resume
-            </a>
+            <a href={portfolioData.resumeUrl} download="Nikhita_Shankar_Resume.pdf" className="flex items-center gap-1.5 text-xs font-mono text-accent border border-accent/30 px-3 py-2 rounded-full hover:bg-accent/10 transition-all"><Download size={12} /> Resume</a>
           </div>
           <button className="hidden max-md:flex flex-col gap-1.5 p-1" onClick={() => setMobileOpen(true)} aria-label="Menu">
             <span className="block w-5 h-[1.5px] bg-white rounded-sm" /><span className="block w-5 h-[1.5px] bg-white rounded-sm" /><span className="block w-4 h-[1.5px] bg-white rounded-sm" />

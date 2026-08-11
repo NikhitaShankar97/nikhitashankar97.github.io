@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useEffect, useState, useCallback, useRef } from 'react'
 import { portfolioData } from '@/data/portfolio'
+import { Download, ArrowRight } from 'lucide-react'
 
 export function Hero() {
   const [textIndex, setTextIndex] = useState(0)
@@ -60,8 +61,12 @@ export function Hero() {
           {portfolioData.firstName} <span className="italic text-accent">{portfolioData.lastName}</span>
         </motion.h1>
 
-        <motion.p className="text-lg text-zinc-400 tracking-[0.02em] mb-2 font-light" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}>
+        <motion.p className="text-lg text-zinc-400 tracking-[0.02em] mb-4 font-light" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}>
           {portfolioData.headline}
+        </motion.p>
+
+        <motion.p className="text-sm text-zinc-500 max-w-xl mx-auto mb-6 leading-relaxed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.6 }}>
+          {portfolioData.heroValueProp}
         </motion.p>
 
         <motion.div className="font-mono text-[0.9rem] text-zinc-500 mb-10 h-6 tracking-[0.03em]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
@@ -70,9 +75,14 @@ export function Hero() {
         </motion.div>
 
         <motion.div className="flex gap-3 justify-center flex-wrap" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }}>
-          <motion.a href="#projects" className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-[#0a0a0a] font-semibold rounded-xl text-sm tracking-[0.02em] transition-all duration-300 hover:shadow-[0_0_40px_rgba(184,245,82,0.25)]" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>View My Work <span>↓</span></motion.a>
-          <motion.a href={portfolioData.resumeUrl} download className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium tracking-[0.02em] text-zinc-300 glass-card transition-all duration-300" whileHover={{ scale: 1.03, borderColor: 'rgba(184,245,82,0.4)' }} whileTap={{ scale: 0.97 }}>Download Resume</motion.a>
+          <motion.a href="#projects" className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-[#0a0a0a] font-semibold rounded-xl text-sm tracking-[0.02em] transition-all duration-300 hover:shadow-[0_0_40px_rgba(184,245,82,0.25)]" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>View My Work <ArrowRight size={16} /></motion.a>
+          <motion.a href={portfolioData.resumeUrl} download className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium tracking-[0.02em] text-zinc-300 glass-card transition-all duration-300" whileHover={{ scale: 1.03, borderColor: 'rgba(184,245,82,0.4)' }} whileTap={{ scale: 0.97 }}><Download size={16} /> Resume</motion.a>
+          <motion.a href={portfolioData.socialLinks[0].url} target="_blank" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium tracking-[0.02em] text-zinc-400 glass-card transition-all duration-300" whileHover={{ scale: 1.03, borderColor: 'rgba(184,245,82,0.4)' }} whileTap={{ scale: 0.97 }}>LinkedIn</motion.a>
         </motion.div>
+
+        <motion.p className="text-xs text-zinc-600 mt-8 max-w-md mx-auto leading-relaxed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
+          {portfolioData.lookingFor}
+        </motion.p>
       </div>
 
       <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>

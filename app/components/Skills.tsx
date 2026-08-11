@@ -26,7 +26,6 @@ export function Skills() {
                   <span className="text-[0.55rem] font-mono uppercase tracking-[0.15em] bg-accent/15 text-accent border border-accent/30 px-2 py-0.5 rounded-full">Primary</span>
                 )}
                 <h3 className="text-sm font-semibold text-white tracking-[0.03em]">{cat.label}</h3>
-                <span className="text-xs font-mono text-zinc-600">{cat.skills.length} tools</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((s, si) => (

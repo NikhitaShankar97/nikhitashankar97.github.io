@@ -6,38 +6,38 @@ import { portfolioData } from '@/data/portfolio'
 import { Download, ArrowRight } from 'lucide-react'
 
 function MetricCard({ value, label, delay }: { value: string; label: string; delay: number }) {
-  const [count, setCount] = useState(0)
-  const num = parseInt(value.replace(/[^0-9.]/g, ''))
-  const suffix = value.replace(/[0-9.]/g, '')
-  const isFloat = value.includes('.')
+  const [displayValue, setDisplayValue] = useState(value)
+  const hasNumber = /[0-9]/.test(value)
+  const num = hasNumber ? parseFloat(value.replace(/[^0-9.]/g, '')) : 0
+  const suffix = value.replace(/[0-9.]/g, '').replace(/^[^a-zA-Z$]+/, '')
+  const isFloat = value.includes('.') && hasNumber
+  const isAnimated = hasNumber && !value.includes('+') && !value.includes('$')
 
   useEffect(() => {
+    if (!isAnimated) {
+      setDisplayValue(value)
+      return
+    }
     const timer = setTimeout(() => {
-      const duration = 1500
-      const steps = 60
-      const increment = num / steps
+      const duration = 1500; const steps = 60; const increment = num / steps
       let current = 0
       const interval = setInterval(() => {
         current += increment
-        if (current >= num) { setCount(num); clearInterval(interval) }
-        else setCount(current)
+        if (current >= num) { setDisplayValue(num); clearInterval(interval) }
+        else setDisplayValue(current)
       }, duration / steps)
       return () => clearInterval(interval)
     }, delay)
     return () => clearTimeout(timer)
-  }, [num, delay])
+  }, [num, delay, isAnimated, value])
+
+  const formattedValue = isAnimated 
+    ? (isFloat ? (displayValue as number).toFixed(3) : Math.round(displayValue as number))
+    : displayValue
 
   return (
-    <motion.div
-      className="glass-card px-5 py-3 flex flex-col items-center gap-1 min-w-[100px]"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: delay / 1000 + 0.8, duration: 0.5 }}
-      whileHover={{ scale: 1.05, borderColor: 'rgba(184,245,82,0.4)' }}
-    >
-      <span className="font-mono text-xl font-bold text-accent tabular-nums">
-        {isFloat ? count.toFixed(3) : count}{suffix}
-      </span>
+    <motion.div className="glass-card px-5 py-3 flex flex-col items-center gap-1 min-w-[100px]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: delay / 1000 + 0.8, duration: 0.5 }} whileHover={{ scale: 1.05, borderColor: 'rgba(184,245,82,0.4)' }}>
+      <span className="font-mono text-xl font-bold text-accent tabular-nums">{formattedValue}{isAnimated ? suffix : ''}</span>
       <span className="text-[0.55rem] font-mono tracking-[0.1em] uppercase text-zinc-500 text-center leading-tight">{label}</span>
     </motion.div>
   )
@@ -77,7 +77,7 @@ export function Hero() {
   }, [cursorX, cursorY])
 
   const metrics = [
-    { value: portfolioData.stats[1].value, label: 'Monthly Impact' },
+    { value: '$1M+', label: 'Monthly Impact' },
     { value: '0.01%', label: 'Error Rate' },
     { value: '0.98', label: 'ML AUC' },
     { value: '15+', label: 'Projects' },
@@ -119,7 +119,6 @@ export function Hero() {
           <motion.span className="inline-block w-[2px] h-4 bg-accent ml-0.5 align-middle" animate={{ opacity: [1,0] }} transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }} />
         </motion.div>
 
-        {/* Animated Metric Cards */}
         <motion.div className="flex gap-3 justify-center flex-wrap mb-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
           {metrics.map((m, i) => (
             <MetricCard key={m.label} value={m.value} label={m.label} delay={i * 200} />

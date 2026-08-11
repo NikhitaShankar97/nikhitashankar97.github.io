@@ -32,14 +32,14 @@ export function Skills() {
                 {cat.skills.map((s, si) => (
                   <motion.span
                     key={s.name}
-                    className={group inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-medium cursor-default transition-all duration-300 bg-white/[0.02] border text-zinc-400 hover:text-white hover:-translate-y-0.5 }
+                    className={`group inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-medium cursor-default transition-all duration-300 bg-white/[0.02] border text-zinc-400 hover:text-white hover:-translate-y-0.5 ${cat.label === 'Primary Stack' ? 'border-accent/20 hover:border-accent/50 hover:bg-accent/8' : 'border-white/[0.05] hover:border-white/[0.15] hover:bg-white/[0.04]'}`}
                     whileHover={{ y: -3, boxShadow: cat.label === 'Primary Stack' ? '0 8px 30px rgba(184,245,82,0.1)' : '0 8px 30px rgba(0,0,0,0.3)' }}
                     initial={{ opacity: 0, x: -8 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: ci * 0.08 + si * 0.03 }}
                   >
-                    {s.icon && <i className={${s.icon} text-base  transition-colors} />}
+                    {s.icon && <i className={`${s.icon} text-base ${cat.label === 'Primary Stack' ? 'text-accent' : 'text-zinc-500 group-hover:text-accent'} transition-colors`} />}
                     <span>{s.name}</span>
                   </motion.span>
                 ))}

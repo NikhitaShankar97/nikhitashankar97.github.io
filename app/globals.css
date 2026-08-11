@@ -15,7 +15,7 @@
 }
 
 @layer components {
-  .section-padding{@apply py-28 max-md:py-20}
+  .section-padding{@apply py-16 max-md:py-12}
   .glass-card{background:rgba(18,18,24,.7);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.05);border-radius:24px;transition:all .5s cubic-bezier(.4,0,.2,1)}
   .glass-card:hover{border-color:rgba(184,245,82,.2);box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 80px rgba(184,245,82,.06);transform:translateY(-3px)}
   .bento-card{background:rgba(18,18,24,.5);border:1px solid rgba(255,255,255,.04);border-radius:20px;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}

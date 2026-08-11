@@ -49,20 +49,17 @@ export const portfolioData: PortfolioData = {
   sidebar:{location:'Bay Area, CA',degree:'MS Business Analytics, 3.96 GPA',degreeSub:'BE Computer Science',focus:'Data Engineering · BI',focusSub:'Analytics · AI',status:'Open to work'},
 
   skills:[
-    {label:'Primary Stack',skills:[
-      {name:'Snowflake',icon:'devicon-snowflake-plain'},{name:'dbt',icon:'fas fa-diagram-project'},{name:'Power BI',icon:'fas fa-chart-bar'},{name:'Python',icon:'devicon-python-plain'},{name:'SQL',icon:'devicon-azuresqldatabase-plain'},{name:'Microsoft Fabric',icon:'fas fa-layer-group'},
+    {label:'Languages',skills:[
+      {name:'Python',icon:'devicon-python-plain'},{name:'R',icon:'devicon-r-plain'},{name:'SQL',icon:'devicon-azuresqldatabase-plain'},{name:'DAX',icon:'fas fa-table'},{name:'Power Query M',icon:'fas fa-code'},
     ]},
     {label:'Data Engineering',skills:[
-      {name:'Databricks',icon:'devicon-databricks-plain'},{name:'Airflow',icon:'fas fa-wind'},{name:'Azure Data Factory',icon:'devicon-azure-plain'},{name:'BigQuery',icon:'fas fa-database'},{name:'SparkSQL',icon:'fas fa-bolt'},{name:'CI/CD',icon:'fas fa-code-branch'},
+      {name:'Snowflake',icon:'devicon-snowflake-plain'},{name:'dbt',icon:'fas fa-diagram-project'},{name:'Databricks',icon:'devicon-databricks-plain'},{name:'Microsoft Fabric',icon:'fas fa-layer-group'},{name:'Azure Data Factory',icon:'devicon-azure-plain'},{name:'KNIME',icon:'fas fa-project-diagram'},{name:'Airflow',icon:'fas fa-wind'},
     ]},
-    {label:'BI & Analytics',skills:[
-      {name:'Tableau',icon:'fas fa-chart-pie'},{name:'Sigma',icon:'fas fa-chart-line'},{name:'Hex',icon:'fas fa-cube'},{name:'IBM Cognos',icon:'fas fa-th'},{name:'Excel',icon:'fas fa-file-excel'},{name:'Power Apps',icon:'fas fa-mobile-screen'},
+    {label:'BI & Visualization',skills:[
+      {name:'Power BI',icon:'fas fa-chart-bar'},{name:'Tableau',icon:'fas fa-chart-pie'},{name:'Sigma',icon:'fas fa-chart-line'},{name:'Hex',icon:'fas fa-cube'},{name:'IBM Cognos',icon:'fas fa-th'},{name:'Excel',icon:'fas fa-file-excel'},{name:'Power Apps',icon:'fas fa-mobile-screen'},
     ]},
-    {label:'Languages & Core',skills:[
-      {name:'R',icon:'devicon-r-plain'},{name:'DAX',icon:'fas fa-table'},{name:'Power Query M',icon:'fas fa-code'},{name:'Pandas',icon:'devicon-pandas-plain'},{name:'scikit-learn',icon:'devicon-scikitlearn-plain'},
-    ]},
-    {label:'AI, ML & Analytics',skills:[
-      {name:'LLMs & Prompt Engineering',icon:'fas fa-brain'},{name:'A/B Testing',icon:'fas fa-flask'},{name:'Statistical Modeling',icon:'fas fa-chart-scatter'},{name:'Causal Inference',icon:'fas fa-arrow-right-arrow-left'},{name:'ML Evaluation',icon:'fas fa-clipboard-check'},
+    {label:'Cloud, AI & Analytics',skills:[
+      {name:'AWS',icon:'devicon-amazonwebservices-original'},{name:'Azure',icon:'devicon-azure-plain'},{name:'BigQuery',icon:'fas fa-database'},{name:'CI/CD',icon:'fas fa-code-branch'},{name:'LLMs & Prompt Engineering',icon:'fas fa-brain'},{name:'A/B Testing',icon:'fas fa-flask'},{name:'Statistical Modeling',icon:'fas fa-chart-scatter'},{name:'Causal Inference',icon:'fas fa-arrow-right-arrow-left'},
     ]},
   ],
   education:[

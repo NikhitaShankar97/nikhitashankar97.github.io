@@ -37,7 +37,7 @@ export function Contact() {
                 <p className="text-zinc-400 text-sm">I&apos;ll get back to you soon.</p>
               </motion.div>
             ) : (
-              <motion.form action="https://formspree.io/f/xovvozlz" method="POST" className="space-y-3" onSubmit={() => setSubmitted(true)} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <motion.form action="https://formspree.io/f/xovvozlz" method="POST" className="space-y-3" onSubmit={() => { setTimeout(() => setSubmitted(true), 500) }} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <div className="grid grid-cols-2 gap-3 max-md:grid-cols-1">
                   <input type="text" name="name" placeholder="Your name" required className="w-full px-4 py-3 bg-white/[0.02] border border-white/[0.05] rounded-xl text-sm text-white outline-none transition-all focus:border-accent/40 focus:bg-white/[0.03] placeholder:text-zinc-600" />
                   <input type="email" name="email" placeholder="Your email" required className="w-full px-4 py-3 bg-white/[0.02] border border-white/[0.05] rounded-xl text-sm text-white outline-none transition-all focus:border-accent/40 focus:bg-white/[0.03] placeholder:text-zinc-600" />

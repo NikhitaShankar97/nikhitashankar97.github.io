@@ -72,12 +72,7 @@ export function Hero() {
     cursorY.set(e.clientY - r.top - r.height / 2)
   }, [cursorX, cursorY])
 
-  const metrics = [
-    { value: '$1M+', label: 'Monthly Impact' },
-    { value: '0.01%', label: 'Error Rate' },
-    { value: '0.98', label: 'ML AUC' },
-    { value: '15+', label: 'Projects' },
-  ]
+
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#060608]" onMouseMove={handleMouseMove} onMouseLeave={() => { cursorX.set(0); cursorY.set(0) }}>
@@ -113,12 +108,6 @@ export function Hero() {
         <motion.div className="font-mono text-[0.9rem] text-zinc-500 mb-8 h-6 tracking-[0.03em]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
           <span>{currentText.substring(0, charIndex)}</span>
           <motion.span className="inline-block w-[2px] h-4 bg-accent ml-0.5 align-middle" animate={{ opacity: [1,0] }} transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }} />
-        </motion.div>
-
-        <motion.div className="flex gap-3 justify-center flex-wrap mb-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
-          {metrics.map((m, i) => (
-            <MetricCard key={m.label} value={m.value} label={m.label} delay={i * 200} />
-          ))}
         </motion.div>
 
         <motion.div className="flex gap-3 justify-center flex-wrap" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.0 }}>

@@ -5,33 +5,48 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { portfolioData } from '@/data/portfolio'
 import { X, Send, Sparkles } from 'lucide-react'
 
-const SYSTEM_PROMPT = `You are Nikhita Shankar's AI portfolio assistant. You help recruiters learn about her.
+const SYSTEM_PROMPT = `You are Nikhita Shankar's AI portfolio assistant. You help recruiters learn about her quickly.
 
 ABOUT NIKHITA:
 - Role: Data Engineer & Analytics Professional (5+ years)
 - Current: Obvience (Microsoft Fabric, Power BI, SQL Server, agentic AI pipelines)
 - Previous: Hyperplane (acquired by Nubank), ExxonMobil (3 years), WorkGaze, Wolters Kluwer, Colorado West Healthcare
-- Education: MS Business Analytics, UIUC | BE Computer Science, RVCE
+- Education: MS Business Analytics, UIUC (3.96 GPA) | BE Computer Science, RVCE
 - Key skills: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, Snowflake, dbt, Databricks, AWS, Azure, LLMs, Prompt Engineering, A/B Testing, Statistical Modeling
 - Projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit), First48 (1st place hackathon), UpNext (2nd place datathon), LLM Differential Diagnosis, AWS Analytics Pipeline, Workforce Insights Dashboard
 - Awards: 1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner, Beta Gamma Sigma, AWS Cloud Practitioner
 - Contact: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics
-- Status: Open to opportunities
+- Status: Open to opportunities | Bay Area, CA | Open to relocation
 
-Be professional, warm, and concise. Highlight her technical skills and business impact. For hiring questions, emphasize she fits Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles.`
+RULES:
+- Keep responses to 2-3 sentences maximum
+- Do NOT use markdown formatting like **bold** or *italic*
+- Be warm, professional, and concise
+- When asked about hiring: mention she fits Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles
+- When sharing contact info, write: Email: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics
+- Focus on what recruiters care about: tools, impact, company caliber, end-to-end capability`
 
 function getLocalReply(query: string): string {
   const q = query.toLowerCase().trim()
-  if (q.includes('role') || q.includes('fit')) return 'Nikhita is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Product Analyst roles. She has 5+ years building pipelines, dashboards, and AI systems at companies like ExxonMobil and Hyperplane (acquired by Nubank).'
-  if (q.includes('project')) return 'Her standout projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit for GTM decisions), First48 (1st place hackathon - user behavior prediction, AUC 0.98), UpNext (2nd place ODSC datathon - growth intelligence), LLM Differential Diagnosis, and more.'
-  if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('tool')) return 'Core stack: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, Snowflake, dbt, Databricks, AWS, Azure, KNIME, LLMs, Prompt Engineering, A/B Testing, Statistical Modeling, and Causal Inference.'
-  if (q.includes('experience') || q.includes('work') || q.includes('background')) return '5+ years: Currently Data Engineer at Obvience. Previously Hyperplane (acquired by Nubank), ExxonMobil (3 years, won Bright Beginner Award), WorkGaze, and capstone projects with Wolters Kluwer and Colorado West Healthcare.'
-  if (q.includes('stand out') || q.includes('strength') || q.includes('hire') || q.includes('why')) return 'Nikhita combines deep data engineering with business impact. She built revenue intelligence platforms, won two hackathons (1st and 2nd place), published research, and worked at top companies including a Nubank-acquired startup.'
-  if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin')) return 'Email: <a href="mailto:nikhitashankar97@gmail.com" class="text-accent hover:underline">nikhitashankar97@gmail.com</a> | <a href="https://linkedin.com/in/nikhita-shankar-analytics" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a> | Or use the contact form below.'
-  if (q.includes('education') || q.includes('degree')) return 'MS in Business Analytics from UIUC (Beta Gamma Sigma Honor Society) and BE in Computer Science from RV College of Engineering.'
+  if (q.includes('role') || q.includes('fit')) return 'Nikhita is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles. She has 5+ years building pipelines and dashboards at ExxonMobil, Hyperplane (acquired by Nubank), and now Obvience.'
+  if (q.includes('project')) return 'Her standout projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit), First48 (1st place hackathon, AUC 0.98), UpNext (2nd place ODSC datathon), LLM Differential Diagnosis, and more. Check the Projects section!'
+  if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('tool')) return 'Core stack: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, Snowflake, dbt, Databricks, AWS, Azure, Airflow, LLMs, A/B Testing, Statistical Modeling.'
+  if (q.includes('experience') || q.includes('work') || q.includes('background')) return '5+ years: Data Engineer at Obvience, previously Hyperplane (acquired by Nubank), ExxonMobil (3 years, $1M+/month savings), plus capstone projects with Wolters Kluwer and Colorado West Healthcare.'
+  if (q.includes('stand out') || q.includes('strength') || q.includes('hire') || q.includes('why')) return 'Nikhita combines deep data engineering with real business impact. $1M+/month savings at ExxonMobil, fintech infrastructure that survived acquisition, and two global hackathon wins. She turns data into decisions.'
+  if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin')) return 'Email: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics | Or use the contact form at the bottom of the page.'
+  if (q.includes('education') || q.includes('degree')) return 'MS in Business Analytics from UIUC (3.96 GPA, Beta Gamma Sigma) and BE in Computer Science from RV College of Engineering.'
   if (q.includes('award') || q.includes('hackathon') || q.includes('certification')) return '1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner Award, Beta Gamma Sigma, AWS Cloud Practitioner certified.'
-  if (q.includes('resume') || q.includes('cv')) return 'Download her resume from the About section or the Resume button in the navigation bar.'
+  if (q.includes('resume') || q.includes('cv')) return 'Download her resume from the About section or the Resume button in the navigation bar. It is also available at the top of the page.'
+  if (q.includes('location') || q.includes('based') || q.includes('where') || q.includes('relocate')) return 'Nikhita is based in the Bay Area, CA and is open to relocation across the US.'
   return 'I can tell you about Nikhita\'s skills, projects, experience, awards, or how to contact her. What would you like to know?'
+}
+
+function stripMarkdown(text: string): string {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/\*(.*?)\*/g, '$1')
+    .replace(/`(.*?)`/g, '$1')
+    .replace(/#{1,6}\s/g, '')
 }
 
 function linkify(text: string): string {
@@ -46,7 +61,7 @@ function linkify(text: string): string {
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<{ role: 'bot' | 'user'; content: string }[]>([
-    { role: 'bot', content: "Hi! I'm Nikhita's AI assistant. I can tell you about her skills, experience, projects, and whether she'd be a fit for your team. What would you like to know?" },
+    { role: 'bot', content: "Hi! I'm Nikhita's AI assistant. Ask me about her skills, experience, or whether she'd be a fit for your team." },
   ])
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
@@ -70,7 +85,7 @@ export function ChatWidget() {
     try {
       const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
-        body: JSON.stringify({ model: 'deepseek-chat', messages: [{ role: 'system', content: SYSTEM_PROMPT }, { role: 'user', content: userMsg }], max_tokens: 250, temperature: 0.7 }),
+        body: JSON.stringify({ model: 'deepseek-chat', messages: [{ role: 'system', content: SYSTEM_PROMPT }, { role: 'user', content: userMsg }], max_tokens: 150, temperature: 0.7 }),
       })
       if (!res.ok) return getLocalReply(userMsg)
       const data = await res.json()
@@ -85,7 +100,8 @@ export function ChatWidget() {
     setInput('')
     setIsTyping(true)
     const reply = await callAI(text.trim())
-    setMessages(p => [...p, { role: 'bot', content: linkify(reply) }])
+    const cleanReply = stripMarkdown(reply)
+    setMessages(p => [...p, { role: 'bot', content: linkify(cleanReply) }])
     setIsTyping(false)
   }
 
@@ -99,13 +115,10 @@ export function ChatWidget() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <motion.div
-              className="animate-bounce-attention"
-              onClick={() => setIsOpen(true)}
-            >
+            <motion.div className="animate-bounce-attention" onClick={() => setIsOpen(true)}>
               <div className="glass-card px-5 py-4 flex items-center gap-4 min-w-[320px] max-w-[360px] shadow-2xl shadow-black/50 hover:border-accent/30 transition-all cursor-pointer group">
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center font-mono text-xs font-bold text-[#0a0a0a] flex-shrink-0 shadow-lg shadow-accent/20">
-                  <Sparkles size={18} />
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-accent to-[#52f5a8] flex items-center justify-center flex-shrink-0 shadow-lg shadow-accent/20">
+                  <Sparkles size={18} className="text-[#0a0a0a]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-semibold text-white leading-tight">Ask About Nikhita</div>

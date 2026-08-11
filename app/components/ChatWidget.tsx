@@ -51,10 +51,19 @@ function stripMarkdown(text: string): string {
 
 function linkify(text: string): string {
   if (text.includes('<a href=')) return text
+  
+  // Convert emails to mailto links
   text = text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="text-accent hover:underline">$1</a>')
-  text = text.replace(/https?:\/\/linkedin\.com\/[^\s.,]+/g, '<a href="$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
-  text = text.replace(/linkedin\.com\/[^\s.,]+/g, '<a href="https://$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
-  text = text.replace(/(https?:\/\/[^\s.,]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">$1</a>')
+  
+  // LinkedIn URLs - replace full URL with just "LinkedIn" text
+  text = text.replace(/https?:\/\/[^\s]*linkedin\.com\/[^\s.,>]+/gi, '<a href="$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
+  
+  // Any remaining linkedin.com references
+  text = text.replace(/(?:https?:\/\/)?linkedin\.com\/[^\s.,>]+/gi, '<a href="https://$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
+  
+  // Other URLs (but not ones already in href)
+  text = text.replace(/(?<!href=")(?<!href=')(https?:\/\/[^\s.,>]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">$1</a>')
+  
   return text
 }
 

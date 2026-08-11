@@ -6,38 +6,34 @@ import { portfolioData } from '@/data/portfolio'
 import { Download, ArrowRight } from 'lucide-react'
 
 function MetricCard({ value, label, delay }: { value: string; label: string; delay: number }) {
-  const [displayValue, setDisplayValue] = useState(value)
-  const hasNumber = /[0-9]/.test(value)
+  const hasNumber = /\d/.test(value)
+  const isStatic = value.includes('$') || value.includes('+') || !hasNumber
   const num = hasNumber ? parseFloat(value.replace(/[^0-9.]/g, '')) : 0
-  const suffix = value.replace(/[0-9.]/g, '').replace(/^[^a-zA-Z$]+/, '')
+  const suffix = value.replace(/[0-9.]/g, '')
   const isFloat = value.includes('.') && hasNumber
-  const isAnimated = hasNumber && !value.includes('+') && !value.includes('$')
+
+  const [displayValue, setDisplayValue] = useState(isStatic ? value : '0')
 
   useEffect(() => {
-    if (!isAnimated) {
-      setDisplayValue(value)
-      return
-    }
+    if (isStatic) { setDisplayValue(value); return }
     const timer = setTimeout(() => {
       const duration = 1500; const steps = 60; const increment = num / steps
       let current = 0
       const interval = setInterval(() => {
         current += increment
-        if (current >= num) { setDisplayValue(num); clearInterval(interval) }
-        else setDisplayValue(current)
+        if (current >= num) { setDisplayValue(String(isFloat ? num.toFixed(3) : Math.round(num))); clearInterval(interval) }
+        else setDisplayValue(String(isFloat ? current.toFixed(3) : Math.round(current)))
       }, duration / steps)
       return () => clearInterval(interval)
     }, delay)
     return () => clearTimeout(timer)
-  }, [num, delay, isAnimated, value])
+  }, [num, delay, isStatic, isFloat, value])
 
-  const formattedValue = isAnimated 
-    ? (isFloat ? (displayValue as number).toFixed(3) : Math.round(displayValue as number))
-    : displayValue
+  const finalValue = isStatic ? value : (displayValue + suffix)
 
   return (
     <motion.div className="glass-card px-5 py-3 flex flex-col items-center gap-1 min-w-[100px]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: delay / 1000 + 0.8, duration: 0.5 }} whileHover={{ scale: 1.05, borderColor: 'rgba(184,245,82,0.4)' }}>
-      <span className="font-mono text-xl font-bold text-accent tabular-nums">{formattedValue}{isAnimated ? suffix : ''}</span>
+      <span className="font-mono text-xl font-bold text-accent tabular-nums">{finalValue}</span>
       <span className="text-[0.55rem] font-mono tracking-[0.1em] uppercase text-zinc-500 text-center leading-tight">{label}</span>
     </motion.div>
   )

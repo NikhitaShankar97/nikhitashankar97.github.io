@@ -17,7 +17,7 @@ export interface SkillCategory { label: string; skills: {name:string;icon:string
 export interface Education { id:string;logo:string;years:string;school:string;degree:string;note?:string;gpa?:string }
 export interface Stat { value:string;label:string }
 export interface SocialLink { platform:string;url:string;icon:string }
-export interface Testimonial { quote:string;name:string;role:string;company:string;image?:string }
+export interface Testimonial { quote:string;name:string;role:string;company:string;image?:string;video?:string }
 export interface PortfolioData {
   name:string;firstName:string;lastName:string;initials:string;email:string;location:string
   status:string;lookingFor:string;headline:string;heroValueProp:string;taglineMessages:string[]

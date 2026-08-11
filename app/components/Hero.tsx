@@ -89,7 +89,7 @@ export function Hero() {
 
         <motion.div className="relative mx-auto mb-8" style={{ x: photoX, y: photoY }} initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="w-28 h-28 rounded-2xl overflow-hidden ring-1 ring-accent/20 ring-offset-4 ring-offset-[#060608] mx-auto shadow-[0_0_50px_rgba(184,245,82,0.06)]">
-            <img src="/profile.jpg" alt={portfolioData.name} className="w-full h-full object-cover" />
+            <img src="/profile.jpg" alt={portfolioData.name} className="w-full h-full object-cover" loading="lazy" />
           </div>
         </motion.div>
 

@@ -23,7 +23,7 @@ RULES:
 - Do NOT use markdown formatting like **bold** or *italic*
 - Be warm, professional, and concise
 - When asked about hiring: mention she fits Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles
-- When sharing contact info, write: Email: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics
+- When sharing contact info, just write: nikhitashankar97@gmail.com and linkedin.com/in/nikhita-shankar-analytics (the site will format them as clickable links automatically, do not add labels like "Email:" or "LinkedIn:")
 - Focus on what recruiters care about: tools, impact, company caliber, end-to-end capability`
 
 function getLocalReply(query: string): string {
@@ -33,7 +33,7 @@ function getLocalReply(query: string): string {
   if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('tool')) return 'Core stack: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, Snowflake, dbt, Databricks, AWS, Azure, Airflow, LLMs, A/B Testing, Statistical Modeling.'
   if (q.includes('experience') || q.includes('work') || q.includes('background')) return '5+ years: Data Engineer at Obvience, previously Hyperplane (acquired by Nubank), ExxonMobil (3 years, $1M+/month savings), plus capstone projects with Wolters Kluwer and Colorado West Healthcare.'
   if (q.includes('stand out') || q.includes('strength') || q.includes('hire') || q.includes('why')) return 'Nikhita combines deep data engineering with real business impact. $1M+/month savings at ExxonMobil, fintech infrastructure that survived acquisition, and two global hackathon wins. She turns data into decisions.'
-  if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin')) return 'Email: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics | Or use the contact form at the bottom of the page.'
+  if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin')) return 'nikhitashankar97@gmail.com and linkedin.com/in/nikhita-shankar-analytics. Or use the contact form at the bottom of the page.'
   if (q.includes('education') || q.includes('degree')) return 'MS in Business Analytics from UIUC (3.96 GPA, Beta Gamma Sigma) and BE in Computer Science from RV College of Engineering.'
   if (q.includes('award') || q.includes('hackathon') || q.includes('certification')) return '1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner Award, Beta Gamma Sigma, AWS Cloud Practitioner certified.'
   if (q.includes('resume') || q.includes('cv')) return 'Download her resume from the About section or the Resume button in the navigation bar. It is also available at the top of the page.'

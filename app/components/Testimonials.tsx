@@ -9,7 +9,7 @@ export function Testimonials() {
   if (!portfolioData.testimonials || portfolioData.testimonials.length === 0) return null
 
   return (
-    <section className="section-padding bg-[#08080c]">
+    <section id="testimonials" className="section-padding bg-[#08080c]">
       <div className="max-w-[1200px] mx-auto px-8 max-md:px-5">
         <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent mb-4">Testimonials</p>
         <h2 className="font-display text-[clamp(2rem,4vw,2.8rem)] leading-[1.15] tracking-[-0.02em] text-white font-normal mb-10">

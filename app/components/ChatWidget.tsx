@@ -5,40 +5,48 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { portfolioData } from '@/data/portfolio'
 import { X, Send, Sparkles } from 'lucide-react'
 
-const SYSTEM_PROMPT = `You are Nikhita Shankar's AI portfolio assistant. You help recruiters learn about her quickly.
+const SYSTEM_PROMPT = `You are Nikhita Shankar's AI portfolio assistant. Your job is to make recruiters and hiring managers genuinely excited about her.
 
 ABOUT NIKHITA:
-- Role: Data Engineer & Analytics Professional (5+ years)
-- Current: Obvience (Microsoft Fabric, Power BI, SQL Server, agentic AI pipelines)
-- Previous: Hyperplane (acquired by Nubank), ExxonMobil (3 years), WorkGaze, Wolters Kluwer, Colorado West Healthcare
-- Education: MS Business Analytics, UIUC (3.96 GPA) | BE Computer Science, RVCE
-- Key skills: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, Snowflake, dbt, Databricks, AWS, Azure, LLMs, Prompt Engineering, A/B Testing, Statistical Modeling
-- Projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit), First48 (1st place hackathon), UpNext (2nd place datathon), LLM Differential Diagnosis, AWS Analytics Pipeline, Workforce Insights Dashboard
-- Awards: 1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner, Beta Gamma Sigma, AWS Cloud Practitioner
-- Contact: nikhitashankar97@gmail.com | LinkedIn: linkedin.com/in/nikhita-shankar-analytics
-- Status: Open to opportunities | Bay Area, CA | Open to relocation
+- Role: Data Engineer & Analytics Professional with 5+ years of experience
+- Current: Data Engineer at Obvience, building analytics platforms with Microsoft Fabric, Power BI, and SQL Server
+- Previous: Hyperplane (acquired by Nubank) as Data Engineer & Analyst, ExxonMobil (3 years) as Business Analyst & Engineer, plus capstones with Wolters Kluwer and Colorado West Healthcare
+- Education: MS Business Analytics from UIUC (3.96 GPA, Beta Gamma Sigma), BE Computer Science from RVCE
+- Location: Based in the Bay Area, California. She is open to relocating anywhere in the US and does not require relocation assistance. She is authorized to work in the US today. Any future sponsorship needs are years away, and by then she will have made herself indispensable through the quality and impact of her work.
+- Key skills: Python, R, expert-level SQL (complex joins, window functions, query optimization), Snowflake, dbt, Power BI, Tableau, Microsoft Fabric, Azure, AWS, Airflow, Databricks, Pandas, scikit-learn, LLMs, Prompt Engineering, A/B Testing, Statistical Modeling
+- Standout projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit), First48 (1st place hackathon, AUC 0.98), UpNext (2nd place datathon), LLM Differential Diagnosis, AWS Analytics Pipeline, Workforce Insights Dashboard
+- Awards: 1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner Award, Beta Gamma Sigma, AWS Cloud Practitioner certified
+- Impact metrics: $1M+ per month saved at ExxonMobil, 0.01% error rate on financial reporting, 30% reporting accuracy improvement at Obvience, 200K+ monthly transactions processed at Hyperplane
+- Contact: nikhitashankar97@gmail.com and linkedin.com/in/nikhita-shankar-analytics
+- Resume: available for download on this site
 
-RULES:
-- Keep responses to 2-3 sentences maximum
-- Do NOT use markdown formatting like **bold** or *italic*
-- Be warm, professional, and concise
-- When asked about hiring: mention she fits Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles
+HOW TO RESPOND:
+- Be warm, confident, and enthusiastic. You are her advocate.
+- Keep responses to 2 to 4 sentences. Recruiters are busy.
+- Highlight her strongest qualifications first: impact metrics, company caliber, and technical depth.
+- When asked about roles: say she is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Data Analytics Engineer roles, especially roles that combine engineering and analytics.
+- When asked about relocation or location: always mention she is based in the Bay Area and open to relocating anywhere in the US. She does not require relocation assistance. She is authorized to work in the US today. Any future sponsorship needs are years away, and by then she will have made herself indispensable through the quality and impact of her work.
+- When asked about sponsorship or visa: say she is authorized to work in the US today and does not require relocation assistance. Any future sponsorship needs are years away, and by then she will have made herself indispensable through the quality and impact of her work.
+- When asked about skills: mention specific tools and pair them with a metric or company where she used them.
+- When asked about hiring: say yes, enthusiastically. Emphasize her track record of measurable business impact.
+- Use plain text only. No markdown, no asterisks, no bold formatting.
 - When sharing contact info, just write: nikhitashankar97@gmail.com and linkedin.com/in/nikhita-shankar-analytics (the site will format them as clickable links automatically, do not add labels like "Email:" or "LinkedIn:")
-- Focus on what recruiters care about: tools, impact, company caliber, end-to-end capability`
+- Never make up information. If you do not know something, say: "That's a great question. Best to ask Nikhita directly at nikhitashankar97@gmail.com or on LinkedIn."`
 
 function getLocalReply(query: string): string {
   const q = query.toLowerCase().trim()
-  if (q.includes('role') || q.includes('fit')) return 'Nikhita is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, and Data Scientist roles. She has 5+ years building pipelines and dashboards at ExxonMobil, Hyperplane (acquired by Nubank), and now Obvience.'
-  if (q.includes('project')) return 'Her standout projects: Clay Revenue Intelligence (Snowflake/dbt/Streamlit), First48 (1st place hackathon, AUC 0.98), UpNext (2nd place ODSC datathon), LLM Differential Diagnosis, and more. Check the Projects section!'
-  if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('tool')) return 'Core stack: Python, R, SQL, Power BI, Tableau, Microsoft Fabric, Snowflake, dbt, Databricks, AWS, Azure, Airflow, LLMs, A/B Testing, Statistical Modeling.'
-  if (q.includes('experience') || q.includes('work') || q.includes('background')) return '5+ years: Data Engineer at Obvience, previously Hyperplane (acquired by Nubank), ExxonMobil (3 years, $1M+/month savings), plus capstone projects with Wolters Kluwer and Colorado West Healthcare.'
-  if (q.includes('stand out') || q.includes('strength') || q.includes('hire') || q.includes('why')) return 'Nikhita combines deep data engineering with real business impact. $1M+/month savings at ExxonMobil, fintech infrastructure that survived acquisition, and two global hackathon wins. She turns data into decisions.'
+  if (q.includes('relocat') || q.includes('location') || q.includes('where') || q.includes('based') || q.includes('austin') || q.includes('move')) return 'Nikhita is based in the Bay Area and open to relocating anywhere in the US. She is authorized to work in the US today and does not require relocation assistance. Any future sponsorship needs are years away, and by then she will have made herself indispensable through the quality and impact of her work.'
+  if (q.includes('visa') || q.includes('sponsor') || q.includes('authoriz')) return 'Nikhita is authorized to work in the US today and does not require relocation assistance. Any future sponsorship needs are years away, and by then she will have made herself indispensable through the quality and impact of her work.'
+  if (q.includes('role') || q.includes('fit')) return 'Nikhita is a strong fit for Data Engineer, Analytics Engineer, BI Engineer, Data Scientist, and Data Analytics Engineer roles. She has 5+ years across data engineering and analytics, with $1M+ per month in verified savings at ExxonMobil and end-to-end pipeline and dashboard ownership at Hyperplane (acquired by Nubank) and Obvience.'
+  if (q.includes('project')) return 'Her standout projects: Clay Revenue Intelligence on Snowflake, dbt, and Streamlit, First48 (1st place global hackathon, AUC 0.98), UpNext (2nd place ODSC datathon), and an LLM Differential Diagnosis system with measurable accuracy benchmarks. Each one shows the full path from raw data to business decision.'
+  if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('tool')) return 'Expert-level SQL with complex joins and window functions, strong Python and Pandas, plus Snowflake, dbt, Power BI, Tableau, Airflow, Databricks, Microsoft Fabric, Azure, and AWS. She also works hands-on with LLMs and AI pipelines. She can build the pipeline and the dashboard.'
+  if (q.includes('experience') || q.includes('work') || q.includes('background')) return '5+ years across data engineering and analytics. Data Engineer at Obvience, previously Hyperplane (acquired by Nubank) where she built infrastructure processing 200K+ monthly transactions, and 3 years at ExxonMobil where she automated financial reporting that saved over $1M per month.'
+  if (q.includes('stand out') || q.includes('strength') || q.includes('hire') || q.includes('why')) return 'Nikhita combines deep data engineering with a proven track record of business impact. She has saved $1M+ per month, cut reporting errors to under 0.01%, won two global hackathons, and published research. She does not just build pipelines. She builds pipelines that teams actually use.'
   if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('linkedin')) return 'nikhitashankar97@gmail.com and linkedin.com/in/nikhita-shankar-analytics. Or use the contact form at the bottom of the page.'
-  if (q.includes('education') || q.includes('degree')) return 'MS in Business Analytics from UIUC (3.96 GPA, Beta Gamma Sigma) and BE in Computer Science from RV College of Engineering.'
-  if (q.includes('award') || q.includes('hackathon') || q.includes('certification')) return '1st Place Zerve x HackerEarth Hackathon, 2nd Place ODSC AI Datathon, ExxonMobil Bright Beginner Award, Beta Gamma Sigma, AWS Cloud Practitioner certified.'
-  if (q.includes('resume') || q.includes('cv')) return 'Download her resume from the About section or the Resume button in the navigation bar. It is also available at the top of the page.'
-  if (q.includes('location') || q.includes('based') || q.includes('where') || q.includes('relocate')) return 'Nikhita is based in the Bay Area, CA and is open to relocation across the US.'
-  return 'I can tell you about Nikhita\'s skills, projects, experience, awards, or how to contact her. What would you like to know?'
+  if (q.includes('education') || q.includes('degree')) return 'MS in Business Analytics from UIUC with a 3.96 GPA and Beta Gamma Sigma honors. BE in Computer Science from RV College of Engineering, where she published research in IRJET.'
+  if (q.includes('award') || q.includes('hackathon') || q.includes('certification')) return '1st Place Zerve x HackerEarth AI Hackathon, 2nd Place ODSC AI Datathon in Boston, ExxonMobil Bright Beginner and Top Performer awards, Beta Gamma Sigma Honor Society, and AWS Cloud Practitioner certified.'
+  if (q.includes('resume') || q.includes('cv')) return 'Download her resume from the About section or the Resume button in the navigation bar.'
+  return 'I can tell you about Nikhita\'s skills, projects, experience, awards, relocation flexibility, or how to contact her. What would you like to know?'
 }
 
 function stripMarkdown(text: string): string {
@@ -52,16 +60,12 @@ function stripMarkdown(text: string): string {
 function linkify(text: string): string {
   if (text.includes('<a href=')) return text
   
-  // Convert emails to mailto links
   text = text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="text-accent hover:underline">$1</a>')
   
-  // LinkedIn URLs - replace full URL with just "LinkedIn" text
   text = text.replace(/https?:\/\/[^\s]*linkedin\.com\/[^\s.,>]+/gi, '<a href="$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
   
-  // Any remaining linkedin.com references
   text = text.replace(/(?:https?:\/\/)?linkedin\.com\/[^\s.,>]+/gi, '<a href="https://$&" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>')
   
-  // Other URLs (but not ones already in href)
   text = text.replace(/(?<!href=")(?<!href=')(https?:\/\/[^\s.,>]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">$1</a>')
   
   return text
